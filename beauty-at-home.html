@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta property="description" content="Lookplex @Home is a leading online platform to book beauty services at your doorstep." />
+<meta property="og:title" content="LET'S LOOK NEW TODAY!" />
+<meta property="og:image" content="/images/bg/shareit.jpg"/>
+<meta property="og:description" content="Lookplex @Home is a leading online platform to book beauty services at your doorstep." />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Book salon at home</title>
+<link rel="icon" href="https://static.lookplex.com/images/1.2/favicon.png" type="image/png" sizes="16x16">
+<link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="/build/css/library.css?v=16.8.18" rel="stylesheet">
+<link href="/build/css/lookplex.css?v=16.9.5" rel="stylesheet">
+<link href="/build/css/salonAtHome.css?v=16.9.4.11" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="/build/js/library.js?v=16.8.22"></script>
+<script type="text/javascript">
+    var md = new MobileDetect(window.navigator.userAgent);
+    if(md.mobile() || md.phone() || md.tablet()){ window.location=window.location.href.replace("lookplex","m.lookplex").replace('www.','');}
+</script>
+</head>
+<body class="overflow-x">
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="col-md-6" style="height: 100%;background: url('https://static.lookplex.com/images/1.2/assets/logosign.jpg')"></div>
+            <div class="col-md-6" style="height: 100%">
+                <div class="modal-header" style="border: none;height: 10%">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span id="discard" aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="col-md-12" style="height: 50%;padding-top: 70px;">
+                    <div class="modal-body">
+                        <button type="button" id="facebook" class="form-control btn login-btn" style="margin-bottom: 20px"><i
+                                class="fa fa-facebook pull-left"></i>Sign In with Facebook
+                        </button>
+
+                        <!-- <button type="button" id="googleplus" class="form-control btn login-btn" ><i class="fa fa-google-plus pull-left"></i>Log In with Google</button> -->
+                        <button class="g-signin btn" id="googleplus"
+                                data-scope="email"
+                                data-clientid="393978119485-6j14o11ndo58jhnaqhir1lgb4hmvkpih.apps.googleusercontent.com"
+                                data-clienidold="243398401944-tgsrb8ufojamhlgdh22pas9hluc29mgb.apps.googleusercontent.com"
+                                data-callback="onSignInCallback"
+                                data-theme="dark"
+                                data-cookiepolicy="single_host_origin"><i class="fa fa-google-plus pull-left"></i>Sign In with Google
+                        </button>
+
+                    </div>
+                </div>
+                <div class="col-md-12" style="height: 16%;border-bottom: 1px solid #c0c0c0"></div>
+                <div class="col-md-12" style="height: 4%;"></div>
+                <div class="col-md-12" style="height: 20%;text-align: center">
+                    By signing in, you agree to Lookplex's <a href="/#termsofservice">Terms of Service</a> and <a href="#privacypolicy"> Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="otp" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px">
+        <div class="modal-content" style="margin-top: 10% !important;min-height: 400px;">
+
+
+        </div>
+    </div>
+</div>
+<div class="modal-container" style="min-height: 600px;background: url('/images/bg/7.jpg') no-repeat;background-size: cover;background-attachment: fixed">
+    <div class="page-header"></div>
+    <div class="main-container-top"></div>
+</div>
+<div class="wrapper" style="height: 400px;padding: 0 15%">
+    <div class="header-title"><strong>LOOK</strong>PLEX Advantage</div>
+    <div class="col-md-6 adv">
+        <div class="col-md-3"><i class="fa fa-shield fa-4x" aria-hidden="true"></i></i></div>
+        <div class="col-md-9"><strong>Trusted Professionals</strong>
+            <p>All our professionals are well trained,background checked and verified to ensure your complete safety.</p></div>
+    </div>
+    <div class="col-md-6 adv">
+        <div class="col-md-3"><i class="fa fa-briefcase fa-4x" aria-hidden="true"></i></div>
+        <div class="col-md-9"><strong>Branded Products</strong>
+            <p>We get you the best products for all the services. Branded products like Oxy, Inoa, Rica, Lotus etc. are used.</p></div>
+    </div>
+    <div class="col-md-6 adv">
+        <div class="col-md-3"><i class="fa fa-heartbeat fa-4x" aria-hidden="true"></i></div>
+        <div class="col-md-9"><strong>Satisfaction Guaranteed</strong>
+            <p>To ensure 100% customer satisfaction, we aim to provide quality service to you through our most qualified professionals.</p></div>
+    </div>
+    <div class="col-md-6 adv">
+        <div class="col-md-3"><i class="fa fa-money fa-4x" aria-hidden="true"></i></div>
+        <div class="col-md-9"><strong>Reasonable Price</strong>
+            <p>All services are provided at very reasonable price without compromising with the service quality.</p></div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="header-title" style="font-size: 18px;margin-bottom: 70px">How it works ?</div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="col-md-7">
+                <i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-7">
+                <strong>Choose Service</strong>
+                <p>Select from 250+ trusted services</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-7">
+                <i class="fa fa-building fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-7">
+                <strong>Provide your address</strong>
+                <p>so that we can match you to the right professionals</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-7">
+                <i class="fa fa-bolt fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-7">
+                <strong>Get Instant Booking Confirmation</strong>
+                <p>from professional who suits your needs</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-md-7">
+                <i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-7">
+                <strong>Sit Back & Relax</strong>
+                <p>while you enjoy a great service experience</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="wrapper" style="margin-top: 50px;background-color: #fff;padding-top: 10px">
+    <div class="header-title" style="font-size: 18px;margin-bottom: 10px">Customer Speaks</div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators" style="bottom: -30px">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="col-md-12">
+                    <div style="background: url('/images/bg/t11.jpg') no-repeat;background-size: contain"></div>
+                    <div class="col-md-5">
+                        <strong>Kimisha</strong>
+                        <p><i class="fa fa-quote-left" aria-hidden="true"></i>Wanted to get my hair colored and called for salon at home service as getting hair color at a parlor
+                        is very boring and time taking. The service was excellent and my hair look awesome now.
+                            <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="col-md-12">
+                    <div style="background: url('/images/bg/t22.jpg') no-repeat;background-size: contain"></div>
+                    <div class="col-md-5">
+                        <strong>Namita</strong>
+                        <p><i class="fa fa-quote-left" aria-hidden="true"></i>I got nourishment hair spa that they provide and it was wonderful. Their professionals are well trained
+                            and provided ver nice experience.<i class="fa fa-quote-right" aria-hidden="true"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="col-md-12">
+                    <div style="background: url('/images/bg/t33.jpg') no-repeat;background-size: contain;"></div>
+                    <div class="col-md-5">
+                        <strong>Priyanka</strong>
+                        <p><i class="fa fa-quote-left" aria-hidden="true"></i>I hired a professional from lookplex for full body massage as I was never comfortable in getting done it
+                            in any parlor. She was very friendly and well trained. Would surely recommend lookplex to everyone.<i class="fa fa-quote-right" aria-hidden="true"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper" style="min-height: 150px">
+
+    <div class="header-title" style="font-size: 18px;margin-top: 80px">Do not want a service at home ?</div>
+    <div class="text-center col-xs-12" style="color: #fff !important;">
+        <a target="_blank" href="https://lookplex.com" style="padding: 10px;color: #fff;background: #ff6666;text-decoration:none;font-size: 16px;border-radius: 2px">Explore Best Salons, Spa, Gyms, Makeup Studios & more near you</a>
+
+    </div>
+</div>
+<div class="page-footer">
+    <div style="width: 100%;height: 100%;background: rgba(0,0,0,0)">
+        <div class="footerwrapper">
+            <div>
+                <div class="row">
+                    <div class="col-md-4 footer-header">
+                        <span></span>
+                    </div>
+                    <div class="col-md-2 footer-header">
+                        <span></span>
+                    </div>
+                    <div class="col-md-2 footer-header">
+                    </div>
+                    <div class="col-md-4 footer-header">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div align="left" class="col-md-3">
+                        <div class="footer-logo-coloured">
+                        </div>
+                        <div class="copyright-font">
+                            <p> &nbsp; © 2015-16 LookPlex . All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                    <div align="left" class="footer-menu col-md-2">
+                        <div class="footer-header">
+                            <span>Company</span>
+                        </div>
+                        <ul class="links">
+                            <li><a class="link" href="/#about" title="Know more about lookplex.com">About Us</a></li>
+                            <li><a class="link" href="/#careers" title="Apply for a brighter career on lookplex.com">Careers</a></li>
+                            <li><a class="link" href="/#contactus" title="Contact Info">Contact Us</a></li>
+                            <li><a class="link" href="/#listing" title="Enlist your business">Free Listing</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu col-md-2">
+                        <ul class="links">
+                            <li><a class="link"> &nbsp;</a></li>
+                            <li><a class="link" href="/#advertise" title="Advertise with us">Advertise</a></li>
+                            <li><a class="link" href="/#termsofservice" title="Read about our terms of service">Terms of Service</a></li>
+                            <li><a class="link" href="/#privacypolicy" title="Read about our privacy policy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu col-md-1">
+                        <div> &nbsp; &nbsp; &nbsp; &nbsp; </div>
+                    </div>
+                    <div class="footer-menu col-md-2">
+                        <div class="footer-header">
+                            <span>Follow</span>
+                        </div>
+                        <ul class="links">
+                            <li><a class="link" href="https://facebook.com/LookPlex"> Facebook</a></li>
+                            <li><a class="link" href="https://plus.google.com/104895346847255000908"> Google+</a></li>
+                            <li><a class="link" href="https://twitter.com/lookplex"> Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/template" id="facial-list">
+
+
+        <div class="panel-group" id="accordion1">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion1" href="#accordion1collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#accordion1collapse1">Basic</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="accordion1collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.facial.category.basic,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#accordion1collapse2">Standard</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="accordion1collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.facial.category.standard,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="standard_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1collapse3">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#accordion1collapse3">Premium</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="accordion1collapse3" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.facial.category.premium,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="premium_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+
+
+</script>
+<script type="text/template" id="cleanUp-list">
+        <div class="panel-group" id="accordion2">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#accordion2collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion2" href="#accordion2collapse1">Basic</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="accordion2collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.cleanup.category.basic,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accordion2collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion2" href="#accordion2collapse2">Standard</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="accordion2collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.cleanup.category.standard,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="standard_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse3accordion2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapse3accordion2">Premium</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse3accordion2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.cleanup.category.premium,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="premium_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+
+</script>
+
+<script type="text/template" id="threading-list">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Basic</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.threading.category.basic,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+
+</script>
+<script type="text/template" id="bleach-list">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Basic : Fruit or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.bleach.category['basic:fruit or equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Standard : Oxy or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.bleach.category['standard:oxy or equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="standard_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Premium : Gold/De Tan or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.bleach.category['premium:gold/de tan or equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="premium_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+</script>
+
+<script type="text/template" id="hairStyle-list">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading " data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Hair Cut</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair style'].category['hair cut'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="hair-cut_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Shampoo and Blowdry</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair style'].category['Shampoo and Blowdry'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="Shampoo-and-Blowdry_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Curling</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair style'].category.curling,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="curling_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Straightening</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair style'].category.Straightening,function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="Straightening_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Hair Styling</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair style'].category['Hair Styling'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="Hair-Styling_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Head Massage</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair style'].category['Head Massage'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="Head-Massage_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+</script>
+
+<script type="text/template" id="hairCare-list">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Hair Spa (Hot Towel)</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <!-- <div class="panel-body">
+                    <div class="col-md-5">Service Name</div>
+                    <div class="col-md-3">Duration</div>
+                    <div class="col-md-3">Charges</div>
+                </div> -->
+                <% $.each($data.services['hair care'].category['Hair Spa (Hot Towel)'],function(index,service){%>
+                <div class="panel-body">
+                    <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                    <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                    <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                    <div class="col-md-1"><input type="checkbox" name="selected_services" id="hair-cut_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                </div>
+                <%});%>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Nourishment Hair Spa</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <!-- <div class="panel-body">
+                    <div class="col-md-5">Service Name</div>
+                    <div class="col-md-3">Duration</div>
+                    <div class="col-md-3">Charges</div>
+                </div> -->
+                <% $.each($data.services['hair care'].category['Nourishment Hair Spa'],function(index,service){%>
+                <div class="panel-body">
+                    <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                    <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                    <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                    <div class="col-md-1"><input type="checkbox" name="selected_services" id="Shampoo-and-Blowdry_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                </div>
+                <%});%>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Treatment Hair Spa (Anti-Dandruff/Anti Hairfall/Mythic Oil)</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <!-- <div class="panel-body">
+                    <div class="col-md-5">Service Name</div>
+                    <div class="col-md-3">Duration</div>
+                    <div class="col-md-3">Charges</div>
+                </div> -->
+                <% $.each($data.services['hair care'].category['Treatment Hair Spa (Anti-Dandruff/Anti Hairfall/Mythic Oil)'],function(index,service){%>
+                <div class="panel-body">
+                    <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                    <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                    <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                    <div class="col-md-1"><input type="checkbox" name="selected_services" id="curling_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                </div>
+                <%});%>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Henna Application</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <!-- <div class="panel-body">
+                    <div class="col-md-5">Service Name</div>
+                    <div class="col-md-3">Duration</div>
+                    <div class="col-md-3">Charges</div>
+                </div> -->
+                <% $.each($data.services['hair care'].category['Henna Application'],function(index,service){%>
+                <div class="panel-body">
+                    <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                    <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                    <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                    <div class="col-md-1"><input type="checkbox" name="selected_services" id="Straightening_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                </div>
+                <%});%>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Colour Henna Application</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+                <!-- <div class="panel-body">
+                    <div class="col-md-5">Service Name</div>
+                    <div class="col-md-3">Duration</div>
+                    <div class="col-md-3">Charges</div>
+                </div> -->
+                <% $.each($data.services['hair care'].category['Colour Henna Application'],function(index,service){%>
+                <div class="panel-body">
+                    <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                    <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                    <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                    <div class="col-md-1"><input type="checkbox" name="selected_services" id="Hair-Styling_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                </div>
+                <%});%>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="hairColor-list">
+
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Global Color (Grey Coverage) - Matrix or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Global Color (Grey Coverage) - Matrix or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="Global_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Global Color (Grey Coverage) - Majirel or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Global Color (Grey Coverage) - Majirel or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="global_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Global Color (Grey Coverage) - Inoa or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Global Color (Grey Coverage) - Inoa or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="global_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Fashion Color - Matrix or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Fashion Color - Matrix or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Fashion Color - Majirel or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Fashion Color - Majirel or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Fashion Color - Inoa or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Fashion Color - Inoa or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Global Fashion Color with Pre-Lightnening - Matrix or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse7" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Global Fashion Color with Pre-Lightnening - Matrix or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Global Fashion Color with Pre-Lightnening - Majirel or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse8" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Global Fashion Color with Pre-Lightnening - Majirel or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Global Fashion Color with Pre-Lightnening - Inoa or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse9" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Global Fashion Color with Pre-Lightnening - Inoa or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Streaks - Matrix or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse10" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Streaks - Matrix or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse11">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">Streaks - Majirel or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse11" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Streaks - Majirel or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse12">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">Streaks - Inoa or Equal</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse12" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Streaks - Inoa or Equal'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse13">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse13">Root Touch-Ups</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse13" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['hair color'].category['Root Touch-Ups'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+</script>
+<script type="text/template" id="waxing-list">
+
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Basic:Normal Wax</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.waxing.category['Basic:Normal Wax'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="basic_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Standard:Gold/Chocolate Wax</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.waxing.category['Standard:Gold/Chocolate Wax'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="standard_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Premium:Rica Wax/De Tan/Brazilian Wax</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services.waxing.category['Premium:Rica Wax/De Tan/Brazilian Wax'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="premium_<%=service.name.split(" ").join("_")%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+
+</script>
+<script type="text/template" id="bodyPampering-list">
+
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Back & Shoulder massage</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['body pampering'].category['Back & Shoulder massage'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="body-Back-and-Shoulder-massage_<%=service.name.split(" ").join("_").replace(/\//g,'-_-').replace(/\+/g,'_-_')%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Foot Massage</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['body pampering'].category['Foot Massage'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="foot-massage_<%=service.name.split(" ").join("_").replace(/\//g,'-_-').replace(/\+/g,'_-_')%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Full Body Massage/Polishing</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['body pampering'].category['Full Body Massage/Polishing'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="full-body-massage_<%=service.name.split(" ").join("_").replace(/\//g,'-_-').replace(/\+/g,'_-_')%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+</script>
+<script type="text/template" id="makeup-list">
+
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Light party make-up</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['make up'].category['Light party make-up'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="makeup-light_<%=service.name.split(" ").join("_").replace(/\//g,'-_-').replace(/\:/g,'_-_-_').replace(/\,/g,'_--_')%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Night Party makeup</a><i class="fa fa-angle-down fa-lg pull-right"></i><i class="fa fa-angle-up fa-lg pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <!-- <div class="panel-body">
+                        <div class="col-md-5">Service Name</div>
+                        <div class="col-md-3">Duration</div>
+                        <div class="col-md-3">Charges</div>
+                    </div> -->
+                    <% $.each($data.services['make up'].category['Night Party makeup'],function(index,service){%>
+                    <div class="panel-body">
+                        <div class="col-md-5 text-capitalize"><%=service.name%></div>
+                        <div class="col-md-4"><i class="fa fa-clock-o" aria-hidden="true"></i> <%=service.time%></div>
+                        <div class="col-md-2"><i class="fa fa-inr" aria-hidden="true"></i><%=service.cost%></div>
+                        <div class="col-md-1"><input type="checkbox" name="selected_services" id="makeup-night_<%=service.name.split(" ").join("_").replace(/\//g,'-_-').replace(/\:/g,'_-_-_').replace(/\,/g,'_--_')%>_<%=service.cost%>" data-service="<%=service.name.split(" ").join("_")%>" data-price="<%=service.cost%>"></div>
+                    </div>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+
+
+</script>
+<script type="text/template" id="cart-list">
+    <%if(cart.size>0){%>
+    <%var sum = 0;var count =0;%>
+    <div class="col-md-12 cartlist">
+    <% cart.forEach(function(data) {%>
+    <%var arr = data.replace(/_-_-_/g,':').replace(/_--_/g,',').replace(/-_-/g,'/').replace(/_-_/g,'+').split('_'); var cost=arr[arr.length-1];arr.splice(arr.length-1,1);arr.splice(0,1);var name=arr.join(" ")%>
+    <div class="col-md-12 text-capitalize" style="padding: 15px 5px 15px 10px"><%=name%><i class="fa fa-times pull-right" id="<%=data%>" style="color: #cb202d;margin-top:1%"></i><div class="col-md-2 pull-right" style="padding: 0"><i class="fa fa-inr" aria-hidden="true"></i><%=cost%></div></div>
+
+    <%sum = sum + parseInt(cost);count = count+1;%>
+
+    <%});%>
+
+    </div>
+    <div class="col-md-12" style="background:none;padding: 10px;box-shadow: 0px -2px 2px 0px rgba(0,0,0,0.15);">
+        <div class="col-md-12" style="background: none;padding: 8px 4px;border: none">
+            Services Selected
+            <div class="pull-right"  style="padding: 0"><%=count%></div>
+        </div>
+        <div class="col-md-12" style="background: none;padding: 10px 4px;border: none">
+            Sub Total
+            <div class="pull-right"  style="padding: 0"><i class="fa fa-inr" aria-hidden="true"></i><%=sum%></div>
+        </div>
+        <div class="col-md-12" style="background: none;padding: 10px 4px;border: none">
+            Discount
+            <div class="pull-right"  style="padding: 0"> - <i class="fa fa-inr" aria-hidden="true"></i><%=sum-amount+100%></div>
+        </div>
+        <div class="col-md-12" style="background: none;padding: 10px 4px;border: none">
+            Convenience Charges
+            <div class="pull-right"  style="padding: 0"> + <i class="fa fa-inr" aria-hidden="true"></i>100</div>
+        </div>
+        <div class="col-md-12" style="background: none;padding: 10px 4px;border: none">
+            Total Sum
+            <div class="pull-right" style="padding: 0"><i class="fa fa-inr" aria-hidden="true"></i><%=amount%></div>
+        </div>
+        <%if((amount-100) == sum){%>
+        <div class="col-md-12" id="promocode" style="background: none;padding: 10px 4px;border: none">
+            <u>Have Promo code?</u>
+        </div>
+        <div class="col-md-12 hidden" id="promocode2" style="background: none;padding: 0 4px;border: none;max-height: 60px">
+            <div class="row" style="height: 30px;padding-bottom: 0;font-size: 15px">
+                <div class="col-md-6 form-group" style="margin-bottom: 0">
+                    <input id="promoinput" class="form-control" type="text" maxlength="6" minlength="6" name="name" style="font-size: 14px">
+                </div>
+                <div class="col-md-5 btn apply" style="background-color:#ff5a5f !important; color:#fff;font-size: 14px">
+                    Apply
+                </div>
+            </div>
+            <div id="prmoInvalid" class="col-md-12 hidden" style="padding: 0;color: red;font-weight: lighter;text-align: center">Invalid Promo code</div>
+        </div>
+        <%}else{%>
+        <div class="col-md-12" style="background: none;padding: 2px 4px;border: none">
+            <u>Promo code applied</u><u id="revert" class="pull-right">Revert</u>
+        </div>
+        <%}%>
+        <div class="col-md-12" style="background: none;padding: 2px 4px;border: none">
+            <div class="alert alert-danger fade in hidden" style="margin-bottom: 0;font-size: 10px">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Oops!!</strong> Seems your sub total amount is less than Rs. 800, please select more services.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button id="reqtobook" class="btn btn-large btn-block btn-primary" style="background-image: none;margin-bottom: 8px;font-weight: bolder;font-size: 16px"><span>BOOK NOW</span></button>
+    </div>
+
+    <%}else{%>
+    <div style="margin-top: 70px;color: grey;text-align: center;color: #A8A8A8"><i class="fa fa-shopping-cart fa-5x" aria-hidden="true"></i></div>
+    <div style="margin-top: 10px;color: grey;text-align: center;padding: 20px;font-weight: bolder;color: #A8A8A8">Your cart is empty please add services to your cart</div>
+    <%}%>
+
+</script>
+<script type="text/template" id="searchtemplate">
+    <div>
+        <div>
+            <div class="parlor-screen2" style="height: 70px">
+                <div class="wrapper" style="height: 5px;min-height: 5px">
+                    <div class="services-header col-md-12" style="height: 20px;font-weight: bolder;width: calc(100% - 30px); margin-left: 15px;padding:0">
+
+                    </div>
+                </div>
+                <center>
+                    <div class="sub-filter col-md-8" style="height: 42px">
+                        <div class="col-md-12 filter-slider-new plr0" style="opacity: 0.6;padding-left: 10px"><center>
+                    <span class="slider-min-content-new" style="font-size: 12px;margin-left: 0!important">
+                    <!--TODO Improve the performance of below conditions here-->
+                    <input class="f-menu visuallyhidden" id="salon1" type="radio" name="etype0" value="1" checked="checked"><label for="salon1" class="links" >Facial</label>
+                    <input class="f-menu visuallyhidden" id="spa1" type="radio" name="etype0" value="2"><label for="spa1" class="links" >Cleanup</label>
+                    <input class="f-menu visuallyhidden" id="gym1" type="radio" name="etype0" value="3"><label for="gym1" class="links" >Threading</label>
+                    <input class="f-menu visuallyhidden" id="makeupartists1" type="radio" name="etype0" value="4"><label for="makeupartists1" class="links">Bleach</label>
+                    <input class="f-menu visuallyhidden" id="slimminandcosmetology1" type="radio" name="etype0" value="5"><label for="slimminandcosmetology1" class="links" >Hair Style</label>
+                    <input class="f-menu visuallyhidden" id="dietician1" type="radio" name="etype0" value="6"><label for="dietician1" class="links" >Hair Care</label>
+                    <input class="f-menu visuallyhidden" id="tatto1" type="radio" name="etype0" value="7"><label for="tatto1" class="links" >Hair Color</label>
+                    <input class="f-menu visuallyhidden" id="yoga1" type="radio" name="etype0" value="8"><label for="yoga1" class="links" >Waxing</label>
+                    <input class="f-menu visuallyhidden" id="nail1" type="radio" name="etype0" value="9"><label for="nail1" class="links" >Body Pampering</label>
+                    <input class="f-menu visuallyhidden" id="mehendi1" type="radio" name="etype0" value="10"><label for="mehendi1" class="links" >Makeup</label>
+                    </span></center>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div class="wrapper" style="margin: 0">
+            <div class="result-holder clearfix" style="min-height: 700px;padding-left: 35px">
+                <div class="col-md-5 servicelist" style="padding-right: 0">
+
+                </div>
+                <div class="col-md-4" style="padding-right: 7%">
+                    <div class="col-md-12 bookingCart" style="background-color: #fafafa">
+                        <div class="col-md-12" style="padding:3px 3px 3px 35px;cursor: default;background-color: #ff5a5f;height: 35px;text-align: center;font-size: 18px;font-weight: bolder">
+                            Booking Cart
+                            <i id="clearcart" class="fa fa-trash pull-right" data-toggle="tooltip" data-placement="right" title="Clear my cart"style="font-size:12px;color: #fff;margin: 7px 10px"></i>
+                        </div>
+                        <div class="col-md-12 cart-holder" style="padding: 0">
+
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <br><br>
+                    <div class="col-md-12 panel panel-default grid">
+                      <h5>Terms</h5>
+                      <ul>
+                          <li>Services available only for females.</li>
+                          <li>Minimum booking amount is Rs. 800</li>
+                          <li>All prices are inclusive of taxes.</li>
+                          <li>Booking amount can be paid to beautician @Home.</li>
+                          <li>To reschedule or cancel call us at 08826755766</li>
+                          <li>Please reschedule or cancel the booking 2 hours before the scheduled time.</li>
+                      </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+</script>
+<script type="text/template" id="p_img">
+    <p id="logout0" data-val="logout"><i class="fa fa-sign-out" ></i>Log Out</p>
+</script>
+<script type="text/template" id="header-no-search-bar">
+
+    <div class="wrapper" style="height: 54px">
+        <div class="col-md-3">
+        <a href="/" id="logo">
+            <!-- <img src="https://static.lookplex.com/images/1.2/logo_new.png"> -->
+        </a>
+        </div>
+        <div class="col-md-5" style="height: 50px;font-family: 'Pacifico';font-size: 28px;padding:5px 15px 0 100px;text-align: center;">Salon at home <i style="color: #ff5a5f;font-size: 29px" class="fa fa-home fa-4x" aria-hidden="true"></i><div style="font-size: 11px;font-family:Lato;font-weight: lighter"><strong>30%</strong> off across all services, use promo code <strong>LOOK30</strong></div></div>
+        <div class="top-menu pull-right">
+
+            <!-- <a href="tel:+91-8826755766" style="font-size: 13px;border:1px solid #fff"><i class="fa fa-phone fa-2x" style=" font-size: 15px; padding-top: 3px;"></i> +91-8826755766</a> -->
+            <a href="tel:08826755766" title="Book Your Appointment by Calling or Using Whatssapp on +91 88267 55766" style="font-size: 13px;border:1px solid #fff"><i class="fa fa-phone fa-2x" style=" font-size: 15px; padding-top: 3px;"></i> +91 88267 55766</a>
+            <a style="cursor:pointer" data-target="#login">Log In</a>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="otpservice">
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-large btn-block btn-primary" style="background-image: none;margin-top: 25px;font-weight: bolder;font-size: 16px">
+            <span>Select your service type</span>
+        </button>
+    </div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-3 no-padding" style="margin-top: 25px;">
+        <div class="form-group">
+            <select class="form-control time" id="bookingservice" name="time" style="font-weight: bolder">
+                <option value="2">Salon</option>
+                <option value="1">Spa</option>
+                <option value="3">Gym</option>
+                <option value="8">Makeup Artist</option>
+                <option value="6,7">Slimming & Cosmetology</option>
+                <option value="9">Dietitians & Nutritionists</option>
+                <option value="14">Tattoo & Piercing</option>
+                <option value="10">Yoga & Aerobics</option>
+                <option value="11">Nail Art</option>
+                <option value="13">Mehendi</option>
+            </select>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/template" id="successbooking">
+    <div class="col-md-12" style="margin-top: 25px;text-align: center;font-size: 22px;font-weight: bold;padding: 10px">
+        Thank You for choosing Lookplex!
+        <div class="col-md-12" style="margin-top: 25px;text-align: left;font-size: 20px;font-weight: bold;padding: 10px">
+            Your Booking Details
+        </div>
+
+        <div class="col-md-12" style="border: 1px solid #808080;text-align: left;font-size: 16px">
+            <div class="col-md-4" style="padding: 5px">Store :</div><div class="col-md-8" style="padding: 5px"><%=booking.storename%></div>
+            <div class="col-md-4" style="padding: 5px">Address :</div><div class="col-md-8" style="padding: 5px"><%=booking.storeaddress%></div>
+            <div class="col-md-4" style="padding: 5px">Date & Time :</div><div class="col-md-8" style="padding: 5px"><%=booking.date%> &nbsp;-&nbsp;<%=booking.time%></div>
+        </div>
+</script>
+<script type="text/template" id="booking_modal_template">
+  <div class="modal-header" style="border: none;height: 10%;margin: 0; ">
+      <div id="progress"> <div id="bar" style="width:<%=20*(stat+1)%>%"></div></div>
+      <% if(stat>0 && stat<5) {%><div class="btn pull-left" id="backbook" style=" position: absolute;"><i class="fa fa-arrow-left" style="margin-left: -5px;  padding: 2px 0 0;"></i></div><%}%>
+      <button type="button" class="close" id="closebook2" data-dismiss="modal" aria-label="Close">
+          <span id="discardr" aria-hidden="true" style="font-size: 30px;  top: 2px;   position: absolute;  right: 10px;">×</span>
+      </button>
+      <div class="header-title">
+          <h3>
+            <% if(stat==0) {%>
+              Enter your Address
+            <% } else if(stat==1) {%>
+              Pick a slot
+            <% } else if(stat==2) {%>
+              Enter Mobile no.
+            <% } else if(stat==3) {%>
+              Confirm your booking
+            <% } else if(stat==4) {%>
+              Booking Details
+            <%}%>
+          </h3>
+      </div>
+  </div>
+  <div class="modal-body clearfix" id="noscrollbar" style="min-height: 400px; overflow-y: scroll;">
+    <div class="bookcontents <% if(stat!=0) {%>hidden<%}%>">
+        <form class="clearfix col-md-10 col-md-offset-1" style="margin-top:20px;">
+          <div class="form-group" >
+              <div class="input-group" >
+              <span class="input-group-addon" style="color:#424242"><i class="fa fa-angle-double-down"></i></span>
+            <select id="city" class="form-control" style="height: 40px;color: #999;">
+              <option >Select City</option>
+              <option value="ghaziabad">Ghaziabad</option>
+              <option value="noida">Noida</option>
+            </select>
+                  </div>
+          </div>
+            <div class="form-group" >
+                <div class="input-group" >
+                    <span class="input-group-addon" style="color:#424242;padding: 6px 14.5px;"><i class="fa fa-map-marker"></i></span>
+                    <input id="add" type="text" name="address" value="<%= data.locality || ''%>" style="background-color:white;height: 40px;width:572px;border-radius: 2px" placeholder="Locality" class="form-control">
+                </div>
+            </div>
+            <div class="form-group" >
+                <div class="input-group" >
+                    <span class="input-group-addon" style="color:#424242"><i class="fa fa-home"></i></span>
+                    <input id="hofno" type="text" name="address"value="<%= data.hofno || ''%>" style="background-color:white;height: 40px;width:572px;border-radius: 2px" placeholder="House/Flat no." class="form-control">
+                </div>
+            </div>
+            <div class="form-group" >
+                <div class="input-group" >
+                    <span class="input-group-addon" style="color:#424242;padding: 6px 13px;"><i class="fa fa-location-arrow"></i></span>
+                    <input id="landmark" type="text" name="address" value="<%= data.landmark || ''%>" style="background-color:white;height: 40px;width:572px;border-radius: 2px" placeholder="Landmark" class="form-control">
+                </div>
+            </div>
+          </form>
+      </div>
+      <div class="bookcontents <% if(stat!=1) {%>hidden<%}%>">
+          <form class="clearfix col-md-10 col-md-offset-1" style="margin-top:20px;">
+
+              <div class="form-group" >
+                  <div class="input-group" >
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                      <input id="dd" readonly type="text" name="date" value="<%= data.dateView || ''%>" style="background-color:white;height: 40px;" placeholder="Select a date" class="form-control">
+                  </div>
+                  <div class="clearfix" id="datelist" style="margin-left:38px">
+                      <div id="dates" class="col-md-5" style="padding:0">
+                        <%=dates[0]%>
+                      </div>
+                      <div id="dates1" class="col-md-5" style="padding:0"><%=dates[1]%></div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o"></i></span>
+                      <input type="text" readonly id="tt" name="time" value="<%= data.timeView || ''%>" placeholder="Pick a time slot" class="form-control" style="background-color:white;height: 40px;">
+
+                  </div>
+                  <div class="list-group" id="time" >
+                      <div class="col-md-4 row" style="padding:0">
+                          <a class="list-group-item" value="09:00AM">09:00AM</a>
+                          <a class="list-group-item" value="10:00AM">10:00AM</a>
+                          <a class="list-group-item" value="11:00AM">11:00AM</a>
+                      </div>
+                      <div class="col-md-4 row"  style="padding:0">
+                          <a class="list-group-item" value="12:00PM">12:00PM</a>
+                          <a class="list-group-item" value="01:00PM">01:00PM</a>
+                          <a class="list-group-item" value="02:00PM">02:00PM</a>
+                      </div>
+                      <div class="col-md-4 row"  style="padding:0">
+                          <a class="list-group-item" value="03:00PM">03:00PM</a>
+                          <a class="list-group-item" value="04:00PM">04:00PM</a>
+                          <a class="list-group-item" value="05:00PM">05:00PM</a>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div class="bookcontents <% if(stat!=2) {%>hidden<%}%>">
+          <div class="clearfix col-md-5" style="margin-top: 70px;margin-left: 28%">
+              <div class="form-group">
+                  <div class="input-group">
+                      <span class="input-group-addon" >+91</span>
+                      <input type="number" id="mn" name="mob" value="<%= data.mobile || ''%>" placeholder="Mobile No." class="form-control" style="background-color:white;height: 40px;">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="bookcontents <% if(stat!=3) {%>hidden<%}%>">
+          <div class="clearfix col-md-6 col-md-offset-3" style="margin-top: 70px;">
+            <div class="form-group text-center" >
+                <label>Enter OTP sent to you</label>
+                <i class="col-md-12"> </i>
+                <div class="" style="margin-top: 10px;">
+                    <input type="text" class="cm1" maxlength="1">
+                    <input type="text" class="cm1" maxlength="1">
+                    <input type="text" class="cm1" maxlength="1">
+                    <input type="text" class="cm1" maxlength="1">
+                    <input type="text" class="cm1" maxlength="1">
+                    <input type="text" class="cm1" maxlength="1">
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="bookcontents <% if(stat!=4) {%>hidden<%}%>">
+          <div class="col-md-10 col-md-offset-1">
+              <div class="clearfix hidden" id="bd">
+                  <h4 id="booked-date" style="border-top: 1px solid #cfcfcf; padding-top: 20px;" class="col-md-12"></h4>
+                  <h4 id="booked-time" style="border-top: 1px solid #cfcfcf; padding: 20px 15px 10px;" class="col-md-12"></h4>
+              </div>
+              <div class="list-group" style="box-shadow:none">
+                <div class="list-group-item clearfix"><div class="col-md-3">Date</div><div class="col-md-3"></div><div class="col-md-6 text-left"> <i class="fa fa-calendar"></i> <%=data.date%></div></div>
+                <div class="list-group-item clearfix"><div class="col-md-3">Time</div><div class="col-md-3"></div><div class="col-md-6 text-left"> <i class="fa fa-clock-o"></i> <%=data.time%></div></div>
+
+                <h4 style="text-indent: 2px;">Services </h4>
+                <%_.each(data.service, function(tata){%>
+                  <% var splitted=tata.split("_"); var cost=splitted[splitted.length-1];splitted.splice(splitted.length-1,1);splitted.splice(0,1); var serve=splitted.join(" ");%>
+                  <div class="list-group-item clearfix" style="text-transform: capitalize"><div class="col-md-6"><%= serve%></div><div class="col-md-3"></div><div class="col-md-3 text-right"> <i class="fa fa-inr"></i> <%=cost%></div></div>
+                <%})%>
+                  <div class="list-group-item clearfix"><div class="col-md-6"><strong>Sub total amount</strong></div><div class="col-md-3"></div><div class="col-md-3 text-right"> <i class="fa fa-inr"></i><div id ="subtotal" style="display: inline-block"></div></div></div>
+                  <div class="list-group-item clearfix"><div class="col-md-6">Discount</div><div class="col-md-3"></div><div class="col-md-3 text-right" > - <i class="fa fa-inr"></i><div id ="discount" style="display: inline-block"></div></div></div>
+                  <div class="list-group-item clearfix"><div class="col-md-6">Convenience Charges</div><div class="col-md-3"></div><div class="col-md-3 text-right"> + <i class="fa fa-inr"></i>100</div></div>
+                  <div class="list-group-item clearfix"><div class="col-md-6"><strong>Total amount</strong></div><div class="col-md-3"></div><div class="col-md-3 text-right"> <i class="fa fa-inr"></i><strong><div id ="totalamount" style="display: inline-block"></div></strong></div></div>
+
+                  <h5 style="text-indent: 2px;margin-top: 20px">*To reschedule or cancel call us at 08826755766</h5>
+              </div>
+
+          </div>
+      </div>
+
+  </div>
+  <div class="clearfix" id="footerbtn">
+      <% if(stat<4) {%>
+      <div class="btn btn-t" style="position: absolute;bottom: 0;width: 100%;" id="nextbook">
+        <% if(stat<3) {%>
+          Next
+        <%} else if(stat==2) {%>
+          GET OTP
+        <%} else if(stat==3) {%>
+          Checkout
+        <%} %>
+      </div>
+      <%}%>
+         <% if(stat==4) {%>
+          <div class="btn btn-t"  style="width:100%;display:inline-block" data-dismiss="modal" id="closebook">
+              Thank You
+          </div>
+        <%}%>
+
+  </div>
+</script>
+<script src="/build/js/lookplex.min.js?v=16.9.5.8"></script>
+<script src="/build/js/salonAtHome.min.js?v=16.9.9.1"></script>
+<script src = "//plus.google.com/js/client:platform.js" async defer></script>
+</html>
