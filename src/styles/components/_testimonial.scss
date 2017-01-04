@@ -1,0 +1,32 @@
+.testimonial{
+  min-height: 300px;
+
+  .hideable {
+    display: none;
+  }
+
+  .s-header {
+    background-color: #fff;
+    border: none;
+  }
+
+  .thumbnail-sec {
+    text-align: center;
+
+    img {
+      height: 80px;
+      width: 80px;
+    }
+
+    div:nth-child(odd) {
+      padding: 20px;
+      font-style: italic;
+    }
+
+    div:nth-child(even) {
+      font-size: 1.1em;
+      font-weight: 900;
+    }
+  }
+}
+

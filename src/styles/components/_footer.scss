@@ -1,0 +1,56 @@
+@import "../variables/screen";
+
+footer {
+  background-color: $footer-bg;
+  margin: auto;
+  padding-top: 5px;
+  .flinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .info {
+      padding: 10px;
+      a {
+        color: #555;
+      }
+    }
+  }
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .fs-item {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      color: #fff;
+      padding: 9px;
+      margin: 7px;
+      font-size: 20px;
+    }
+    .fs-item:nth-child(1) {
+      background-color: #3b5998;
+    }
+    .fs-item:nth-child(2) {
+      background-color: #88C8CA;
+    }
+    .fs-item:nth-child(3) {
+      background-color: #BD081C;
+    }
+    .fs-item:nth-child(4) {
+      background-color: #0e68ce;
+    }
+    .fs-item:nth-child(5) {
+      background-color: #db4733;
+    }
+  }
+  .copyright {
+    font-size: 0.8em;
+    color: #444;
+    display: block;
+    text-align: center;
+    padding: 10px;
+  }
+
+}

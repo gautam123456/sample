@@ -1,0 +1,40 @@
+@import "../variables/screen";
+
+.cart {
+  height: 50px;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  position: fixed;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+
+  .col-xs-2 {
+    border-right: 1px solid #444;
+
+    .count {
+        background: #ffff66;
+        color: #000;
+        font-weight: bolder;
+        border-radius: 10px;
+        padding: 2px;
+        font-size: 11px;
+      }
+
+  }
+
+  .fa {
+    color: #fff;
+  }
+
+  .book {
+    background-color: $brand-color-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+  }
+}

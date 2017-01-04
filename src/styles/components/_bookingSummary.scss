@@ -1,0 +1,65 @@
+@import "../variables/screen";
+
+.summary {
+  font-size: 15px;
+  margin-top: 20px;
+
+  button {
+    background-color: $brand-color-2;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    height: 30px;
+    padding: 0;
+  }
+
+  .errormsg {
+    color: $brand-color-2;
+    text-align: center;
+  }
+
+  [class^="col-"] {
+    padding: 9px 0 0 10px;
+    height: 60px;
+  }
+
+  .col-xs-12:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  .col-xs-12:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+
+  .col-xs-12:nth-child(last) {
+    margin-bottom: 60px;
+  }
+
+  .qn {
+    background-color: transparent;
+    border: 1px solid $brand-color-2;
+    color: $brand-color-2;
+    padding: 0;
+    font-weight: bolder;
+  }
+
+  input {
+    border-radius: 2px;
+    border: 1px solid #aaa;
+  }
+
+  .col-xs-4 {
+    text-align: center;
+    padding: 0;
+  }
+
+  .promo {
+    height: 60px;
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+}
+
+.terms {
+  margin: 20px 0 50px 0;
+}

@@ -1,0 +1,12 @@
+{
+  "minBooking": 800,
+  "convenienceCharges": 100,
+  "subTotal": 0,
+  "servicesCount": 0,
+  "discount": 0,
+  "look40": 40,
+  "look30": 30,
+  "location": "Delhi",
+  "address": "",
+  "services": {}
+}

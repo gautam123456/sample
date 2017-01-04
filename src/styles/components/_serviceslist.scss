@@ -1,0 +1,31 @@
+@import "../variables/screen";
+
+.s-heading {
+  min-height: $header-height;
+  background-color: $brand-color;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: bolder;
+  padding: 8px 15px;
+}
+
+
+.para {
+  padding: 8px 8px 30px 8px;
+  background-color: #f5f5f5;
+  color: #555;
+  text-align: justify;
+  display: none;
+}
+
+.s-header {
+  margin-top: 10px;
+  padding: 25px;
+  font-size: 1.2em;
+  text-align: center;
+  background-color: #f5f5f5;
+  min-height: 70px;
+  text-transform: capitalize;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+}

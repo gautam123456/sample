@@ -1,0 +1,20 @@
+@import "../variables/screen";
+
+.a-header {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-top: -2px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bolder;
+  .col-xs-1 {
+    padding-left: 0;
+
+    a {
+      color: #fff;
+    }
+  }
+}

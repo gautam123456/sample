@@ -1,0 +1,20 @@
+@import "../variables/screen";
+
+.a-footer {
+  bottom: 0;
+  background-color: #ddd;
+  height: 40px;
+  position: fixed;
+  font-weight: bolder;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  span {
+
+    a{
+      color: #222;
+    }
+  }
+}
