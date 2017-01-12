@@ -1,0 +1,22 @@
+@import "../variables/screen";
+.us{
+  position: relative;
+
+  .emptyCart {
+    min-height: 117px;
+    width: 127px;
+    padding: 15px;
+    position: relative;
+    margin: 100px auto 20px;
+    background-color: #ddd;
+    border-radius: 80px;
+
+    .fa-shopping-cart {
+      font-size: 100px;
+      opacity: 0.3;
+      color: $brand-color;
+
+    }
+  }
+}
+

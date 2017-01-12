@@ -19,8 +19,6 @@ export default class ServicesList extends React.Component {
 
   renderDescription(description, title) {
     return <div>
-      <div className = 's-header'>{ title }</div>
-      <div className = 'para'>{ description }</div>
     </div>
   }
 
@@ -33,7 +31,7 @@ export default class ServicesList extends React.Component {
             return <div> { then.renderHeading(title.name, then.props.service + '-' + title.id) }
                       { title.serviceItemList.map(function(list) {
                         let id = then.props.service + '-' + title.id + '-' + list.id;
-                        return <ServiceMenu list = {list} count = { then.props.bookingDetails.services[id] ? then.props.bookingDetails.services[id].count : 0 } key = { id } id = { id } bookingDetailsChanged = { then.props.bookingDetailsChanged.bind(this) }/>
+                        return <ServiceMenu list = {list} count = { then.props.bookingDetails.services && then.props.bookingDetails.services[id] ? then.props.bookingDetails.services[id].count : 0 } key = { id } id = { id } bookingDetailsChanged = { then.props.bookingDetailsChanged.bind(this) }/>
                       })
                       }
             </div>

@@ -5,11 +5,13 @@ import React from 'react';
 import BookedMenu from './BookedMenu';
 import Cart from './Cart';
 
+import bookingDetails from '../../data/constants.json';
 
 export default class BookedServicesList extends React.Component {
 
   constructor(props) {
     super(props);
+    window.localStorage.bookingDetails ? window.bookingDetails = JSON.parse(window.localStorage.bookingDetails) : window.bookingDetails = bookingDetails;
     this.state = {
       bookedItemList: window.bookingDetails,
       discount: 0,
@@ -21,29 +23,32 @@ export default class BookedServicesList extends React.Component {
 
   render() {
     const then = this,
-      objKeys = Object.keys(this.state.bookedItemList.services),
-      margin = { marginBottom: 60},
-      padding = { paddingTop: 8};
+      objKeys = this.state.bookedItemList ? Object.keys(this.state.bookedItemList.services) : [],
+      margin = { marginBottom: 60 },
+      padding = { paddingTop: 8 };
     return (
       <div className = 'col-md-offset-4 col-md-4'>
 
         <div className = 'col-xs-12 summary pad0'>
           <div className = 'col-xs-12'>
-            <div className = 'col-xs-8'> Total </div>
-            <div className = 'col-xs-4' style = { padding }> <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges + this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
+            <div className = 'col-xs-8'> Sub Total </div>
+            <div className = 'col-xs-4' style = { padding }> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal } </div>
           </div>
           <div className = 'col-xs-12'>
             <div className = 'col-xs-8'> Discount </div>
             <div className = 'col-xs-4' style = { padding }> - <i className = "fa fa-inr"></i> { this.state.discount * this.state.bookedItemList.subTotal / 100 } </div>
           </div>
           <div className = 'col-xs-12'>
-            <div className = 'col-xs-8'> Sub Total </div>
-            <div className = 'col-xs-4' style = { padding }> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal } </div>
-          </div>
-          <div className = 'col-xs-12'>
             <div className = 'col-xs-8'> Convenience Charges </div>
             <div className = 'col-xs-4' style = { padding }> + <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges } </div>
           </div>
+          <div className = 'col-xs-12'>
+            <div className = 'col-xs-8'> Total </div>
+            <div className = 'col-xs-4' style = { padding }> <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges + this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
+          </div>
+
+
+
           <div className = 'col-xs-12'>
           </div>
         </div>

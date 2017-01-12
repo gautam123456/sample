@@ -4,6 +4,7 @@
 import React from 'react';
 import HomeImage from './HomeImage';
 import StaticPortion from './StaticPortion';
+import $ from 'jquery';
 
 export default class Container extends React.Component {
   render() {
@@ -13,6 +14,19 @@ export default class Container extends React.Component {
         <HomeImage />
       </div>
     )
+  }
+
+  componentDidMount(){
+    $.ajax({
+      url: 'https://storeapi.lookplex.com/wsv1/masnepservice/isloggedinnew',
+      dataType: 'json',
+      xhrFields: {withCredentials: true},
+      contentType: 'application/x-www-form-urlencoded',
+      success: function(data) {
+        console.log(data + "::" + JSON.stringify(data));
+      },
+      type: 'GET'
+    });
   }
 }
 

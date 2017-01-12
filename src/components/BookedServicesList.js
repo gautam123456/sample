@@ -3,19 +3,24 @@
  */
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
-import Cart from './Cart';
+import $ from 'jquery';
+
+import bookingDetails from '../../data/constants.json';
 
 
 export default class BookedServicesList extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(window.localStorage.bookingDetails);
+    window.localStorage.bookingDetails ? window.bookingDetails = JSON.parse(window.localStorage.bookingDetails) : window.bookingDetails = bookingDetails;
     this.state = {
       bookedItemList: window.bookingDetails,
       discount: 0,
       questionShow: {display: 'block', paddingTop: 0},
       applySectionShow: {display: 'none', paddingTop: 0},
-      errormsg: {display: 'none', paddingTop: 0}
+      errormsg: {display: 'none', paddingTop: 0},
+      couponCode:''
     }
   }
 
@@ -26,7 +31,7 @@ export default class BookedServicesList extends React.Component {
       <div className = 'col-md-offset-4 col-md-4'>
         {
           objKeys.map( function(key) {
-                return <ServiceMenu list = {then.state.bookedItemList.services[key]} count = { then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) }/>
+                return <ServiceMenu list = { then.state.bookedItemList.services[key] } count = { then.state.bookedItemList.services && then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) }/>
           })
         }
 
@@ -43,7 +48,7 @@ export default class BookedServicesList extends React.Component {
              <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
           </div>
           <div className = 'col-xs-12 promo' style = { this.state.applySectionShow }>
-            <input id = 'promocode' className = 'col-xs-offset-1 col-xs-4 pad0' type = 'text' placeholder = 'Promo Code'></input> <button className = 'col-xs-offset-2 col-xs-4' onClick = { this.applyPromocode.bind(this) }> Apply </button>
+            <input id = 'promocode' className = 'col-xs-offset-1 col-xs-4 pad0' type = 'text' placeholder = 'Promo Code' onChange = { this.saveCode.bind(this) }></input> <button className = 'col-xs-offset-2 col-xs-4' onClick = { this.applyPromocode.bind(this) }> Apply </button>
           </div>
           <div className = 'col-xs-12 errormsg' style = { this.state.errormsg }>
             Invalid Code
@@ -72,8 +77,26 @@ export default class BookedServicesList extends React.Component {
     this.setState({ applySectionShow:{ display: 'block', paddingTop: 0}, questionShow: { display: 'none', paddingTop: 0 } })
   }
 
+  saveCode(e) {
+    let couponCode = e.currentTarget.value;
+    this.setState({ couponCode: couponCode });
+  }
+
   applyPromocode() {
-    var code = document.getElementById('promocode').value.toLowerCase();
+    let self = this;
+    $.ajax({
+      url: 'https://storeapi.lookplex.com/wsv1/masnepservice/iscouponvalid',
+      data: { couponcode: self.state.couponCode },
+      dataType: 'json',
+      xhrFields: { withCredentials: true },
+      contentType: 'application/x-www-form-urlencoded',
+      success: function(data) {
+        console.log(JSON.stringify(data));
+      },
+      type: 'POST'
+    });
+
+    var code = self.state.couponCode.toString.lowerCase();
     var discount = 0;
     if(code == 'look40'){
       discount = 40 * window.bookingDetails.subTotal / 100;
@@ -111,7 +134,15 @@ export default class BookedServicesList extends React.Component {
       window.bookingDetails.servicesCount -= 1;
       window.bookingDetails.subTotal -= cost;
       window.bookingDetails.services[id].count -= 1;
+      if(window.bookingDetails.services[id].count == 0){
+        delete window.bookingDetails.services[id];
+      }
     }
     this.forceUpdate();
+    this.saveToLocalStorage();
+  }
+
+  saveToLocalStorage() {
+    window.localStorage.bookingDetails = JSON.stringify(window.bookingDetails);
   }
 }

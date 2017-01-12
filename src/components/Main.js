@@ -14,12 +14,6 @@ class AppComponent extends React.Component {
       </div>
     )
   }
-
-  componentDidMount() {
-    document.getElementById('load').style.display = 'none';
-    document.getElementById('mySidenav').style.display = 'block';
-    document.body.style.backgroundColor = '#fff';
-  }
 }
 
 AppComponent.defaultProps = {

@@ -29,6 +29,21 @@
     color: #fff;
   }
 
+  .gh {
+
+    .tooltip .tooltiptext{
+      bottom: 250%;
+      left: -80%;
+      width: 110px;
+
+      &::after{
+        top: 96%;
+        left: 50%;
+      }
+    }
+
+  }
+
   .book {
     background-color: $brand-color-2;
     display: flex;
@@ -36,5 +51,15 @@
     justify-content: center;
     color: #fff;
 
+    .tooltip .tooltiptext{
+      bottom: 250%;
+      left: -80%;
+      width: 110px;
+
+      &::after{
+        top: 96%;
+        left: 50%;
+      }
+    }
   }
 }

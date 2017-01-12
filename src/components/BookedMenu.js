@@ -2,7 +2,7 @@
  * Created by gautam on 12/12/16.
  */
 import React from 'react';
-import Cart from './Cart';
+
 
 export default class BookedMenu extends React.Component {
   render() {

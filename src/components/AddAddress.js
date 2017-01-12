@@ -16,16 +16,6 @@ export default class AddAddress extends React.Component {
       </div>
     )
   }
-
-  discard() {
-
-  }
-
-  componentDidMount() {
-    document.getElementById('load').style.display = 'none';
-    document.getElementById('mySidenav').style.display = 'block';
-    document.body.style.backgroundColor = '#fff';
-  }
 }
 
 

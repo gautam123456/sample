@@ -1,3 +1,8 @@
+@import "../variables/screen";
+
+button:hover{
+  background-color: $brand-color-2-hover;
+}
 .w{
   color: #fff;
 }
@@ -29,5 +34,16 @@
   border: 1px solid red;
 }
 
+input{
+  font-size: 16px;
+}
+
+body{
+  transition: background-color .5s;
+}
+
+.message {
+  color: $brand-color;
+}
 
 

@@ -11,22 +11,29 @@ import bookingDetails from '../../data/constants.json';
 import data from '../../data/items.json'
 import testimonials from '../../data/testimonials.json'
 
-window.bookingDetails = bookingDetails;
-
 export default class HomeImage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    window.localStorage.bookingDetails ? window.bookingDetails = JSON.parse(window.localStorage.bookingDetails) : window.bookingDetails = bookingDetails;
     this.state = {
       active: '1',
       data: data.serviceList['1'],
-      bookingDetails: window.bookingDetails
+      bookingDetails: window.bookingDetails,
     };
   }
 
+  componentWillMount() {
+
+  }
+
   render() {
+    var background = {
+      backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
+      backgroundSize: 'cover'
+    };
     return (
       <section className = 'col-xs-12 col-md-4 pad0'>
-        <div className = 'bgimage'>
+        <div className = 'bgimage' style = { background }>
         </div>
         <div className = 'filter'>
           <span className = 'f-list'>
@@ -81,5 +88,11 @@ export default class HomeImage extends React.Component {
       window.bookingDetails.services[id].count -= 1;
     }
     this.forceUpdate();
+    this.saveToLocalStorage();
+  }
+
+  saveToLocalStorage() {
+    window.localStorage.bookingDetails = JSON.stringify(window.bookingDetails);
+    console.log(window.localStorage.bookingDetails);
   }
 }

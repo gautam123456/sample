@@ -51,12 +51,6 @@ export default class OrderConfirm extends React.Component {
   datePicked(date) {
     this.setState({ startDate: date });
   }
-
-  componentDidMount() {
-    document.getElementById('load').style.display = 'none';
-    document.getElementById('mySidenav').style.display = 'block';
-    document.body.style.backgroundColor = '#fff';
-  }
 }
 
 

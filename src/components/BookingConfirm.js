@@ -19,14 +19,8 @@ export default class BookingConfirm extends React.Component {
     )
   }
 
-  bookingDetailsChanged() {
-
-  }
-
   componentDidMount() {
-    document.getElementById('load').style.display = 'none';
-    document.getElementById('mySidenav').style.display = 'block';
-    document.body.style.backgroundColor = '#fff';
+    window.localStorage.clear();
   }
 }
 

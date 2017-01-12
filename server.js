@@ -1,5 +1,3 @@
-/*eslint no-console:0 */
-'use strict';
 require('core-js/fn/object/assign');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
@@ -15,11 +13,11 @@ let isInitialCompilation = true;
 const compiler = webpack(config);
 
 new WebpackDevServer(compiler, config.devServer)
-.listen(config.port, '192.168.0.2', (err) => {
+.listen(config.port, 'localhost', (err) => {
   if (err) {
     console.log(err);
   }
-  console.log('Listening at 192.168.0.9' + config.port);
+  console.log('Listening at 192.168.0.2' + config.port);
 });
 
 compiler.plugin('done', () => {

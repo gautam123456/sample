@@ -15,9 +15,7 @@
   padding: 5px 3px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -65px;
+  left: 100%;
   opacity: 0;
   transition: opacity 1s;
 }
@@ -25,10 +23,10 @@
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: 5%;
+  left: 0%;
   margin-left: -5px;
-  border-width: 5px;
+  border-width: 8px;
   border-style: solid;
   border-color: $brand-color transparent transparent transparent;
 }
@@ -37,3 +35,14 @@
   visibility: visible;
   opacity: 1;
 }
+
+/*
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #068481 transparent transparent;
+*/
