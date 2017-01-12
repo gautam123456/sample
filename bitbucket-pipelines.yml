@@ -13,5 +13,4 @@ pipelines:
           - cat myknownhost >> ~/.ssh/known_hosts
           - (umask  077 ; echo $SFTP_DEV | base64 --decode > ~/.ssh/id_rsa)
           - echo "$(cat ~/.ssh/id_rsa)"
-          - sftp -vvv sftpdev@35.154.104.155
-          - lpwd
+          - sftp -r sftpdev@35.154.104.155:dev <<< $'dist'
