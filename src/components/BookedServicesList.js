@@ -12,7 +12,6 @@ export default class BookedServicesList extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(window.localStorage.bookingDetails);
     window.localStorage.bookingDetails ? window.bookingDetails = JSON.parse(window.localStorage.bookingDetails) : window.bookingDetails = bookingDetails;
     this.state = {
       bookedItemList: window.bookingDetails,

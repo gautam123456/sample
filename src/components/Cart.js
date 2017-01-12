@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
+import Base from './base/Base';
 
 export default class Cart extends React.Component {
   constructor(props) {
@@ -81,7 +82,11 @@ export default class Cart extends React.Component {
   }
 
   isLoggedIn() {
-    return true;
+    console.log(document.cookie);
+    console.log("#########"+new Base().getCookie('hashid')+"#########");
+    if(new Base().getCookie('hashid') !== "")
+      return true;
+    return false;
   }
 
 
