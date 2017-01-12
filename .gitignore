@@ -31,3 +31,6 @@ bower_components/
 
 # IDE/Editor data
 .idea
+
+# Rough work related to project
+rough.json
