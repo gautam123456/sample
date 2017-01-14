@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
 
 export default class Search extends React.Component {
   render() {

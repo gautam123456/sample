@@ -11,7 +11,7 @@ export default class BookedMenu extends React.Component {
         <div className = 'col-xs-7'>
           { this.props.list.name }<br/>
         </div>
-        <div className = 'col-xs-2'> &nbsp; <i className = "fa fa-inr"></i>{ this.props.list.cost }</div>
+        <div className = 'col-xs-2 pad0'> &nbsp; <i className = "fa fa-inr"></i>{ this.props.list.cost }</div>
         <div className = 'col-xs-1 center'>
 
         </div>

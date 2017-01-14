@@ -1,0 +1,15 @@
+@import "../variables/screen";
+
+.add-address {
+  margin: 20px 0 60px;
+  background-color: $brand-color-2;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  color: #fff;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}

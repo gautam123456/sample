@@ -1,62 +1,60 @@
 /**
- * Created by gautam on 19/12/16.
+ * Created by rgautam on 1/13/17.
  */
 import React from 'react';
-import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
+import { browserHistory, Link } from 'react-router';
+import $ from 'jquery';
 
-export default class Address extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      city:'Delhi',
-      address:'',
-      landmark:''
+import ajaxObj from '../../data/ajax.json';
+
+export default class AddAddress extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            address: this.props.address
+        }
     }
-  }
-  render() {
-
-    const dropStyle = {
-      height: 40
+    componentWillMount(){
+        console.log('######################');
     }
 
-    return (
-      <div>
-        <ActivityHeader heading = { 'Provide Address' }/>
-        <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
-          <select className = 'col-xs-12' style = { dropStyle } onChange = { this.saveCity.bind(this) }>
-            <option value = 'Delhi'>Delhi </option>
-            <option value = 'Noida'>Noida </option>
-            <option value = 'Gurgaon'>Gurgaon </option>
-          </select>
+    render() {
+        return (
+            <div className = "col-xs-12 address-space pad0">
+                <div className = "addresscard col-xs-12" style = { this.props.active ? { backgroundColor: '#add7d5' }: {}} onClick = { this.selectAddress.bind(this) }>
+                    <div className = 'col-xs-12'>
+                        <div className = 'col-xs-3 head'> Address : </div>
+                        <div className = 'col-xs-9'>{ this.props.address.address }</div>
+                    </div>
+                    <div className = 'col-xs-12'>
+                        <div className = 'col-xs-3 head'> LandMark : </div>
+                        <div className = 'col-xs-9'>{ this.props.address.landmark }</div>
+                    </div>
+                    <div className = 'col-xs-12'>
+                        <div className = 'col-xs-3 head'> City : </div>
+                        <div className = 'col-xs-9'>{ this.props.address.city }</div>
+                    </div>
+                </div>
+                <div className = "options col-xs-6" style = { this.props.active ? { backgroundColor: '#add7d5' }: {}}>
+                    <Link to = { 'address/add' + '?op=delete&address=' + JSON.stringify(this.state.address) }>
+                        <button className = "col-xs-5 col-xs-offset-1">
+                            <i className = "fa fa-trash"></i> Delete
+                        </button>
+                    </Link>
+                    <Link to = { 'address/add' + '?op=edit&address=' + JSON.stringify(this.state.address) }>
+                        <button className = "col-xs-4 col-xs-offset-1">
+                            <i className = "fa fa-pencil-square-o"></i> Edit
+                        </button>
+                    </Link>
+                </div>
+            </div>
 
-          <input type = 'text' placeholder = 'Enter complete address' className = 'col-xs-12' onChange = { this.saveAddress.bind(this) }></input>
+        )
+    }
 
-          <input type = 'text' placeholder = 'Landmark' className = 'col-xs-12' onChange = { this.saveLandMark.bind(this) }></input>
-
-        </div>
-
-        <ActivityFooter next = { 'order/confirm' } back = { 'book' }/>
-      </div>
-    )
-  }
-
-  saveAddress(e) {
-    let address = e.currentTarget.value;
-    this.setState({ address: address });
-    window.bookingDetails.address.address = this.state.address;
-  }
-
-  saveCity(e) {
-    let city = e.currentTarget.value;
-    this.setState({ city: city });
-    window.bookingDetails.address.city = this.state.city;
-  }
-
-  saveLandMark(e) {
-    let landMark = e.currentTarget.value;
-    this.setState({ landMark: landMark });
-    window.bookingDetails.address.landMark = this.state.landMark;
-  }
+    selectAddress() {
+        this.props.selectedAddress(this.state.address);
+    }
 }
+
 

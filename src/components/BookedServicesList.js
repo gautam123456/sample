@@ -5,14 +5,12 @@ import React from 'react';
 import ServiceMenu from './ServiceMenu';
 import $ from 'jquery';
 
-import bookingDetails from '../../data/constants.json';
-
+import ajaxObj from '../../data/ajax.json';
 
 export default class BookedServicesList extends React.Component {
 
   constructor(props) {
     super(props);
-    window.localStorage.bookingDetails ? window.bookingDetails = JSON.parse(window.localStorage.bookingDetails) : window.bookingDetails = bookingDetails;
     this.state = {
       bookedItemList: window.bookingDetails,
       discount: 0,
@@ -83,36 +81,22 @@ export default class BookedServicesList extends React.Component {
 
   applyPromocode() {
     let self = this;
-    $.ajax({
-      url: 'https://storeapi.lookplex.com/wsv1/masnepservice/iscouponvalid',
-      data: { couponcode: self.state.couponCode },
-      dataType: 'json',
-      xhrFields: { withCredentials: true },
-      contentType: 'application/x-www-form-urlencoded',
-      success: function(data) {
-        console.log(JSON.stringify(data));
-      },
-      type: 'POST'
-    });
-
-    var code = self.state.couponCode.toString.lowerCase();
-    var discount = 0;
-    if(code == 'look40'){
-      discount = 40 * window.bookingDetails.subTotal / 100;
-      this.setState({ discount: 40, errormsg: {display: 'none'}})
-    }else if(code == 'look30'){
-      discount = 30 * window.bookingDetails.subTotal / 100;
-      this.setState({ discount: 30, errormsg: {display: 'none'}})
-    }else{
-      discount = 0;
-      this.setState({ discount: 0, errormsg: {display: 'block'}})
+    ajaxObj.type = 'POST';
+    ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
+    ajaxObj.data = { couponcode: self.state.couponCode }
+    ajaxObj.success = function(data) {
+      self.setState({ discount: data.discount, errormsg: {display: 'none'} });
+      window.bookingDetails.couponcode = self.state.couponCode;
+      window.bookingDetails.discount = data.discount;
     }
-    window.bookingDetails.discount = discount;
+    ajaxObj.error = function(){
+      self.setState({ discount: 0 , errormsg: {display: 'block'} });
+    }
+    $.ajax(ajaxObj);
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {
 
-    var count = count || 0;
     var cost = parseInt(cost);
 
     if(operation){

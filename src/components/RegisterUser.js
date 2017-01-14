@@ -4,8 +4,9 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
 import $ from 'jquery';
+
+import ajaxObj from '../../data/ajax.json';
 
 export default class RegisterUser extends React.Component {
 
@@ -52,25 +53,15 @@ export default class RegisterUser extends React.Component {
         this.setState({ refcode: refcode });
     }
 
-    showErrorMessage(msg) {
-        console.log(msg);
+    showErrorMessage() {
     }
 
     register() {
-        let query = this.props.location.query,
-            self = this;
-        $.ajax({
-            url: 'https://storeapi.lookplex.com/wsv1/masnepservice/saveguestcustomer',
-            data: { phonenumber: query.number, otp: query.otp, token: query.token, address: self.state.address, name: self.state.name, refcode: self.state.refcode },
-            dataType: 'json',
-            xhrFields: { withCredentials: true },
-            contentType: 'application/x-www-form-urlencoded',
-            success: function(data) {
-                console.log(JSON.stringify(data));
-                browserHistory.push('/');
-            },
-            type: 'POST'
-        });
+        let query = this.props.location.query;
+        ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
+        ajaxObj.data = { phonenumber: query.number, otp: query.otp, token: query.token, address: this.state.address, name: this.state.name, refcode: this.state.refcode };
+        ajaxObj.success = function() { browserHistory.push('/') }
+        $.ajax(ajaxObj);
     }
 }
 

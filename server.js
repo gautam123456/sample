@@ -8,6 +8,7 @@ const open = require('open');
  * Flag indicating whether webpack compiled for the first time.
  * @type {boolean}
  */
+
 let isInitialCompilation = true;
 
 const compiler = webpack(config);
@@ -17,7 +18,7 @@ new WebpackDevServer(compiler, config.devServer)
   if (err) {
     console.log(err);
   }
-  console.log('Listening at 192.168.0.2' + config.port);
+  console.log('Listening at localhost' +":"+ config.port);
 });
 
 compiler.plugin('done', () => {

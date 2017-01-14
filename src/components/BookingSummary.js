@@ -12,7 +12,7 @@ export default class BookingSummary extends React.Component {
       <div>
         <ActivityHeader heading = { 'Booking Summary' }/>
         <BookedServicesList />
-        <ActivityFooter next = { 'address' } back = { '' }/>
+        <ActivityFooter next = { window.bookingDetails.subTotal >= window.bookingDetails.minBooking ? 'address': 'book' } back = { '' } msg = { 'Minimum booking amount is 800' }/>
       </div>
     )
   }

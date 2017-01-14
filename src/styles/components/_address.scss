@@ -21,3 +21,54 @@
     font-weight: bolder;
   }
 }
+
+.address-space{
+  margin-top: 20px;
+  color: $brand-color;
+
+  .addresscard {
+    background-color: #eee;
+    padding: 10px 5px;
+    border-radius: 4px 4px 4px 0;
+
+    .head {
+      font-weight: bolder;
+      padding: 0;
+    }
+
+    &.active {
+      color: #fff;
+      background-color: $brand-color;
+    }
+  }
+
+  .options {
+    padding: 4px;
+    background-color: #eee;
+    border-radius: 0 0 4px 4px;
+    a{
+
+      button {
+        border-radius: 3px;
+        padding: 3px;
+        background-color: #ff0000;
+        opacity: 0.6;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+
+    a:nth-child(2) {
+
+      button{
+        background-color: $brand-color;
+      }
+    }
+
+
+
+  }
+}
+

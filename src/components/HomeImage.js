@@ -7,18 +7,16 @@ import StaticPortion from './StaticPortion';
 import Cart from './Cart';
 import Carousel from './Carousel';
 
-import bookingDetails from '../../data/constants.json';
 import data from '../../data/items.json'
 import testimonials from '../../data/testimonials.json'
 
 export default class HomeImage extends React.Component {
   constructor(props) {
     super(props);
-    window.localStorage.bookingDetails ? window.bookingDetails = JSON.parse(window.localStorage.bookingDetails) : window.bookingDetails = bookingDetails;
     this.state = {
       active: '1',
       data: data.serviceList['1'],
-      bookingDetails: window.bookingDetails,
+      bookingDetails: window.bookingDetails
     };
   }
 
@@ -65,7 +63,6 @@ export default class HomeImage extends React.Component {
 
   bookingDetailsChanged(id, name, cost, count, operation) {
 
-    var count = count || 0;
     var cost = parseInt(cost);
 
     if(operation){
@@ -93,6 +90,5 @@ export default class HomeImage extends React.Component {
 
   saveToLocalStorage() {
     window.localStorage.bookingDetails = JSON.stringify(window.bookingDetails);
-    console.log(window.localStorage.bookingDetails);
   }
 }

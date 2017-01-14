@@ -4,8 +4,9 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
 import $ from 'jquery';
+
+import ajaxObj from '../../data/ajax.json';
 
 export default class Login extends React.Component {
 
@@ -36,24 +37,18 @@ export default class Login extends React.Component {
     number.length <= 10 ? this.setState({ number: number }) : this.showErrorMessage('Please provide valid mobile number');
   }
 
-  showErrorMessage(msg){
-    console.log(msg);
+  showErrorMessage(){
   }
 
   login() {
     let self = this;
-    $.ajax({
-      url: 'https://storeapi.lookplex.com/wsv1/masnepservice/getmobileotp',
-      data: { phonenumber: self.state.number },
-      dataType: 'json',
-      xhrFields: { withCredentials: true },
-      contentType: 'application/x-www-form-urlencoded',
-      success: function(data) {
-        console.log(JSON.stringify(data));
-        browserHistory.push('/otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
-      },
-      type: 'POST'
-    });
+    ajaxObj.type = 'POST';
+    ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
+    ajaxObj.data = { phonenumber: self.state.number };
+    ajaxObj.success = function(data) {
+      browserHistory.push('/otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
+    }
+    $.ajax(ajaxObj);
   }
 }
 

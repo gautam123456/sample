@@ -2,12 +2,11 @@
  * Created by gautam on 12/12/16.
  */
 import React from 'react';
-import Cart from './Cart';
 
 export default class ServiceMenu extends React.Component {
   render() {
     return (
-      <div key = { this.props.key } className = 'menu full-width'>
+      <div className = 'menu full-width'>
         <div className = 'col-xs-7'>
 
           { this.props.list.name }<br/>

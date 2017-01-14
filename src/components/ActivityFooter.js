@@ -17,6 +17,9 @@ export default class ActivityFooter extends React.Component {
           <span className='col-xs-3 pad0'>
               <Link to = { '/'+this.props.next }>Next &nbsp;
                   <i className="fa fa-arrow-circle-right"></i>
+                  <div className="tooltip">
+                      <span className="tooltiptext"> { this.props.msg } </span>
+                  </div>
               </Link>
           </span>
             </footer>

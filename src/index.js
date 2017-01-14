@@ -2,13 +2,14 @@ import 'styles/salonathome.scss';
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Link, IndexRoute, browserHistory  } from 'react-router';
+import { Router, Route, browserHistory  } from 'react-router';
 
 import App from './components/Main';
-import Address from './components/Address';
 import AddAddress from './components/AddAddress';
+import AddressList from './components/AddressList';
 import BaseComponent from './components/base/Base';
 import BookingConfirm from './components/BookingConfirm';
+import ThankYou from './components/ThankYou';
 import BookingSummary from './components/BookingSummary';
 import FullCart from './components/FullCart';
 import Login from './components/Login';
@@ -23,9 +24,10 @@ const Base = new BaseComponent();
 render(
   <Router history = { browserHistory } onEnter = { Base.routerInvoked() }>
     <Route path = { '/' } component = { App } />
-    <Route path = { 'address' } component = { Address } />
+    <Route path = { 'address' } component = { AddressList } />
     <Route path = { 'address/add' } component = { AddAddress } />
-    <Route path = { 'booking/confirmed' } component = { BookingConfirm } />
+    <Route path = { 'booking/confirm' } component = { BookingConfirm } />
+    <Route path = { 'booking/confirmed' } component = { ThankYou } />
     <Route path = { 'book' } component = { BookingSummary } />
     <Route path = { 'cart' } component = { FullCart } />
     <Route path = { 'login' } component = { Login }  />

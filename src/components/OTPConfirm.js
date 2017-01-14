@@ -4,9 +4,9 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
-import ThankYouFooter from './ThankYouFooter';
 import $ from 'jquery';
+
+import ajaxObj from '../../data/ajax.json';
 
 export default class OTPConfirm extends React.Component {
   constructor(props) {
@@ -41,24 +41,18 @@ export default class OTPConfirm extends React.Component {
   }
 
   register() {
-    console.log("---------1");
     let query = this.props.location.query;
     if(query.isNewUser === true){
-      console.log("---------2");
+
       browserHistory.push( '/register?number=' + query.number + '&isNewUser=' + query.isNewUser + '&token=' + query.token + '&otp=' + this.state.otp );
+
     }else{
-      $.ajax({
-        url: 'https://storeapi.lookplex.com/wsv1/masnepservice/loginguestcustomer',
-        data: { phonenumber: query.number, otp: this.state.otp, token: query.token },
-        dataType: 'json',
-        xhrFields: { withCredentials: true },
-        contentType: 'application/x-www-form-urlencoded',
-        success: function(data) {
-          console.log(JSON.stringify(data));
-          browserHistory.push('/');
-        },
-        type: 'POST'
-      });
+
+      ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
+      ajaxObj.data = { phonenumber: query.number, otp: this.state.otp, token: query.token };
+      ajaxObj.success = function() { browserHistory.push('/') }
+      $.ajax(ajaxObj);
+
     }
   }
 }

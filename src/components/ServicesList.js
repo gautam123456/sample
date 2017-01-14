@@ -3,10 +3,6 @@
  */
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
-import Cart from './Cart';
-
-import Data from '../../data/items.json';
-import bookingDetails from '../../data/constants.json';
 
 export default class ServicesList extends React.Component {
   constructor(props) {
@@ -17,7 +13,7 @@ export default class ServicesList extends React.Component {
     return <header key = { id } className = 's-heading full-width'>{ title }</header>
   }
 
-  renderDescription(description, title) {
+  renderDescription() {
     return <div>
     </div>
   }

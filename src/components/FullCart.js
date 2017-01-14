@@ -6,15 +6,10 @@ import ServiceMenu from './ServiceMenu';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 
-import bookingDetails from '../../data/constants.json';
-
-
 export default class FullCart extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(window.localStorage.bookingDetails);
-    window.localStorage.bookingDetails ? window.bookingDetails = JSON.parse(window.localStorage.bookingDetails) : window.bookingDetails = bookingDetails;
     this.state = {
       bookedItemList: window.bookingDetails,
       discount: 0,
@@ -28,9 +23,9 @@ export default class FullCart extends React.Component {
   render() {
     return (
         <div>
-          <ActivityHeader heading = { 'Provide Address' }/>
+          <ActivityHeader heading = { 'Cart' }/>
           { this.renderCart() }
-          <ActivityFooter next = { this.state.bookedItemList.subTotal >= this.state.bookedItemList.minBooking ? 'book':'/' } back = { '/' }/>
+          <ActivityFooter next = { this.navigateTo() } back = { '/' }/>
         </div>
     )
   }
@@ -74,9 +69,18 @@ export default class FullCart extends React.Component {
     )
   }
 
+  navigateTo() {
+    if( window.bookingDetails.hashIndex === '' ){
+      return '/login'
+    }else if( this.state.bookedItemList.subTotal >= this.state.bookedItemList.minBooking ){
+      return '/book';
+    }else{
+      return '/';
+    }
+  }
+
   bookingDetailsChanged(id, name, cost, count, operation) {
 
-    var count = count || 0;
     var cost = parseInt(cost);
 
     if(operation){

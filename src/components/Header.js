@@ -15,7 +15,7 @@ export default class Header extends React.Component {
   }
 
   openDrawer() {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById('mySidenav').style.width = '250px';
   }
 }
 

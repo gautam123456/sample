@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
-import Base from './base/Base';
 
 export default class Cart extends React.Component {
   constructor(props) {
@@ -36,43 +35,6 @@ export default class Cart extends React.Component {
     )
   }
 
-  componentDidMount() {
-    window.onscroll = this.userIsScrolling
-  }
-
-  userIsScrolling() {
-    console.log('Scrolling');
-    var that = this;
-    var doc = document.documentElement;
-    var h1 = ( window.pageYOffset || doc.scrollTop )  - ( doc.clientTop || 0 );
-
-    setTimeout(function() {
-      var h2 = ( window.pageYOffset || doc.scrollTop )  - ( doc.clientTop || 0 );
-      if( h1 > h2) {
-        that.userIsScrollingUp
-      }else if( h2 > h1) {
-        that.userIsScrollingDown
-      }else {
-        that.userScrollingStopped
-      }
-    }, 100)
-
-  }
-
-  userIsScrollingUp() {
-    console.log('Up');
-  }
-
-  userIsScrollingDown() {
-    console.log("Set1");
-
-  }
-
-  userScrollingStopped() {
-    console.log("UnSet1");
-
-  }
-
   navigateTo() {
     this.isLoggedIn() ?  browserHistory.push('/book') : browserHistory.push('/login')
   }
@@ -82,9 +44,7 @@ export default class Cart extends React.Component {
   }
 
   isLoggedIn() {
-    console.log(document.cookie);
-    console.log("#########"+new Base().getCookie('hashid')+"#########");
-    if(new Base().getCookie('hashid') !== "")
+    if(window.bookingDetails.hashIndex)
       return true;
     return false;
   }
