@@ -17,11 +17,6 @@ export default class ConfirmationList extends React.Component {
         }
     }
 
-    componentWillMount() {
-        console.log("Confirmation list to be mounted");
-
-    }
-
     render() {
         const then = this,
             objKeys = this.state.bookedItemList ? Object.keys(this.state.bookedItemList.services) : [],

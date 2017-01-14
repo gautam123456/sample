@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
-import ConfirmationList from './ConfirmationList';
 import ThankYouFooter from './ThankYouFooter';
 
 import bookingDetails from '../../data/constants.json';

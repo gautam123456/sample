@@ -15,8 +15,8 @@ import FullCart from './components/FullCart';
 import Login from './components/Login';
 import OrderConfirm from './components/OrderConfirm';
 import OTPConfirm from './components/OTPConfirm';
-import Search from './components/Search';
 import RegisterUser from './components/RegisterUser';
+import Loader from './components/Loader';
 
 const Base = new BaseComponent();
 // Render the main component into the dom
@@ -34,7 +34,7 @@ render(
     <Route path = { 'register' } component = { RegisterUser } />
     <Route path = { 'order/confirm' } component = { OrderConfirm } />
     <Route path = { 'otp/confirm' } component = { OTPConfirm } />
-    <Route path = { 'search' } component = { Search } />
+    <Route path = { 'loader' } component = { Loader } />
   </Router>
 , document.getElementById('app'));
 

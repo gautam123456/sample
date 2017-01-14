@@ -34,19 +34,23 @@ export default class Login extends React.Component {
 
   numberChanged(e) {
     let number = e.currentTarget.value;
-    number.length <= 10 ? this.setState({ number: number }) : this.showErrorMessage('Please provide valid mobile number');
+    number.length <= 10 ? this.setState({ number: number }) : this.showErrorMessage();
   }
 
   showErrorMessage(){
   }
 
   login() {
+    browserHistory.push('loader');
     let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
     ajaxObj.data = { phonenumber: self.state.number };
     ajaxObj.success = function(data) {
       browserHistory.push('/otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
+    }
+    ajaxObj.error = function() {
+      browserHistory.push('/');
     }
     $.ajax(ajaxObj);
   }

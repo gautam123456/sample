@@ -31,7 +31,6 @@ export default class BookingConfirm extends React.Component {
 
   validateAndConfirm() {
     const details = window.bookingDetails;
-    console.log(details.services + ":----:" + JSON.stringify(details));
     if (details.addresslkey && details.timing && details.date && details.mailId && details.services){
 
       details.serviceids = '';
@@ -46,11 +45,11 @@ export default class BookingConfirm extends React.Component {
       this.confirm(details);
 
     }else{
-      this.showErrorMsg()
     }
   }
 
   confirm(e) {
+    browserHistory.push('loader')
     let self = this;
     ajaxObj.type = 'POST'
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';
@@ -62,10 +61,6 @@ export default class BookingConfirm extends React.Component {
       self.showErrorMsg(e);
     }
     $.ajax(ajaxObj);
-  }
-
-  showErrorMsg(e) {
-    console.log('Somthing Wrong Happened : ');
   }
 }
 

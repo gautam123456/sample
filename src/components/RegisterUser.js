@@ -40,12 +40,12 @@ export default class RegisterUser extends React.Component {
 
     nameChanged(e) {
         let name = e.currentTarget.value;
-        name.length > 0 ? this.setState({ name: name }) : this.showErrorMessage('Please provide your Name');
+        this.setState({ name: name });
     }
 
     addressChanged(e) {
         let address = e.currentTarget.value;
-        address.length > 0 ? this.setState({ address: address }) : this.showErrorMessage('Please provide full Address');
+        this.setState({ address: address });
     }
 
     refCodeChanged(e) {
@@ -53,10 +53,8 @@ export default class RegisterUser extends React.Component {
         this.setState({ refcode: refcode });
     }
 
-    showErrorMessage() {
-    }
-
     register() {
+        browserHistory.push('loader')
         let query = this.props.location.query;
         ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
         ajaxObj.data = { phonenumber: query.number, otp: query.otp, token: query.token, address: this.state.address, name: this.state.name, refcode: this.state.refcode };

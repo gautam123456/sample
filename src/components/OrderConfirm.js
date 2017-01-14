@@ -70,7 +70,6 @@ export default class OrderConfirm extends React.Component {
 
   timeEntered(e) {
     let timing = e.currentTarget.value;
-    console.log(timing);
     window.bookingDetails.timing = timing;
     this.setState({ timing: timing });
   }

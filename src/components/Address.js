@@ -2,10 +2,7 @@
  * Created by rgautam on 1/13/17.
  */
 import React from 'react';
-import { browserHistory, Link } from 'react-router';
-import $ from 'jquery';
-
-import ajaxObj from '../../data/ajax.json';
+import { Link } from 'react-router';
 
 export default class AddAddress extends React.Component {
     constructor(props) {
@@ -13,9 +10,6 @@ export default class AddAddress extends React.Component {
         this.state = {
             address: this.props.address
         }
-    }
-    componentWillMount(){
-        console.log('######################');
     }
 
     render() {

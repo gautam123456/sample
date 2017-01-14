@@ -9,22 +9,13 @@ export default class ServicesList extends React.Component {
     super(props);
   }
 
-  renderHeading(title, id) {
-    return <header key = { id } className = 's-heading full-width'>{ title }</header>
-  }
-
-  renderDescription() {
-    return <div>
-    </div>
-  }
-
   render() {
     const then = this;
     return (
       <div>
         {
           this.props.data.serviceCategoryList.map(function(title) {
-            return <div> { then.renderHeading(title.name, then.props.service + '-' + title.id) }
+            return <div>
                       { title.serviceItemList.map(function(list) {
                         let id = then.props.service + '-' + title.id + '-' + list.id;
                         return <ServiceMenu list = {list} count = { then.props.bookingDetails.services && then.props.bookingDetails.services[id] ? then.props.bookingDetails.services[id].count : 0 } key = { id } id = { id } bookingDetailsChanged = { then.props.bookingDetailsChanged.bind(this) }/>
@@ -32,9 +23,6 @@ export default class ServicesList extends React.Component {
                       }
             </div>
           })
-        }
-        {
-          this.renderDescription( this.props.data.serviceDescription, this.props.data.metaTitle )
         }
 
       </div>

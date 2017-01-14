@@ -25,7 +25,7 @@ export default class FullCart extends React.Component {
         <div>
           <ActivityHeader heading = { 'Cart' }/>
           { this.renderCart() }
-          <ActivityFooter next = { this.navigateTo() } back = { '/' }/>
+          <ActivityFooter next = { this.state.bookedItemList.subTotal >= this.state.bookedItemList.minBooking ? this.navigateTo() : '' } back = { '/' }/>
         </div>
     )
   }
@@ -71,11 +71,9 @@ export default class FullCart extends React.Component {
 
   navigateTo() {
     if( window.bookingDetails.hashIndex === '' ){
-      return '/login'
-    }else if( this.state.bookedItemList.subTotal >= this.state.bookedItemList.minBooking ){
-      return '/book';
+      return 'login'
     }else{
-      return '/';
+      return 'book';
     }
   }
 
@@ -111,5 +109,11 @@ export default class FullCart extends React.Component {
 
   saveToLocalStorage() {
     window.localStorage.bookingDetails = JSON.stringify(window.bookingDetails);
+  }
+
+  isLoggedIn() {
+    if(window.bookingDetails.hashIndex)
+      return true;
+    return false;
   }
 }

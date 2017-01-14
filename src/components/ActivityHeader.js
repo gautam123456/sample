@@ -5,9 +5,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default class ActivityHeader extends React.Component {
-  componentWillMount() {
-    console.log('--------------###');
-  }
   render() {
     return (
       <header className='header'>

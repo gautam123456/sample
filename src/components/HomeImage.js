@@ -28,7 +28,7 @@ export default class HomeImage extends React.Component {
     var background = {
       backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
       backgroundSize: 'cover'
-    };
+    }
     return (
       <section className = 'col-xs-12 col-md-4 pad0'>
         <div className = 'bgimage' style = { background }>
@@ -64,7 +64,6 @@ export default class HomeImage extends React.Component {
   bookingDetailsChanged(id, name, cost, count, operation) {
 
     var cost = parseInt(cost);
-
     if(operation){
       // if operation is addition of services....
       window.bookingDetails.servicesCount += 1;

@@ -98,7 +98,6 @@ export default class BookedServicesList extends React.Component {
   bookingDetailsChanged(id, name, cost, count, operation) {
 
     var cost = parseInt(cost);
-
     if(operation){
       // if operation is addition of services....
       window.bookingDetails.servicesCount += 1;

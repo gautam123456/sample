@@ -33,7 +33,7 @@ export default class OTPConfirm extends React.Component {
 
   otpChanged(e) {
     let otp = e.currentTarget.value;
-    otp.length <= 6 ? this.setState({ otp: otp }) : this.showErrorMessage('Please provide valid mobile number');
+    otp.length <= 6 ? this.setState({ otp: otp }) : '';
   }
 
   showErrorMessage() {
@@ -41,6 +41,7 @@ export default class OTPConfirm extends React.Component {
   }
 
   register() {
+    browserHistory.push('loader')
     let query = this.props.location.query;
     if(query.isNewUser === true){
 

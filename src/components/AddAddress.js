@@ -19,7 +19,7 @@ export default class AddAddress extends React.Component {
       address: address ? address.address : '',
       landmark: address ? address.landmark : '',
       lkey: address ? address.lkey : '',
-      op: op,
+      op: op
     }
   }
   render() {
@@ -70,10 +70,11 @@ export default class AddAddress extends React.Component {
 
   updateAddress() {
     this.state.op === 'edit' ? this.editAddress() : (this.state.op === 'delete' ? this.deleteAddress() : this.addAddress())
-    browserHistory.push('/address');
+    browserHistory.push('address');
   }
 
   addAddress() {
+    browserHistory.push('loader')
     ajaxObj.url = ajaxObj.baseUrl + '/addaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark };
     ajaxObj.success = function(){ browserHistory.push('address') }
@@ -81,6 +82,7 @@ export default class AddAddress extends React.Component {
   }
 
   editAddress() {
+    browserHistory.push('loader')
     ajaxObj.url = ajaxObj.baseUrl + '/editaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark, lkey: this.state.lkey };
     ajaxObj.success = function(){ browserHistory.push('address') }
@@ -88,6 +90,7 @@ export default class AddAddress extends React.Component {
   }
 
   deleteAddress() {
+    browserHistory.push('loader')
     ajaxObj.url = ajaxObj.baseUrl + '/deleteaddress';
     ajaxObj.data = { lkey: this.state.lkey };
     ajaxObj.success = function(){ browserHistory.push('address') }

@@ -2,7 +2,7 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
-import { browserHistory, Link } from 'react-router';
+import { Link } from 'react-router';
 import Address from './Address';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
@@ -40,16 +40,19 @@ export default class addresslist extends React.Component {
     }
 
     componentWillMount(){
-        console.log('To be mounted')
         this.getaddresslist();
     }
 
     getaddresslist() {
         const self = this;
         ajaxObj.type = 'GET';
+        ajaxObj.data = '';
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
         ajaxObj.success = function(data) {
             self.setState({ addresslist: data.addressList });
+        }
+        ajaxObj.error = function(e){
+
         }
         $.ajax(ajaxObj);
     }
