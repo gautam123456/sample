@@ -35,6 +35,9 @@ export default class AddAddress extends React.Component {
             <option value = 'Delhi'> Delhi </option>
             <option value = 'Noida'> Noida </option>
             <option value = 'Gurgaon'> Gurgaon </option>
+            <option value = 'Faridabad'> Faridabad </option>
+            <option value = 'Ghaziabad'> Ghaziabad </option>
+            <option value = 'Greater Noida'> Greater Noida </option>
           </select>
 
           <input type = 'text' placeholder = 'Enter complete address' className = 'col-xs-12' onChange = { this.saveAddress.bind(this) } value = { this.state.address }/>
