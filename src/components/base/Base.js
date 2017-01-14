@@ -22,7 +22,7 @@ export default class Base extends React.Component {
         try{
             bookingDetailsLS = JSON.parse(window.localStorage.bookingDetails);
         }catch(e){
-            console.log('Error in localStorage BookingDetails : ' + window.localStorage.bookingDetails);
+            console.log(' Error in localStorage BookingDetails : ' + window.localStorage.bookingDetails);
         }
         window.bookingDetails = bookingDetailsLS || bookingDetails;
         this.loginStatus();
