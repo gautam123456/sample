@@ -23,7 +23,7 @@ export default class BookingConfirm extends React.Component {
         <ActivityHeader heading = { 'Confirm Booking' }/>
         <ConfirmationList />
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 pad0'>
-         <button className = 'col-xs-12' style = {{padding: 10,fontSize: 14,position: 'fixed',bottom:0}} onClick = { this.validateAndConfirm }> Confirm Booking </button>
+         <button className = 'col-xs-12' style = {{padding: 15,fontSize: 14, fontWeight: 'bolder',position: 'fixed',bottom:0}} onClick = { this.validateAndConfirm }> Confirm Booking </button>
         </div>
       </div>
     )

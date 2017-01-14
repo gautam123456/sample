@@ -18,7 +18,7 @@ export default class Base extends React.Component {
         document.getElementById('load').style.display = 'none';
         document.getElementById('mySidenav').style.display = 'block';
         document.body.style.backgroundColor = '#fff';
-        let bookingDetailsLS = {};
+        let bookingDetailsLS = '';
         try{
             bookingDetailsLS = JSON.parse(window.localStorage.bookingDetails);
         }catch(e){
