@@ -3,31 +3,50 @@
 footer {
   background-color: $footer-bg;
   margin: auto;
-  padding-top: 5px;
-  .flinks {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    .info {
-      padding: 10px;
-      a {
+  padding: 20px 0 0 0;
+
+  .col-xs-3 {
+
+    &.pad0{
+      text-align: center;
+
+      a{
         color: #555;
       }
     }
   }
+
+  .h{
+    margin-bottom: 10px;
+  }
+
+  .col-xs-6{
+
+    padding-left: 20px;
+
+    a{
+      color: #555;
+    }
+  }
+
+
+
   .social {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+
     .fs-item {
       display: inline-block;
       width: 20px;
       height: 20px;
       border-radius: 20px;
       color: #fff;
-      padding: 9px;
+      padding: 3px 0 0 0;
       margin: 7px;
-      font-size: 20px;
+
+      i{
+        font-size: 14px;
+      }
     }
     .fs-item:nth-child(1) {
       background-color: #3b5998;

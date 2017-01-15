@@ -42,7 +42,6 @@ export default class AddAddress extends React.Component {
                     </Link>
                 </div>
             </div>
-
         )
     }
 

@@ -51,7 +51,7 @@ export default class addresslist extends React.Component {
         ajaxObj.success = function(data) {
             self.setState({ addresslist: data.addressList });
         }
-        ajaxObj.error = function(e){
+        ajaxObj.error = function(){
 
         }
         $.ajax(ajaxObj);

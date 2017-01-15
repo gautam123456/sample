@@ -5,7 +5,7 @@ import React from 'react';
 import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
 import Cart from './Cart';
-import Carousel from './Carousel';
+import Testimonial from './Testimonial';
 
 import data from '../../data/items.json'
 import testimonials from '../../data/testimonials.json'
@@ -34,24 +34,24 @@ export default class HomeImage extends React.Component {
         <div className = 'bgimage' style = { background }>
         </div>
         <div className = 'filter'>
-          <span className = 'f-list'>
-              <label className = { this.state.active == '1' ? 'active' : ''} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
+          <span className = 'f-list col-xs-12'>
+              <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
 
-              <label className = { this.state.active == '2' ? 'active' : ''} data-value = '2' onClick = { this.serviceTypeSelected.bind(this) }>Body</label>
+              <label className = { this.state.active == '2' ? 'active col-xs-2' : 'col-xs-2'} data-value = '2' onClick = { this.serviceTypeSelected.bind(this) }>Body</label>
 
-              <label className = { this.state.active == '6' ? 'active' : ''} data-value = '6' onClick = { this.serviceTypeSelected.bind(this) }>Bridal</label>
+              <label className = { this.state.active == '6' ? 'active col-xs-2' : 'col-xs-2'} data-value = '6' onClick = { this.serviceTypeSelected.bind(this) }>Bridal</label>
 
-              <label className = { this.state.active == '3' ? 'active' : ''} data-value = '3' onClick = { this.serviceTypeSelected.bind(this) }>Hair</label>
+              <label className = { this.state.active == '3' ? 'active col-xs-2' : 'col-xs-2'} data-value = '3' onClick = { this.serviceTypeSelected.bind(this) }>Hair</label>
 
-              <label className = { this.state.active == '4' ? 'active' : ''} data-value = '4' onClick = { this.serviceTypeSelected.bind(this) }>Makeup</label>
+              <label className = { this.state.active == '4' ? 'active col-xs-2' : 'col-xs-2'} data-value = '4' onClick = { this.serviceTypeSelected.bind(this) }>Makeup</label>
 
-              <label className = { this.state.active == '5' ? 'active' : ''} data-value = '5' onClick = { this.serviceTypeSelected.bind(this) }>Packages</label>
+              <label className = { this.state.active == '5' ? 'active col-xs-2' : 'col-xs-2'} data-value = '5' onClick = { this.serviceTypeSelected.bind(this) }>Packages</label>
           </span>
         </div>
 
         <ServicesList data = { this.state.data } service = { this.state.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
         <StaticPortion />
-        <Carousel data = { testimonials } />
+        <Testimonial data = { testimonials } />
         <Cart bookingDetails = { this.state.bookingDetails } />
       </section>
     )
