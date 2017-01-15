@@ -9,9 +9,16 @@
     background: url('https://static.lookplex.com/mobileImages/logo.png') center no-repeat;
     background-size: contain;
     height: 25px;
+
     .menue {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
       justify-content: flex-end;
       margin-right: 6px;
     }

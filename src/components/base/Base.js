@@ -31,6 +31,7 @@ export default class Base extends React.Component {
     loginStatus() {
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
         ajaxObj.type = 'GET';
+        ajaxObj.data = '';
         ajaxObj.success = function(data) {
             window.bookingDetails.hashIndex = data.hashIndex;
             window.bookingDetails.addressList = data.addressList;

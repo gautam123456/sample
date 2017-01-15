@@ -45,7 +45,7 @@ export default class FullCart extends React.Component {
     const then = this,
         objKeys = Object.keys(this.state.bookedItemList.services);
     return (
-        <div className = 'col-md-offset-4 col-md-4'>
+        <div className = 'col-md-offset-4 col-md-4 pad0'>
           {
             objKeys.map( function(key) {
               return <ServiceMenu list = { then.state.bookedItemList.services[key] } count = { then.state.bookedItemList.services && then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) }/>

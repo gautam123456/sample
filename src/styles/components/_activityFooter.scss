@@ -8,7 +8,11 @@
   font-weight: bolder;
   font-size: 15px;
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
   align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
   text-align: center;
 
   span {

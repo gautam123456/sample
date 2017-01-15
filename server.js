@@ -11,14 +11,15 @@ const open = require('open');
 
 let isInitialCompilation = true;
 
+const listenOn = '192.168.0.100';
 const compiler = webpack(config);
 
 new WebpackDevServer(compiler, config.devServer)
-.listen(config.port, 'localhost', (err) => {
+.listen(config.port, listenOn, (err) => {
   if (err) {
     console.log(err);
   }
-  console.log('Listening at localhost' +":"+ config.port);
+  console.log('Listening on '+ listenOn +":"+ config.port);
 });
 
 compiler.plugin('done', () => {
