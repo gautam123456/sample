@@ -15,6 +15,10 @@ And you are done, you can see you application running on localhost port 80.
 # Designing Rules to be followed. #
 
 Brand Color to be used.
-We have mostly used brand color **#068481** in our project and that needs to be used in all the headers, moreover shades of this color as attached below can also be used in case of subheaders, highlighted items etc.
+We have mostly used brand color **#068481** & **#ff6666** in our project.
+* **#068481** needs to be used in all the headers, moreover shades of this color as attached below can also be used in case of subheaders, highlighted items etc.
+* **#ff6666** needs to be used in all the buttons, moreover shades of this color as attached below can also be used in case of hover, click, buttons etc.
 
 ![Screen Shot 2017-01-16 at 11.43.16 PM.png](https://bitbucket.org/repo/jeKzAG/images/1810434627-Screen%20Shot%202017-01-16%20at%2011.43.16%20PM.png)
+
+![Screen Shot 2017-01-16 at 11.48.18 PM.png](https://bitbucket.org/repo/jeKzAG/images/4123259503-Screen%20Shot%202017-01-16%20at%2011.48.18%20PM.png)
