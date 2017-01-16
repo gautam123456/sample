@@ -16,7 +16,6 @@ export default class Base extends React.Component {
 
     routerInvoked() {
         document.getElementById('load').style.display = 'none';
-        document.getElementById('mySidenav').style.display = 'block';
         document.body.style.backgroundColor = '#fff';
         let bookingDetailsLS = '';
         try{
@@ -33,7 +32,7 @@ export default class Base extends React.Component {
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
         ajaxObj.success = function(data) {
-            window.bookingDetails.hashIndex = data.hashIndex;
+            window.bookingDetails.name = data.name;
             window.bookingDetails.addressList = data.addressList;
         }
         $.ajax(ajaxObj);

@@ -70,7 +70,7 @@ export default class FullCart extends React.Component {
   }
 
   navigateTo() {
-    if( window.bookingDetails.hashIndex === '' ){
+    if( window.bookingDetails.name === '' ){
       return 'login'
     }else{
       return 'book';
@@ -112,7 +112,7 @@ export default class FullCart extends React.Component {
   }
 
   isLoggedIn() {
-    if(window.bookingDetails.hashIndex)
+    if(window.bookingDetails.name)
       return true;
     return false;
   }

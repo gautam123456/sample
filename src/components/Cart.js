@@ -44,7 +44,7 @@ export default class Cart extends React.Component {
   }
 
   isLoggedIn() {
-    if(window.bookingDetails.hashIndex)
+    if(window.bookingDetails.name)
       return true;
     return false;
   }

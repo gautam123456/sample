@@ -18,6 +18,7 @@ import OTPConfirm from './components/OTPConfirm';
 import RegisterUser from './components/RegisterUser';
 import Loader from './components/Loader';
 
+
 const Base = new BaseComponent();
 // Render the main component into the dom
 
@@ -37,5 +38,6 @@ render(
     <Route path = { 'loader' } component = { Loader } />
   </Router>
 , document.getElementById('app'));
+
 
 
