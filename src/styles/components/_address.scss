@@ -67,6 +67,16 @@
       }
     }
 
+    button {
+      border-radius: 3px;
+      padding: 3px;
+      background-color: $brand-color;
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
 
 
   }
