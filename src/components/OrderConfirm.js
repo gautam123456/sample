@@ -92,16 +92,16 @@ export default class OrderConfirm extends React.Component {
             <div className = 'col-xs-6 col-xs-offset-3 pad0'>
               <select className = 'col-xs-12' onChange = { this.timeEntered.bind(this) }>
                 <option value=''>Select Time</option>
-                <option value='09:00 AM'>09:00 AM</option>
-                <option value='10:00 AM'>10:00 AM</option>
-                <option value='11:00 AM'>11:00 AM</option>
-                <option value='12:00 PM'>12:00 PM</option>
-                <option value='01:00 PM'>01:00 PM</option>
-                <option value='02:00 PM'>02:00 PM</option>
-                <option value='03:00 PM'>03:00 PM</option>
-                <option value='04:00 PM'>04:00 PM</option>
-                <option value='05:00 PM'>05:00 PM</option>
-                <option value='06:00 PM'>06:00 PM</option>
+                <option value='09:00-AM'>09:00 AM</option>
+                <option value='10:00-AM'>10:00 AM</option>
+                <option value='11:00-AM'>11:00 AM</option>
+                <option value='12:00-PM'>12:00 PM</option>
+                <option value='01:00-PM'>01:00 PM</option>
+                <option value='02:00-PM'>02:00 PM</option>
+                <option value='03:00-PM'>03:00 PM</option>
+                <option value='04:00-PM'>04:00 PM</option>
+                <option value='05:00-PM'>05:00 PM</option>
+                <option value='06:00-PM'>06:00 PM</option>
               </select>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default class OrderConfirm extends React.Component {
           </div>
 
         </div>
-        <ActivityFooter next = { this.state.date && this.state.mailId && this.state.timing ? '/booking/confirm?lkey=' + this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing :'order/confirm' } back = { 'address' }/>
+        <ActivityFooter next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' + this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing :'order/confirm' } back = { 'address' }/>
       </div>
     )
   }
