@@ -18,7 +18,7 @@ export default class Header extends React.Component {
   loggedInRender() {
     return (
         <div>
-          <div className = 'u-name' href='/login'>{ this.getShortName() }</div>
+          { /*TODO <div className = 'u-name'>{ this.getShortName() }</div> */ }
           <a onClick = { this.logOut }>Logout</a>
         </div>
     )
@@ -43,6 +43,7 @@ export default class Header extends React.Component {
           <a href='/'>Home</a>
           <a href='/search'>Search</a>
           <a href='/'>Salon @ home</a>
+          <a href='/gallery/bridal'>Gallery</a>
           <a href='/discover'>Discover</a>
           <a href='/howitworks'>How it Works</a>
           <span>For any assistance call us on 9811870670</span>

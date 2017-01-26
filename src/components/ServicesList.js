@@ -4,9 +4,6 @@
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
 
-import Data from '../../data/items.json';
-import bookingDetails from '../../data/constants.json';
-
 export default class ServicesList extends React.Component {
   constructor(props) {
     super(props);

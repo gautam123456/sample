@@ -9,14 +9,17 @@ import AddAddress from './components/AddAddress';
 import AddressList from './components/AddressList';
 import BaseComponent from './components/base/Base';
 import BookingConfirm from './components/BookingConfirm';
-import ThankYou from './components/ThankYou';
 import BookingSummary from './components/BookingSummary';
 import FullCart from './components/FullCart';
+import Gallery from './components/Gallery';
+import GalleryHome from './components/GalleryHome';
+import Loader from './components/Loader';
 import Login from './components/Login';
 import OrderConfirm from './components/OrderConfirm';
 import OTPConfirm from './components/OTPConfirm';
 import RegisterUser from './components/RegisterUser';
-import Loader from './components/Loader';
+import ThankYou from './components/ThankYou';
+
 
 
 const Base = new BaseComponent();
@@ -31,11 +34,13 @@ render(
     <Route path = { 'booking/confirmed' } component = { ThankYou } />
     <Route path = { 'book' } component = { BookingSummary } />
     <Route path = { 'cart' } component = { FullCart } />
+    <Route path = { 'gallery' } component = { GalleryHome } />
+    <Route path = { 'gallery/bridal' } component = { Gallery } />
+    <Route path = { 'loader' } component = { Loader } />
     <Route path = { 'login' } component = { Login }  />
     <Route path = { 'register' } component = { RegisterUser } />
     <Route path = { 'order/confirm' } component = { OrderConfirm } />
     <Route path = { 'otp/confirm' } component = { OTPConfirm } />
-    <Route path = { 'loader' } component = { Loader } />
   </Router>
 , document.getElementById('app'));
 

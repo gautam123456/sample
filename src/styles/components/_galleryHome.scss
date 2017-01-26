@@ -1,0 +1,22 @@
+@import "../variables/screen";
+.home-gallery {
+
+  .gallery-btn {
+    margin: 40px 0;
+    background-color: $brand-color-2;
+    min-height: 50px;
+    box-shadow: 1px 1px 1px #888888;
+
+
+    a{
+      text-shadow: 2px 2px #ff0000;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    &:hover{
+      background-color: $brand-color-2-hover;
+    }
+  }
+}
+

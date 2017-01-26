@@ -1,0 +1,45 @@
+@import "../variables/screen";
+.gallery {
+  padding: 10px 0;
+  color: #999;
+
+  .gal-header {
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
+    color: #aaa;
+  }
+
+  .gal-header-2{
+    padding: 0 10px;
+    font-size: 25px;
+    color: #eee;
+    line-height: 25px;
+  }
+
+  .gal-header-3{
+    padding: 10px 10px;
+    font-size: 13px;
+    color: #999;
+  }
+
+  .gal-info{
+    padding: 10px 10px;
+    font-size: 13px;
+    color: #999;
+    text-align: center;
+  }
+
+  .gal-date{
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .image{
+
+    img{
+      max-width: 100%;
+    }
+  }
+}
+

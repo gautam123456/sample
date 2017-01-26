@@ -34,3 +34,6 @@ bower_components/
 
 # Rough work related to project
 rough.json
+
+#server file so that i don't accidently overright my ip address
+server.js

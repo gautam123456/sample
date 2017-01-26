@@ -65,7 +65,7 @@ export default class HomeImage extends React.Component {
 
     var cost = parseInt(cost);
     if(operation){
-      // if operation is addition of services....
+      // operation is addition of services....
       window.bookingDetails.servicesCount += 1;
       window.bookingDetails.subTotal += cost;
       if(window.bookingDetails.services[id]){
@@ -78,7 +78,7 @@ export default class HomeImage extends React.Component {
         }
       }
     } else {
-      // If operation is removal of services....
+      // operation is removal of services....
       window.bookingDetails.servicesCount -= 1;
       window.bookingDetails.subTotal -= cost;
       window.bookingDetails.services[id].count -= 1;
