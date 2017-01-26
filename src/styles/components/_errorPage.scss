@@ -1,0 +1,21 @@
+@import "../variables/screen";
+
+.error{
+  text-align: center;
+
+  .error-msg{
+    font-size: 100px;
+    color: $brand-color-lighter;
+
+    .error-info{
+      font-size: 13px;
+      color: $brand-color;
+      margin-bottom: 50px;
+    }
+  }
+
+  button{
+    min-height: 40px;
+    font-size: 15px;
+  }
+}

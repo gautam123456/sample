@@ -39,15 +39,15 @@ export default class BookingConfirm extends React.Component {
 
     console.log(details);
     if (details.addresslkey && details.timing && details.date && details.mailId && details.services){
-      console.log('inside if');
+
       details.serviceids = '';
       const keys = Object.keys(details.services);
-      console.log(keys);
       keys.map(function(key){
-        details.serviceids = key.split('-')[2] + details.serviceids + ',';
+        details.serviceids = key.split('-')[2] + '-' + details.services[key].count + ',' + details.serviceids;
       })
 
       details.serviceids = details.serviceids.substr(0, details.serviceids.length-1);
+      console.log(details.serviceids);
       this.confirm(details);
 
     }else{

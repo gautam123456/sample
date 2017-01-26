@@ -19,6 +19,7 @@ import OrderConfirm from './components/OrderConfirm';
 import OTPConfirm from './components/OTPConfirm';
 import RegisterUser from './components/RegisterUser';
 import ThankYou from './components/ThankYou';
+import ErrorPage from './components/ErrorPage';
 
 
 
@@ -41,6 +42,7 @@ render(
     <Route path = { 'register' } component = { RegisterUser } />
     <Route path = { 'order/confirm' } component = { OrderConfirm } />
     <Route path = { 'otp/confirm' } component = { OTPConfirm } />
+    <Route path = { '*' } component = { ErrorPage } />
   </Router>
 , document.getElementById('app'));
 
