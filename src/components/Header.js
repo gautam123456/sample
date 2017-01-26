@@ -44,8 +44,6 @@ export default class Header extends React.Component {
           <a href='/search'>Search</a>
           <a href='/'>Salon @ home</a>
           <a href='/gallery/bridal'>Gallery</a>
-          <a href='/discover'>Discover</a>
-          <a href='/howitworks'>How it Works</a>
           <span>For any assistance call us on 9811870670</span>
         </div>
 

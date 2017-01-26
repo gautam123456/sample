@@ -54,7 +54,7 @@ export default class RegisterUser extends React.Component {
     }
 
     register() {
-        browserHistory.push('loader')
+        browserHistory.push('/loader')
         let query = this.props.location.query;
         ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
         ajaxObj.data = { phonenumber: query.number, otp: query.otp, token: query.token, address: this.state.address, name: this.state.name, refcode: this.state.refcode };

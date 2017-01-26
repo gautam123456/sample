@@ -31,10 +31,10 @@ export default class addresslist extends React.Component {
                             return (<Address key = { address.lkey } address = { address } active = { self.state.activelkey === address.lkey } selectedAddress = { self.selectedAddress.bind(self) }/>)
                         }):'' }
 
-                        <button type = 'text' className = 'col-xs-5 add-address'> <Link to = 'address/add'>Add New Address</Link></button>
+                        <button type = 'text' className = 'col-xs-5 add-address'> <Link to = '/address/add'>Add New Address</Link></button>
 
                     </div>
-                <ActivityFooter next = { this.state.address ? 'order/confirm' :'address' } back = { 'book' }/>
+                <ActivityFooter next = { this.state.address ? 'order/confirm?lkey='+this.state.address.lkey :'address' } back = { 'book' }/>
             </div>
         )
     }
@@ -58,7 +58,6 @@ export default class addresslist extends React.Component {
     }
 
     selectedAddress(address){
-        window.bookingDetails.addresslkey = address.lkey;
         this.setState({ address: address, activelkey: address.lkey });
     }
 

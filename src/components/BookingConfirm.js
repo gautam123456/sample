@@ -23,7 +23,7 @@ export default class BookingConfirm extends React.Component {
         <ActivityHeader heading = { 'Confirm Booking' }/>
         <ConfirmationList />
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 pad0'>
-         <button className = 'col-xs-12' style = {{padding: 15,fontSize: 14, fontWeight: 'bolder',position: 'fixed',bottom:0}} onClick = { this.validateAndConfirm }> Confirm Booking </button>
+         <button className = 'col-xs-12 col-md-4' style = {{padding: 15,fontSize: 14, fontWeight: 'bolder',position: 'fixed',bottom:0}} onClick = { this.validateAndConfirm }> Confirm Booking </button>
         </div>
       </div>
     )
@@ -31,31 +31,38 @@ export default class BookingConfirm extends React.Component {
 
   validateAndConfirm() {
     const details = window.bookingDetails;
-    if (details.addresslkey && details.timing && details.date && details.mailId && details.services){
 
+    details.addresslkey = this.props.location.query.lkey;
+    details.timing = this.props.location.query.timing;
+    details.date = this.props.location.query.date;
+    details.mailId = this.props.location.query.mailId;
+
+    console.log(details);
+    if (details.addresslkey && details.timing && details.date && details.mailId && details.services){
+      console.log('inside if');
       details.serviceids = '';
       const keys = Object.keys(details.services);
+      console.log(keys);
       keys.map(function(key){
-        details.serviceids = details.serviceids + ',' + key.split('-')[2];
+        details.serviceids = key.split('-')[2] + details.serviceids + ',';
       })
 
-      let bookdate = details.date.split(' ');
-      details.date = bookdate[0] + '/' + bookdate[1] + '/' + bookdate[2] + '/' + bookdate[3];
-
+      details.serviceids = details.serviceids.substr(0, details.serviceids.length-1);
       this.confirm(details);
 
     }else{
+      console.log('inside else');
     }
   }
 
   confirm(e) {
-    browserHistory.push('loader')
+    browserHistory.push('/loader')
     let self = this;
     ajaxObj.type = 'POST'
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';
     ajaxObj.data = { datetime: e.date + '__' + e.timing , addresslkey: e.addresslkey, couponcode: e.couponcode, serviceids: e.serviceids, emailid: e.mailId }
     ajaxObj.success = function() {
-      browserHistory.push('booking/confirmed');
+      browserHistory.push('/booking/confirmed');
     }
     ajaxObj.error = function(e){
       self.showErrorMsg(e);

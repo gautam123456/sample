@@ -30,12 +30,12 @@ export default class AddAddress extends React.Component {
                     </div>
                 </div>
                 <div className = "options col-xs-6" style = { this.props.active ? { backgroundColor: '#add7d5' }: {}}>
-                    <Link to = { 'address/add' + '?op=delete&address=' + JSON.stringify(this.state.address) }>
+                    <Link to = { '/address/add' + '?op=delete&address=' + JSON.stringify(this.state.address) }>
                         <button className = "col-xs-5 col-xs-offset-1">
                             <i className = "fa fa-trash"></i> Delete
                         </button>
                     </Link>
-                    <Link to = { 'address/add' + '?op=edit&address=' + JSON.stringify(this.state.address) }>
+                    <Link to = { '/address/add' + '?op=edit&address=' + JSON.stringify(this.state.address) }>
                         <button className = "col-xs-4 col-xs-offset-1">
                             <i className = "fa fa-pencil-square-o"></i> Edit
                         </button>

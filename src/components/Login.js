@@ -41,7 +41,7 @@ export default class Login extends React.Component {
   }
 
   login() {
-    browserHistory.push('loader');
+    browserHistory.push('/loader');
     let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';

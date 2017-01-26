@@ -43,10 +43,19 @@ button {
 
 input{
   font-size: 16px;
+  border: 1px solid $brand-color;
+  color: $brand-color;
 }
 
 body{
   transition: background-color .5s;
+}
+
+select{
+  border: 1px solid $brand-color;
+  color: $brand-color;
+  height: 40px;
+  background-color: #fff;
 }
 
 .message {

@@ -18,7 +18,7 @@ export default class Cart extends React.Component {
         </div>
         <div className='col-xs-2 pad0'>
           <span className='count'>{ this.props.bookingDetails.servicesCount || 0 }</span>
-          <Link to= { 'cart' }>
+          <Link to= { '/cart' }>
             <i className='fa fa-shopping-cart fa-2x'></i>
           </Link>
         </div>

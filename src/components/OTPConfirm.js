@@ -41,7 +41,7 @@ export default class OTPConfirm extends React.Component {
   }
 
   register() {
-    browserHistory.push('loader')
+    browserHistory.push('/loader')
     let query = this.props.location.query;
     if(query.isNewUser === true){
 

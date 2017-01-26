@@ -73,30 +73,30 @@ export default class AddAddress extends React.Component {
 
   updateAddress() {
     this.state.op === 'edit' ? this.editAddress() : (this.state.op === 'delete' ? this.deleteAddress() : this.addAddress())
-    browserHistory.push('address');
+    browserHistory.push('/address');
   }
 
   addAddress() {
-    browserHistory.push('loader')
+    browserHistory.push('/loader')
     ajaxObj.url = ajaxObj.baseUrl + '/addaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark };
-    ajaxObj.success = function(){ browserHistory.push('address') }
+    ajaxObj.success = function(){ browserHistory.push('/address') }
     $.ajax(ajaxObj);
   }
 
   editAddress() {
-    browserHistory.push('loader')
+    browserHistory.push('/loader')
     ajaxObj.url = ajaxObj.baseUrl + '/editaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark, lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('address') }
+    ajaxObj.success = function(){ browserHistory.push('/address') }
     $.ajax(ajaxObj);
   }
 
   deleteAddress() {
-    browserHistory.push('loader')
+    browserHistory.push('/loader')
     ajaxObj.url = ajaxObj.baseUrl + '/deleteaddress';
     ajaxObj.data = { lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('address') }
+    ajaxObj.success = function(){ browserHistory.push('/address') }
     $.ajax(ajaxObj);
   }
 }

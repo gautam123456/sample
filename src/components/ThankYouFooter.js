@@ -6,7 +6,7 @@ import React from 'react';
 export default class ThankYouFooter extends React.Component {
   render() {
     return (
-      <footer className='a-footer col-xs-12'>
+      <footer className='a-footer col-xs-12 pad0'>
           <span className='col-xs-12'>
             Thank You for Ordering with Us!
           </span>
