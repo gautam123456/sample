@@ -14,10 +14,10 @@ export default class ServiceMenu extends React.Component {
           { this.props.list.information ? this.renderTooltip() : '' }
 
         </div>
-        <div className = 'col-xs-2'> &nbsp; <i className = "fa fa-inr"></i>{ this.props.list.cost }</div>
+        <div className = 'col-xs-2'> &nbsp; <i className = 'fa fa-inr'></i>{ this.props.list.cost }</div>
         <div className = 'col-xs-1 center'>
 
-          { this.props.count > 0 ? <i className = "fa fa-minus-circle fa-2x" onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 0) }></i> : '' }
+          { this.props.count > 0 ? <i className = 'fa fa-minus-circle fa-2x' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 0) }></i> : '' }
 
         </div>
         <div className = 'col-xs-1 center'>
@@ -26,7 +26,7 @@ export default class ServiceMenu extends React.Component {
 
         </div>
         <div className = 'col-xs-1 center'>
-        <i className = "fa fa-plus-circle fa-2x" onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 1) }></i>
+        <i className = 'fa fa-plus-circle fa-2x' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 1) }></i>
         </div>
       </div>
     )
@@ -34,8 +34,8 @@ export default class ServiceMenu extends React.Component {
 
   renderTooltip() {
     return (
-        <div className="tooltip">
-          <i className = "fa fa-info-circle margin5"><span className="tooltiptext">{ this.props.list.information }</span></i>
+        <div className='tooltip'>
+          <i className = 'fa fa-info-circle margin5'><span className='tooltiptext'>{ this.props.list.information }</span></i>
         </div>
     )
   }

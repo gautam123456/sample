@@ -23,7 +23,7 @@ export default class Login extends React.Component {
         <ActivityHeader heading = { 'Log In/Sign Up' }/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
 
-          <input type = 'number' placeholder = 'Enter mobile number' pattern="[0-9]*" inputMode="numeric" className = 'col-xs-12' onChange={ this.numberChanged.bind(this) }></input>
+          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-12' onChange={ this.numberChanged.bind(this) }></input>
 
           <button type = 'text' className = 'col-xs-12' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> Login / SignUp</button>
 

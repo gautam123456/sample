@@ -11,7 +11,7 @@ export default class ErrorPage extends React.Component {
             <div>
                 <Header />
                 <div className = 'col-md-12 col-xs-12 error'>
-                    <div className = "error-msg">
+                    <div className = 'error-msg'>
                         404
                         <div className = "error-info">
                             OOps!! Seems like you are lost<br/>

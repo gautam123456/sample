@@ -17,7 +17,7 @@ export default class GalleryHome extends React.Component {
 
     renderBridalGallery() {
         return (
-            <button className = 'gallery-btn col-xs-12'><Link to = "/gallery/bridal">Bridal Gallery</Link></button>
+            <button className = 'gallery-btn col-xs-12'><Link to = '/gallery/bridal'>Bridal Gallery</Link></button>
         )
     }
 

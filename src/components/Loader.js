@@ -8,7 +8,7 @@ export default class Loader extends React.Component {
             <div>
                 <Header />
                 <div className = 'col-md-12 col-xs-12 bg-loader'>
-                    <div className = "loader">
+                    <div className = 'loader'>
                     </div>
                 </div>
             </div>

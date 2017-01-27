@@ -38,7 +38,7 @@ export default class FullCart extends React.Component {
               <i className = 'fa fa-shopping-cart'></i>
             </div>
 
-            <div className = "message center">Your Cart is empty, click next to add Services</div>
+            <div className = 'message center'>Your Cart is empty, click next to add Services</div>
           </div>
       )
 
@@ -55,7 +55,7 @@ export default class FullCart extends React.Component {
           <div className = 'col-xs-12 summary pad0'>
             <div className = 'col-xs-12'>
               <div className = 'col-xs-8'> Sub Total </div>
-              <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal } </div>
+              <div className = 'col-xs-4'> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal } </div>
             </div>
           </div>
           {  this.state.bookedItemList.subTotal < this.state.bookedItemList.minBooking ? this.renderMessage() : ''}
@@ -65,7 +65,7 @@ export default class FullCart extends React.Component {
 
   renderMessage() {
     return (
-        <div className = "message center">You need to add <i className = "fa fa-inr"></i> { this.state.bookedItemList.minBooking - this.state.bookedItemList.subTotal} worth of more services in order to book</div>
+        <div className = 'message center'>You need to add <i className = 'fa fa-inr'></i> { this.state.bookedItemList.minBooking - this.state.bookedItemList.subTotal} worth of more services in order to book</div>
     )
   }
 
