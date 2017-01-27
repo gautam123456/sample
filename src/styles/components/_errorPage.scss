@@ -7,6 +7,9 @@
     font-size: 100px;
     color: $brand-color-lighter;
 
+    .fa-exclamation-triangle{
+      color: $brand-color-2;
+    }
     .error-info{
       font-size: 13px;
       color: $brand-color;

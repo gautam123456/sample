@@ -12,7 +12,7 @@ export default class ErrorPage extends React.Component {
                 <Header />
                 <div className = 'col-md-12 col-xs-12 error'>
                     <div className = 'error-msg'>
-                        404
+                        <i className = 'fa fa-exclamation-triangle'></i> 404
                         <div className = "error-info">
                             OOps!! Seems like you are lost<br/>
                             Here's a button to take you back to our homepage
