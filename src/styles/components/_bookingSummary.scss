@@ -41,22 +41,33 @@
     color: $brand-color-2;
     padding: 0;
     font-weight: bolder;
+    height: 40px;
+  }
+
+  #promocode{
+    height: 40px;
+    padding: 0;
+  }
+
+  .apply{
+    height: 40px;
+    padding: 0;
   }
 
   input {
     border-radius: 2px;
-    border: 1px solid #aaa;
+    border: 1px solid $brand-color-2;
   }
 
   .col-xs-4 {
     text-align: center;
-    padding: 0;
   }
 
   .promo {
-    height: 60px;
+    height: 40px;
     padding-top: 10px;
     padding-right: 10px;
+
   }
 }
 

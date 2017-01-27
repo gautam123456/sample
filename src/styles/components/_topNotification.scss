@@ -1,0 +1,32 @@
+@import "../variables/screen";
+
+.top-msg{
+  position: fixed;
+  top: 10px;
+  min-height: 40px;
+  z-index: 2222;
+  color: #fff;
+  font-size: 14px;
+  padding-top: 10px;
+  box-shadow: 2px 2px 2px #777;
+  margin: auto;
+
+
+  &.error{
+    background-color: $brand-color-2;
+    min-height: 40px;
+
+    &:hover{
+      opacity: 0.9;
+    }
+  }
+
+  &.info{
+    background-color: $brand-color-lighter;
+    min-height: 40px;
+
+    &:hover{
+      opacity: 0.9;
+    }
+  }
+}

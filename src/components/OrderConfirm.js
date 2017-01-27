@@ -2,8 +2,10 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
+import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
+import TopNotification from './TopNotification';
 
 export default class OrderConfirm extends React.Component {
   constructor(props) {
@@ -31,7 +33,7 @@ export default class OrderConfirm extends React.Component {
 
   renderDay(day) {
     return (
-        <option value={day}>{day}</option>
+        <option key = {day} value={day}>{day}</option>
     )
   }
   getNumberOfDays() {
@@ -53,6 +55,7 @@ export default class OrderConfirm extends React.Component {
     return (
       <div>
         <ActivityHeader heading = { 'Enter booking Details' }/>
+        { this.props.location.query.error ? <TopNotification msg = 'All fields are mandatory' type = 'error'/> : ''}
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
 
@@ -111,7 +114,7 @@ export default class OrderConfirm extends React.Component {
           </div>
 
         </div>
-        <ActivityFooter next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing :'order/confirm' } back = { 'address' }/>
+        <ActivityFooter next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true' } back = { 'address' }/>
       </div>
     )
   }

@@ -4,6 +4,9 @@
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
 import $ from 'jquery';
+import { browserHistory } from 'react-router';
+
+import TopNotification from './TopNotification';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -17,7 +20,8 @@ export default class BookedServicesList extends React.Component {
       questionShow: {display: 'block', paddingTop: 0},
       applySectionShow: {display: 'none', paddingTop: 0},
       errormsg: {display: 'none', paddingTop: 0},
-      couponCode:''
+      couponCode:'',
+      code: ''
     }
   }
 
@@ -31,9 +35,10 @@ export default class BookedServicesList extends React.Component {
                 return <ServiceMenu list = { then.state.bookedItemList.services[key] } count = { then.state.bookedItemList.services && then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) }/>
           })
         }
+        { then.state.code ? ( then.state.code == 'valid' ? <TopNotification msg = 'Coupon Code Applied' type = 'info' display = 'block'/> : <TopNotification msg = 'Invalid Coupon Code' type = 'error' display = 'block'/> ) : '' }
 
         <div className = 'col-xs-12 summary pad0'>
-          <div className = 'col-xs-12'>
+          <div className = 'col-xs-12 pad0'>
             <div className = 'col-xs-8'> Sub Total </div>
             <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal } </div>
           </div>
@@ -45,7 +50,8 @@ export default class BookedServicesList extends React.Component {
              <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
           </div>
           <div className = 'col-xs-12 promo' style = { this.state.applySectionShow }>
-            <input id = 'promocode' className = 'col-xs-offset-1 col-xs-4 pad0' type = 'text' placeholder = 'Promo Code' onChange = { this.saveCode.bind(this) }></input> <button className = 'col-xs-offset-2 col-xs-4' onClick = { this.applyPromocode.bind(this) }> Apply </button>
+            <input id = 'promocode' className = 'col-xs-offset-1 col-xs-4 pad0' type = 'text' placeholder = 'Promo Code' onChange = { this.saveCode.bind(this) }></input>
+            <button className = 'col-xs-offset-2 col-xs-4 apply' onClick = { this.applyPromocode.bind(this) }> Apply </button>
           </div>
           <div className = 'col-xs-12 errormsg' style = { this.state.errormsg }>
             Invalid Code
@@ -85,12 +91,12 @@ export default class BookedServicesList extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
     ajaxObj.data = { couponcode: self.state.couponCode }
     ajaxObj.success = function(data) {
-      self.setState({ discount: data.discount, errormsg: {display: 'none'} });
+      self.setState({ discount: data.discount, errormsg: {display: 'none'}, code: 'valid' });
       window.bookingDetails.couponcode = self.state.couponCode;
       window.bookingDetails.discount = data.discount;
     }
     ajaxObj.error = function(){
-      self.setState({ discount: 0 , errormsg: {display: 'block'} });
+      self.setState({ discount: 0, errormsg: {display: 'block'}, code: 'invalid' });
     }
     $.ajax(ajaxObj);
   }
