@@ -9,13 +9,12 @@ export default class Footer extends React.Component {
       <footer className = "col-md-12 col-xs-12">
         <div className = "col-md-4 col-md-offset-4 col-xs-12 pad0">
             <div className = 'h col-xs-12'>
-              <div className="col-xs-3 pad0"><a href="/about" >About Us</a> </div>
-              <div className="col-xs-3 pad0"><a href="/contactus" >Contact Us</a> </div>
-              <div className="col-xs-3 pad0"><a href="/freelisting" >Free Listing</a> </div>
-              <div className="col-xs-3 pad0"><a href="/advertise" >Advertise</a> </div>
+              <div className="col-xs-3 pad0"><a href="https://m.lookplex.com/#/about" >About Us</a> </div>
+              <div className="col-xs-3 pad0"><a href="https://m.lookplex.com/#/contactus" >Contact Us</a> </div>
+                <div className="col-xs-3 pad0"><a href="https://m.lookplex.com/#/privacypolicy" >Privacy</a> </div>
+                <div className="col-xs-3 pad0"><a href="https://m.lookplex.com/#/termsofservice" >Terms of Service</a> </div>
             </div>
-              <div className="col-xs-3 col-xs-offset-2 pad0 p"><a href="/privacypolicy" >Privacy</a> </div>
-              <div className="col-xs-6"><a href="/termsofservice" >Terms of Service</a> </div>
+
 
             <div className="social col-xs-12">
               <a href="https://facebook.com/LookPlex" className="fs-item"><i className="fa fa-facebook "></i> </a>
