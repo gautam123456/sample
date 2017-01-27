@@ -80,7 +80,8 @@ export default class AddAddress extends React.Component {
     browserHistory.push('/loader')
     ajaxObj.url = ajaxObj.baseUrl + '/addaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark };
-    ajaxObj.success = function(){ browserHistory.push('/address') }
+    ajaxObj.success = function() { browserHistory.push('/address') }
+    ajaxObj.error = function() { browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
 
@@ -89,6 +90,7 @@ export default class AddAddress extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/editaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark, lkey: this.state.lkey };
     ajaxObj.success = function(){ browserHistory.push('/address') }
+    ajaxObj.error = function() { browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
 
@@ -97,6 +99,7 @@ export default class AddAddress extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/deleteaddress';
     ajaxObj.data = { lkey: this.state.lkey };
     ajaxObj.success = function(){ browserHistory.push('/address') }
+    ajaxObj.error = function() { browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
 }

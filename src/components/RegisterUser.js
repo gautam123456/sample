@@ -59,6 +59,7 @@ export default class RegisterUser extends React.Component {
         ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
         ajaxObj.data = { phonenumber: query.number, otp: query.otp, token: query.token, address: this.state.address, name: this.state.name, refcode: this.state.refcode };
         ajaxObj.success = function() { browserHistory.push('/') }
+        ajaxObj.error = function() { browserHistory.push('/oops') }
         $.ajax(ajaxObj);
     }
 }

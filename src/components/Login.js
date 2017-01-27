@@ -50,7 +50,7 @@ export default class Login extends React.Component {
       browserHistory.push('/otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
     }
     ajaxObj.error = function() {
-      browserHistory.push('/');
+      browserHistory.push('/oops');
     }
     $.ajax(ajaxObj);
   }
