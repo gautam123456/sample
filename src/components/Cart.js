@@ -27,8 +27,8 @@ export default class Cart extends React.Component {
         </div>
         <div className='col-xs-3 full-height book pad0' onClick = { this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking ? this.navigateTo.bind(this) : this.showMessage.bind(this) }>
 
-          <div className="tooltip">Book Now
-            <span className="tooltiptext"> Minimum booking amount is 800 </span>
+          <div className='tooltip'>Book Now
+            <span className='tooltiptext'> Minimum booking amount is 800 </span>
           </div>
         </div>
       </div>
@@ -40,9 +40,9 @@ export default class Cart extends React.Component {
   }
 
   initializeTawkTo() {
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      var s1=document.createElement('script'),s0=document.getElementsByTagName('script')[0];
       s1.async=true;
       s1.src='https://embed.tawk.to/57cada172b03647ba16fdffe/default';
       s1.charset='UTF-8';

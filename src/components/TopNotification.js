@@ -15,7 +15,7 @@ export default class TopNotification extends React.Component {
         let visibility = {
             display: this.state.display
         };
-        let classs = `col-xs-10 col-xs-offset-1 col-md-4 top-msg ${ this.props.type }`;
+        let classs = `col-xs-10 col-md-4 top-msg ${ this.props.type }`;
         return (
             <header className = { classs } style = { visibility }>
                 <div  className = '' style = { this.state.width }>

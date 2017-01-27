@@ -2,7 +2,6 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
-import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import TopNotification from './TopNotification';

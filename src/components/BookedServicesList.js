@@ -4,7 +4,6 @@
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
 import $ from 'jquery';
-import { browserHistory } from 'react-router';
 
 import TopNotification from './TopNotification';
 

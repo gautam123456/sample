@@ -37,7 +37,6 @@ export default class BookingConfirm extends React.Component {
     details.date = this.props.location.query.date;
     details.mailId = this.props.location.query.mailId;
 
-    console.log(details);
     if (details.addresslkey && details.timing && details.date && details.mailId && details.services){
 
       details.serviceids = '';
@@ -47,7 +46,6 @@ export default class BookingConfirm extends React.Component {
       })
 
       details.serviceids = details.serviceids.substr(0, details.serviceids.length-1);
-      console.log(details.serviceids);
       this.confirm(details);
 
     }else{
@@ -56,16 +54,15 @@ export default class BookingConfirm extends React.Component {
   }
 
   confirm(e) {
-    browserHistory.push('/loader')
-    let self = this;
+    browserHistory.push('/loader');
     ajaxObj.type = 'POST'
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';
     ajaxObj.data = { datetime: e.date + '__' + e.timing , addresslkey: e.addresslkey, couponcode: e.couponcode, serviceids: e.serviceids, emailid: e.mailId }
     ajaxObj.success = function() {
       browserHistory.push('/booking/confirmed');
     }
-    ajaxObj.error = function(e){
-      self.showErrorMsg(e);
+    ajaxObj.error = function(){
+      browserHistory.push('/oops');
     }
     $.ajax(ajaxObj);
   }
