@@ -71,12 +71,10 @@ export default class Header extends React.Component {
   }
 
   logOut() {
+    window.bookingDetails.name = null;
     ajaxObj.url = ajaxObj.baseUrl + '/custlogout';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
-    ajaxObj.success = function() {
-      window.bookingDetails.name = '';
-    }
     $.ajax(ajaxObj);
   }
 }
