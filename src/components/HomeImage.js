@@ -82,6 +82,9 @@ export default class HomeImage extends React.Component {
       window.bookingDetails.servicesCount -= 1;
       window.bookingDetails.subTotal -= cost;
       window.bookingDetails.services[id].count -= 1;
+      if(window.bookingDetails.services[id].count == 0){
+        delete window.bookingDetails.services[id];
+      }
     }
     this.forceUpdate();
     this.saveToLocalStorage();
