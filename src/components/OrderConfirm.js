@@ -9,12 +9,14 @@ import TopNotification from './TopNotification';
 export default class OrderConfirm extends React.Component {
   constructor(props) {
     super(props);
+    this.date = new Date();
     this.state = {
       mailId: window.bookingDetails.mailId,
       timing:'',
-      date: parseInt(new Date().getDate()),
-      month: parseInt(new Date().getMonth()) + 1,
-      year: parseInt(new Date().getFullYear())
+      date: parseInt(this.date.getDate()),
+      month: parseInt(this.date.getMonth()) + 1,
+      year: parseInt(this.date.getFullYear()),
+      months:[]
     }
   }
 
@@ -30,6 +32,33 @@ export default class OrderConfirm extends React.Component {
     )
   }
 
+  renderMonth(month) {
+    return (
+        <option key = {month[1]} value={month[0]}>{month[1]}</option>
+    )
+  }
+
+  renderMonths(){
+    const self = this;
+    this.getMonths();
+    return (
+        <select className = 'col-xs-12' onChange = { this.monthPicked.bind(this) } value = { this.state.month }>
+          { this.state.months.map(function(index){
+              return self.renderMonth(index)
+          })}
+        </select>
+    )
+  }
+
+  getMonths(){
+     this.state.months = [[1,'Jan'],[2,'Feb'],[3,'March'],[4,'April'],[5,'May'],[6,'June'],[7,'July'],[8,'Aug'],[9,'Sep'],[10,'Oct'],[11,'Nov'],[12,'Dec']];
+    if(this.state.year == this.date.getFullYear()){
+      this.state.months = this.state.months.slice(this.date.getMonth(),11);
+    }
+  }
+
+
+
   renderDay(day) {
     return (
         <option key = {day} value={day}>{day}</option>
@@ -37,17 +66,22 @@ export default class OrderConfirm extends React.Component {
   }
   getNumberOfDays() {
     let days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
+
     switch(this.state.month){
       case '4':
       case '6':
       case '9':
       case '11': days[29] = 29; days[30] = 30;
-        return days;
+        break;
       case '2':
-        return days;
+        break;
       default : days[29] = 29; days[30] = 30; days[31] = 31;
-        return days;
     }
+    if(this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year)){
+      let currentDate = this.date.getDate();
+      days = days.slice(currentDate, days.length);
+    }
+    return days;
   }
 
   render() {
@@ -63,7 +97,7 @@ export default class OrderConfirm extends React.Component {
 
           <div className = 'col-xs-12 datepick'>
             <span> Pick your time </span>
-            <div className = 'col-xs-12 date'> { ' - ' + this.state.date + '/' + this.state.month + '/' + this.state.year + ' - ' + this.state.timing } </div>
+            <div className = 'col-xs-12 date'> { this.state.date + '/' + this.state.month + '/' + this.state.year + ' ' + this.state.timing } </div>
 
             <div className = 'col-xs-4 pad0'>
               <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.state.year }>
@@ -72,20 +106,7 @@ export default class OrderConfirm extends React.Component {
               </select>
             </div>
             <div className = 'col-xs-4 pad0'>
-              <select className = 'col-xs-12' onChange = { this.monthPicked.bind(this) } value = { this.state.month }>
-                <option value='1'>Jan</option>
-                <option value='2'>Feb</option>
-                <option value='3'>Mar</option>
-                <option value='4'>Apr</option>
-                <option value='5'>May</option>
-                <option value='6'>June</option>
-                <option value='7'>July</option>
-                <option value='8'>Aug</option>
-                <option value='9'>Sep</option>
-                <option value='10'>Oct</option>
-                <option value='11'>Nov</option>
-                <option value='12'>Dev</option>
-              </select>
+              { this.renderMonths() }
             </div>
             <div className = 'col-xs-4 pad0'>
               { this.renderDate() }
@@ -113,7 +134,7 @@ export default class OrderConfirm extends React.Component {
           </div>
 
         </div>
-        <ActivityFooter next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true' } back = { 'address' }/>
+        <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true' } back = { 'address' } info = 'All information are mandatory'/>
       </div>
     )
   }

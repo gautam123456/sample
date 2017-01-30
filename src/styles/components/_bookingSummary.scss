@@ -22,7 +22,7 @@
     padding: 9px 0 0 10px;
     height: 60px;
     font-weight: bolder;
-    color: #045c5a;
+    color: $brand-color;
   }
 
   .col-xs-12:nth-child(odd) {
@@ -54,6 +54,7 @@
   .apply{
     height: 40px;
     padding: 0;
+    color: #fff;
   }
 
   input {

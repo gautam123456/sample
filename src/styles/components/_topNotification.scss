@@ -1,5 +1,12 @@
 @import "../variables/screen";
 
+@media only screen and (min-width: 600px) {
+  .top-msg{
+    left: 33%;
+    max-width: 400px;
+  }
+}
+
 .top-msg{
   position: fixed;
   top: 10px;
@@ -10,6 +17,8 @@
   padding-top: 10px;
   box-shadow: 2px 2px 2px #777;
   margin: auto;
+
+
 
 
   &.error{
@@ -24,6 +33,7 @@
   &.info{
     background-color: $brand-color;
     min-height: 40px;
+    text-align: center;
 
     &:hover{
       opacity: 0.9;

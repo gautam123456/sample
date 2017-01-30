@@ -1,6 +1,4 @@
-/**
- * Created by gautam on 12/12/16.
- */
+
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
 import $ from 'jquery';
@@ -18,60 +16,76 @@ export default class BookedServicesList extends React.Component {
       discount: 0,
       questionShow: {display: 'block', paddingTop: 0},
       applySectionShow: {display: 'none', paddingTop: 0},
-      errormsg: {display: 'none', paddingTop: 0},
       couponCode:'',
-      code: ''
+      displayType : 'none',
+      info: 'Coupon code Applied Successfully',
+      infoType: 'info'
     }
   }
 
+  renderNotification() {
+    let classs = `col-xs-10 col-md-4 top-msg ${ this.state.infoType }`;
+    return (
+        <header className = { classs } style = {{display: this.state.displayType}}>
+          <div>
+            <span >{ this.state.info }</span>
+            <span className = 'pull-right' onClick = { this.hideMsg.bind(this) }><i className = 'fa fa-times'></i></span>
+          </div>
+        </header>
+    )
+  }
+
+  hideMsg() {
+    this.setState({displayType:'none'});
+  }
+
+
   render() {
     const then = this,
-          objKeys = Object.keys(this.state.bookedItemList.services);
+        objKeys = Object.keys(this.state.bookedItemList.services);
     return (
-      <div className = 'col-md-offset-4 col-md-4'>
-        {
-          objKeys.map( function(key) {
-                return <ServiceMenu list = { then.state.bookedItemList.services[key] } count = { then.state.bookedItemList.services && then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) }/>
-          })
-        }
-        { then.state.code ? ( then.state.code == 'valid' ? <TopNotification msg = 'Coupon Code Applied' type = 'info' display = 'block'/> : <TopNotification msg = 'Invalid Coupon Code' type = 'error' display = 'block'/> ) : '' }
+        <div className = 'col-md-offset-4 col-md-4'>
+          {
+            objKeys.map( function(key) {
+              return <ServiceMenu list = { then.state.bookedItemList.services[key] } count = { then.state.bookedItemList.services && then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) } />
+            })
+          }
 
-        <div className = 'col-xs-12 summary pad0'>
-          <div className = 'col-xs-12 pad0'>
-            <div className = 'col-xs-8'> Sub Total </div>
-            <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal } </div>
+          { this.renderNotification() }
+
+          <div className = 'col-xs-12 summary pad0'>
+            <div className = 'col-xs-12 pad0'>
+              <div className = 'col-xs-8'> Sub Total </div>
+              <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal } </div>
+            </div>
+            <div className = 'col-xs-12'>
+              <div className = 'col-xs-8'> Convenience Charges </div>
+              <div className = 'col-xs-4'> + <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges } </div>
+            </div>
+            <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
+              <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
+            </div>
+            <div className = 'col-xs-12 promo' style = { this.state.applySectionShow }>
+              <input id = 'promocode' className = 'col-xs-offset-1 col-xs-4 pad0' type = 'text' placeholder = 'Promo Code' onChange = { this.saveCode.bind(this) }></input>
+              <button className = 'col-xs-offset-2 col-xs-4 apply' onClick = { this.applyPromocode.bind(this) }> Apply </button>
+            </div>
+            <div className = 'col-xs-12'>
+              <div className = 'col-xs-8'> Discount </div>
+              <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { this.state.discount * this.state.bookedItemList.subTotal / 100 } </div>
+            </div>
+            <div className = 'col-xs-12'>
+              <div className = 'col-xs-8'> Total </div>
+              <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges + this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
+            </div>
           </div>
-          <div className = 'col-xs-12'>
-            <div className = 'col-xs-8'> Convenience Charges </div>
-            <div className = 'col-xs-4'> + <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges } </div>
-          </div>
-          <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
-             <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
-          </div>
-          <div className = 'col-xs-12 promo' style = { this.state.applySectionShow }>
-            <input id = 'promocode' className = 'col-xs-offset-1 col-xs-4 pad0' type = 'text' placeholder = 'Promo Code' onChange = { this.saveCode.bind(this) }></input>
-            <button className = 'col-xs-offset-2 col-xs-4 apply' onClick = { this.applyPromocode.bind(this) }> Apply </button>
-          </div>
-          <div className = 'col-xs-12 errormsg' style = { this.state.errormsg }>
-            Invalid Code
-          </div>
-          <div className = 'col-xs-12'>
-            <div className = 'col-xs-8'> Discount </div>
-            <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { this.state.discount * this.state.bookedItemList.subTotal / 100 } </div>
-          </div>
-          <div className = 'col-xs-12'>
-            <div className = 'col-xs-8'> Total </div>
-            <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges + this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
+          <div className="terms col-xs-12">
+            <h5>Terms :</h5>
+            <ul>
+              <li>Services available only for females.</li>
+              <li>Booking amount can be paid to beautician @Home.</li>
+            </ul>
           </div>
         </div>
-        <div className="terms col-xs-12">
-          <h5>Terms :</h5>
-          <ul>
-            <li>Services available only for females.</li>
-            <li>Booking amount can be paid to beautician @Home.</li>
-          </ul>
-        </div>
-      </div>
     )
   }
 
@@ -90,12 +104,16 @@ export default class BookedServicesList extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
     ajaxObj.data = { couponcode: self.state.couponCode }
     ajaxObj.success = function(data) {
-      self.setState({ discount: data.discount, errormsg: {display: 'none'}, code: 'valid' });
+      self.setState({ discount: data.discount, displayType: 'block', info: 'Coupon code Applied Successfully', infoType: 'info' });
       window.bookingDetails.couponcode = self.state.couponCode;
       window.bookingDetails.discount = data.discount;
     }
-    ajaxObj.error = function(){
-      self.setState({ discount: 0, errormsg: {display: 'block'}, code: 'invalid' });
+    ajaxObj.error = function(e){
+      console.log(self);
+      self.setState({ discount: 0, displayType: 'block', info: e.responseJSON.message , infoType: 'error' }, function(){
+        "use strict";
+        console.log( self.state.discount + self.state.display + self.state.msg + self.state.type )
+      });
     }
     $.ajax(ajaxObj);
   }
@@ -104,7 +122,7 @@ export default class BookedServicesList extends React.Component {
 
     var cost = parseInt(cost);
     if(operation){
-      // if operation is addition of services....
+// if operation is addition of services....
       window.bookingDetails.servicesCount += 1;
       window.bookingDetails.subTotal += cost;
       if(window.bookingDetails.services[id]){
@@ -117,7 +135,7 @@ export default class BookedServicesList extends React.Component {
         }
       }
     } else {
-      // If operation is removal of services....
+// If operation is removal of services....
       window.bookingDetails.servicesCount -= 1;
       window.bookingDetails.subTotal -= cost;
       window.bookingDetails.services[id].count -= 1;
