@@ -21,7 +21,7 @@ export default class AddAddress extends React.Component {
                         <div className = 'col-xs-9'>{ this.props.address.address }</div>
                     </div>
                     <div className = 'col-xs-12'>
-                        <div className = 'col-xs-3 head'> LandMark : </div>
+                        <div className = 'col-xs-3 head'> Landmark : </div>
                         <div className = 'col-xs-9'>{ this.props.address.landmark }</div>
                     </div>
                     <div className = 'col-xs-12'>

@@ -13,7 +13,7 @@ export default class BookedServicesList extends React.Component {
     super(props);
     this.state = {
       bookedItemList: window.bookingDetails,
-      discount: 0,
+      discount: window.bookingDetails.discount,
       questionShow: {display: 'block', paddingTop: 0},
       applySectionShow: {display: 'none', paddingTop: 0},
       couponCode:'',

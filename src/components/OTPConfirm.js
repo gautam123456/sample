@@ -24,7 +24,9 @@ export default class OTPConfirm extends React.Component {
 
           <input type = 'number' placeholder = 'Enter OTP' pattern="[0-9]*" inputMode="numeric" className = 'col-xs-12' onChange={ this.otpChanged.bind(this) }></input>
 
-          <button type = 'text' className = 'col-xs-12' onClick={ this.state.otp.length === 6 ? this.register.bind(this) : this.showErrorMessage.bind(this) }> Submit </button>
+          <button type = 'text' className = 'col-xs-12' onClick={ this.register.bind(this) }> Submit </button>
+
+          <div className = 'resend-otp col-xs-3 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>
 
         </div>
       </div>
@@ -36,8 +38,19 @@ export default class OTPConfirm extends React.Component {
     otp.length <= 6 ? this.setState({ otp: otp }) : '';
   }
 
-  showErrorMessage() {
-
+  resendOtp() {
+    browserHistory.push('/loader');
+    let self = this;
+    ajaxObj.type = 'POST';
+    ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
+    ajaxObj.data = { phonenumber: self.props.location.query.number };
+    ajaxObj.success = function(data) {
+      browserHistory.push('/otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
+    }
+    ajaxObj.error = function() {
+      browserHistory.push('/oops');
+    }
+    $.ajax(ajaxObj);
   }
 
   register() {
