@@ -31,7 +31,7 @@ export default class ThankYou extends React.Component {
 
   componentDidMount() {
     window.localStorage.clear();
-    window.bookingDetails = bookingDetails;
+    window.bookingDetails = {};
   }
 }
 
