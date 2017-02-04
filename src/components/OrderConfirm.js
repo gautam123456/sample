@@ -92,7 +92,7 @@ export default class OrderConfirm extends React.Component {
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
 
-          <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' value = { this.state.mailId } onChange = { this.mailIdEntered.bind(this) }></input>
+          <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) }></input>
 
 
           <div className = 'col-xs-12 datepick'>
@@ -134,7 +134,7 @@ export default class OrderConfirm extends React.Component {
           </div>
 
         </div>
-        <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true' } back = { 'address' } info = 'All information are mandatory'/>
+        <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true' } back = { 'address' } info = 'Please make sure all fields are valid'/>
       </div>
     )
   }
@@ -152,11 +152,23 @@ export default class OrderConfirm extends React.Component {
   }
 
   mailIdEntered(e) {
-    this.setState({ mailId: e.currentTarget.value });
+    let email = e.currentTarget.value;
+    if(this.isValidEmailId(email)){
+      this.setState({ mailId: email });
+    }
   }
 
   timeEntered(e) {
     this.setState({ timing: e.currentTarget.value });
+  }
+
+  isValidEmailId(email) {
+    let atpos = email.indexOf("@");
+    let dotpos = email.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+      return false;
+    }
+    return true;
   }
 }
 

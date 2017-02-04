@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
 import $ from 'jquery';
@@ -109,11 +108,7 @@ export default class BookedServicesList extends React.Component {
       window.bookingDetails.discount = data.discount;
     }
     ajaxObj.error = function(e){
-      console.log(self);
-      self.setState({ discount: 0, displayType: 'block', info: e.responseJSON.message , infoType: 'error' }, function(){
-        "use strict";
-        console.log( self.state.discount + self.state.display + self.state.msg + self.state.type )
-      });
+      self.setState({ discount: 0, displayType: 'block', info: e.responseJSON.message , infoType: 'error' });
     }
     $.ajax(ajaxObj);
   }

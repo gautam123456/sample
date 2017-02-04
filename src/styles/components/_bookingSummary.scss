@@ -77,3 +77,16 @@
 .terms {
   margin: 20px 0 50px 0;
 }
+
+.summ{
+  .tooltip .tooltiptext{
+    bottom: 200%;
+    left: -80%;
+    width: 110px;
+
+    &::after{
+      top: 96%;
+      left: 50%;
+    }
+  }
+}

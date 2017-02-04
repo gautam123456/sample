@@ -2,19 +2,49 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
+import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import BookedServicesList from './BookedServicesList';
 
 export default class BookingSummary extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      display: 'none'
+    }
+  }
   render() {
+    const book = {
+      minHeight: 40,
+      fontSize: 15,
+      bottom: 0
+    }
     return (
       <div>
         <ActivityHeader heading = { 'Booking Summary' }/>
         <BookedServicesList />
-        <ActivityFooter key = { 67 } next = { window.bookingDetails.subTotal >= window.bookingDetails.minBooking ? 'address': '' } back = { '' } notification = { !(window.bookingDetails.subTotal >= window.bookingDetails.minBooking) } info = {'Please add services worth min Rs 800'} />
+
+        <button className = 'col-xs-12 col-md-12 summ' style = {book} onClick = { this.bookingConfirm.bind(this) }>
+          <div className='tooltip'>Proceed
+            <span className='tooltiptext'> Minimum booking amount is 800 </span>
+          </div>
+        </button>
       </div>
     )
+  }
+
+  hideMsg() {
+    this.setState({displayType:'none'});
+  }
+
+  bookingConfirm() {
+    const subTotal = window.bookingDetails.subTotal;
+    if((subTotal - (subTotal * window.bookingDetails.discount/100)) >= window.bookingDetails.minBooking){
+      browserHistory.push('address');
+    }else{
+      console.log('inside else');
+    }
   }
 }
 
