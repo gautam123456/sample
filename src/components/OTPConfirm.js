@@ -12,7 +12,8 @@ export default class OTPConfirm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      otp : ''
+      otp : '',
+      display: this.props.location.query.errorDisplay || 'none'
     }
   }
 
@@ -23,8 +24,9 @@ export default class OTPConfirm extends React.Component {
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
 
           <input type = 'number' placeholder = 'Enter OTP' pattern="[0-9]*" inputMode="numeric" className = 'col-xs-12' onChange={ this.otpChanged.bind(this) }></input>
-
+          <div className = 'col-xs-3 pad0' style = {{ color: 'red',display: this.state.display}}> Wrong OTP </div>
           <button type = 'text' className = 'col-xs-12' onClick={ this.register.bind(this) }> Submit </button>
+
 
           <div className = 'resend-otp col-xs-3 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>
 
@@ -54,6 +56,7 @@ export default class OTPConfirm extends React.Component {
   }
 
   register() {
+    const self = this;
     browserHistory.push('/loader')
     let query = this.props.location.query;
     if(query.isNewUser === true){
@@ -67,6 +70,9 @@ export default class OTPConfirm extends React.Component {
       ajaxObj.success = function() {
         window.bookingDetails.name = 'ZZ';
         browserHistory.push('/')
+      }
+      ajaxObj.error = function() {
+        browserHistory.push('otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + self.props.location.query.isNewUser + '&token=' + self.props.location.query.token + '&errorDisplay=' + 'block')
       }
       $.ajax(ajaxObj);
 

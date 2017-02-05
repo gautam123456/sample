@@ -79,7 +79,7 @@ export default class OrderConfirm extends React.Component {
     }
     if(this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year)){
       let currentDate = this.date.getDate();
-      days = days.slice(currentDate, days.length);
+      days = days.slice(currentDate-1, days.length);
     }
     return days;
   }
@@ -88,7 +88,7 @@ export default class OrderConfirm extends React.Component {
     return (
       <div>
         <ActivityHeader heading = { 'Enter booking Details' }/>
-        { this.props.location.query.error ? <TopNotification msg = 'All fields are mandatory' type = 'error'/> : ''}
+        { this.props.location.query.error ? <TopNotification msg = 'Please provide valid data to all fields' type = 'error'/> : ''}
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
 
@@ -134,7 +134,7 @@ export default class OrderConfirm extends React.Component {
           </div>
 
         </div>
-        <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.date + '/' + this.state.month + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true' } back = { 'address' } info = 'Please make sure all fields are valid'/>
+        <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.month + '/' + this.state.date + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true' } back = { 'address' } info = 'Please make sure all fields are valid'/>
       </div>
     )
   }

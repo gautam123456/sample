@@ -11,12 +11,7 @@ export default class FullCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookedItemList: window.bookingDetails,
-      discount: 0,
-      questionShow: {display: 'block', paddingTop: 0},
-      applySectionShow: {display: 'none', paddingTop: 0},
-      errormsg: {display: 'none', paddingTop: 0},
-      couponCode:''
+      bookedItemList: window.bookingDetails
     }
   }
 
@@ -25,7 +20,7 @@ export default class FullCart extends React.Component {
         <div>
           <ActivityHeader heading = { 'Cart' }/>
           { this.renderCart() }
-          <ActivityFooter next = { this.state.bookedItemList.subTotal >= this.state.bookedItemList.minBooking ? this.navigateTo() : '' } back = { '/' }/>
+          <ActivityFooter next = { this.navigateTo() } back = { '/' }/>
         </div>
     )
   }
@@ -58,14 +53,7 @@ export default class FullCart extends React.Component {
               <div className = 'col-xs-4'> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal } </div>
             </div>
           </div>
-          {  this.state.bookedItemList.subTotal < this.state.bookedItemList.minBooking ? this.renderMessage() : ''}
         </div>
-    )
-  }
-
-  renderMessage() {
-    return (
-        <div className = 'message center'>You need to add <i className = 'fa fa-inr'></i> { this.state.bookedItemList.minBooking - this.state.bookedItemList.subTotal} worth of more services in order to book</div>
     )
   }
 
