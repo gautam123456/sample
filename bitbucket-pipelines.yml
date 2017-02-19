@@ -9,6 +9,7 @@ pipelines:
   default:
     - step:
         script:
+          - npm run dist
           - mkdir -p ~/.ssh
           - cat myknownhost >> ~/.ssh/known_hosts
           - (umask  077 ; echo $SFTP_DEV | base64 --decode > ~/.ssh/id_rsa)
