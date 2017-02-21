@@ -5,6 +5,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
+import Base from './base/Base';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -41,15 +42,17 @@ export default class OTPConfirm extends React.Component {
   }
 
   resendOtp() {
-    browserHistory.push('/loader');
+    new Base().showOverlay();
     let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
     ajaxObj.data = { phonenumber: self.props.location.query.number };
     ajaxObj.success = function(data) {
+      new Base().hideOverlay();
       browserHistory.push('/otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
     }
     ajaxObj.error = function() {
+      new Base().hideOverlay();
       browserHistory.push('/oops');
     }
     $.ajax(ajaxObj);
@@ -57,9 +60,10 @@ export default class OTPConfirm extends React.Component {
 
   register() {
     const self = this;
-    browserHistory.push('/loader')
+
     let query = this.props.location.query;
-    if(query.isNewUser === true){
+
+    if(query.isNewUser == true){
 
       browserHistory.push( '/register?number=' + query.number + '&isNewUser=' + query.isNewUser + '&token=' + query.token + '&otp=' + this.state.otp );
 

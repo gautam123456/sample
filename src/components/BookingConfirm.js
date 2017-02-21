@@ -6,6 +6,7 @@ import ActivityHeader from './ActivityHeader';
 import ConfirmationList from './ConfirmationList';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
+import Base from './base/Base';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -54,15 +55,16 @@ export default class BookingConfirm extends React.Component {
   }
 
   confirm(e) {
-    browserHistory.push('/loader');
+    new Base().showOverlay();
     ajaxObj.type = 'POST'
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';
     ajaxObj.data = { datetime: e.date + '__' + e.timing , addresslkey: e.addresslkey, couponcode: e.couponcode, serviceids: e.serviceids, emailid: e.mailId }
     ajaxObj.success = function() {
+      new Base().hideOverlay();
       browserHistory.push('/booking/confirmed');
     }
     ajaxObj.error = function(){
-      browserHistory.push('/oops');
+      new Base().hideOverlay(); browserHistory.push('/oops');
     }
     $.ajax(ajaxObj);
   }

@@ -21,7 +21,7 @@ export default class Base extends React.Component {
         try{
             bookingDetailsLS = JSON.parse(window.localStorage.bookingDetails);
         }catch(e){
-            console.log(' Error in localStorage BookingDetails : ' + window.localStorage.bookingDetails);
+            console.log(' Error in localStorage BookingDetails :: ' + window.localStorage.bookingDetails);
         }
         window.bookingDetails = bookingDetailsLS || bookingDetails;
         this.loginStatus();
@@ -39,5 +39,13 @@ export default class Base extends React.Component {
             window.bookingDetails.name = null;
         }
         $.ajax(ajaxObj);
+    }
+
+    showOverlay() {
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    hideOverlay() {
+        document.getElementById('overlay').style.display = 'none';
     }
 }

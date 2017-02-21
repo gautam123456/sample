@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import { browserHistory } from 'react-router';
-import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
-
+import ActivityHeader from './ActivityHeader';
+import Base from './base/Base';
 import ajaxObj from '../../data/ajax.json';
 
 export default class Login extends React.Component {
@@ -41,15 +41,21 @@ export default class Login extends React.Component {
   }
 
   login() {
-    browserHistory.push('/loader');
+    new Base().showOverlay();
     let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
     ajaxObj.data = { phonenumber: self.state.number };
     ajaxObj.success = function(data) {
-      browserHistory.push('/otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
+      if(data.isNewUser == true){
+        browserHistory.push( '/register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token );
+      }else{
+        browserHistory.push('/otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
+      }
+        new Base().hideOverlay();
     }
     ajaxObj.error = function() {
+      new Base().hideOverlay();
       browserHistory.push('/oops');
     }
     $.ajax(ajaxObj);

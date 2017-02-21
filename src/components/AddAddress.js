@@ -5,6 +5,7 @@ import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
+import Base from './base/Base';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -77,29 +78,29 @@ export default class AddAddress extends React.Component {
   }
 
   addAddress() {
-    browserHistory.push('/loader')
+    new Base().showOverlay();
     ajaxObj.url = ajaxObj.baseUrl + '/addaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark };
-    ajaxObj.success = function() { browserHistory.push('/address') }
-    ajaxObj.error = function() { browserHistory.push('/oops') }
+    ajaxObj.success = function() { new Base().hideOverlay(); setTimeout(function(){browserHistory.push('/address')},5000) }
+    ajaxObj.error = function() { new Base().hideOverlay(); browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
 
   editAddress() {
-    browserHistory.push('/loader')
+    new Base().showOverlay();
     ajaxObj.url = ajaxObj.baseUrl + '/editaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark, lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('/address') }
-    ajaxObj.error = function() { browserHistory.push('/oops') }
+    ajaxObj.success = function(){ new Base().hideOverlay(); setTimeout(function(){browserHistory.push('/address')},5000) }
+    ajaxObj.error = function() { new Base().hideOverlay(); browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
 
   deleteAddress() {
-    browserHistory.push('/loader')
+    new Base().showOverlay();
     ajaxObj.url = ajaxObj.baseUrl + '/deleteaddress';
     ajaxObj.data = { lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('/address') }
-    ajaxObj.error = function() { browserHistory.push('/oops') }
+    ajaxObj.success = function(){ new Base().hideOverlay(); setTimeout(function(){browserHistory.push('/address')},5000) }
+    ajaxObj.error = function() { new Base().hideOverlay(); browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
 }
