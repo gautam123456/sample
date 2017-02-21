@@ -23,7 +23,7 @@ export default class Cart extends React.Component {
           </Link>
         </div>
         <div className='col-xs-5 pad0'>
-          SubTotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
+          Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
         </div>
         <div className='col-xs-3 full-height book pad0' onClick = { this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking ? this.navigateTo.bind(this) : this.showMessage.bind(this) }>
 

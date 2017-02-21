@@ -88,10 +88,10 @@ export default class OrderConfirm extends React.Component {
 
   getHours() {
     let hours = [9,10,11,12,13,14,15,16,17,18];
-    if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year) && this.state.date == this.date.getDate() ){
+    if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year) && this.state.date == this.date.getDate() && this.date.getHours() < 16){
       let currentHour = this.date.getHours()
       let index = hours.indexOf(currentHour)
-      return hours.slice(index + 2 , hours.length);
+      return hours.slice(index + 2, hours.length);
     }else{
       return hours;
     }

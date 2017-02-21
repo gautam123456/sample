@@ -101,7 +101,7 @@ export default class RegisterUser extends React.Component {
                 name: this.state.name,
                 refcode: this.state.refcode
             };
-            ajaxObj.success = function () {
+            ajaxObj.success = function (data) {
                 new Base().hideOverlay();
                 window.bookingDetails.name = data.name || 'dummy';
                 browserHistory.push('/')
