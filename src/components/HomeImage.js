@@ -39,8 +39,6 @@ export default class HomeImage extends React.Component {
 
               <label className = { this.state.active == '2' ? 'active col-xs-2' : 'col-xs-2'} data-value = '2' onClick = { this.serviceTypeSelected.bind(this) }>Body</label>
 
-              <label className = { this.state.active == '6' ? 'active col-xs-2' : 'col-xs-2'} data-value = '6' onClick = { this.serviceTypeSelected.bind(this) }>Bridal</label>
-
               <label className = { this.state.active == '3' ? 'active col-xs-2' : 'col-xs-2'} data-value = '3' onClick = { this.serviceTypeSelected.bind(this) }>Hair</label>
 
               <label className = { this.state.active == '4' ? 'active col-xs-2' : 'col-xs-2'} data-value = '4' onClick = { this.serviceTypeSelected.bind(this) }>Makeup</label>

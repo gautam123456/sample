@@ -19,7 +19,7 @@ export default class RegisterUser extends React.Component {
             refcode: '',
             otp:'',
             displayType: 'none',
-            info: 'Please provide name, address & OTP'
+            info: 'Please provide Name & OTP'
         }
     }
 
@@ -46,8 +46,6 @@ export default class RegisterUser extends React.Component {
                     { this.renderNotification() }
 
                     <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-12' onChange={ this.nameChanged.bind(this) }></input>
-
-                    <input type = 'text' placeholder = 'Full Address (Required)' className = 'col-xs-12' onChange={ this.addressChanged.bind(this) }></input>
 
                     <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-12' onChange={ this.otpChanged.bind(this) }></input>
 

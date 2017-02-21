@@ -22,6 +22,10 @@
       text-align: center;
       padding: 5px 0;
 
+      &.col-xs-2{
+        width: 20%;
+      }
+
       &.active {
         display: inline-block;
         color: $brand-color-2;

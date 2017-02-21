@@ -42,9 +42,8 @@ export default class Header extends React.Component {
           { this.isLoggedIn() ? this.loggedInRender() : this.nonLoggedInRender() }
           <a href='/'>Home</a>
           <a href='/search'>Search</a>
-          <a href='/'>Salon @ home</a>
           <a href='/gallery/bridal'>Gallery</a>
-          <span>For any assistance call us on 9811870670</span>
+          <span>Call 8826755766 for any help or assistance.</span>
         </div>
 
       </header>
