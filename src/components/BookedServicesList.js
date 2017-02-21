@@ -81,7 +81,7 @@ export default class BookedServicesList extends React.Component {
             <h5>Terms :</h5>
             <ul>
               <li>Services available only for females.</li>
-              <li>Booking amount can be paid to beautician @Home.</li>
+              <li>Bill amount to be paid to the professional after completion of services.</li>
             </ul>
           </div>
         </div>

@@ -73,7 +73,7 @@ export default class OTPConfirm extends React.Component {
       ajaxObj.data = { phonenumber: query.number, otp: this.state.otp, token: query.token };
       ajaxObj.success = function() {
         window.bookingDetails.name = 'ZZ';
-        browserHistory.push('/')
+        browserHistory.push('/book')
       }
       ajaxObj.error = function() {
         browserHistory.push('otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + self.props.location.query.isNewUser + '&token=' + self.props.location.query.token + '&errorDisplay=' + 'block')

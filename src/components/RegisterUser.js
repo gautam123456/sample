@@ -102,7 +102,7 @@ export default class RegisterUser extends React.Component {
             ajaxObj.success = function (data) {
                 new Base().hideOverlay();
                 window.bookingDetails.name = data.name || 'dummy';
-                browserHistory.push('/')
+                browserHistory.push('/book')
             }
             ajaxObj.error = function () {
                 new Base().hideOverlay();

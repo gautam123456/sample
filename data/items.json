@@ -9,36 +9,6 @@
         "serviceItemImageSet": [],
         "serviceItemList":[
           {
-            "id":3,
-            "name":"Skin Tightening Facial",
-            "time":"45 Mins",
-            "cost":"850",
-            "condition":"VLCC",
-            "serviceName":null,
-            "categoryName":null,
-            "information":"Firms up Skin and Refines Pores - VLCC Skin Tightening Facial helps in reducing fine lines and wrinkles while delivering a firming effect. It naturally heals the skin, tightens the pores and provides a smooth and supple effect to the skin",
-            "isActive":true,
-            "isDiscounted":null,
-            "serviceCategoryID":1,
-            "sortValue":-18,
-            "quantity":null
-          },
-          {
-            "id":4,
-            "name":"Instaglow Facial",
-            "time":"45 Mins",
-            "cost":"850",
-            "condition":"VLCC",
-            "serviceName":null,
-            "categoryName":null,
-            "information":"Makes Skin Soft and Glowing - VLCC Instaglow facial provides instant glow to your skin leaving it fairer, radiant and nourished.",
-            "isActive":true,
-            "isDiscounted":null,
-            "serviceCategoryID":1,
-            "sortValue":-17,
-            "quantity":null
-          },
-          {
             "id":1,
             "name":"Fruit Facial",
             "time":"45 Mins",
@@ -69,18 +39,33 @@
             "quantity":null
           },
           {
-            "id":6,
-            "name":"Lotus Whiteglow Facial",
+            "id":3,
+            "name":"Skin Tightening Facial",
             "time":"45 Mins",
-            "cost":"1200",
-            "condition":"Lotus",
+            "cost":"850",
+            "condition":"VLCC",
             "serviceName":null,
             "categoryName":null,
-            "information":"Lotus Whiteglow Facial lightens skin tone by treating pigmentation at the root. It reduces uneven pigmentation and whitens skin naturally by diminishing dark spots.",
+            "information":"Firms up Skin and Refines Pores - VLCC Skin Tightening Facial helps in reducing fine lines and wrinkles while delivering a firming effect. It naturally heals the skin, tightens the pores and provides a smooth and supple effect to the skin",
             "isActive":true,
             "isDiscounted":null,
             "serviceCategoryID":1,
-            "sortValue":-15,
+            "sortValue":-18,
+            "quantity":null
+          },
+          {
+            "id":4,
+            "name":"Instaglow Facial",
+            "time":"45 Mins",
+            "cost":"850",
+            "condition":"VLCC",
+            "serviceName":null,
+            "categoryName":null,
+            "information":"Makes Skin Soft and Glowing - VLCC Instaglow facial provides instant glow to your skin leaving it fairer, radiant and nourished.",
+            "isActive":true,
+            "isDiscounted":null,
+            "serviceCategoryID":1,
+            "sortValue":-17,
             "quantity":null
           },
           {
@@ -99,18 +84,18 @@
             "quantity":null
           },
           {
-            "id":8,
-            "name":"Radiant Diamond Facial",
+            "id":6,
+            "name":"Lotus Whiteglow Facial",
             "time":"45 Mins",
-            "cost":"1300",
+            "cost":"1200",
             "condition":"Lotus",
             "serviceName":null,
             "categoryName":null,
-            "information":"Lotus Radiant Diamond Facial contains exfoliating cleanser that penetrate deep into the fine layers of skin making it soft and rejuvenated. It consists of a brilliant peeling extract which tenderly uproots cosmetics and pollution, leaving skin hydrated and young.",
+            "information":"Lotus Whiteglow Facial lightens skin tone by treating pigmentation at the root. It reduces uneven pigmentation and whitens skin naturally by diminishing dark spots.",
             "isActive":true,
             "isDiscounted":null,
             "serviceCategoryID":1,
-            "sortValue":-13,
+            "sortValue":-15,
             "quantity":null
           },
           {
@@ -129,18 +114,18 @@
             "quantity":null
           },
           {
-            "id":10,
-            "name":"O3+ Seaweed Facial",
-            "time":"50 Mins",
-            "cost":"2000",
-            "condition":"O3+",
+            "id":8,
+            "name":"Radiant Diamond Facial",
+            "time":"45 Mins",
+            "cost":"1300",
+            "condition":"Lotus",
             "serviceName":null,
             "categoryName":null,
-            "information":"O3+ Seaweed Facial is suitable for normal to oily skin and is recommended for acne prone skin. O3+ Seaweed Facial comprises of Seaweed Cleansing Gel, Seaweed Tonic, Seaweed Serum, Seaweed Cream and Seaweed Mask. It brightens your skin and fades marks.",
+            "information":"Lotus Radiant Diamond Facial contains exfoliating cleanser that penetrate deep into the fine layers of skin making it soft and rejuvenated. It consists of a brilliant peeling extract which tenderly uproots cosmetics and pollution, leaving skin hydrated and young.",
             "isActive":true,
             "isDiscounted":null,
             "serviceCategoryID":1,
-            "sortValue":-11,
+            "sortValue":-13,
             "quantity":null
           },
           {
@@ -157,37 +142,54 @@
             "serviceCategoryID":1,
             "sortValue":-12,
             "quantity":null
-          }
-        ],
-        "serviceItemImageList": null,
-        "serviceID": 1,
-        "sortValue": -10
-      }, {
-        "id": 2,
-        "name": "Cleanup",
-        "serviceItemSet": null,
-        "serviceItemImageSet": [],
-        "serviceItemList":[
+          },
           {
-            "id":11,
-            "name":"Hydravitals Cleanup",
-            "time":"30 Mins",
-            "cost":"550",
-            "condition":"Lotus",
+            "id":10,
+            "name":"O3+ Seaweed Facial",
+            "time":"50 Mins",
+            "cost":"2000",
+            "condition":"O3+",
             "serviceName":null,
             "categoryName":null,
-            "information":"Lotus Hydravitals Cleanup imparts a healthy glow to your face. It is very good to keep blemishes, blackheads and minor imperfections of your skin away.",
+            "information":"O3+ Seaweed Facial is suitable for normal to oily skin and is recommended for acne prone skin. O3+ Seaweed Facial comprises of Seaweed Cleansing Gel, Seaweed Tonic, Seaweed Serum, Seaweed Cream and Seaweed Mask. It brightens your skin and fades marks.",
             "isActive":true,
             "isDiscounted":null,
-            "serviceCategoryID":2,
-            "sortValue":-10,
+            "serviceCategoryID":1,
+            "sortValue":-11,
             "quantity":null
           }
         ],
-        "serviceItemImageList": null,
-        "serviceID": 1,
-        "sortValue": -9
+        "serviceItemImageList":null,
+        "serviceID":1,
+        "sortValue":-10
       },
+        {
+          "id":2,
+          "name":"Cleanup",
+          "serviceItemSet":null,
+          "serviceItemImageSet":[
+          ],
+          "serviceItemList":[
+            {
+              "id":11,
+              "name":"Hydravitals Cleanup",
+              "time":"30 Mins",
+              "cost":"550",
+              "condition":"Lotus",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"Lotus Hydravitals Cleanup imparts a healthy glow to your face. It is very good to keep blemishes, blackheads and minor imperfections of your skin away.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":2,
+              "sortValue":-10,
+              "quantity":null
+            }
+          ],
+          "serviceItemImageList":null,
+          "serviceID":1,
+          "sortValue":-9
+        },
         {
           "id":3,
           "name":"Bleach",
@@ -195,6 +197,21 @@
           "serviceItemImageSet":[
           ],
           "serviceItemList":[
+            {
+              "id":12,
+              "name":"Face & Neck",
+              "time":"30 Mins",
+              "cost":"450",
+              "condition":"VLCC - Oxy/Herbal/Gold",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":3,
+              "sortValue":-9,
+              "quantity":null
+            },
             {
               "id":13,
               "name":"Under Arms",
@@ -208,21 +225,6 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-8,
-              "quantity":null
-            },
-            {
-              "id":21,
-              "name":"Under Arms",
-              "time":"30 Mins",
-              "cost":"150",
-              "condition":"O3+",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"The O3+ Meladerm Vitamin C Gel Bleach Cream has excellent properties of lightening skin & hair without making the skin dry. It is peroxide free, hence does not irritate the skin. Enriched with Amonia Pursulphate which works like a micro sponge to retain hydration level.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":3,
-              "sortValue":0,
               "quantity":null
             },
             {
@@ -241,21 +243,6 @@
               "quantity":null
             },
             {
-              "id":12,
-              "name":"Face & Neck",
-              "time":"30 Mins",
-              "cost":"450",
-              "condition":"VLCC - Oxy/Herbal/Gold",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":3,
-              "sortValue":-9,
-              "quantity":null
-            },
-            {
               "id":15,
               "name":"Half Legs",
               "time":"30 Mins",
@@ -271,6 +258,66 @@
               "quantity":null
             },
             {
+              "id":16,
+              "name":"Full Legs",
+              "time":"40 Mins",
+              "cost":"700",
+              "condition":"VLCC - Oxy/Herbal/Gold",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":3,
+              "sortValue":-5,
+              "quantity":null
+            },
+            {
+              "id":17,
+              "name":"Full Back",
+              "time":"30 Mins",
+              "cost":"650",
+              "condition":"VLCC - Oxy/Herbal/Gold",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":3,
+              "sortValue":-4,
+              "quantity":null
+            },
+            {
+              "id":18,
+              "name":"Full Front",
+              "time":"30 Mins",
+              "cost":"650",
+              "condition":"VLCC - Oxy/Herbal/Gold",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":3,
+              "sortValue":-3,
+              "quantity":null
+            },
+            {
+              "id":19,
+              "name":"Full Body",
+              "time":"75 Mins",
+              "cost":"2000",
+              "condition":"VLCC - Oxy/Herbal/Gold",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":3,
+              "sortValue":-2,
+              "quantity":null
+            },
+            {
               "id":20,
               "name":"Face & Neck",
               "time":"30 Mins",
@@ -283,6 +330,21 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-1,
+              "quantity":null
+            },
+            {
+              "id":21,
+              "name":"Under Arms",
+              "time":"30 Mins",
+              "cost":"150",
+              "condition":"O3+",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"The O3+ Meladerm Vitamin C Gel Bleach Cream has excellent properties of lightening skin & hair without making the skin dry. It is peroxide free, hence does not irritate the skin. Enriched with Amonia Pursulphate which works like a micro sponge to retain hydration level.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":3,
+              "sortValue":0,
               "quantity":null
             },
             {
@@ -316,55 +378,10 @@
               "quantity":null
             },
             {
-              "id":18,
-              "name":"Full Front",
-              "time":"30 Mins",
-              "cost":"650",
-              "condition":"VLCC - Oxy/Herbal/Gold",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":3,
-              "sortValue":-3,
-              "quantity":null
-            },
-            {
-              "id":17,
-              "name":"Full Back",
-              "time":"30 Mins",
-              "cost":"650",
-              "condition":"VLCC - Oxy/Herbal/Gold",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":3,
-              "sortValue":-4,
-              "quantity":null
-            },
-            {
-              "id":16,
+              "id":24,
               "name":"Full Legs",
               "time":"40 Mins",
-              "cost":"700",
-              "condition":"VLCC - Oxy/Herbal/Gold",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":3,
-              "sortValue":-5,
-              "quantity":null
-            },
-            {
-              "id":26,
-              "name":"Full Front",
-              "time":"30 Mins",
-              "cost":"750",
+              "cost":"850",
               "condition":"O3+",
               "serviceName":null,
               "categoryName":null,
@@ -372,7 +389,7 @@
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":3,
-              "sortValue":5,
+              "sortValue":3,
               "quantity":null
             },
             {
@@ -391,10 +408,10 @@
               "quantity":null
             },
             {
-              "id":24,
-              "name":"Full Legs",
-              "time":"40 Mins",
-              "cost":"850",
+              "id":26,
+              "name":"Full Front",
+              "time":"30 Mins",
+              "cost":"750",
               "condition":"O3+",
               "serviceName":null,
               "categoryName":null,
@@ -402,22 +419,7 @@
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":3,
-              "sortValue":3,
-              "quantity":null
-            },
-            {
-              "id":19,
-              "name":"Full Body",
-              "time":"75 Mins",
-              "cost":"2000",
-              "condition":"VLCC - Oxy/Herbal/Gold",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"VLCC has a luxurious range of bleach that makes your skin tan go away and offers an instant glow and polish to the skin. Range includes Oxy, Herbal and Gold. Each of them match the skin tone perfectly and purifies the skin from within to make it fairer, energized and youthful.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":3,
-              "sortValue":-2,
+              "sortValue":5,
               "quantity":null
             },
             {
@@ -439,43 +441,14 @@
           "serviceItemImageList":null,
           "serviceID":1,
           "sortValue":-8
-        },{
+        },
+        {
           "id":4,
           "name":"Detan",
           "serviceItemSet":null,
           "serviceItemImageSet":[
           ],
           "serviceItemList":[
-            {
-              "id":29,
-              "name":"Under Arms",
-              "time":"30 Mins",
-              "cost":"120",
-              "condition":"Sara Detan",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"Sara Detan cleanser has 8 benefits as it hydrates, nourishes, soothes, calms, heals, whitens, brightens and lightens the skin. The goodness of camphor and eucalyptus oil cleanses skin while providing instant brightening and lightening benefits.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":4,
-              "sortValue":8,
-              "quantity":null
-            },
-            {
-              "id":31,
-              "name":"Half Legs",
-              "time":"30 Mins",
-              "cost":"400",
-              "condition":"Sara Detan",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"Sara Detan cleanser has 8 benefits as it hydrates, nourishes, soothes, calms, heals, whitens, brightens and lightens the skin. The goodness of camphor and eucalyptus oil cleanses skin while providing instant brightening and lightening benefits.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":4,
-              "sortValue":10,
-              "quantity":null
-            },
             {
               "id":28,
               "name":"Face & Neck",
@@ -489,6 +462,21 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":7,
+              "quantity":null
+            },
+            {
+              "id":29,
+              "name":"Under Arms",
+              "time":"30 Mins",
+              "cost":"120",
+              "condition":"Sara Detan",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"Sara Detan cleanser has 8 benefits as it hydrates, nourishes, soothes, calms, heals, whitens, brightens and lightens the skin. The goodness of camphor and eucalyptus oil cleanses skin while providing instant brightening and lightening benefits.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":4,
+              "sortValue":8,
               "quantity":null
             },
             {
@@ -507,6 +495,21 @@
               "quantity":null
             },
             {
+              "id":31,
+              "name":"Half Legs",
+              "time":"30 Mins",
+              "cost":"400",
+              "condition":"Sara Detan",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"Sara Detan cleanser has 8 benefits as it hydrates, nourishes, soothes, calms, heals, whitens, brightens and lightens the skin. The goodness of camphor and eucalyptus oil cleanses skin while providing instant brightening and lightening benefits.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":4,
+              "sortValue":10,
+              "quantity":null
+            },
+            {
               "id":32,
               "name":"Full Legs",
               "time":"40 Mins",
@@ -522,21 +525,6 @@
               "quantity":null
             },
             {
-              "id":34,
-              "name":"Full Front",
-              "time":"30 Mins",
-              "cost":"600",
-              "condition":"Sara Detan",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"Sara Detan cleanser has 8 benefits as it hydrates, nourishes, soothes, calms, heals, whitens, brightens and lightens the skin. The goodness of camphor and eucalyptus oil cleanses skin while providing instant brightening and lightening benefits.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":4,
-              "sortValue":13,
-              "quantity":null
-            },
-            {
               "id":33,
               "name":"Full Back",
               "time":"30 Mins",
@@ -549,6 +537,21 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":12,
+              "quantity":null
+            },
+            {
+              "id":34,
+              "name":"Full Front",
+              "time":"30 Mins",
+              "cost":"600",
+              "condition":"Sara Detan",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"Sara Detan cleanser has 8 benefits as it hydrates, nourishes, soothes, calms, heals, whitens, brightens and lightens the skin. The goodness of camphor and eucalyptus oil cleanses skin while providing instant brightening and lightening benefits.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":4,
+              "sortValue":13,
               "quantity":null
             },
             {
@@ -594,21 +597,6 @@
               "quantity":null
             },
             {
-              "id":38,
-              "name":"Forehead",
-              "time":"10 Mins",
-              "cost":"40",
-              "condition":null,
-              "serviceName":null,
-              "categoryName":null,
-              "information":null,
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":5,
-              "sortValue":17,
-              "quantity":null
-            },
-            {
               "id":37,
               "name":"Upperlips",
               "time":"10 Mins",
@@ -624,8 +612,8 @@
               "quantity":null
             },
             {
-              "id":40,
-              "name":"Chin",
+              "id":38,
+              "name":"Forehead",
               "time":"10 Mins",
               "cost":"40",
               "condition":null,
@@ -635,7 +623,7 @@
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":5,
-              "sortValue":19,
+              "sortValue":17,
               "quantity":null
             },
             {
@@ -652,12 +640,28 @@
               "serviceCategoryID":5,
               "sortValue":18,
               "quantity":null
+            },
+            {
+              "id":40,
+              "name":"Chin",
+              "time":"10 Mins",
+              "cost":"40",
+              "condition":null,
+              "serviceName":null,
+              "categoryName":null,
+              "information":null,
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":5,
+              "sortValue":19,
+              "quantity":null
             }
           ],
           "serviceItemImageList":null,
           "serviceID":1,
           "sortValue":-6
-        }],
+        }
+      ],
       "serviceCategorySet": null,
       "sortValue": -10,
       "imageUrl": null,
@@ -695,18 +699,138 @@
               "quantity":null
             },
             {
-              "id":53,
-              "name":"Under Arms",
-              "time":"10 Mins",
-              "cost":"100",
-              "condition":"Rica Wax",
+              "id":42,
+              "name":"Full Arms",
+              "time":"20 Mins",
+              "cost":"350",
+              "condition":"Normal/Chocolate Wax",
               "serviceName":null,
               "categoryName":null,
-              "information":"Rica Wax is a painless wax which has a rich concentration of milk proteins, minerals and vitamins to provide an extremely hydrating and nourishing waxing that is suitable for even the most sensitive skin.",
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":6,
-              "sortValue":-8,
+              "sortValue":-19,
+              "quantity":null
+            },
+            {
+              "id":43,
+              "name":"Half Legs",
+              "time":"20 Mins",
+              "cost":"350",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-18,
+              "quantity":null
+            },
+            {
+              "id":44,
+              "name":"Full Legs",
+              "time":"30 Mins",
+              "cost":"400",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-17,
+              "quantity":null
+            },
+            {
+              "id":45,
+              "name":"Half Back",
+              "time":"15 Mins",
+              "cost":"350",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-16,
+              "quantity":null
+            },
+            {
+              "id":46,
+              "name":"Full Back",
+              "time":"20 Mins",
+              "cost":"500",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-15,
+              "quantity":null
+            },
+            {
+              "id":47,
+              "name":"Half Front",
+              "time":"15 Mins",
+              "cost":"350",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-14,
+              "quantity":null
+            },
+            {
+              "id":48,
+              "name":"Full Front",
+              "time":"20 Mins",
+              "cost":"500",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-13,
+              "quantity":null
+            },
+            {
+              "id":49,
+              "name":"Bikini Wax",
+              "time":"30 Mins",
+              "cost":"1000",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-12,
+              "quantity":null
+            },
+            {
+              "id":50,
+              "name":"Full Body Wax - Excludes Bikini",
+              "time":"90 Mins",
+              "cost":"1600",
+              "condition":"Normal/Chocolate Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-11,
               "quantity":null
             },
             {
@@ -740,78 +864,18 @@
               "quantity":null
             },
             {
-              "id":47,
-              "name":"Half Front",
-              "time":"15 Mins",
-              "cost":"350",
-              "condition":"Normal/Chocolate Wax",
+              "id":53,
+              "name":"Under Arms",
+              "time":"10 Mins",
+              "cost":"100",
+              "condition":"Rica Wax",
               "serviceName":null,
               "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "information":"Rica Wax is a painless wax which has a rich concentration of milk proteins, minerals and vitamins to provide an extremely hydrating and nourishing waxing that is suitable for even the most sensitive skin.",
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":6,
-              "sortValue":-14,
-              "quantity":null
-            },
-            {
-              "id":45,
-              "name":"Half Back",
-              "time":"15 Mins",
-              "cost":"350",
-              "condition":"Normal/Chocolate Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-16,
-              "quantity":null
-            },
-            {
-              "id":43,
-              "name":"Half Legs",
-              "time":"20 Mins",
-              "cost":"350",
-              "condition":"Normal/Chocolate Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-18,
-              "quantity":null
-            },
-            {
-              "id":42,
-              "name":"Full Arms",
-              "time":"20 Mins",
-              "cost":"350",
-              "condition":"Normal/Chocolate Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-19,
-              "quantity":null
-            },
-            {
-              "id":44,
-              "name":"Full Legs",
-              "time":"30 Mins",
-              "cost":"400",
-              "condition":"Normal/Chocolate Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-17,
+              "sortValue":-8,
               "quantity":null
             },
             {
@@ -845,33 +909,18 @@
               "quantity":null
             },
             {
-              "id":48,
-              "name":"Full Front",
-              "time":"20 Mins",
-              "cost":"500",
-              "condition":"Normal/Chocolate Wax",
+              "id":56,
+              "name":"Full Legs",
+              "time":"30 Mins",
+              "cost":"600",
+              "condition":"Rica Wax",
               "serviceName":null,
               "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
+              "information":"Rica Wax is a painless wax which has a rich concentration of milk proteins, minerals and vitamins to provide an extremely hydrating and nourishing waxing that is suitable for even the most sensitive skin.",
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":6,
-              "sortValue":-13,
-              "quantity":null
-            },
-            {
-              "id":46,
-              "name":"Full Back",
-              "time":"20 Mins",
-              "cost":"500",
-              "condition":"Normal/Chocolate Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-15,
+              "sortValue":-5,
               "quantity":null
             },
             {
@@ -890,36 +939,6 @@
               "quantity":null
             },
             {
-              "id":59,
-              "name":"Half Front",
-              "time":"15 Mins",
-              "cost":"550",
-              "condition":"Rica Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"Rica Wax is a painless wax which has a rich concentration of milk proteins, minerals and vitamins to provide an extremely hydrating and nourishing waxing that is suitable for even the most sensitive skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-2,
-              "quantity":null
-            },
-            {
-              "id":56,
-              "name":"Full Legs",
-              "time":"30 Mins",
-              "cost":"600",
-              "condition":"Rica Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"Rica Wax is a painless wax which has a rich concentration of milk proteins, minerals and vitamins to provide an extremely hydrating and nourishing waxing that is suitable for even the most sensitive skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-5,
-              "quantity":null
-            },
-            {
               "id":58,
               "name":"Full Back",
               "time":"20 Mins",
@@ -932,6 +951,21 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-3,
+              "quantity":null
+            },
+            {
+              "id":59,
+              "name":"Half Front",
+              "time":"15 Mins",
+              "cost":"550",
+              "condition":"Rica Wax",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"Rica Wax is a painless wax which has a rich concentration of milk proteins, minerals and vitamins to provide an extremely hydrating and nourishing waxing that is suitable for even the most sensitive skin.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":6,
+              "sortValue":-2,
               "quantity":null
             },
             {
@@ -950,21 +984,6 @@
               "quantity":null
             },
             {
-              "id":49,
-              "name":"Bikini Wax",
-              "time":"30 Mins",
-              "cost":"1000",
-              "condition":"Normal/Chocolate Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-12,
-              "quantity":null
-            },
-            {
               "id":61,
               "name":"Bikini Wax",
               "time":"30 Mins",
@@ -977,21 +996,6 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":0,
-              "quantity":null
-            },
-            {
-              "id":50,
-              "name":"Full Body Wax - Excludes Bikini",
-              "time":"90 Mins",
-              "cost":"1600",
-              "condition":"Normal/Chocolate Wax",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"These wax have anti-inflammatory properties and are made out of ingredients which are friendly to your skin.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":6,
-              "sortValue":-11,
               "quantity":null
             },
             {
@@ -1021,21 +1025,6 @@
           "serviceItemImageSet":[
           ],
           "serviceItemList":[
-            {
-              "id":67,
-              "name":"Head Massage",
-              "time":"20 Mins",
-              "cost":"300",
-              "condition":"Olive Oil",
-              "serviceName":null,
-              "categoryName":null,
-              "information":null,
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":7,
-              "sortValue":6,
-              "quantity":null
-            },
             {
               "id":63,
               "name":"Manicure",
@@ -1097,18 +1086,18 @@
               "quantity":null
             },
             {
-              "id":69,
-              "name":"Full Body Scrub",
-              "time":"30 Mins",
-              "cost":"1000",
-              "condition":"Oxy Glow",
+              "id":67,
+              "name":"Head Massage",
+              "time":"20 Mins",
+              "cost":"300",
+              "condition":"Olive Oil",
               "serviceName":null,
               "categoryName":null,
               "information":null,
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":7,
-              "sortValue":8,
+              "sortValue":6,
               "quantity":null
             },
             {
@@ -1127,10 +1116,10 @@
               "quantity":null
             },
             {
-              "id":71,
-              "name":"Body Polishing - Cream + Scrub + Pack",
-              "time":"75 Mins",
-              "cost":"2000",
+              "id":69,
+              "name":"Full Body Scrub",
+              "time":"30 Mins",
+              "cost":"1000",
               "condition":"Oxy Glow",
               "serviceName":null,
               "categoryName":null,
@@ -1138,7 +1127,7 @@
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":7,
-              "sortValue":10,
+              "sortValue":8,
               "quantity":null
             },
             {
@@ -1154,6 +1143,21 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":9,
+              "quantity":null
+            },
+            {
+              "id":71,
+              "name":"Body Polishing - Cream + Scrub + Pack",
+              "time":"75 Mins",
+              "cost":"2000",
+              "condition":"Oxy Glow",
+              "serviceName":null,
+              "categoryName":null,
+              "information":null,
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":7,
+              "sortValue":10,
               "quantity":null
             }
           ],
@@ -1286,36 +1290,6 @@
           ],
           "serviceItemList":[
             {
-              "id":82,
-              "name":"Customer's Henna",
-              "time":"30 Mins",
-              "cost":"400",
-              "condition":"Henna Application",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"Henna contains number of precious herbal ingredients which makes it an unique formulation for hair care. Henna fortifies and strengthens the hair, making it look conditioned and healthy.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":9,
-              "sortValue":21,
-              "quantity":null
-            },
-            {
-              "id":81,
-              "name":"Upto 1 Inch",
-              "time":"30 Mins",
-              "cost":"1200",
-              "condition":"L'Oreal INOA Root Touch-up",
-              "serviceName":null,
-              "categoryName":null,
-              "information":"L'Oreal INOA offers an ammonia-free, permanent hair color that maximizes high-definition color results, with minimum stress to the hair's cuticle. The shade palette offers vibrant reds, cool modern neutral tones, and rich browns, all with 100% grey coverage. Your hair will be smoother and shinier.",
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":9,
-              "sortValue":20,
-              "quantity":null
-            },
-            {
               "id":78,
               "name":"Shoulder Length",
               "time":"60 Mins",
@@ -1358,6 +1332,36 @@
               "isDiscounted":null,
               "serviceCategoryID":9,
               "sortValue":19,
+              "quantity":null
+            },
+            {
+              "id":81,
+              "name":"Upto 1 Inch",
+              "time":"30 Mins",
+              "cost":"1200",
+              "condition":"L'Oreal INOA Root Touch-up",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"L'Oreal INOA offers an ammonia-free, permanent hair color that maximizes high-definition color results, with minimum stress to the hair's cuticle. The shade palette offers vibrant reds, cool modern neutral tones, and rich browns, all with 100% grey coverage. Your hair will be smoother and shinier.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":9,
+              "sortValue":20,
+              "quantity":null
+            },
+            {
+              "id":82,
+              "name":"Customer's Henna",
+              "time":"30 Mins",
+              "cost":"400",
+              "condition":"Henna Application",
+              "serviceName":null,
+              "categoryName":null,
+              "information":"Henna contains number of precious herbal ingredients which makes it an unique formulation for hair care. Henna fortifies and strengthens the hair, making it look conditioned and healthy.",
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":9,
+              "sortValue":21,
               "quantity":null
             }
           ],
@@ -1428,24 +1432,6 @@
           "serviceItemSet":null,
           "serviceItemImageSet":[
             {
-              "id":9,
-              "imageUrl":"/images/bridal/bridalathome14.jpg",
-              "caption":null,
-              "serviceCategoryID":11
-            },
-            {
-              "id":6,
-              "imageUrl":"/images/bridal/bridalathome8.jpg",
-              "caption":null,
-              "serviceCategoryID":11
-            },
-            {
-              "id":2,
-              "imageUrl":"/images/bridal/bridalathome17.jpg",
-              "caption":null,
-              "serviceCategoryID":11
-            },
-            {
               "id":8,
               "imageUrl":"/images/bridal/bridalathome13.jpg",
               "caption":null,
@@ -1454,6 +1440,12 @@
             {
               "id":5,
               "imageUrl":"/images/bridal/bridalathome6.jpg",
+              "caption":null,
+              "serviceCategoryID":11
+            },
+            {
+              "id":11,
+              "imageUrl":"/images/bridal/bridalathome16.jpg",
               "caption":null,
               "serviceCategoryID":11
             },
@@ -1470,20 +1462,32 @@
               "serviceCategoryID":11
             },
             {
-              "id":3,
-              "imageUrl":"/images/bridal/bridalathome18.jpg",
-              "caption":null,
-              "serviceCategoryID":11
-            },
-            {
               "id":4,
               "imageUrl":"/images/bridal/bridalathome5.jpg",
               "caption":null,
               "serviceCategoryID":11
             },
             {
-              "id":11,
-              "imageUrl":"/images/bridal/bridalathome16.jpg",
+              "id":6,
+              "imageUrl":"/images/bridal/bridalathome8.jpg",
+              "caption":null,
+              "serviceCategoryID":11
+            },
+            {
+              "id":2,
+              "imageUrl":"/images/bridal/bridalathome17.jpg",
+              "caption":null,
+              "serviceCategoryID":11
+            },
+            {
+              "id":3,
+              "imageUrl":"/images/bridal/bridalathome18.jpg",
+              "caption":null,
+              "serviceCategoryID":11
+            },
+            {
+              "id":9,
+              "imageUrl":"/images/bridal/bridalathome14.jpg",
               "caption":null,
               "serviceCategoryID":11
             }
@@ -1639,7 +1643,7 @@
       "serviceDescriptionHeading": "Premium makeup at home"
     },
     "5":{
-      "name": "Package",
+      "name": "Packages",
       "serviceCategoryList":[
         {
           "id":13,
@@ -1649,63 +1653,33 @@
           ],
           "serviceItemList":[
             {
-              "id":99,
+              "id":93,
               "name":"Combos",
-              "time":"45 Mins",
-              "cost":"1100",
-              "condition":"Rica Wax - Underarms, Full Arms & Full Legs",
+              "time":"75 Mins",
+              "cost":"2400",
+              "condition":"O3+ Facial + O3+ Face Bleach",
               "serviceName":null,
               "categoryName":null,
               "information":null,
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":13,
-              "sortValue":-14,
+              "sortValue":-20,
               "quantity":null
             },
             {
-              "id":97,
+              "id":94,
               "name":"Combos",
-              "time":"75 Mins",
-              "cost":"1200",
-              "condition":"VLCC Facial + VLCC Face Bleach",
+              "time":"90 Mins",
+              "cost":"2700",
+              "condition":"O3+ Facial + O3+ Power Mask + O3+ Face Bleach",
               "serviceName":null,
               "categoryName":null,
               "information":null,
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":13,
-              "sortValue":-16,
-              "quantity":null
-            },
-            {
-              "id":100,
-              "name":"Combos",
-              "time":"75 Mins",
-              "cost":"1250",
-              "condition":"Head Massage + Full Body Olive Oil Massage",
-              "serviceName":null,
-              "categoryName":null,
-              "information":null,
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":13,
-              "sortValue":-13,
-              "quantity":null
-            },
-            {
-              "id":96,
-              "name":"Combos",
-              "time":"75 Mins",
-              "cost":"1500",
-              "condition":"Lotus Facial + Sara Face Detan",
-              "serviceName":null,
-              "categoryName":null,
-              "information":null,
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":13,
-              "sortValue":-17,
+              "sortValue":-19,
               "quantity":null
             },
             {
@@ -1724,18 +1698,33 @@
               "quantity":null
             },
             {
-              "id":93,
+              "id":96,
               "name":"Combos",
               "time":"75 Mins",
-              "cost":"2400",
-              "condition":"O3+ Facial + O3+ Face Bleach",
+              "cost":"1500",
+              "condition":"Lotus Facial + Sara Face Detan",
               "serviceName":null,
               "categoryName":null,
               "information":null,
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":13,
-              "sortValue":-20,
+              "sortValue":-17,
+              "quantity":null
+            },
+            {
+              "id":97,
+              "name":"Combos",
+              "time":"75 Mins",
+              "cost":"1200",
+              "condition":"VLCC Facial + VLCC Face Bleach",
+              "serviceName":null,
+              "categoryName":null,
+              "information":null,
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":13,
+              "sortValue":-16,
               "quantity":null
             },
             {
@@ -1754,18 +1743,33 @@
               "quantity":null
             },
             {
-              "id":94,
+              "id":99,
               "name":"Combos",
-              "time":"90 Mins",
-              "cost":"2700",
-              "condition":"O3+ Facial + O3+ Power Mask + O3+ Face Bleach",
+              "time":"45 Mins",
+              "cost":"1100",
+              "condition":"Rica Wax - Underarms, Full Arms & Full Legs",
               "serviceName":null,
               "categoryName":null,
               "information":null,
               "isActive":true,
               "isDiscounted":null,
               "serviceCategoryID":13,
-              "sortValue":-19,
+              "sortValue":-14,
+              "quantity":null
+            },
+            {
+              "id":100,
+              "name":"Combos",
+              "time":"75 Mins",
+              "cost":"1250",
+              "condition":"Head Massage + Full Body Olive Oil Massage",
+              "serviceName":null,
+              "categoryName":null,
+              "information":null,
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":13,
+              "sortValue":-13,
               "quantity":null
             },
             {
@@ -1811,6 +1815,21 @@
               "quantity":null
             },
             {
+              "id":103,
+              "name":"Packages",
+              "time":"120 Mins",
+              "cost":"2200",
+              "condition":"VLCC Facial + VLCC Face Bleach + VLCC Mani-Pedi + Treading - Eyebrows & Upperlips",
+              "serviceName":null,
+              "categoryName":null,
+              "information":null,
+              "isActive":true,
+              "isDiscounted":null,
+              "serviceCategoryID":14,
+              "sortValue":-10,
+              "quantity":null
+            },
+            {
               "id":104,
               "name":"Packages",
               "time":"120 Mins",
@@ -1853,21 +1872,6 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-7,
-              "quantity":null
-            },
-            {
-              "id":103,
-              "name":"Packages",
-              "time":"120 Mins",
-              "cost":"2200",
-              "condition":"VLCC Facial + VLCC Face Bleach + VLCC Mani-Pedi + Treading - Eyebrows & Upperlips",
-              "serviceName":null,
-              "categoryName":null,
-              "information":null,
-              "isActive":true,
-              "isDiscounted":null,
-              "serviceCategoryID":14,
-              "sortValue":-10,
               "quantity":null
             },
             {
