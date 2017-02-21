@@ -31,7 +31,7 @@ export default class addresslist extends React.Component {
                         { this.state.addresslist ? this.state.addresslist.map( function(address) {
                             return (<Address key = { address.lkey } address = { address } active = { self.state.activelkey === address.lkey } selectedAddress = { self.selectedAddress.bind(self) }/>)
                         }):'' }
-                        <div className = 'message' style = {{marginTop: 20}}>{this.state.addresslist.length > 0 ? '*To select tap on your desired   address':''}</div>
+                        <div className = 'message' style = {{marginTop: 20}}>{this.state.addresslist.length > 0 ? '*Tap to select your desired address':''}</div>
                         <button type = 'text' className = 'col-xs-12 add-address'> <Link to = '/address/add'>Add New Address</Link></button>
 
                     </div>

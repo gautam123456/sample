@@ -33,7 +33,7 @@ export default class AddAddress extends React.Component {
         <ActivityHeader heading = { 'Provide Address' } />
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
           <select className = 'col-xs-12' style = { dropStyle } onChange = { this.saveCity.bind(this) } value = { this.state.city }>
-            <option value = 'New Delhi'> Delhi </option>
+            <option value = 'New Delhi'> New Delhi </option>
             <option value = 'Noida'> Noida </option>
             <option value = 'Gurgaon'> Gurgaon </option>
             <option value = 'Faridabad'> Faridabad </option>
