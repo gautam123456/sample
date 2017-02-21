@@ -7,6 +7,7 @@ import Address from './Address';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import $ from 'jquery';
+import Base from './base/Base';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -40,7 +41,13 @@ export default class addresslist extends React.Component {
     }
 
     componentWillMount(){
-        this.getaddresslist();
+        this.callGetAddressListIn3Sec();
+    }
+
+    callGetAddressListIn3Sec(){
+        let self = this;
+        new Base().showOverlay();
+        setTimeout(function(){ self.getaddresslist() }, 3000)
     }
 
     getaddresslist() {
@@ -50,6 +57,7 @@ export default class addresslist extends React.Component {
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
         ajaxObj.success = function(data) {
             self.setState({ addresslist: data.addressList });
+            new Base().hideOverlay();
         }
         ajaxObj.error = function(){
 
