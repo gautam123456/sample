@@ -41,7 +41,6 @@ export default class Header extends React.Component {
           <div className='closebtn' onClick = { this.closeDrawer.bind(this) }>&times;</div>
           { this.isLoggedIn() ? this.loggedInRender() : this.nonLoggedInRender() }
           <a href='/'>Home</a>
-          <a href='/search'>Search</a>
           <a href='/gallery/bridal'>Gallery</a>
           <span>Call 8826755766 for any help or assistance.</span>
         </div>

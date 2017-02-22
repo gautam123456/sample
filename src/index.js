@@ -21,6 +21,7 @@ import RegisterUser from './components/RegisterUser';
 import ThankYou from './components/ThankYou';
 import ErrorPage from './components/ErrorPage';
 import SomethingWentWrong from './components/SomethingWentWrong';
+import FooterPage from './components/FooterPage';
 
 
 
@@ -43,6 +44,10 @@ render(
     <Route path = { 'register' } component = { RegisterUser } />
     <Route path = { 'order/confirm' } component = { OrderConfirm } />
     <Route path = { 'otp/confirm' } component = { OTPConfirm } />
+    <Route path = { 'about-us' } component = { FooterPage } />
+    <Route path = { 'contact-us' } component = { FooterPage } />
+    <Route path = { 'privacy-policy' } component = { FooterPage } />
+    <Route path = { 'terms-of-service' } component = { FooterPage } />
     <Route path = { 'oops' } component = { SomethingWentWrong } />
     <Route path = { '*' } component = { ErrorPage } />
   </Router>
