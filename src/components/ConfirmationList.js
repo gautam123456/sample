@@ -23,7 +23,7 @@ export default class ConfirmationList extends React.Component {
             margin = { marginBottom: 60 },
             padding = { paddingTop: 8 };
         return (
-            <div className = 'col-md-offset-4 col-md-4'>
+            <div className = 'col-md-offset-4 col-md-4 pad0'>
 
                 <div className = 'col-xs-12 summary pad0'>
                     <div className = 'col-xs-12'>
