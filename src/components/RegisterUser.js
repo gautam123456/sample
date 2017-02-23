@@ -15,7 +15,6 @@ export default class RegisterUser extends React.Component {
         super(props);
         this.state = {
             name : '',
-            address: '',
             refcode: '',
             otp:'',
             displayType: 'none',
@@ -63,11 +62,6 @@ export default class RegisterUser extends React.Component {
         this.setState({ name: name });
     }
 
-    addressChanged(e) {
-        let address = e.currentTarget.value;
-        this.setState({ address: address });
-    }
-
     refCodeChanged(e) {
         let refcode = e.currentTarget.value;
         this.setState({ refcode: refcode });
@@ -79,7 +73,7 @@ export default class RegisterUser extends React.Component {
     }
 
     allRequiredDataProvided() {
-        return !!(this.state.name && this.state.address && this.state.otp)
+        return !!(this.state.name && this.state.otp)
     }
 
     showNotification() {
@@ -95,7 +89,6 @@ export default class RegisterUser extends React.Component {
                 phonenumber: query.number,
                 otp: this.state.otp,
                 token: query.token,
-                address: this.state.address,
                 name: this.state.name,
                 refcode: this.state.refcode
             };

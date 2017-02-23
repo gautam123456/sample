@@ -60,7 +60,6 @@ export default class HomeImage extends React.Component {
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {
-
     var cost = parseInt(cost);
     if(operation){
       // operation is addition of services....
