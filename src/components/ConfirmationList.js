@@ -46,21 +46,15 @@ export default class ConfirmationList extends React.Component {
                     </div>
                 </div>
 
-                <div className = 'col-xs-12' style = { margin }>
+                <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
                         <div className = 'col-xs-12 pad0'>
                             <div className = 'col-xs-7 pad0'>
                                 { 'Service Name' }<br/>
                             </div>
-                            <div className = 'col-xs-2'>{ 'Price' }</div>
-                            <div className = 'col-xs-1 center'>
-
-                            </div>
-                            <div className = 'col-xs-1 center'>
-                                { 'No.' }
-                            </div>
-                            <div className = 'col-xs-1 center'>
-
+                            <div className = 'col-xs-3'>{ 'Price' }</div>
+                            <div className = 'col-xs-2 center'>
+                                { 'Qty' }
                             </div>
                         </div>
                     </header>

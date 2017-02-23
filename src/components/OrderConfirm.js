@@ -87,10 +87,15 @@ export default class OrderConfirm extends React.Component {
   }
 
   getHours() {
-    let hours = [9,10,11,12,13,14,15,16,17,18];
+    let hours = [[9,'09:00 AM'],[10,'10:00 AM'],[11,'11:00 AM'],[12,'12:00 PM'],[13,'01:00 PM'],[14,'02:00 PM'],[15,'03:00 PM'],[16,'04:00 PM'],[17,'05:00 PM'],[18,'06:00 PM']];
     if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year) && this.state.date == this.date.getDate() && this.date.getHours() < 16){
       let currentHour = this.date.getHours()
-      let index = hours.indexOf(currentHour)
+      let index;
+      for(var i = 0 ; i < hours.length ; i++){
+        if(hours[i][0] == currentHour){
+          index = i;
+        }
+      }
       return hours.slice(index + 2, hours.length);
     }else{
       return hours;
@@ -100,7 +105,7 @@ export default class OrderConfirm extends React.Component {
 
   renderHours(hour) {
     return (
-        <option key = {hour} value={hour + ':00 Hours'}>{hour + ':00 Hours'} </option>
+        <option key = {hour} value={hour}>{hour}</option>
     )
   }
 
@@ -110,8 +115,8 @@ export default class OrderConfirm extends React.Component {
     return (
         <select className = 'col-xs-12' onChange = { this.timeEntered.bind(this) }>
           <option value=''> Select Time </option>
-          { hours.map(function(index){
-            return self.renderHours(index)
+          { hours.map(function(hour){
+            return self.renderHours(hour[1])
           })}
         </select>
     )
@@ -121,7 +126,7 @@ export default class OrderConfirm extends React.Component {
     return (
         <div>
           <ActivityHeader heading = { 'Enter booking Details' }/>
-          { this.props.location.query.error ? <TopNotification msg = 'Please provide valid data to all fields' type = 'error'/> : ''}
+          { this.props.location.query.error ? <TopNotification msg = { !(this.state.mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
             <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) }></input>

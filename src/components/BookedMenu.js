@@ -7,19 +7,13 @@ import React from 'react';
 export default class BookedMenu extends React.Component {
   render() {
     return (
-      <div className = 'menu col-xs-12'>
+      <div className = 'menu col-xs-12 pad0'>
         <div className = 'col-xs-7'>
           { this.props.list.name }<br/>
         </div>
-        <div className = 'col-xs-2 pad0'> &nbsp; <i className = "fa fa-inr"></i>{ this.props.list.cost }</div>
-        <div className = 'col-xs-1 center'>
-
-        </div>
-        <div className = 'col-xs-1 center'>
+        <div className = 'col-xs-3'> &nbsp; <i className = "fa fa-inr"></i>{ this.props.list.cost }</div>
+        <div className = 'col-xs-2 center'>
           { this.props.count === 0 ? '': this.props.count }
-        </div>
-        <div className = 'col-xs-1 center'>
-
         </div>
       </div>
     )

@@ -65,7 +65,7 @@ export default class HomeImage extends React.Component {
       // operation is addition of services....
       window.bookingDetails.servicesCount += 1;
       window.bookingDetails.subTotal += cost;
-      if(window.bookingDetails && window.bookingDetails.services[id]){
+      if(window.bookingDetails.services[id]){
         window.bookingDetails.services[id].count += 1;
       } else {
         window.bookingDetails.services[id] = {

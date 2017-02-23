@@ -48,6 +48,12 @@ export default class AddAddress extends React.Component {
         )
     }
 
+    componentDidMount() {
+        if(this.props.index == 0){
+            this.props.selectedAddress(this.state.address);
+        }
+    }
+
     selectAddress() {
         this.props.selectedAddress(this.state.address);
     }

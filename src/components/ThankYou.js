@@ -18,9 +18,8 @@ export default class ThankYou extends React.Component {
               <i className = 'fa fa-handshake-o' style = { {fontSize: 70,paddingTop: 10} }></i>
             </div>
 
-            <div className = 'message'><i className = 'fa fa-circle'></i> We have sent your booking details on registered mobile number, our beautician will get in touch with you 1-2 hour prior to your booking time.</div>
-            <div className = 'message'><i className = 'fa fa-circle'></i> In case you have queries feel free to get in touch.</div>
-            <div className = 'message'><i className = 'fa fa-circle'></i> See you soon, until then have a nice time.</div>
+            <div className = 'message'> The booking details have been sent on your registered mobile number. </div>
+            <div className = 'message'> Call 8826755766 for any query or assistance.</div>
 
 
           </div>
@@ -31,7 +30,25 @@ export default class ThankYou extends React.Component {
 
   componentDidMount() {
     window.localStorage.clear();
-    window.bookingDetails = {};
+    window.bookingDetails = {
+      "minBooking": 800,
+      "convenienceCharges": 100,
+      "subTotal": 0,
+      "servicesCount": 0,
+      "discount": 0,
+      "couponcode":"",
+      "location": "Delhi",
+      "addresslkey": "",
+      "services": {},
+      "otp": "",
+      "hashIndex":"",
+      "addressList":"",
+      "date":"",
+      "timing":"",
+      "name":null,
+      "mailId":"",
+      "total":0
+    };
   }
 }
 

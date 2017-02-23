@@ -13,16 +13,13 @@ export default class Cart extends React.Component {
   render() {
     return (
       <div className='cart col-xs-12 col-md-4'>
-        <div className='col-xs-2'>
-          <i className='fa fa-comments fa-2x'></i>
-        </div>
-        <div className='col-xs-2 pad0'>
+        <div className='col-xs-3 pad0'>
           <span className='count'>{ this.props.bookingDetails.servicesCount || 0 }</span>
           <Link to= { '/cart' }>
             <i className='fa fa-shopping-cart fa-2x'></i>
           </Link>
         </div>
-        <div className='col-xs-5 pad0'>
+        <div className='col-xs-6 pad0'>
           Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
         </div>
         <div className='col-xs-3 full-height book pad0' onClick = { this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking ? this.navigateTo.bind(this) : this.showMessage.bind(this) }>

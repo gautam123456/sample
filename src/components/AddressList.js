@@ -28,14 +28,14 @@ export default class addresslist extends React.Component {
                 <ActivityHeader heading = { 'Select your Address' }/>
                     <div className = 'col-md-offset-4 col-md-4 col-xs-12'>
 
-                        { this.state.addresslist ? this.state.addresslist.map( function(address) {
-                            return (<Address key = { address.lkey } address = { address } active = { self.state.activelkey === address.lkey } selectedAddress = { self.selectedAddress.bind(self) }/>)
+                        { this.state.addresslist ? this.state.addresslist.map( function(address, index) {
+                            return (<Address key = { address.lkey } address = { address } index = { index } active = { self.state.activelkey === address.lkey } selectedAddress = { self.selectedAddress.bind(self) }/>)
                         }):'' }
                         <div className = 'message' style = {{marginTop: 20}}>{this.state.addresslist.length > 0 ? '*Tap to select your desired address':''}</div>
                         <button type = 'text' className = 'col-xs-12 add-address'> <Link to = '/address/add'>Add New Address</Link></button>
 
                     </div>
-                <ActivityFooter key = { 45 } next = { this.state.address ? 'order/confirm?lkey='+this.state.address.lkey :'' } back = { 'book' } address = { this.state.address } info = { 'please select address' }/>
+                <ActivityFooter key = { 45 } next = { this.state.address ? 'order/confirm?lkey='+this.state.address.lkey :'address' } back = { 'book' } address = { this.state.address } info = { 'please select address' }/>
             </div>
         )
     }

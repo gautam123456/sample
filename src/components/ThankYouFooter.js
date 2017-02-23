@@ -8,7 +8,7 @@ export default class ThankYouFooter extends React.Component {
     return (
       <footer className='a-footer col-xs-12 pad0'>
           <span className='col-xs-12'>
-            Thank You for Ordering with Us!
+            Thank you for booking with Lookplex!
           </span>
       </footer>
     )

@@ -15,10 +15,12 @@
   text-align: center;
   color: #fff;
 
-  .col-xs-2 {
-    border-right: 1px solid #444;
+  .col-xs-3 {
 
-    .count {
+    &:nth-child(1){
+      border-right: 1px solid #444;
+
+      .count {
         background: #ffff66;
         color: #000;
         font-weight: bolder;
@@ -26,7 +28,7 @@
         padding: 2px;
         font-size: 11px;
       }
-
+    }
   }
 
   .fa {
