@@ -5,8 +5,6 @@ import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import ThankYouFooter from './ThankYouFooter';
 
-import bookingDetails from '../../data/constants.json';
-
 export default class ThankYou extends React.Component {
 
   render() {
@@ -31,23 +29,23 @@ export default class ThankYou extends React.Component {
   componentDidMount() {
     window.localStorage.clear();
     window.bookingDetails = {
-      "minBooking": 800,
-      "convenienceCharges": 100,
-      "subTotal": 0,
-      "servicesCount": 0,
-      "discount": 0,
-      "couponcode":"",
-      "location": "Delhi",
-      "addresslkey": "",
-      "services": {},
-      "otp": "",
-      "hashIndex":"",
-      "addressList":"",
-      "date":"",
-      "timing":"",
-      "name":null,
-      "mailId":"",
-      "total":0
+      'minBooking': 800,
+      'convenienceCharges': 100,
+      'subTotal': 0,
+      'servicesCount': 0,
+      'discount': 0,
+      'couponcode':'',
+      'location': 'Delhi',
+      'addresslkey': '',
+      'services': {},
+      'otp': '',
+      'hashIndex':'',
+      'addressList':'',
+      'date':'',
+      'timing':'',
+      'name':null,
+      'mailId':'',
+      'total':0
     };
   }
 }

@@ -2,8 +2,6 @@ import React from 'react';
 import ServiceMenu from './ServiceMenu';
 import $ from 'jquery';
 
-import TopNotification from './TopNotification';
-
 import ajaxObj from '../../data/ajax.json';
 
 export default class BookedServicesList extends React.Component {

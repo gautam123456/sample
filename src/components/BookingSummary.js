@@ -4,7 +4,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
 import BookedServicesList from './BookedServicesList';
 
 export default class BookingSummary extends React.Component {
@@ -42,8 +41,6 @@ export default class BookingSummary extends React.Component {
     const subTotal = window.bookingDetails.subTotal;
     if((subTotal - (subTotal * window.bookingDetails.discount/100) + 100) >= window.bookingDetails.minBooking){
       browserHistory.push('address');
-    }else{
-      console.log('inside else');
     }
   }
 }

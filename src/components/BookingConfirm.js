@@ -49,8 +49,6 @@ export default class BookingConfirm extends React.Component {
       details.serviceids = details.serviceids.substr(0, details.serviceids.length-1);
       this.confirm(details);
 
-    }else{
-      console.log('inside else');
     }
   }
 

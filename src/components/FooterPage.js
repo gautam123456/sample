@@ -4,9 +4,6 @@
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
-import $ from 'jquery';
-
-import ajaxObj from '../../data/ajax.json';
 
 export default class FullCart extends React.Component {
 
@@ -20,7 +17,6 @@ export default class FullCart extends React.Component {
     }
 
     getData(path) {
-        const self = this;
         fetch('https://static.lookplex.com/data'+ path +'.html')
             .then(function(response) {
                 return response;

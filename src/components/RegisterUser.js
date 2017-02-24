@@ -23,9 +23,8 @@ export default class RegisterUser extends React.Component {
     }
 
     renderNotification() {
-        let classs = `col-xs-10 col-md-4 top-msg error`;
         return (
-            <header className = { classs } style = {{display: this.state.displayType}}>
+            <header className = 'col-xs-10 col-md-4 top-msg error' style = {{display: this.state.displayType}}>
                 <div>
                     <span> { this.state.info } </span>
                     <span className = 'pull-right'></span>

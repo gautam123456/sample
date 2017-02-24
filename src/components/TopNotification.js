@@ -25,10 +25,6 @@ export default class TopNotification extends React.Component {
         )
     }
 
-    componentWillUpdate(){
-        console.log('dfdfssdfsdfsdfsdf');
-    }
-
     hideMsg() {
         this.setState({display:'none'});
     }
