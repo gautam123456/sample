@@ -16,7 +16,8 @@ export default class BookedServicesList extends React.Component {
       couponCode:'',
       displayType : 'none',
       info: 'Coupon code Applied Successfully',
-      infoType: 'info'
+      infoType: 'info',
+      promoCodeApplied: false
     }
   }
 
@@ -34,6 +35,34 @@ export default class BookedServicesList extends React.Component {
 
   hideMsg() {
     this.setState({displayType:'none'});
+  }
+
+  removeCode() {
+    this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
+  }
+
+  renderPromoCodeSection() {
+    if(!this.state.promoCodeApplied) {
+      return (
+          <div className='col-xs-12 promo' style={ this.state.applySectionShow }>
+            <input id='promocode' className='col-xs-offset-1 col-xs-4 pad0' type='text' placeholder='Promo Code'
+                   onChange={ this.saveCode.bind(this) }></input>
+            <button className='col-xs-offset-2 col-xs-4 apply' onClick={ this.applyPromocode.bind(this) }> Apply
+            </button>
+          </div>
+      )
+    }
+
+  }
+
+  renderCouponAppliedSection() {
+    if(this.state.promoCodeApplied){
+      return(
+          <div className = 'col-xs-12 promo'>
+            <div className = 'col-xs-offset-4 col-xs-4 applied' onClick = { this.removeCode.bind(this) }>{ this.state.couponCode } <i className = 'fa fa-times-circle-o pull-right'></i></div>
+          </div>
+      )
+    }
   }
 
 
@@ -62,10 +91,11 @@ export default class BookedServicesList extends React.Component {
             <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
               <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
             </div>
-            <div className = 'col-xs-12 promo' style = { this.state.applySectionShow }>
-              <input id = 'promocode' className = 'col-xs-offset-1 col-xs-4 pad0' type = 'text' placeholder = 'Promo Code' onChange = { this.saveCode.bind(this) }></input>
-              <button className = 'col-xs-offset-2 col-xs-4 apply' onClick = { this.applyPromocode.bind(this) }> Apply </button>
-            </div>
+
+            { this.renderPromoCodeSection() }
+
+            { this.renderCouponAppliedSection() }
+
             <div className = 'col-xs-12'>
               <div className = 'col-xs-8'> Discount </div>
               <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { this.state.discount * this.state.bookedItemList.subTotal / 100 } </div>
@@ -101,7 +131,7 @@ export default class BookedServicesList extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
     ajaxObj.data = { couponcode: self.state.couponCode }
     ajaxObj.success = function(data) {
-      self.setState({ discount: data.discount, displayType: 'block', info: 'Coupon code Applied Successfully', infoType: 'info' });
+      self.setState({ discount: data.discount, displayType: 'block', info: 'Coupon code Applied Successfully', infoType: 'info', promoCodeApplied: true });
       window.bookingDetails.couponcode = self.state.couponCode;
       window.bookingDetails.discount = data.discount;
       setTimeout(function(){
