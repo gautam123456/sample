@@ -22,7 +22,9 @@ export default class OrderConfirm extends React.Component {
         self = this;
     return (
         <select className = 'col-xs-12' onChange = { this.datePicked.bind(this) } value = { this.state.date }>
-
+          { days.map(function(index){
+            return self.renderDay(index);
+          })}
         </select>
     )
   }
@@ -73,9 +75,9 @@ export default class OrderConfirm extends React.Component {
     if(this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year)){
       let currentDate = this.date.getDate();
       if( this.date.getHours() > 16 ){
-        days = days.slice(currentDate, days.length);
+        //days = days.slice(currentDate, days.length);
       }else{
-        days = days.slice(currentDate-1, days.length);
+        //days = days.slice(currentDate-1, days.length);
       }
 
     }
