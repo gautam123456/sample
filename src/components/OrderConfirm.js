@@ -22,9 +22,7 @@ export default class OrderConfirm extends React.Component {
         self = this;
     return (
         <select className = 'col-xs-12' onChange = { this.datePicked.bind(this) } value = { this.state.date }>
-          { days.map(function(index){
-            return self.renderDay(index);
-          })}
+
         </select>
     )
   }
@@ -62,7 +60,6 @@ export default class OrderConfirm extends React.Component {
 
   getNumberOfDays() {
     let days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
-
     switch(this.state.month){
       case '4':
       case '6':
