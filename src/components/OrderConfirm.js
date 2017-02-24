@@ -72,12 +72,12 @@ export default class OrderConfirm extends React.Component {
         break;
       default : days[29] = 29; days[30] = 30; days[31] = 31;
     }
-    if(this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year)){
+    if(this.state.month == (this.date.getMonth() + 1)){
       let currentDate = this.date.getDate();
       if( this.date.getHours() > 16 ){
-        //days = days.slice(currentDate, days.length);
+        days = days.slice(currentDate, days.length);
       }else{
-        //days = days.slice(currentDate-1, days.length);
+        days = days.slice(currentDate-1, days.length);
       }
 
     }
