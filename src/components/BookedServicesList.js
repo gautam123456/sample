@@ -104,9 +104,15 @@ export default class BookedServicesList extends React.Component {
       self.setState({ discount: data.discount, displayType: 'block', info: 'Coupon code Applied Successfully', infoType: 'info' });
       window.bookingDetails.couponcode = self.state.couponCode;
       window.bookingDetails.discount = data.discount;
+      setTimeout(function(){
+        self.hideMsg();
+      }, 3000)
     }
     ajaxObj.error = function(e){
       self.setState({ discount: 0, displayType: 'block', info: e.responseJSON.message , infoType: 'error' });
+      setTimeout(function(){
+        self.hideMsg();
+      }, 3000)
     }
     $.ajax(ajaxObj);
   }
@@ -141,6 +147,8 @@ export default class BookedServicesList extends React.Component {
   }
 
   saveToLocalStorage() {
-    window.localStorage.bookingDetails = JSON.stringify(window.bookingDetails);
+    let bookingDetails = window.bookingDetails;
+    bookingDetails.discount = 0;
+    window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
   }
 }

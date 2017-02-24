@@ -88,6 +88,8 @@ export default class HomeImage extends React.Component {
   }
 
   saveToLocalStorage() {
-    window.localStorage.bookingDetails = JSON.stringify(window.bookingDetails);
+    let bookingDetails = window.bookingDetails;
+    bookingDetails.discount = 0;
+    window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
   }
 }
