@@ -141,7 +141,7 @@ export default class OrderConfirm extends React.Component {
                 </select>
               </div>
               <div className = 'col-xs-4 pad0'>
-
+                { this.renderMonths() }
               </div>
               <div className = 'col-xs-4 pad0'>
 
