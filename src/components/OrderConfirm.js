@@ -72,7 +72,7 @@ export default class OrderConfirm extends React.Component {
         break;
       default : days[29] = 29; days[30] = 30; days[31] = 31;
     }
-    if(this.state.month == (this.date.getMonth() + 1)){
+    if(this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.state.year) >= 0){
       let currentDate = this.date.getDate();
       if( this.date.getHours() > 16 ){
         days = days.slice(currentDate, days.length);
@@ -86,7 +86,7 @@ export default class OrderConfirm extends React.Component {
 
   getHours() {
     let hours = [[9,'09:00 AM'],[10,'10:00 AM'],[11,'11:00 AM'],[12,'12:00 PM'],[13,'01:00 PM'],[14,'02:00 PM'],[15,'03:00 PM'],[16,'04:00 PM'],[17,'05:00 PM'],[18,'06:00 PM']];
-    if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().includes(this.state.year) && this.state.date == this.date.getDate() && this.date.getHours() < 16){
+    if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.state.year) >= 0 && this.state.date == this.date.getDate() && this.date.getHours() < 16){
       let currentHour = this.date.getHours()
       let index;
       for(var i = 0 ; i < hours.length ; i++){
@@ -147,7 +147,7 @@ export default class OrderConfirm extends React.Component {
               </div>
 
               <div className = 'col-xs-6 col-xs-offset-3 pad0'>
-
+                { this.renderTime() }
               </div>
             </div>
 
