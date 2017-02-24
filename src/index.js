@@ -42,7 +42,7 @@ render(
     <Route path = { 'loader' } component = { Loader } />
     <Route path = { 'login' } component = { Login }  />
     <Route path = { 'register' } component = { RegisterUser } />
-    <Route path = { 'order/confirm' } component = { OrderConfirm } />
+    <Route path = { 'order/confirm/1' } component = { OrderConfirm } />
     <Route path = { 'otp/confirm' } component = { OTPConfirm } />
     <Route path = { 'about-us' } component = { FooterPage } />
     <Route path = { 'contact-us' } component = { FooterPage } />
