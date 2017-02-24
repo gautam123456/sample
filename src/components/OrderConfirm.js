@@ -144,11 +144,11 @@ export default class OrderConfirm extends React.Component {
 
               </div>
               <div className = 'col-xs-4 pad0'>
-
+                { this.renderDate() }
               </div>
 
               <div className = 'col-xs-6 col-xs-offset-3 pad0'>
-
+                { this.renderTime() }
               </div>
             </div>
 
