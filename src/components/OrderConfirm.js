@@ -125,7 +125,38 @@ export default class OrderConfirm extends React.Component {
     return (
         <div>
           <ActivityHeader heading = { 'Enter booking Details' }/>
+          { this.props.location.query.error ? <TopNotification msg = { !(this.state.mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
+          <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
+            <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) }></input>
+
+            <div className = 'col-xs-12 datepick'>
+              <span> Pick your time </span>
+              <div className = 'col-xs-12 date'> { this.state.date + '/' + this.state.month + '/' + this.state.year + ' ' + this.state.timing } </div>
+
+              <div className = 'col-xs-4 pad0'>
+                <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.state.year }>
+                  <option value='2017'>2017</option>
+                  <option value='2018'>2018</option>
+                </select>
+              </div>
+              <div className = 'col-xs-4 pad0'>
+                { this.renderMonths() }
+              </div>
+              <div className = 'col-xs-4 pad0'>
+                { this.renderDate() }
+              </div>
+
+              <div className = 'col-xs-6 col-xs-offset-3 pad0'>
+                { this.renderTime() }
+              </div>
+            </div>
+
+            <div className = 'col-xs-11 message'>
+              *All fields are mandatory
+            </div>
+
+          </div>
           <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.month + '/' + this.state.date + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true&lkey=' + this.props.location.query.lkey } back = { 'address' } info = 'Please make sure all fields are valid'/>
         </div>
     )
