@@ -156,7 +156,7 @@ export default class OrderConfirm extends React.Component {
             </div>
 
           </div>
-          <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/confirm?lkey=' +this.props.location.query.lkey + '&date=' + this.state.month + '/' + this.state.date + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/confirm?error=true&lkey=' + this.props.location.query.lkey } back = { 'address' } info = 'Please make sure all fields are valid'/>
+          <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'booking/details?lkey=' +this.props.location.query.lkey + '&date=' + this.state.month + '/' + this.state.date + '/' + this.state.year + '&mailId=' + this.state.mailId + '&timing=' + this.state.timing : 'order/details?error=true&lkey=' + this.props.location.query.lkey } back = { 'address' } info = 'Please make sure all fields are valid'/>
         </div>
     )
   }

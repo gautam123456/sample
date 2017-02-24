@@ -35,7 +35,7 @@ export default class addresslist extends React.Component {
                         <button type = 'text' className = 'col-xs-12 add-address'> <Link to = '/address/add'>Add New Address</Link></button>
 
                     </div>
-                <ActivityFooter key = { 45 } next = { this.state.address ? 'order/confirm?lkey='+this.state.address.lkey :'address' } back = { 'book' } address = { this.state.address } info = { 'please select address' }/>
+                <ActivityFooter key = { 45 } next = { this.state.address ? 'order/details?lkey='+this.state.address.lkey :'address' } back = { 'book' } address = { this.state.address } info = { 'please select address' }/>
             </div>
         )
     }
