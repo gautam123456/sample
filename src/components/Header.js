@@ -26,7 +26,7 @@ export default class Header extends React.Component {
 
   nonLoggedInRender() {
     return (
-        <a href='/login'>Login/SignUp</a>
+        <a href='/login'>Login/Sign up</a>
     )
   }
 
