@@ -59,7 +59,7 @@ export default class BookedServicesList extends React.Component {
     if(this.state.promoCodeApplied){
       return(
           <div className = 'col-xs-12 promo'>
-            <div className = 'col-xs-offset-4 col-xs-4 applied' onClick = { this.removeCode.bind(this) }>{ this.state.couponCode } <i className = 'fa fa-times-circle-o pull-right'></i></div>
+            <div className = 'col-xs-offset-3 col-xs-6 applied' onClick = { this.removeCode.bind(this) }>{ this.state.couponCode } <i className = 'fa fa-times-circle-o pull-right'></i></div>
           </div>
       )
     }
