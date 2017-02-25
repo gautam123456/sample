@@ -11,7 +11,7 @@ export default class OrderConfirm extends React.Component {
       mailId: window.bookingDetails.mailId,
       timing: '',
       date: this.date.getHours() < 16 ? this.date.getDate() : this.date.getDate() + 1,
-      month: parseInt(this.date.getMonth()) + 1,
+      month: (parseInt(this.date.getMonth()) + 1).toString(),
       year: parseInt(this.date.getFullYear()),
       months:[]
     }
