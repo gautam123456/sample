@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
+import TopNotification from './TopNotification';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -17,20 +18,9 @@ export default class RegisterUser extends React.Component {
             name : '',
             refcode: '',
             otp:'',
-            displayType: 'none',
-            info: 'Please provide Name & OTP'
+            info: 'Please provide Name & OTP',
+            error: false
         }
-    }
-
-    renderNotification() {
-        return (
-            <header className = 'col-xs-10 col-md-4 top-msg error' style = {{display: this.state.displayType}}>
-                <div>
-                    <span> { this.state.info } </span>
-                    <span className = 'pull-right'></span>
-                </div>
-            </header>
-        )
     }
 
     render() {
@@ -39,15 +29,15 @@ export default class RegisterUser extends React.Component {
             <div>
                 <ActivityHeader heading = { 'Register' }/>
 
-                <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
+                { this.state.error ? <TopNotification msg = { this.state.info } type = 'error'/> : ''}
 
-                    { this.renderNotification() }
+                <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
 
                     <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-12' onChange={ this.nameChanged.bind(this) }></input>
 
                     <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-12' onChange={ this.otpChanged.bind(this) }></input>
 
-                    <input type = 'text' placeholder = 'Refferal Code (Optional)' className = 'col-xs-12' onChange={ this.refCodeChanged.bind(this) }></input>
+                    <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-12' onChange={ this.refCodeChanged.bind(this) }></input>
 
                     <button type = 'text' className = 'col-xs-12' onClick={ this.register.bind(this) }> Submit </button>
 
@@ -75,11 +65,8 @@ export default class RegisterUser extends React.Component {
         return !!(this.state.name && this.state.otp)
     }
 
-    showNotification() {
-        this.setState({displayType:'block'})
-    }
-
     register() {
+        const self =  this;
         if(this.allRequiredDataProvided()) {
             new Base().showOverlay();
             let query = this.props.location.query;
@@ -96,14 +83,14 @@ export default class RegisterUser extends React.Component {
                 window.bookingDetails.name = data.name || 'dummy';
                 browserHistory.push('/book')
             }
-            ajaxObj.error = function () {
+            ajaxObj.error = function (e) {
                 new Base().hideOverlay();
-                browserHistory.push('/oops')
+                self.setState({error: true, info: e.responseText})
             }
             $.ajax(ajaxObj);
 
         }else{
-            this.showNotification()
+            this.setState({error: true})
         }
     }
 }

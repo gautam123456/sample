@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
+import TopNotification from './TopNotification';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -14,7 +15,9 @@ export default class OTPConfirm extends React.Component {
     super(props);
     this.state = {
       otp : '',
-      display: this.props.location.query.errorDisplay || 'none'
+      display: this.props.location.query.errorDisplay || 'none',
+      error: false,
+      msg: ''
     }
   }
 
@@ -22,6 +25,7 @@ export default class OTPConfirm extends React.Component {
     return (
       <div>
         <ActivityHeader heading = { 'Provide OTP' }/>
+        { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
 
           <input type = 'number' placeholder = 'Enter OTP' pattern="[0-9]*" inputMode="numeric" className = 'col-xs-12' onChange={ this.otpChanged.bind(this) }></input>
@@ -51,9 +55,9 @@ export default class OTPConfirm extends React.Component {
       new Base().hideOverlay();
       browserHistory.push('/otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
     }
-    ajaxObj.error = function() {
+    ajaxObj.error = function(e) {
       new Base().hideOverlay();
-      browserHistory.push('/oops');
+      self.setState({error: true, msg: e.responseText})
     }
     $.ajax(ajaxObj);
   }
@@ -75,8 +79,8 @@ export default class OTPConfirm extends React.Component {
         window.bookingDetails.name = 'ZZ';
         browserHistory.push('/book')
       }
-      ajaxObj.error = function() {
-        browserHistory.push('otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + self.props.location.query.isNewUser + '&token=' + self.props.location.query.token + '&errorDisplay=' + 'block')
+      ajaxObj.error = function(e) {
+        self.setState({msg: e.responseText, error: true})
       }
       $.ajax(ajaxObj);
 

@@ -136,7 +136,6 @@ export default class OrderConfirm extends React.Component {
               <div className = 'col-xs-4 pad0'>
                 <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.state.year }>
                   <option value='2017'>2017</option>
-                  <option value='2018'>2018</option>
                 </select>
               </div>
               <div className = 'col-xs-4 pad0'>

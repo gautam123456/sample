@@ -6,6 +6,8 @@ import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import ActivityHeader from './ActivityHeader';
 import Base from './base/Base';
+import TopNotification from './TopNotification';
+
 import ajaxObj from '../../data/ajax.json';
 
 export default class Login extends React.Component {
@@ -13,14 +15,18 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      number : ''
+      number : '',
+      msg: '',
+      error: false
     }
   }
 
   render() {
+    const self = this;
     return (
       <div>
         <ActivityHeader heading = { 'Log In/Sign up' }/>
+        { self.state.error ? <TopNotification msg = { self.state.msg } type = 'error'/> : ''}
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
 
           <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-12' onChange={ this.numberChanged.bind(this) }></input>
@@ -32,12 +38,13 @@ export default class Login extends React.Component {
     )
   }
 
+  showErrorMessage() {
+    this.setState({msg:'Mobile no should be of 10 digits', error: true})
+  }
+
   numberChanged(e) {
     let number = e.currentTarget.value;
     number.length <= 10 ? this.setState({ number: number }) : this.showErrorMessage();
-  }
-
-  showErrorMessage(){
   }
 
   login() {
@@ -48,15 +55,15 @@ export default class Login extends React.Component {
     ajaxObj.data = { phonenumber: self.state.number };
     ajaxObj.success = function(data) {
       if(data.isNewUser == true){
-        browserHistory.push( '/register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token );
+        browserHistory.push( 'register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token );
       }else{
-        browserHistory.push('/otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
+        browserHistory.push('otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
       }
         new Base().hideOverlay();
     }
-    ajaxObj.error = function() {
+    ajaxObj.error = function(e) {
       new Base().hideOverlay();
-      browserHistory.push('/oops');
+      self.setState({msg:e, error: true})
     }
     $.ajax(ajaxObj);
   }

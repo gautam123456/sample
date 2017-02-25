@@ -28,24 +28,25 @@ export default class ThankYou extends React.Component {
 
   componentDidMount() {
     window.localStorage.clear();
+    const name = window.bookingDetails.name
     window.bookingDetails = {
       'minBooking': 800,
       'convenienceCharges': 100,
       'subTotal': 0,
       'servicesCount': 0,
       'discount': 0,
-      'couponcode':'',
+      'couponcode': '',
       'location': 'Delhi',
       'addresslkey': '',
       'services': {},
       'otp': '',
-      'hashIndex':'',
-      'addressList':'',
-      'date':'',
-      'timing':'',
-      'name':null,
-      'mailId':'',
-      'total':0
+      'hashIndex': '',
+      'addressList': '',
+      'date': '',
+      'timing': '',
+      'name': name,
+      'mailId': '',
+      'total': 0
     };
   }
 }
