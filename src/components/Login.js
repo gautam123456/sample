@@ -63,7 +63,7 @@ export default class Login extends React.Component {
     }
     ajaxObj.error = function(e) {
       new Base().hideOverlay();
-      self.setState({msg:e, error: true})
+      self.setState({msg:e.responseText, error: true})
     }
     $.ajax(ajaxObj);
   }
