@@ -4,16 +4,19 @@
   "subTotal": 0,
   "servicesCount": 0,
   "discount": 0,
-  "couponcode":"",
+  "couponcode": "",
   "location": "Delhi",
   "addresslkey": "",
   "services": {},
   "otp": "",
-  "hashIndex":"",
-  "addressList":"",
-  "date":"",
-  "timing":"",
-  "name":null,
-  "mailId":"",
-  "total":0
+  "hashIndex": "",
+  "addressList": "",
+  "date": "",
+  "timing": "",
+  "name": null,
+  "mailId": "",
+  "total": 0,
+  "featureFlags": {
+    "welcomeModal" : true
+  }
 }

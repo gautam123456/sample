@@ -6,9 +6,11 @@ import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
 import Cart from './Cart';
 import Testimonial from './Testimonial';
+import Modal from './common/Modal';
 
-import data from '../../data/items.json'
-import testimonials from '../../data/testimonials.json'
+import constants from '../../data/constants.json';
+import data from '../../data/items.json';
+import testimonials from '../../data/testimonials.json';
 
 export default class HomeImage extends React.Component {
   constructor(props) {
@@ -31,6 +33,7 @@ export default class HomeImage extends React.Component {
     }
     return (
       <section className = 'col-xs-12 col-md-4 pad0'>
+        { constants.featureFlags.welcomeModal ? <Modal /> : '' }
         <div className = 'bgimage' style = { background }>
         </div>
         <div className = 'filter'>
