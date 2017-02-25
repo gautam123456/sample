@@ -17,15 +17,15 @@ export default class AddAddress extends React.Component {
             <div className = 'col-xs-12 address-space pad0'>
                 <div className = 'addresscard col-xs-12' style = { this.props.active ? { backgroundColor: '#add7d5' }: {}} onClick = { this.selectAddress.bind(this) }>
                     <div className = 'col-xs-12'>
-                        <div className = 'col-xs-3 head'> Address : </div>
+                        <div className = 'col-xs-3 head pad0'> Address : </div>
                         <div className = 'col-xs-9'>{ this.props.address.address }</div>
                     </div>
                     <div className = 'col-xs-12'>
-                        <div className = 'col-xs-3 head'> Landmark : </div>
+                        <div className = 'col-xs-3 head pad0'> Landmark : </div>
                         <div className = 'col-xs-9'>{ this.props.address.landmark }</div>
                     </div>
                     <div className = 'col-xs-12'>
-                        <div className = 'col-xs-3 head'> City : </div>
+                        <div className = 'col-xs-3 head pad0'> City : </div>
                         <div className = 'col-xs-9'>{ this.props.address.city }</div>
                     </div>
                 </div>
