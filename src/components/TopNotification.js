@@ -8,7 +8,7 @@ export default class TopNotification extends React.Component {
         super(props);
 
         this.state = {
-            display: this.props.display
+            display: 'block'
         }
     }
 
@@ -18,7 +18,7 @@ export default class TopNotification extends React.Component {
             <header className = { classs } style = {{display: 'block'}}>
                 <div>
                     <span >{ this.props.msg }</span>
-                    <span className = 'pull-right' onClick = { this.hideMsg.bind(this) }><i className = 'fa fa-times'></i></span>
+                    <span className = 'pull-right' onClick = { this.hideMsg.bind(this) }></span>
                 </div>
 
             </header>

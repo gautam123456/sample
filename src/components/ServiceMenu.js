@@ -42,7 +42,7 @@ export default class ServiceMenu extends React.Component {
 
   renderCondition() {
     return (
-        <span className = 'brand'> { this.props.list.condition } </span>
+        <span className = 'brand'> ({ this.props.list.condition }) </span>
     )
   }
 }

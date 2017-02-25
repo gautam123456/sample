@@ -4,6 +4,8 @@
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
+import $ from 'jquery';
+import ajaxObj from '../../data/ajax.json';
 
 export default class FullCart extends React.Component {
 
@@ -16,18 +18,27 @@ export default class FullCart extends React.Component {
         }
     }
 
-    getData(path) {
-        fetch('https://static.lookplex.com/data'+ path +'.html')
-            .then(function(response) {
-                return response;
-            });
-
+    componentDidMount() {
+        let data = '';
+        const self = this;
+        ajaxObj.url = 'https://static.lookplex.com/data' + this.props.location.pathname + '.json';
+        ajaxObj.type = 'GET';
+        ajaxObj.data = '';
+        ajaxObj.success = function(response) {
+            console.log('#########' + response + '########R')
+            console.log(Object.keys(response));
+            self.setState({data: response});
+        }
+        ajaxObj.error = function() {
+            window.bookingDetails.name = null;
+        }
+        $.ajax(ajaxObj);
     }
 
     renderData() {
-        const data = this.getData(this.props.location.pathname);
+        console.log('##########' + this.state.data + '#########');
         return (
-            <div dangerouslySetInnerHTML={{__html: data }} />
+            <div dangerouslySetInnerHTML={{__html: this.state.data }} />
         )
     }
 
