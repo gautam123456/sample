@@ -94,7 +94,7 @@ export default class OrderConfirm extends React.Component {
           index = i;
         }
       }
-      return hours.slice(index + 4, hours.length);
+      return hours.slice(index + 3, hours.length);
     }else{
       return hours;
     }
