@@ -84,10 +84,6 @@ export default class BookedServicesList extends React.Component {
               <div className = 'col-xs-8'> Sub Total </div>
               <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal } </div>
             </div>
-            <div className = 'col-xs-12'>
-              <div className = 'col-xs-8'> Convenience Charges </div>
-              <div className = 'col-xs-4'> + <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges } </div>
-            </div>
             <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
               <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
             </div>
@@ -102,7 +98,7 @@ export default class BookedServicesList extends React.Component {
             </div>
             <div className = 'col-xs-12'>
               <div className = 'col-xs-8'> Total </div>
-              <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.convenienceCharges + this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
+              <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
             </div>
           </div>
           <div className="terms col-xs-12">

@@ -1,6 +1,6 @@
 {
   "minBooking": 800,
-  "convenienceCharges": 100,
+  "convenienceCharges": 0,
   "subTotal": 0,
   "servicesCount": 0,
   "discount": 0,
