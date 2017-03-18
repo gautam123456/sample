@@ -25,8 +25,6 @@ export default class FullCart extends React.Component {
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
         ajaxObj.success = function(response) {
-            console.log('#########' + response + '########R')
-            console.log(Object.keys(response));
             self.setState({data: response});
         }
         ajaxObj.error = function() {
@@ -36,7 +34,6 @@ export default class FullCart extends React.Component {
     }
 
     renderData() {
-        console.log('##########' + this.state.data + '#########');
         return (
             <div dangerouslySetInnerHTML={{__html: this.state.data }} />
         )

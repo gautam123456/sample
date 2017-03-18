@@ -2,7 +2,7 @@
 
 .summary {
   font-size: 15px;
-  margin: 20px 0 50px 0;
+  margin: 8px 0 50px 0;
 
   button {
     background-color: $brand-color-2;
@@ -92,6 +92,10 @@
 }
 
 .summ{
+  bottom: 0;
+  position: fixed;
+  margin-left: -33.33%;
+
   .tooltip .tooltiptext{
     bottom: 200%;
     left: -80%;

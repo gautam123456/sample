@@ -40,9 +40,7 @@ export default class AddAddress extends React.Component {
                             <i className = 'fa fa-pencil-square-o'></i> Edit
                         </button>
                     </Link>
-                    <button className = 'col-xs-4 col-xs-offset-1' onClick = { this.selectAddress.bind(this) }>
-                        <i className='fa fa-play'></i> Select
-                    </button>
+                    <input type="checkbox" className = "pull-right" checked = { this.props.active ? true : false } onClick = { this.selectAddress.bind(this) } />
                 </div>
             </div>
         )

@@ -18,7 +18,7 @@ export default class RegisterUser extends React.Component {
             name : '',
             refcode: '',
             otp:'',
-            info: 'Please provide Name & OTP',
+            info: 'Please provide Name',
             error: false
         }
     }
@@ -62,7 +62,16 @@ export default class RegisterUser extends React.Component {
     }
 
     allRequiredDataProvided() {
-        return !!(this.state.name && this.state.otp)
+        if(this.state.name){
+          if(this.state.otp){
+            return true;
+          }else{
+            this.setState({info: 'Please provide OTP'})
+            return false
+          }
+        }else{
+          return false
+        }
     }
 
     register() {
