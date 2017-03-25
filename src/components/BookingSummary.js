@@ -25,7 +25,7 @@ export default class BookingSummary extends React.Component {
         <BookedServicesList />
         <button className = 'col-xs-12 col-md-4 summ' style = {book} onClick = { this.bookingConfirm.bind(this) }>
           <div className='tooltip'>Continue
-            <span className='tooltiptext'> Minimum booking amount is Rs 800, please add more services. </span>
+            <span className='tooltiptext'> Minimum booking amount is <i className='fa fa-inr'></i> 800, add more services. </span>
           </div>
         </button>
       </div>

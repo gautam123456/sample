@@ -19,13 +19,13 @@ export default class Cart extends React.Component {
             <i className='fa fa-shopping-cart fa-2x'></i>
           </Link>
         </div>
-        <div className='col-xs-6 pad0'>
+        <div className='col-xs-5 pad0'>
           Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
         </div>
-        <div className='col-xs-3 full-height book pad0' onClick = { this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking ? this.navigateTo.bind(this) : this.showMessage.bind(this) }>
+        <div className='col-xs-4 full-height book pad0' onClick = { this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking ? this.navigateTo.bind(this) : this.showMessage.bind(this) }>
 
           <div className='tooltip'>Book Now
-            <span className='tooltiptext'> Minimum booking amount is Rs.800. Add more services. </span>
+            <span className='tooltiptext'> Minimum booking amount is <i className='fa fa-inr'></i> 800, add more services. </span>
           </div>
         </div>
       </div>

@@ -19,7 +19,6 @@ export default class FullCart extends React.Component {
     }
 
     componentDidMount() {
-        let data = '';
         const self = this;
         ajaxObj.url = 'https://static.lookplex.com/data' + this.props.location.pathname + '.json';
         ajaxObj.type = 'GET';
