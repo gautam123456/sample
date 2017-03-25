@@ -16,6 +16,15 @@
   font-weight: bolder;
   color: #555;
 
+  div{
+    span {
+      &.brand {
+        font-weight: 600;
+        font-size: 11px;
+      }
+    }
+  }
+
   .brand {
     color: $brand-color;
   }
