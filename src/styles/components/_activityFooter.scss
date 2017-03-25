@@ -2,7 +2,7 @@
 
 .a-footer {
   bottom: 0;
-  background-color: #ddd;
+  background-color: $brand-color-2;
   height: 40px;
   position: fixed;
   font-weight: bolder;
@@ -18,7 +18,7 @@
   .a-f {
 
     a{
-      color: #000;
+      color: #fff;
     }
   }
 }

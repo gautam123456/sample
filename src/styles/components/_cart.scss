@@ -65,12 +65,12 @@
     color: #fff;
 
     .tooltip .tooltiptext{
-      bottom: 250%;
-      left: -80%;
-      width: 110px;
+      bottom: 210%;
+      left: -190%;
+      width: 210px;
 
       &::after{
-        top: 96%;
+        top: 100%;
         left: 50%;
       }
     }

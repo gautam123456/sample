@@ -42,7 +42,10 @@ export default class Header extends React.Component {
           { this.isLoggedIn() ? this.loggedInRender() : this.nonLoggedInRender() }
           <a href='/'>Home</a>
           <a href='/gallery/bridal'>Gallery</a>
-          <span>Call 8826755766 for any help or assistance.</span>
+          <div className="contact col-xs-12 pad0">
+            <a href="tel:918826755766"><i className = "fa fa-phone"></i></a>
+            <span>Call or Whatsapp on +918826755766 for assistance.</span>
+          </div>
         </div>
 
       </header>
@@ -50,11 +53,21 @@ export default class Header extends React.Component {
   }
 
   openDrawer() {
-    this.setState({width:{width:250}});
+    const self = this,
+      target = document.getElementById('grey-overlay')
+
+    self.setState({width:{width:250}});
+    target.className = 'grey-overlay';
+
+    $('.grey-overlay').on('click', function(){
+      self.setState({width:{width:0}});
+      target.className = '';
+    })
   }
 
   closeDrawer() {
     this.setState({width:{width:0}});
+    document.getElementById('grey-overlay').className = '';
   }
 
   isLoggedIn() {

@@ -25,7 +25,7 @@ export default class Cart extends React.Component {
         <div className='col-xs-3 full-height book pad0' onClick = { this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking ? this.navigateTo.bind(this) : this.showMessage.bind(this) }>
 
           <div className='tooltip'>Book Now
-            <span className='tooltiptext'> Minimum booking amount is 800 </span>
+            <span className='tooltiptext'> Minimum booking amount is Rs.800. Add more services. </span>
           </div>
         </div>
       </div>

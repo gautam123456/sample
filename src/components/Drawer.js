@@ -19,6 +19,7 @@ export default class Drawer extends React.Component {
 
   closeDrawer() {
     document.getElementById('mySidenav').style.width = '0';
+    document.getElementById('grey-overlay').className = 'a';
   }
 }
 

@@ -8,6 +8,10 @@ import ThankYouFooter from './ThankYouFooter';
 export default class ThankYou extends React.Component {
 
   render() {
+    const style = {
+      fontSize: 16
+    }
+
     return (
         <div>
           <ActivityHeader heading = { 'Booking Confirmed' }/>
@@ -16,8 +20,8 @@ export default class ThankYou extends React.Component {
               <i className = 'fa fa-handshake-o' style = { {fontSize: 70,paddingTop: 10} }></i>
             </div>
 
-            <div className = 'message'> The booking details have been sent on your registered mobile number. </div>
-            <div className = 'message'> Call 8826755766 for any query or assistance.</div>
+            <div className = 'message' style = { style }> The booking details have been sent on your registered mobile number. </div>
+            <div className = 'message' style = { style }> Call 8826755766 for any query or assistance.</div>
 
 
           </div>

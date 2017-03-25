@@ -38,6 +38,7 @@ export default class BookedServicesList extends React.Component {
   }
 
   removeCode() {
+    window.bookingDetails.discount = 0;
     this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
   }
 

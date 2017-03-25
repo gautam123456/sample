@@ -5,6 +5,7 @@ import React from 'react';
 import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
 import Cart from './Cart';
+import $ from 'jquery';
 import Testimonial from './Testimonial';
 
 import data from '../../data/items.json';
@@ -20,10 +21,6 @@ export default class HomeImage extends React.Component {
     };
   }
 
-  componentWillMount() {
-
-  }
-
   render() {
     var background = {
       backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
@@ -33,7 +30,7 @@ export default class HomeImage extends React.Component {
       <section className = 'col-xs-12 col-md-4 pad0'>
         <div className = 'bgimage' style = { background }>
         </div>
-        <div className = 'filter'>
+        <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
               <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
 
@@ -53,6 +50,22 @@ export default class HomeImage extends React.Component {
         <Cart bookingDetails = { this.state.bookingDetails } />
       </section>
     )
+  }
+
+  componentDidMount() {
+    let fixed = false,
+      target = document.getElementById('filter');
+    $(window).on('scroll', function(){
+      var scrollPos = window.scrollY || window.scollTop || document.getElementsByTagName("html")[0].scrollTop;
+      if(scrollPos >= 250 && !fixed) {
+        fixed = true;
+        console.log(scrollPos);
+        target.className += " fixed";
+      }else if(scrollPos <= 210 && fixed) {
+        target.className = "filter";
+        fixed = false;
+      }
+    })
   }
 
   serviceTypeSelected(e) {
