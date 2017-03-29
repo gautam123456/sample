@@ -1,28 +1,47 @@
-.advantage {
-  background-color: #fff;
-  margin: 20px 0 20px 0;
-  padding: 20px;
+.static-portion {
+  .description {
+    h3 {
+      color: #222;
+      text-align: center;
+      margin: 40px 10px 15px 10px;
+      font-weight: 500;
+      font-size: 14px;
+    }
 
-  .text-center {
-    text-align: center;
+    .desc{
+      padding: 10px;
+      color: #666;
+    }
+  }
+
+  .advantage {
+    background-color: #fff;
+    margin: 10px 0 20px 0;
+    padding: 20px;
+
+    .text-center {
+      text-align: center;
+    }
+  }
+
+  .advantage>.bb {
+    margin: 20px 0;
+  }
+
+  .advantage div.col-xs-6:nth-child(2), .advantage div.col-xs-6:nth-child(3) {
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  .advantage div.col-xs-6:nth-child(2), .advantage div.col-xs-6:nth-child(4) {
+    border-right: 1px solid #e2e2e2;
+  }
+  .advantage div.col-xs-6 {
+    padding: 10px 0;
+  }
+
+  b {
+    font-weight: 900;
   }
 }
 
-.advantage>.bb {
-  margin: 20px 0;
-}
 
-.advantage div.col-xs-6:nth-child(2), .advantage div.col-xs-6:nth-child(3) {
-  border-bottom: 1px solid #e2e2e2;
-}
-
-.advantage div.col-xs-6:nth-child(2), .advantage div.col-xs-6:nth-child(4) {
-  border-right: 1px solid #e2e2e2;
-}
-.advantage div.col-xs-6 {
-  padding: 10px 0;
-}
-
-b {
-  font-weight: 900;
-}

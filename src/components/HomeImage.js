@@ -45,7 +45,7 @@ export default class HomeImage extends React.Component {
         </div>
 
         <ServicesList data = { this.state.data } service = { this.state.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
-        <StaticPortion />
+        <StaticPortion active={this.state.active}/>
         <Testimonial data = { testimonials } />
         <Cart bookingDetails = { this.state.bookingDetails } />
       </section>
@@ -68,7 +68,8 @@ export default class HomeImage extends React.Component {
   }
 
   serviceTypeSelected(e) {
-    this.setState({active: e.target.getAttribute('data-value'), data: data.serviceList[e.target.getAttribute('data-value')]})
+    const attrValue = e.target.getAttribute('data-value');
+    this.setState({active: attrValue, data: data.serviceList[attrValue]})
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {
