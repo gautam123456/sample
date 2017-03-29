@@ -5,11 +5,15 @@ import Footer from './Footer';
 import Container from './Container';
 
 class AppComponent extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <div>
         <Header />
-        <Container />
+        <Container url={this.props.location}/>
         <Footer />
       </div>
     )

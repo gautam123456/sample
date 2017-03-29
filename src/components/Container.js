@@ -9,7 +9,7 @@ export default class Container extends React.Component {
     return (
       <div className='col-md-12 col-xs-12 pad0 clearfix'>
         <div className='col-md-4 nomob'></div>
-        <HomeImage />
+        <HomeImage url={this.props.url}/>
       </div>
     )
   }

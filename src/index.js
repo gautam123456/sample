@@ -31,6 +31,11 @@ const Base = new BaseComponent();
 render(
   <Router history = { browserHistory } onEnter = { Base.routerInvoked() }>
     <Route path = { '/' } component = { App } />
+    <Route path = { 'face' } component = { App } />
+    <Route path = { 'body' } component = { App } />
+    <Route path = { 'hair' } component = { App } />
+    <Route path = { 'makeup' } component = { App } />
+    <Route path = { 'packages' } component = { App } />
     <Route path = { 'address' } component = { AddressList } />
     <Route path = { 'address/add' } component = { AddAddress } />
     <Route path = { 'booking/confirm' } component = { BookingConfirm } />

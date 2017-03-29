@@ -4,6 +4,7 @@
 import React from 'react';
 import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
+import { browserHistory } from 'react-router';
 import Cart from './Cart';
 import $ from 'jquery';
 import Testimonial from './Testimonial';
@@ -14,9 +15,20 @@ import testimonials from '../../data/testimonials.json';
 export default class HomeImage extends React.Component {
   constructor(props) {
     super(props);
+    const url = this.props.url.pathname;
+    let active = 1;
+    switch(url){
+      case "/": active = 1; break;
+      case "/face": active = 1; break;
+      case "/body": active = 2; break;
+      case "/hair": active = 3; break;
+      case "/makeup": active = 4; break;
+      case "/packages": active = 5; break;
+    }
+
     this.state = {
-      active: '1',
-      data: data.serviceList['1'],
+      active: active,
+      data: data.serviceList[active],
       bookingDetails: window.bookingDetails
     };
   }
@@ -69,6 +81,14 @@ export default class HomeImage extends React.Component {
 
   serviceTypeSelected(e) {
     const attrValue = e.target.getAttribute('data-value');
+
+    switch(attrValue){
+      case "1": browserHistory.push('/face'); break;
+      case "2": browserHistory.push('/body'); break;
+      case "3": browserHistory.push('/hair'); break;
+      case "4": browserHistory.push('/makeup'); break;
+      case "5": browserHistory.push('/packages'); break;
+    }
     this.setState({active: attrValue, data: data.serviceList[attrValue]})
   }
 
