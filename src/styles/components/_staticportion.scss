@@ -8,7 +8,7 @@
     border-bottom: 0;
 
     img {
-      margin: -20px 0 0 71%;
+      margin: -20px 0 0 68%;
     }
 
     h3 {
@@ -37,8 +37,7 @@
 
   .advantage {
     background-color: $brand-color-2;
-    margin: 10px 0 0 0;
-    padding: 20px 10px 0 10px;
+    padding: 30px 10px 0 10px;
 
     .text-center {
       text-align: center;
@@ -82,15 +81,15 @@
   }
 
   .desc-bottom {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
-    div {
-      min-height: 10px;
-
-      &:nth-child(1) {
-        border-right: 1px solid #e2e2e2;
-      }
+    &.d {
+      margin-top: -2px;
     }
+  }
+
+  .desc-bg {
+    margin-top: -220px;
   }
 }
 

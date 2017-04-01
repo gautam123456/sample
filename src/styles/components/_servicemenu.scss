@@ -15,8 +15,6 @@
   padding: 5px 8px;
   font-weight: bolder;
   color: #555;
-  box-shadow: 0 1px 2px 1px #eee;
-  margin-bottom: 3px;
 
   div{
     span {
@@ -36,11 +34,11 @@
   }
 
   &:nth-child(odd) {
-    background-color: #fff;
+    background-color: $menu-bg;
   }
 
   &:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: $menu-bg-2;
   }
 
   [class^="col-"] {

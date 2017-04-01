@@ -18,8 +18,7 @@ export default class Header extends React.Component {
   loggedInRender() {
     return (
         <div>
-          { /*TODO <div className = 'u-name'>{ this.getShortName() }</div> */ }
-          <a onClick = { this.logOut }>Logout</a>
+          <a onClick = { this.logOut.bind(this) }>Logout</a>
         </div>
     )
   }
@@ -82,11 +81,16 @@ export default class Header extends React.Component {
   }
 
   logOut() {
-    window.bookingDetails.name = null;
+    const self = this;
+    window.bookingDetails.name = '';
     ajaxObj.url = ajaxObj.baseUrl + '/custlogout';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
+    ajaxObj.success = function() {
+      self.setState({name: ''});
+    }
     $.ajax(ajaxObj);
+
   }
 }
 

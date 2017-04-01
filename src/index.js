@@ -20,6 +20,7 @@ import OTPConfirm from './components/OTPConfirm';
 import RegisterUser from './components/RegisterUser';
 import ThankYou from './components/ThankYou';
 import ErrorPage from './components/ErrorPage';
+import Shell from './components/base/Shell';
 import SomethingWentWrong from './components/SomethingWentWrong';
 import FooterPage from './components/FooterPage';
 
@@ -54,6 +55,7 @@ render(
     <Route path = { 'privacy-policy' } component = { FooterPage } />
     <Route path = { 'terms-of-service' } component = { FooterPage } />
     <Route path = { 'oops' } component = { SomethingWentWrong } />
+    <Route path = { 'shell' } component = { Shell } />
     <Route path = { '*' } component = { ErrorPage } />
   </Router>
 , document.getElementById('app'));

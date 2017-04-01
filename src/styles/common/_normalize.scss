@@ -1,8 +1,10 @@
 @import "../variables/font";
+@import "../variables/screen";
 
 * {
   box-sizing: border-box;
 }
+
 
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
 dl, dt, dd, ul, ol, li,
@@ -11,6 +13,10 @@ fieldset, legend, button, input, textarea,
 th, td, figure {
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
@@ -81,6 +87,11 @@ input, select, textarea {
   &:focus {
     outline: none;
   }
+}
+
+input[type='text'], input[type='number'] {
+  border: none;
+  border-bottom: 1px solid $brand-color;
 }
 
 img {

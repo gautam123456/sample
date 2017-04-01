@@ -14,7 +14,7 @@ export default class StaticPortion extends React.Component {
     return (
       <div className='static-portion'>
         <div className='description'>
-          <img src="../styles/assets/images/bg.png" height="112" width="112" />
+          <img src="../styles/assets/images/bg.png" height="112" width="112" alt=""/>
           <h3>{data.serviceList[this.props.active].serviceDescriptionHeading}</h3>
           <div className='desc' dangerouslySetInnerHTML={{__html: data.serviceList[this.props.active].serviceDescription}}></div>
         </div>
@@ -48,7 +48,7 @@ export default class StaticPortion extends React.Component {
             </div>
 
         </div>
-        <div className='desc-bottom'>
+        <div className='desc-bottom d'>
           <div className='col-xs-6 col-md-6'></div>
           <div className='col-xs-6 col-md-6'></div>
         </div>

@@ -2,7 +2,7 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import $ from 'jquery';
 import ActivityHeader from './ActivityHeader';
 import Base from './base/Base';
@@ -22,17 +22,22 @@ export default class Login extends React.Component {
   }
 
   render() {
-    const self = this;
     return (
       <div>
-        <ActivityHeader heading = { 'Log In/Sign up' }/>
-        { self.state.error ? <TopNotification msg = { self.state.msg } type = 'error'/> : ''}
-        <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
+        { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
+        <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
+          <div className = 'discard col-xs-2 pull-right pad0'>
+            <Link to = { '/' }>
+              &#215;
+            </Link>
+            </div>
+          <div className = 'logo'>
+            <div className = 'hlg'></div>
+          </div>
+          <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-user-o'></i></div>
+          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-9 pad0' onChange={ this.numberChanged.bind(this) }></input>
 
-          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-12' onChange={ this.numberChanged.bind(this) }></input>
-
-          <button type = 'text' className = 'col-xs-12' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> Login / Sign up</button>
-
+          <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> Login / Sign up</button>
         </div>
       </div>
     )
@@ -42,9 +47,13 @@ export default class Login extends React.Component {
     this.setState({msg:'Mobile no should be of 10 digits', error: true})
   }
 
+  hideErrorMessage(number) {
+    this.setState({msg:'', error: true, number})
+  }
+
   numberChanged(e) {
     let number = e.currentTarget.value;
-    number.length <= 10 ? this.setState({ number: number }) : this.showErrorMessage();
+    number.length <= 10 ? this.hideErrorMessage(number) : this.showErrorMessage();
   }
 
   login() {

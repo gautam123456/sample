@@ -1,0 +1,61 @@
+@import "../variables/screen";
+
+.login {
+  background-color: #034240;
+  min-height: 700px;
+  height: 100%;
+  text-align: center;
+
+  .discard {
+    margin-top: 15px;
+
+    a {
+      color: $brand-color;
+      font-size: 25px;
+      font-weight: 100;
+    }
+  }
+
+  .logo {
+    text-align: center;
+    margin: 180px 0 100px 0;
+
+    .hlg {
+      background: url('https://static.lookplex.com/mobileImages/logo.png') center no-repeat;
+      background-size: contain;
+      height: 30px;
+      margin-left: -8px;
+    }
+  }
+
+  .col-xs-1 {
+    border-bottom: 1px solid $brand-color;
+    padding-bottom: 7px;
+
+    .fa {
+      font-size: 20px;
+      color: $brand-color;
+    }
+  }
+
+  input {
+    background-color: #034240;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+  }
+
+  button {
+    background-color: $brand-color;
+    min-height: 50px;
+    font-size: 16px;
+    border-radius: 2px;
+  }
+
+  /* this is used for OTP confirm page*/
+  .resend-otp{
+    margin-top: 20px;
+    text-decoration: underline;
+    color: $brand-color;
+    text-align: left;
+  }
+}

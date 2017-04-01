@@ -2,7 +2,7 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
@@ -24,17 +24,20 @@ export default class OTPConfirm extends React.Component {
   render() {
     return (
       <div>
-        <ActivityHeader heading = { 'Provide OTP' }/>
         { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
-        <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
-
-          <input type = 'number' placeholder = 'Enter OTP' pattern="[0-9]*" inputMode="numeric" className = 'col-xs-12' onChange={ this.otpChanged.bind(this) }></input>
-          <div className = 'col-xs-3 pad0' style = {{ color: 'red',display: this.state.display}}> Wrong OTP </div>
-          <button type = 'text' className = 'col-xs-12' onClick={ this.register.bind(this) }> Submit </button>
-
-
-          <div className = 'resend-otp col-xs-3 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>
-
+        <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
+          <div className = 'discard col-xs-2 pull-right pad0'>
+            <Link to = { '/' }>
+              &#215;
+            </Link>
+          </div>
+          <div className = 'logo'>
+            <div className = 'hlg'></div>
+          </div>
+          <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-user-o'></i></div>
+          <input type = 'number' placeholder = 'Enter OTP' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-9 pad0' onChange={ this.otpChanged.bind(this) }></input>
+          <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={ this.register.bind(this) }> Submit</button>
+          <div className = 'resend-otp col-xs-4 col-xs-offset-1 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>
         </div>
       </div>
     )
@@ -42,7 +45,15 @@ export default class OTPConfirm extends React.Component {
 
   otpChanged(e) {
     let otp = e.currentTarget.value;
-    otp.length <= 6 ? this.setState({ otp: otp }) : '';
+    otp.length <= 6 ? this.setState({otp}) : '';
+  }
+
+  wrongOtpEntered(e) {
+    const self = this;
+    self.setState({error: true, msg: e.responseText});
+    setTimeout(function(){
+      self.setState({error: false, msg: ''});
+    }, 4000);
   }
 
   resendOtp() {
@@ -57,12 +68,13 @@ export default class OTPConfirm extends React.Component {
     }
     ajaxObj.error = function(e) {
       new Base().hideOverlay();
-      self.setState({error: true, msg: e.responseText})
+      self.wrongOtpEntered(e);
     }
     $.ajax(ajaxObj);
   }
 
   register() {
+    new Base().showOverlay();
     const self = this;
 
     let query = this.props.location.query;
@@ -77,10 +89,12 @@ export default class OTPConfirm extends React.Component {
       ajaxObj.data = { phonenumber: query.number, otp: this.state.otp, token: query.token };
       ajaxObj.success = function() {
         window.bookingDetails.name = 'ZZ';
-        browserHistory.push('/book')
+        browserHistory.push('/book');
+        new Base().hideOverlay();
       }
       ajaxObj.error = function(e) {
-        self.setState({msg: e.responseText, error: true})
+        self.wrongOtpEntered(e);
+        new Base().hideOverlay();
       }
       $.ajax(ajaxObj);
 

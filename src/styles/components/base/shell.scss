@@ -1,0 +1,32 @@
+@import '../../variables/screen';
+.shell {
+  .shell-in {
+    background-color: $brand-color;
+    padding: 0 10px;
+    min-height: 100%;
+
+    header {
+      min-height: 80px;
+
+      .icons {
+        padding: 20px 15px;
+
+        .fa {
+          color: #fff;
+        }
+      }
+    }
+
+    .body {
+      background-color: #fff;
+      min-height: 400px;
+      border-radius: 3px 3px 0 0;
+    }
+  }
+
+  footer {
+    background-color: $brand-color-2;
+    min-height: 50px;
+  }
+
+}
