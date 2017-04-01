@@ -16,7 +16,7 @@ export default class Base extends React.Component {
 
     routerInvoked() {
         document.getElementById('load').style.display = 'none';
-        document.body.style.backgroundColor = '#fff';
+        document.body.style.backgroundColor = '#eee';
         let bookingDetailsLS = '';
         try{
             bookingDetailsLS = JSON.parse(window.localStorage.bookingDetails);

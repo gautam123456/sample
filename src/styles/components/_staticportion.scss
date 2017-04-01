@@ -1,46 +1,96 @@
+@import "../variables/screen";
+
 .static-portion {
   .description {
-    h3 {
-      color: #222;
-      text-align: center;
-      margin: 40px 10px 15px 10px;
-      font-weight: 500;
-      font-size: 14px;
+    border: 10px solid $brand-color;
+    background-color: $brand-color;
+    margin-top: 8px;
+    border-bottom: 0;
+
+    img {
+      margin: -20px 0 0 305px;
     }
 
-    .desc{
-      padding: 10px;
-      color: #666;
+    h3 {
+      color: #fff;
+      margin: -60px 10px 15px 10px;
+      font-weight: 500;
+      font-size: 18px;
     }
+
+    .desc {
+      padding: 6px 10px 0 10px;
+      color: #666;
+      background-color: #fff;
+      border-radius: 4px 4px 0 0;
+    }
+  }
+
+  .desc-bottom {
+    min-height: 10px;
+    margin: 0 10px;
+    box-shadow: 0 1px 1px 0 #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
   }
 
   .advantage {
-    background-color: #fff;
-    margin: 10px 0 20px 0;
-    padding: 20px;
+    background-color: $brand-color-2;
+    margin: 10px 0 0 0;
+    padding: 20px 10px 0 10px;
 
     .text-center {
       text-align: center;
+
+      &.bb {
+        margin: 20px 0;
+        color: #fff;
+        text-align: left;
+        padding-left: 10px;
+        font-size: 15px;
+      }
     }
-  }
 
-  .advantage>.bb {
-    margin: 20px 0;
-  }
+    .col-xs-6 {
+      padding: 20px;
+      background-color: #fff;
+      color: #666;
 
-  .advantage div.col-xs-6:nth-child(2), .advantage div.col-xs-6:nth-child(3) {
-    border-bottom: 1px solid #e2e2e2;
-  }
+      &:nth-child(2) {
+        padding: 28px;
+        border-bottom: 1px solid #e2e2e2;
+        border-right: 1px solid #e2e2e2;
+        border-radius: 4px 0 0 0;
+      }
 
-  .advantage div.col-xs-6:nth-child(2), .advantage div.col-xs-6:nth-child(4) {
-    border-right: 1px solid #e2e2e2;
-  }
-  .advantage div.col-xs-6 {
-    padding: 10px 0;
+      &:nth-child(3) {
+        padding: 28px;
+        border-bottom: 1px solid #e2e2e2;
+        border-radius: 0 4px 0 0;
+      }
+
+      &:nth-child(4) {
+        border-right: 1px solid #e2e2e2;
+      }
+
+    }
   }
 
   b {
     font-weight: 900;
+  }
+
+  .desc-bottom {
+    margin-bottom: 20px;
+
+    div {
+      min-height: 10px;
+
+      &:nth-child(1) {
+        border-right: 1px solid #e2e2e2;
+      }
+    }
   }
 }
 

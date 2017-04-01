@@ -1,13 +1,13 @@
 @import "../variables/screen";
 
-button:hover{
-  background-color: $brand-color-2-hover;
-}
-
 button {
   border: none;
   background-color: $brand-color-2;
   color: #fff;
+
+  &:hover {
+    background-color: $brand-color-2-hover;
+  }
 }
 
 .w{

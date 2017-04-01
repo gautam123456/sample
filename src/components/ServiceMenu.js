@@ -14,7 +14,7 @@ export default class ServiceMenu extends React.Component {
           { this.props.list.information ? this.renderTooltip() : '' }
 
         </div>
-        <div className = 'col-xs-2'> &nbsp; <i className = 'fa fa-inr'></i> { this.props.list.cost }</div>
+        <div className = 'col-xs-2 cost'> &nbsp; <i className = 'fa fa-inr'></i> { this.props.list.cost }</div>
         <div className = 'col-xs-1 center'>
 
           { this.props.count > 0 ? <i className = 'fa fa-minus-circle fa-2x' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 0) }></i> : '' }
