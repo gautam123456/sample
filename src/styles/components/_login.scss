@@ -12,25 +12,24 @@
 
     a {
       color: $brand-color;
-      font-size: 25px;
+      font-size: 30px;
       font-weight: 100;
     }
   }
 
   .logo {
     text-align: center;
-    margin: 180px 0 100px 0;
+    margin: 100px 0 100px 0;
 
     .hlg {
       background: url('https://static.lookplex.com/mobileImages/logo.png') center no-repeat;
       background-size: contain;
-      height: 30px;
+      height: 22px;
       margin-left: -8px;
     }
   }
 
   .col-xs-1 {
-    border-bottom: 1px solid $brand-color;
     padding-bottom: 7px;
 
     .fa {
