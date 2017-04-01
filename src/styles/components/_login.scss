@@ -2,9 +2,10 @@
 
 .login {
   background-color: #034240;
-  min-height: 700px;
+  min-height: 1024px;
   height: 100%;
   text-align: center;
+  overflow-y: hidden;
 
   .discard {
     margin-top: 15px;

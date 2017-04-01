@@ -14,18 +14,27 @@
             display: none;
         }
     </style>
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1235859916465545');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=1235859916465545&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
 </head>
-<body style='background-color: #068481'>
 
-<!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N6FSQJ"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N6FSQJ');</script>
-<!-- End Google Tag Manager -->
+
+<body style='background-color: #068481'>
 
 <div id='load' style='background: url("https://static.lookplex.com/mobileImages/logo.png") center no-repeat;background-size: contain;min-height: 50px;width: 150px;margin: 200px auto'></div>
 <div id='app'></div>
@@ -36,9 +45,7 @@
     </div>
 </div>
 
-<div id = 'grey-overlay'>
-
-</div>
+<div id = 'grey-overlay'></div>
 
 <script src='/assets/app.js?v=12-23-11.56'></script>
 </body>
