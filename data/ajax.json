@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://storeapi.lookplex.com/wsv1/masnepservice",
+  "baseUrl": "https://storeapi.lookplex.com/wsv2/masnepservice",
   "dataType": "json",
   "xhrFields": { "withCredentials": true },
   "contentType": "application/x-www-form-urlencoded",
