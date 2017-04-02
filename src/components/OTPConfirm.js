@@ -7,10 +7,11 @@ import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
 import TopNotification from './TopNotification';
+import DisableScroll from './base/DisableScroll';
 
 import ajaxObj from '../../data/ajax.json';
 
-export default class OTPConfirm extends React.Component {
+export default class OTPConfirm extends DisableScroll {
   constructor(props) {
     super(props);
     this.state = {

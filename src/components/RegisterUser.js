@@ -7,10 +7,11 @@ import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
 import TopNotification from './TopNotification';
+import DisableScroll from './base/DisableScroll';
 
 import ajaxObj from '../../data/ajax.json';
 
-export default class RegisterUser extends React.Component {
+export default class RegisterUser extends DisableScroll {
 
     constructor(props) {
         super(props);

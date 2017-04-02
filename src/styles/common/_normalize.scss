@@ -92,6 +92,10 @@ input, select, textarea {
 input[type='text'], input[type='number'] {
   border: none;
   border-bottom: 1px solid $brand-color;
+
+  &:focus {
+    border-bottom: 1px solid #fff;
+  }
 }
 
 img {
