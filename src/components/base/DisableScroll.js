@@ -12,6 +12,10 @@ export default class DisableScroll extends React.Component {
   focusChanged() {
     window.scrollBy(0, 100);
   }
+
+  onBlur() {
+    window.scrollBy(0, -100);
+  }
 }
 
 

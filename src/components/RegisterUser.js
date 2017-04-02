@@ -37,9 +37,9 @@ export default class RegisterUser extends DisableScroll {
               <div className = 'hlg'></div>
             </div>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-user-o'></i></div>
-            <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-7 pad0' onChange={ this.nameChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+            <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-7 pad0' onChange={ this.nameChanged.bind(this) } onFocus={ this.focusChanged.bind(this) } ></input>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-mobile'></i></div>
-            <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-7 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+            <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-7 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) } ></input>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-link'></i></div>
             <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-7 pad0' onChange={ this.refCodeChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
             <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={  this.register.bind(this) }> SUBMIT</button>
