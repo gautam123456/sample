@@ -17,27 +17,28 @@ export default class Login extends DisableScroll {
     super(props);
     this.state = {
       number : '',
-      msg: '',
-      error: false
+      msg: ''
     }
   }
 
   render() {
     return (
       <div className='lo'>
-        { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
+        <TopNotification msg = { this.state.msg } type = 'error'/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
-          <div className = 'discard col-xs-1'>
+          <div className = 'discard col-xs-12 col-md-4'>
             <Link to = { '/' }>
               &#215;
             </Link>
-            </div>
+          </div>
+
           <div className = 'logo'>
             <div className = 'hlg'></div>
           </div>
+          <div onClick={ this.onBlur.bind(this) } className = 'col-xs-12'>
           <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-user-o'></i></div>
-          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.numberChanged.bind(this) } onFocus={ this.focusChanged.bind(this) } onBlur={ this.onBlur.bind(this) }></input>
-
+          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.numberChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+          </div>
           <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> LOG IN / SIGN UP</button>
         </div>
       </div>
@@ -45,11 +46,11 @@ export default class Login extends DisableScroll {
   }
 
   showErrorMessage() {
-    this.setState({msg:'Mobile no should be of 10 digits', error: true})
+    this.setState({msg:'Mobile no should be of 10 digits'})
   }
 
   hideErrorMessage(number) {
-    this.setState({msg:'', error: true, number})
+    this.setState({msg:'', number})
   }
 
   numberChanged(e) {
@@ -73,7 +74,7 @@ export default class Login extends DisableScroll {
     }
     ajaxObj.error = function(e) {
       new Base().hideOverlay();
-      self.setState({msg:e.responseText, error: true})
+      self.setState({msg:e.responseText})
     }
     $.ajax(ajaxObj);
   }

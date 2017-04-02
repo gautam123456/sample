@@ -9,7 +9,7 @@
     text-align: center;
 
     .discard {
-      margin: 10px 25px;
+      margin: 10px -25px;
       position: fixed;
       top: 0;
       padding: 0;
@@ -19,6 +19,7 @@
         color: $brand-color;
         font-size: 30px;
         font-weight: 100;
+        float: right;
       }
     }
 
