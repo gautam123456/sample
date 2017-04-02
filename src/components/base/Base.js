@@ -42,10 +42,13 @@ export default class Base extends React.Component {
     }
 
     showOverlay() {
+        document.getElementById('app').style.display = 'none';
         document.getElementById('overlay').style.display = 'block';
+
     }
 
     hideOverlay() {
         document.getElementById('overlay').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
     }
 }

@@ -24,10 +24,10 @@ export default class Login extends DisableScroll {
 
   render() {
     return (
-      <div>
+      <div className='lo'>
         { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
-          <div className = 'discard col-xs-2 pull-right pad0'>
+          <div className = 'discard col-xs-1 pad0'>
             <Link to = { '/' }>
               &#215;
             </Link>
@@ -35,10 +35,10 @@ export default class Login extends DisableScroll {
           <div className = 'logo'>
             <div className = 'hlg'></div>
           </div>
-          <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-user-o'></i></div>
-          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-9 pad0' onChange={ this.numberChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+          <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-user-o'></i></div>
+          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.numberChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
 
-          <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> Login / Sign up</button>
+          <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> LOG IN / SIGN UP</button>
         </div>
       </div>
     )

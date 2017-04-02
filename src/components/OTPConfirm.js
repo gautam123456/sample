@@ -24,10 +24,10 @@ export default class OTPConfirm extends DisableScroll {
 
   render() {
     return (
-      <div>
+      <div className='lo'>
         { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
-          <div className = 'discard col-xs-2 pull-right pad0'>
+          <div className = 'discard col-xs-1 pad0'>
             <Link to = { '/' }>
               &#215;
             </Link>
@@ -35,10 +35,10 @@ export default class OTPConfirm extends DisableScroll {
           <div className = 'logo'>
             <div className = 'hlg'></div>
           </div>
-          <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-mobile'></i></div>
-          <input type = 'number' placeholder = 'Enter OTP' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-9 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
-          <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={ this.register.bind(this) }> Submit</button>
-          <div className = 'resend-otp col-xs-4 col-xs-offset-1 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>
+          <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-mobile'></i></div>
+          <input type = 'number' placeholder = 'Enter OTP' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+          <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.register.bind(this) }> SUBMIT</button>
+          <div className = 'resend-otp col-xs-4 col-xs-offset-2 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>
         </div>
       </div>
     )
