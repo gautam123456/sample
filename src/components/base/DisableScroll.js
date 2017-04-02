@@ -16,6 +16,11 @@ export default class DisableScroll extends React.Component {
   componentWillUnmount() {
     document.body.style.overflow = 'scroll';
   }
+
+  focusChanged() {
+    document.body.style.overflow = 'scroll';
+    window.scrollBy(0, 100);
+  }
 }
 
 

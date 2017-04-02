@@ -49,11 +49,6 @@ export default class RegisterUser extends DisableScroll {
         )
     }
 
-    focusChanged(e) {
-      document.body.style.overflow = 'scroll';
-      window.scrollBy(0, 100);
-    }
-
     nameChanged(e) {
         let name = e.currentTarget.value;
         this.setState({ name: name });

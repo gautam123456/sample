@@ -36,7 +36,7 @@ export default class Login extends DisableScroll {
             <div className = 'hlg'></div>
           </div>
           <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-user-o'></i></div>
-          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-9 pad0' onChange={ this.numberChanged.bind(this) }></input>
+          <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-9 pad0' onChange={ this.numberChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
 
           <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> Login / Sign up</button>
         </div>
