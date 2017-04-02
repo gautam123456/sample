@@ -24,28 +24,27 @@ export default class RegisterUser extends DisableScroll {
     }
 
     render() {
-
-        return (
-          <div>
-            <TopNotification msg = { this.state.error } type = 'error'/>
-            <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
-              <div className = 'discard col-xs-2 pull-right pad0'>
-                <Link to = { '/' }>
-                  &#215;
-                </Link>
-              </div>
-              <div className = 'logo'>
-                <div className = 'hlg'></div>
-              </div>
-              <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-user-o'></i></div>
-              <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-9 pad0' onChange={ this.nameChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
-              <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-mobile'></i></div>
-              <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-9 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
-              <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-link'></i></div>
-              <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-9 pad0' onChange={ this.refCodeChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
-              <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={  this.register.bind(this) }> Submit</button>
+      return (
+        <div>
+          <TopNotification msg = { this.state.error } type = 'error'/>
+          <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
+            <div className = 'discard col-xs-2 pull-right pad0'>
+              <Link to = { '/' }>
+                &#215;
+              </Link>
             </div>
+            <div className = 'logo'>
+              <div className = 'hlg'></div>
+            </div>
+            <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-user-o'></i></div>
+            <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-9 pad0' onChange={ this.nameChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+            <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-mobile'></i></div>
+            <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-9 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+            <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-link'></i></div>
+            <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-9 pad0' onChange={ this.refCodeChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+            <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={  this.register.bind(this) }> Submit</button>
           </div>
+        </div>
         )
     }
 
