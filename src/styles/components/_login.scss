@@ -9,9 +9,11 @@
     text-align: center;
 
     .discard {
-      margin-top: 15px;
+      margin: 15px 30px;
       position: fixed;
       top: 0;
+      padding: 0;
+      text-align: left;
 
       a {
         color: $brand-color;

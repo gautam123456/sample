@@ -28,7 +28,7 @@ export default class RegisterUser extends DisableScroll {
         <div className='lo'>
           <TopNotification msg = { this.state.error } type = 'error'/>
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
-            <div className = 'discard col-xs-1 pad0'>
+            <div className = 'discard col-xs-1'>
               <Link to = { '/' }>
                 &#215;
               </Link>

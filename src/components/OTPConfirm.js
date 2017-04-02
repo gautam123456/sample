@@ -27,7 +27,7 @@ export default class OTPConfirm extends DisableScroll {
       <div className='lo'>
         { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
-          <div className = 'discard col-xs-1 pad0'>
+          <div className = 'discard col-xs-1'>
             <Link to = { '/' }>
               &#215;
             </Link>
