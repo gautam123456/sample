@@ -75,7 +75,7 @@ export default class OrderConfirm extends React.Component {
     if(this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.state.year) >= 0){
       let currentDate = this.date.getDate();
       if( this.date.getHours() > 16 ){
-        days = days.slice(currentDate+1, days.length);
+        days = days.slice(currentDate, days.length);
       }else{
         days = days.slice(currentDate-1, days.length);
       }
