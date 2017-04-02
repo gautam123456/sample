@@ -13,6 +13,7 @@ class AppComponent extends React.Component {
     return (
       <div>
         <Header />
+        <div id = 'grey-overlay'></div>
         <Container url={this.props.location}/>
         <Footer />
       </div>
