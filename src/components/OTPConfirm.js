@@ -35,7 +35,7 @@ export default class OTPConfirm extends DisableScroll {
           <div className = 'logo'>
             <div className = 'hlg'></div>
           </div>
-          <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-user-o'></i></div>
+          <div className = 'col-xs-1 col-xs-offset-1 pad0'><i className = 'fa fa-mobile'></i></div>
           <input type = 'number' placeholder = 'Enter OTP' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-9 pad0' onChange={ this.otpChanged.bind(this) }></input>
           <button type = 'text' className = 'col-xs-10 col-xs-offset-1' onClick={ this.register.bind(this) }> Submit</button>
           <div className = 'resend-otp col-xs-4 col-xs-offset-1 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>

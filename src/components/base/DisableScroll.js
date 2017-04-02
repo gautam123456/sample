@@ -16,14 +16,6 @@ export default class DisableScroll extends React.Component {
   componentWillUnmount() {
     document.body.style.overflow = 'scroll';
   }
-
-  render() {
-    return (
-      <div>
-
-      </div>
-    )
-  }
 }
 
 

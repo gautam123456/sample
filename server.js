@@ -11,7 +11,7 @@ const open = require('open');
 
 let isInitialCompilation = true;
 
-const listenOn = 'localhost';
+const listenOn = '192.168.0.100';
 const compiler = webpack(config);
 
 new WebpackDevServer(compiler, config.devServer)
