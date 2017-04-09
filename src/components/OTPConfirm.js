@@ -60,24 +60,24 @@ export default class OTPConfirm extends DisableScroll {
   }
 
   resendOtp() {
-    new Base().showOverlay();
+    Base.showOverlay();
     let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
     ajaxObj.data = { phonenumber: self.props.location.query.number };
     ajaxObj.success = function(data) {
-      new Base().hideOverlay();
+      Base.hideOverlay();
       browserHistory.push('/otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
     }
     ajaxObj.error = function(e) {
-      new Base().hideOverlay();
+      Base.hideOverlay();
       self.wrongOtpEntered(e);
     }
     $.ajax(ajaxObj);
   }
 
   register() {
-    new Base().showOverlay();
+    Base.showOverlay();
     const self = this;
 
     let query = this.props.location.query;
@@ -93,11 +93,11 @@ export default class OTPConfirm extends DisableScroll {
       ajaxObj.success = function() {
         window.bookingDetails.name = 'ZZ';
         browserHistory.push('/book');
-        new Base().hideOverlay();
+        Base.hideOverlay();
       }
       ajaxObj.error = function(e) {
         self.wrongOtpEntered(e);
-        new Base().hideOverlay();
+        Base.hideOverlay();
       }
       $.ajax(ajaxObj);
 

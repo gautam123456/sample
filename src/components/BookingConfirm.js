@@ -53,16 +53,16 @@ export default class BookingConfirm extends React.Component {
   }
 
   confirm(e) {
-    new Base().showOverlay();
+    Base.showOverlay();
     ajaxObj.type = 'POST'
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';
     ajaxObj.data = { datetime: e.date + '__' + e.timing , addresslkey: e.addresslkey, couponcode: e.couponcode, serviceids: e.serviceids, emailid: e.mailId }
     ajaxObj.success = function() {
-      new Base().hideOverlay();
+      Base.hideOverlay();
       browserHistory.push('/booking/confirmed');
     }
     ajaxObj.error = function(){
-      new Base().hideOverlay(); browserHistory.push('/oops');
+      Base.hideOverlay(); browserHistory.push('/oops');
     }
     $.ajax(ajaxObj);
   }

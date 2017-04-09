@@ -45,6 +45,10 @@ export default class Login extends DisableScroll {
     )
   }
 
+  componentDidMount() {
+    Base.hideOverlay();
+  }
+
   showErrorMessage() {
     this.setState({msg:'Mobile no should be of 10 digits'})
   }
@@ -59,7 +63,7 @@ export default class Login extends DisableScroll {
   }
 
   login() {
-    new Base().showOverlay();
+    Base.showOverlay();
     let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
@@ -70,10 +74,10 @@ export default class Login extends DisableScroll {
       }else{
         browserHistory.push('otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
       }
-        new Base().hideOverlay();
+        Base.hideOverlay();
     }
     ajaxObj.error = function(e) {
-      new Base().hideOverlay();
+      Base.hideOverlay();
       self.setState({msg:e.responseText})
     }
     $.ajax(ajaxObj);

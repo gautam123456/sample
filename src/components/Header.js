@@ -43,7 +43,7 @@ export default class Header extends React.Component {
           <a href='/gallery/bridal'>Gallery</a>
           <div className="contact col-xs-12 pad0">
             <a href="tel:918826755766"><i className = "fa fa-phone"></i></a>
-            <span>Call or Whatsapp on +918826755766 for assistance.</span>
+            <span>Tap call or Whatsapp on +918826755766 for assistance.</span>
           </div>
         </div>
 
@@ -89,7 +89,7 @@ export default class Header extends React.Component {
     ajaxObj.data = '';
     ajaxObj.success = function(data) {
       self.setState({ addresslist: data.addressList });
-      new Base().hideOverlay();
+      Base.hideOverlay();
     }
     $.ajax(ajaxObj);
 

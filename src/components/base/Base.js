@@ -14,7 +14,7 @@ export default class Base extends React.Component {
 
     // This method is called everytime router is invoked
 
-    routerInvoked() {
+    static routerInvoked() {
         document.getElementById('load').style.display = 'none';
         document.body.style.backgroundColor = '#eee';
         let bookingDetailsLS = '';
@@ -27,7 +27,7 @@ export default class Base extends React.Component {
         this.loginStatus();
     }
 
-    loginStatus() {
+    static loginStatus() {
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
@@ -41,13 +41,13 @@ export default class Base extends React.Component {
         $.ajax(ajaxObj);
     }
 
-    showOverlay() {
+    static showOverlay() {
         document.getElementById('app').style.display = 'none';
         document.getElementById('overlay').style.display = 'block';
 
     }
 
-    hideOverlay() {
+    static hideOverlay() {
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('app').style.display = 'block';
     }

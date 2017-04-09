@@ -1,0 +1,30 @@
+@import "../variables/screen";
+
+.appointments {
+  .tab {
+    height: 51px;
+    margin-top: 100px;
+    border: 1px solid #bdbdbd;
+    font-size: 15px;
+    padding: 0;
+    border-radius: 2px;
+    color: #888;
+    font-weight: lighter;
+    margin-bottom: 20px;
+
+    .col-xs-6 {
+      text-align: center;
+      padding: 14px;
+
+      &:nth-child(1) {
+        border-right: 1px solid #bdbdbd;
+      }
+
+      &.active {
+        color: $brand-color;
+        font-weight: 900;
+        background-color: #fff;
+      }
+    }
+  }
+}

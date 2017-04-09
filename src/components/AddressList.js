@@ -46,7 +46,7 @@ export default class addresslist extends React.Component {
 
     callGetAddressListIn3Sec(){
         let self = this;
-        new Base().showOverlay();
+        Base.showOverlay();
         setTimeout(function(){ self.getaddresslist() }, 3000)
     }
 
@@ -57,11 +57,9 @@ export default class addresslist extends React.Component {
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
         ajaxObj.success = function(data) {
             self.setState({ addresslist: data.addressList });
-            new Base().hideOverlay();
+            Base.hideOverlay();
         }
-        ajaxObj.error = function(){
-
-        }
+        ajaxObj.error = () => { if(!window.bookingDetails.name){browserHistory.push('login')} }
         $.ajax(ajaxObj);
     }
 

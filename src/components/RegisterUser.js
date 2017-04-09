@@ -88,7 +88,7 @@ export default class RegisterUser extends DisableScroll {
     register() {
         const self =  this;
         if(this.allRequiredDataProvided()) {
-            new Base().showOverlay();
+            Base.showOverlay();
             let query = this.props.location.query;
             ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
             ajaxObj.data = {
@@ -99,12 +99,12 @@ export default class RegisterUser extends DisableScroll {
                 refcode: this.state.refcode
             };
             ajaxObj.success = function (data) {
-                new Base().hideOverlay();
+                Base.hideOverlay();
                 window.bookingDetails.name = data.name || 'dummy';
                 browserHistory.push('/book')
             }
             ajaxObj.error = function (e) {
-                new Base().hideOverlay();
+                Base.hideOverlay();
                 self.showNotification(e.responseText);
             }
             $.ajax(ajaxObj);
