@@ -19,6 +19,7 @@ export default class Header extends React.Component {
     return (
         <div>
           <a onClick = { this.logOut.bind(this) }>Logout</a>
+          <a href='/appointments'>My Appointments</a>
         </div>
     )
   }

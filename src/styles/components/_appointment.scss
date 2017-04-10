@@ -1,12 +1,90 @@
+@import "../variables/screen";
+
 .appointment {
   margin-bottom: 20px;
 
   .header {
     background-color: #f9f9f9;
     padding: 10px;
+    color: $brand-color;
+    min-height: 70px;
+    box-shadow: 0 2px 0 0 #ddd;
+
+    .col-xs-12 {
+      margin-bottom: 10px;
+    }
+
+    .date {
+      color: #aaa;
+    }
+
+    .col-xs-4 {
+      font-size: 8px;
+      color: #fff;
+      padding: 2px;
+      text-align: center;
+
+      &.ongoing {
+        background-color: #4caf50;
+      }
+
+      &.history {
+        background-color: #d0021b;
+      }
+    }
   }
   .body {
-    padding: 10px;
     background-color: #fff;
+    min-height: 100px;
+    color: #aaa;
+
+    .menue {
+
+      .header {
+        height: 35px;
+        min-height: 35px;
+        background-color: #e6f2f2;
+      }
+
+      .menu {
+        border-bottom: none;
+        padding: 0 15px;
+        color: #bdbdbd;
+      }
+    }
+
+    .add {
+      margin: 10px 0;
+    }
+
+    .detail {
+      min-height: 35px;
+      text-align: center;
+      color: $brand-color;
+      border-top: 1px solid #eee;
+      padding: 10px;
+      font-weight: 900;
+
+    }
+
+    .col-xs-6 {
+      padding: 4px 20px;
+    }
+
+    .actionBtn {
+      min-height: 50px;
+      margin-top: 10px;
+
+      .col-xs-4 {
+        text-align: center;
+        min-height: 35px;
+        background-color: $brand-color-2;
+        padding: 13px;
+        color: #fff;
+        font-weight: 900;
+        border-radius: 2px;
+      }
+    }
+
   }
 }

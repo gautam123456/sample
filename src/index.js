@@ -10,6 +10,7 @@ import AddressList from './components/AddressList';
 import Base from './components/base/Base';
 import BookingConfirm from './components/BookingConfirm';
 import BookingSummary from './components/BookingSummary';
+import Cancel from './components/Cancel';
 import FullCart from './components/FullCart';
 import Gallery from './components/Gallery';
 import GalleryHome from './components/GalleryHome';
@@ -18,6 +19,7 @@ import Login from './components/Login';
 import OrderConfirm from './components/OrderConfirm';
 import OTPConfirm from './components/OTPConfirm';
 import Offers from './components/Offers';
+import Reschedule from './components/Reschedule';
 import RegisterUser from './components/RegisterUser';
 import ThankYou from './components/ThankYou';
 import ErrorPage from './components/ErrorPage';
@@ -42,6 +44,8 @@ render(
     <Route path = { 'booking/confirmed' } component = { ThankYou } />
     <Route path = { 'book' } component = { BookingSummary } />
     <Route path = { 'cart' } component = { FullCart } />
+    <Route path = { 'cancel' } component = { Cancel } />
+    <Route path = { 'reschedule' } component = { Reschedule } />
     <Route path = { 'gallery' } component = { GalleryHome } />
     <Route path = { 'gallery/bridal' } component = { Gallery } />
     <Route path = { 'loader' } component = { Loader } />

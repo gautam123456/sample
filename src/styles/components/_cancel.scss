@@ -1,0 +1,19 @@
+@import "../variables/screen";
+
+.cancel {
+  .col-xs-12 {
+    margin: 20px 0;
+    font-size: 15px;
+
+    &:nth-child(2){
+      padding: 10px;
+      height: 100px;
+    }
+
+    &:nth-child(3){
+      padding: 10px;
+      height: 40px;
+    }
+
+  }
+}
