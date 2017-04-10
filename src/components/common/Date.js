@@ -1,27 +1,16 @@
 import React from 'react';
-import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
-import TopNotification from './TopNotification';
 
-export default class OrderConfirm extends React.Component {
+export default class DateWidget extends React.Component {
   constructor(props) {
     super(props);
-    this.date = new Date();
-    this.state = {
-      timing: '',
-      date: this.date.getHours() < 16 ? this.date.getDate() : this.date.getDate() + 1,
-      month: (parseInt(this.date.getMonth()) + 1).toString(),
-      year: parseInt(this.date.getFullYear()),
-      months: [],
-      msg: 'Please select time'
-    }
+    this.date = this.props.date;
   }
 
   renderDate() {
     let days = this.getNumberOfDays(),
       self = this;
     return (
-      <select className = 'col-xs-12' onChange = { this.datePicked.bind(this) } value = { this.state.date }>
+      <select className = 'col-xs-12' onChange = { this.datePicked.bind(this) } value = { this.props.data.date }>
         { days.map(function(index){
           return self.renderDay(index);
         })}
@@ -39,8 +28,8 @@ export default class OrderConfirm extends React.Component {
     const self = this;
     this.getMonths();
     return (
-      <select className = 'col-xs-12' onChange = { this.monthPicked.bind(this) } value = { this.state.month }>
-        { this.state.months.map(function(index){
+      <select className = 'col-xs-12' onChange = { this.monthPicked.bind(this) } value = { this.props.data.month }>
+        { this.props.data.months.map(function(index){
           return self.renderMonth(index)
         })}
       </select>
@@ -48,9 +37,9 @@ export default class OrderConfirm extends React.Component {
   }
 
   getMonths(){
-    this.state.months = [[1,'Jan'],[2,'Feb'],[3,'March'],[4,'April'],[5,'May'],[6,'June'],[7,'July'],[8,'Aug'],[9,'Sep'],[10,'Oct'],[11,'Nov'],[12,'Dec']];
-    if(this.state.year == this.date.getFullYear()){
-      this.state.months = this.state.months.slice(this.date.getMonth(),11);
+    this.props.data.months = [[1,'Jan'],[2,'Feb'],[3,'March'],[4,'April'],[5,'May'],[6,'June'],[7,'July'],[8,'Aug'],[9,'Sep'],[10,'Oct'],[11,'Nov'],[12,'Dec']];
+    if(this.props.data.year == this.date.getFullYear()){
+      this.props.data.months = this.props.data.months.slice(this.date.getMonth(),11);
     }
   }
 
@@ -62,7 +51,7 @@ export default class OrderConfirm extends React.Component {
 
   getNumberOfDays() {
     let days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28];
-    switch(this.state.month){
+    switch(this.props.data.month){
       case '4':
       case '6':
       case '9':
@@ -72,7 +61,7 @@ export default class OrderConfirm extends React.Component {
         break;
       default : days[29] = 29; days[30] = 30; days[31] = 31;
     }
-    if(this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.state.year) >= 0){
+    if(this.props.data.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.props.data.year) >= 0){
       let currentDate = this.date.getDate();
       if( this.date.getHours() > 16 ){
         days = days.slice(currentDate, days.length);
@@ -90,7 +79,7 @@ export default class OrderConfirm extends React.Component {
       ['1:30','01:30 PM'], ['2:00','02:00 PM'], ['2:30','02:30 PM'],['3:00','03:00 PM'],['3:30','03:30 PM'],
       ['4:00','04:00 PM'], ['4:30','04:30 PM'], ['5:00','05:00 PM'],['5:30','05:30 PM'],['6:00','06:00 PM']];
 
-    if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.state.year) >= 0 && this.state.date == this.date.getDate() && this.date.getHours() < 16){
+    if( this.props.data.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.props.data.year) >= 0 && this.props.data.date == this.date.getDate() && this.date.getHours() < 16){
       let currentHour = this.date.getHours()
       let index;
       for(var i = 0 ; i < hours.length ; i++){
@@ -127,14 +116,13 @@ export default class OrderConfirm extends React.Component {
   render() {
     return (
       <div>
-        { this.props.location.query.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
-        <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
+        <div className = 'col-xs-12 confirm'>
           <div className = 'col-xs-12 datepick'>
             <span> Pick your time </span>
-            <div className = 'col-xs-12 date'> { this.state.date + '/' + this.state.month + '/' + this.state.year + ' ' + this.state.timing } </div>
+            <div className = 'col-xs-12 date' style={{height:40}}> { this.props.data.date + '/' + this.props.data.month + '/' + this.props.data.year + ' ' + this.props.data.timing } </div>
 
             <div className = 'col-xs-4 pad0'>
-              <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.state.year }>
+              <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.props.data.year }>
                 <option value='2017'>2017</option>
               </select>
             </div>
@@ -149,26 +137,25 @@ export default class OrderConfirm extends React.Component {
               { this.renderTime() }
             </div>
           </div>
-
         </div>
-        </div>
+      </div>
     )
   }
 
   datePicked(e) {
-    this.setState({ date: e.currentTarget.value });
+    this.props.scheduleHandler('date', e.currentTarget.value)
   }
 
   monthPicked(e) {
-    this.setState({ month: e.currentTarget.value });
+    this.props.scheduleHandler('month', e.currentTarget.value)
   }
 
   yearPicked(e) {
-    this.setState({ year: e.currentTarget.value });
+    this.props.scheduleHandler('year', e.currentTarget.value)
   }
 
   timeEntered(e) {
-    this.setState({ timing: e.currentTarget.value });
+    this.props.scheduleHandler('timing', e.currentTarget.value)
   }
 }
 
