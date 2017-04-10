@@ -31,7 +31,7 @@ export default class AppointmentList extends React.Component {
   }
 
   getRenderer(appointment) {
-    return (<Appointment appointment={appointment} ongoing={this.state.ongoing}/>)
+    return (<Appointment key={appointment.bookingID} appointment={appointment} ongoing={this.state.ongoing}/>)
   }
 
   render() {
@@ -90,7 +90,9 @@ export default class AppointmentList extends React.Component {
 
       if(numericMonth < currentDay.getMonth() || (numericMonth == currentDay.getMonth() && day < currentDay.getDate())){
         this.historyList.push(appointment);
-      }else{
+      }else if(appointment.status == 'cancelled'){
+        this.historyList.push(appointment);
+      }else {
         this.ongoingList.push(appointment);
       }
     }

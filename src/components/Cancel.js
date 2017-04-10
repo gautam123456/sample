@@ -2,8 +2,8 @@
  * Created by gautam on 12/12/16.
  */
 import React from 'react';
+import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
-import ActivityFooter from './ActivityFooter';
 import $ from 'jquery';
 import Base from './base/Base';
 
@@ -28,7 +28,6 @@ export default class Cancel extends React.Component {
           <textarea className='col-xs-12' maxlength='50' value={this.state.value} onChange={this.reason.bind(this)} placeholder='Reason for cancellation'/>
           <button type = 'text' className = 'col-xs-12' onClick={  this.cancel.bind(this) }> CANCEL</button>
         </div>
-        <ActivityFooter next = { '/' } back = { '/' }/>
       </div>
     )
   }

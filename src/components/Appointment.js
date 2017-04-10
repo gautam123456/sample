@@ -85,7 +85,7 @@ export default class Appointment extends React.Component {
           <div className = 'col-xs-12 header'>
             <div className = 'col-xs-12 pull-right pad0'><strong>Booking Id : {appointment.bookingID}</strong></div>
             <div className = 'col-xs-6 pad0 date'>{appointment.formattedDate}</div>
-            {this.props.ongoing ? <div className = 'col-xs-4 pad0 ongoing pull-right'>REQUEST ONGOING</div> : <div className = 'col-xs-4 pad0 history pull-right'>REQUEST PROCESSED</div>}
+            {this.props.ongoing ? <div className = 'col-xs-4 pad0 ongoing pull-right'>REQUEST ONGOING</div> : <div className = 'col-xs-4 pad0 history pull-right'>{this.getLabel(appointment)}</div>}
           </div>
 
           <div className = 'col-xs-12 body pad0'>
@@ -97,6 +97,10 @@ export default class Appointment extends React.Component {
         </div>
       </div>
     )
+  }
+
+  getLabel(appointment) {
+    return appointment.status !== 'cancelled' ? 'REQUEST PROCESSED' : 'REQUEST CANCELLED';
   }
 }
 
