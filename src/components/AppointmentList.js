@@ -86,8 +86,6 @@ export default class AppointmentList extends React.Component {
         case 'dec': numericMonth = 11; break;
       }
 
-      console.log(numericMonth + "......" + day + '::::' + currentDay.getMonth() + "....." + currentDay.getDate());
-
       if(numericMonth < currentDay.getMonth() || (numericMonth == currentDay.getMonth() && day < currentDay.getDate())){
         this.historyList.push(appointment);
       }else if(appointment.status == 'cancelled'){

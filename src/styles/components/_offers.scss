@@ -1,0 +1,28 @@
+@import "../variables/screen";
+
+.offers {
+  .message {
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .offer {
+    background-color: #fff;
+    min-height: 100px;
+    margin-top: 20px;
+    border-radius: 2px;
+    font-size: 20px;
+
+    .header {
+      background-color: #cde6e5;
+      color: $brand-color;
+    }
+
+    .body {
+      font-size: 15px;
+      padding-top: 5px;
+      color: #666;
+    }
+  }
+}

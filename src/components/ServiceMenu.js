@@ -11,7 +11,7 @@ export default class ServiceMenu extends React.Component {
 
           { this.props.list.name }<br/>
           { this.props.list.condition ? this.renderCondition() : '' }
-          { this.props.list.information ? this.renderTooltip() : '' }
+          { this.props.list.information ? this.renderModal() : '' }
 
         </div>
         <div className = 'col-xs-2 cost'> &nbsp; <i className = 'fa fa-inr'></i> { this.props.list.cost }</div>
@@ -32,7 +32,7 @@ export default class ServiceMenu extends React.Component {
     )
   }
 
-  renderTooltip() {
+  renderModal() {
     return (
         <div className='tooltip'>
           <i className = 'fa fa-info-circle margin5'><span className='tooltiptext'>{ this.props.list.information }</span></i>
