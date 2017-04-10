@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
+import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
 
@@ -18,10 +19,15 @@ export default class Offers extends React.Component {
 
   render() {
     return (
-      <div className = 'col-xs-12 pad0'>
+      <div className = 'col-xs-12 col-md-4 col-md-offset-4 pad0'>
+        <ActivityHeader heading = { 'My Offers' }/>
         { this.state.offers }
       </div>
     )
+  }
+
+  updateOffers(data) {
+    this.setState({offers: data.customerCouponList, message: data.message})
   }
 
   componentWillMount() {
@@ -35,7 +41,7 @@ export default class Offers extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/getmycoupons';
     ajaxObj.success = function(data) {
       console.log(JSON.stringify(data));
-      self.setState({offers: data});
+      self.updateOffers(data);
       Base.hideOverlay();
     }
     ajaxObj.error = () => {if(!window.bookingDetails.name){browserHistory.push('login')}}
