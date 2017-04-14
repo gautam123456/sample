@@ -21,7 +21,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-20,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Reduces enlarged pores, Fades superficial pigmentation, Lightens blemishes",
+            "recommended":"All skin types",
+            "ingredients":"Aloevera, Vitamin E, Olive Oil, Papaya Seed, Cucumber, Peach, Orange, Green Apple and Walnut"
           },
           {
             "id":2,
@@ -36,7 +39,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-19,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Reduces effect of UV rays on your skin, Evens out dull, patchy and damaged skin, Controls excessive secretion of oil from skin",
+            "recommended":"Tanned Skin",
+            "ingredients":"Oatmeal, Rice Flour, Aloevera, Cucumber, Pomegranate and Quince Seed"
           },
           {
             "id":3,
@@ -51,7 +57,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-18,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Firms up skin, Refines pores, Makes lesser fine lines and wrinkles",
+            "recommended":"Combination-oily, Sensitive Skin",
+            "ingredients":"Indian Berberry, Wheat, Lime, Geranium, Almond, Vitamin E, Lavender and Palmarosa"
           },
           {
             "id":4,
@@ -66,7 +75,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-17,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Makes skin soft and glowing, Makes skin hydrated and toned",
+            "recommended":"Combination-oily, Tanned Skin",
+            "ingredients":"Indian Berberry, Papaya seed, Mulberry, Saffron and Mango seed powder"
           },
           {
             "id":5,
@@ -81,7 +93,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-16,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Removes dead and damaged skin, Removes dark spots, Hydrates dull skin",
+            "recommended":"All skin types",
+            "ingredients":"Licorice Extract, Green Tea Extract and Pearl Dust"
           },
           {
             "id":6,
@@ -96,7 +111,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-15,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Lightens skin tone, Whitens skin naturally, Diminishes uneven pigmentation",
+            "recommended":"Combination-oily, Tanned skin",
+            "ingredients":"Oatmeal, Yoghurt and Bearberry Extracts"
           },
           {
             "id":7,
@@ -111,7 +129,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-14,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Helps to get glowing and toned skin, Maintains skin elasticity, Nourishes skin for young look",
+            "recommended":"All skin types",
+            "ingredients":"24K Gold Leaves, Papaya and Horse Chestnut extracts"
           },
           {
             "id":8,
@@ -126,7 +147,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-13,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Prevents the early signs of ageing, Preserves skin elasticity, Helps in shedding the skin",
+            "recommended":"All skin types, Ageing skin",
+            "ingredients":"Amber Extract, Cinnamon Exract and Diamond Dust"
           },
           {
             "id":9,
@@ -141,7 +165,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-12,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Increases Fairness, Controls Pigmentation",
+            "recommended":"Normal to dry skin, All skin types",
+            "ingredients":"Aqua, Aloevera Extract, Fruit Extract, Wheat Germ Oil, Almond, Shea Butter and Mushroom Extract"
           },
           {
             "id":10,
@@ -156,7 +183,10 @@
             "isDiscounted":null,
             "serviceCategoryID":1,
             "sortValue":-11,
-            "quantity":null
+            "quantity":null,
+            "benefits":"Brightens skin, Fades marks and blemishes, Oil control and brightening",
+            "recommended":"Normal to oily skin, Acne prone skin",
+            "ingredients":"Aqua, Citric Extract, Green Tea Extract, Seaweed Extract, Jojoba Oil, Shea Butter and Mineral Oil"
           }
         ],
         "serviceItemImageList":null,
@@ -183,7 +213,10 @@
               "isDiscounted":null,
               "serviceCategoryID":2,
               "sortValue":-10,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces Dryness from skin, Deep cleanses the skin, Unclogs pores",
+              "recommended":"All types of skin",
+              "ingredients":"Oatmeal, Jojoba, Green Extracts and Chamomile"
             }
           ],
           "serviceItemImageList":null,
@@ -210,7 +243,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-9,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":13,
@@ -225,7 +261,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-8,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":14,
@@ -240,7 +279,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-7,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":15,
@@ -255,7 +297,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-6,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":16,
@@ -270,7 +315,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-5,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":17,
@@ -285,7 +333,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-4,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":18,
@@ -300,7 +351,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-3,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":19,
@@ -315,7 +369,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-2,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Makes skin fairer, Evens out the skin tone, Unblocks the clogged pores",
+              "recommended":"Sensitive to Normal skin type",
+              "ingredients":"Aqua, Glycerine and other extracts"
             },
             {
               "id":20,
@@ -330,7 +387,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":-1,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             },
             {
               "id":21,
@@ -345,7 +405,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":0,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             },
             {
               "id":22,
@@ -360,7 +423,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":1,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             },
             {
               "id":23,
@@ -375,7 +441,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":2,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             },
             {
               "id":24,
@@ -390,7 +459,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":3,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             },
             {
               "id":25,
@@ -405,7 +477,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":4,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             },
             {
               "id":26,
@@ -420,7 +495,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":5,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             },
             {
               "id":27,
@@ -435,7 +513,10 @@
               "isDiscounted":null,
               "serviceCategoryID":3,
               "sortValue":6,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Lightens skin without making dry, Makes skin fairer",
+              "recommended":"All skin types except sensitive skin",
+              "ingredients":"Aqua, Meladerm Vitamin C and other extracts"
             }
           ],
           "serviceItemImageList":null,
@@ -462,7 +543,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":7,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             },
             {
               "id":29,
@@ -477,7 +561,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":8,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             },
             {
               "id":30,
@@ -492,7 +579,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":9,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             },
             {
               "id":31,
@@ -507,7 +597,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":10,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             },
             {
               "id":32,
@@ -522,7 +615,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":11,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             },
             {
               "id":33,
@@ -537,7 +633,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":12,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             },
             {
               "id":34,
@@ -552,7 +651,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":13,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             },
             {
               "id":35,
@@ -567,7 +669,10 @@
               "isDiscounted":null,
               "serviceCategoryID":4,
               "sortValue":14,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Reduces tan, Brightens and lightens skin instantly, Hydrates, nourishes and heals the skin",
+              "recommended":"All skin types",
+              "ingredients":"Aqua, Pepper mint Oil, Eucalyptus Oil, Clove Oil and Camphor Oil"
             }
           ],
           "serviceItemImageList":null,
@@ -594,7 +699,10 @@
               "isDiscounted":null,
               "serviceCategoryID":5,
               "sortValue":15,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":37,
@@ -609,7 +717,10 @@
               "isDiscounted":null,
               "serviceCategoryID":5,
               "sortValue":16,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":38,
@@ -624,7 +735,10 @@
               "isDiscounted":null,
               "serviceCategoryID":5,
               "sortValue":17,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":39,
@@ -639,7 +753,10 @@
               "isDiscounted":null,
               "serviceCategoryID":5,
               "sortValue":18,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":40,
@@ -654,7 +771,10 @@
               "isDiscounted":null,
               "serviceCategoryID":5,
               "sortValue":19,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,
@@ -696,7 +816,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-20,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":42,
@@ -711,7 +834,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-19,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":43,
@@ -726,7 +852,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-18,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":44,
@@ -741,7 +870,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-17,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":45,
@@ -756,7 +888,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-16,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":46,
@@ -771,7 +906,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-15,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":47,
@@ -786,7 +924,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-14,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":48,
@@ -801,7 +942,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-13,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":49,
@@ -816,7 +960,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-12,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":50,
@@ -831,7 +978,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-11,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Smoothens skin, Makes hair regain more silkier and sparser",
+              "recommended":"All skin types",
+              "ingredients":"cocoa, almond oil, soya bean oil, sunflower oil, glycerin"
             },
             {
               "id":51,
@@ -846,7 +996,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-10,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":52,
@@ -861,7 +1014,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-9,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":53,
@@ -876,7 +1032,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-8,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":54,
@@ -891,7 +1050,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-7,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":55,
@@ -906,7 +1068,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-6,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":56,
@@ -921,7 +1086,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-5,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":57,
@@ -936,7 +1104,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-4,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":58,
@@ -951,7 +1122,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-3,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":59,
@@ -966,7 +1140,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-2,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":60,
@@ -981,7 +1158,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":-1,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":61,
@@ -996,7 +1176,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":0,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             },
             {
               "id":62,
@@ -1011,7 +1194,10 @@
               "isDiscounted":null,
               "serviceCategoryID":6,
               "sortValue":1,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Less hair regain, Nourishes skin, Refines pores of the skin, 98% OF NATURAL INGREDIENTS",
+              "recommended":"All skin types",
+              "ingredients":"Natural Beeswax,Vegetable Oil,Glyceryl Rosinate,Zinc Oxide"
             }
           ],
           "serviceItemImageList":null,
@@ -1038,7 +1224,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":2,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your hands, Removes dry and dead skin, Makes skin supple and wrinkle free",
+              "recommended":"All skin types",
+              "ingredients":"Soapnut Extracts, Lemongrass Oil, Wheatgerm Oil, Almond, Walnut Shell Powder, Fenugreek Extract, Cocoa Butter and More"
             },
             {
               "id":64,
@@ -1053,7 +1242,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":3,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your feet, Removes dry and dead skin, Makes skin supple and wrinkle free",
+              "recommended":"All skin types",
+              "ingredients":"Soapnut Extracts, Lemongrass Oil, Wheatgerm Oil, Almond, Walnut Shell Powder, Fenugreek Extract, Cocoa Butter and More"
             },
             {
               "id":65,
@@ -1068,7 +1260,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":4,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your hands, Revitalizes skin and removes tan, Heals and protects nail cuticles, Softens cracked palms",
+              "recommended":"All skin types",
+              "ingredients":"Wheatgerm Oil, Rose, Orange, Avocado, Sugar, Jojoba, Milk and Honey"
             },
             {
               "id":66,
@@ -1083,7 +1278,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":5,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your feet, Relaxes feet and removes tan, Heals and protects nail cuticles, Softens cracked heels",
+              "recommended":"All skin types",
+              "ingredients":"Wheatgerm Oil, Rose, Orange, Avocado, Sugar, Jojoba, Milk and Honey"
             },
             {
               "id":67,
@@ -1098,7 +1296,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":6,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Moisturizes your scalp, Improves blood circulation, Restores shine, Removes Dandruff",
+              "recommended":"Stress, Dry Scalp",
+              "ingredients":"Olive"
             },
             {
               "id":68,
@@ -1113,7 +1314,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":7,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Relieves stress and pain from body, Helps reduce sun burn, Hydrates your skin, Slows down skin ageing",
+              "recommended":"Stress and pain, Dry skin",
+              "ingredients":"Olive"
             },
             {
               "id":69,
@@ -1128,7 +1332,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":8,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Cleanses pores deeply, Refines body complextion",
+              "recommended":"All skin types",
+              "ingredients":"Honey, Papaya Enzymes, Chamomile Extract, Neem Extract and Grape Seed Oil"
             },
             {
               "id":70,
@@ -1143,7 +1350,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":9,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Cleanses pores deeply, Refine body complextion, Remove dirt and excess oil from skin, Hydrates your skin, Slows down skin ageing",
+              "recommended":"All skin types",
+              "ingredients":"Olive Oil, Honey, Papaya Enzymes, Chamomile Extract, Neem Extract and Grape Seed Oil, Liquorice Extract, Bearberry Extract and Grape Extract"
             },
             {
               "id":71,
@@ -1158,7 +1368,10 @@
               "isDiscounted":null,
               "serviceCategoryID":7,
               "sortValue":10,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Cleanses pores deeply, Refine body complextion, Remove dirt and excess oil from skin, Hydrates your skin, Slows down skin ageing",
+              "recommended":"All skin types",
+              "ingredients":"Olive Oil, Honey, Papaya Enzymes, Chamomile Extract, Neem Extract and Grape Seed Oil, Glycerin, Groundnut Oil, Vitamin E, Liquorice Extract, Bearberry Extract and Grape Extract"
             }
           ],
           "serviceItemImageList":null,
@@ -1200,7 +1413,10 @@
               "isDiscounted":null,
               "serviceCategoryID":8,
               "sortValue":11,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes hair, Infuses hair fibre, Makes hair shiny",
+              "recommended":"Dull, dry and frizzy hair, Stress",
+              "ingredients":"Water Lily, Cationic Agents, Glycerin, Flower Extracts and Anti-dandruff agents"
             },
             {
               "id":73,
@@ -1215,7 +1431,10 @@
               "isDiscounted":null,
               "serviceCategoryID":8,
               "sortValue":12,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes hair, Infuses hair fibre, Makes hair shiny",
+              "recommended":"Dull, dry and frizzy hair, Stress",
+              "ingredients":"Water Lily, Cationic Agents, Glycerin, Flower Extracts and Anti-dandruff agents"
             },
             {
               "id":74,
@@ -1230,7 +1449,10 @@
               "isDiscounted":null,
               "serviceCategoryID":8,
               "sortValue":13,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your hair, Infuses hair fibre, Makes hair shiny",
+              "recommended":"Dull, dry and frizzy hair, Stress",
+              "ingredients":"Water Lily, Cationic Agents, Glycerin, Flower Extracts and Anti-dandruff agents"
             },
             {
               "id":75,
@@ -1245,7 +1467,10 @@
               "isDiscounted":null,
               "serviceCategoryID":8,
               "sortValue":14,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your hair, Increases hair strength, Makes hair shiny, Controls dandruff",
+              "recommended":"Dull, dry and frizzy hair, Dandruff control, Stress",
+              "ingredients":"Avacado, Vitamin E Content, Argan Oil, Rice Bran Oil"
             },
             {
               "id":76,
@@ -1260,7 +1485,10 @@
               "isDiscounted":null,
               "serviceCategoryID":8,
               "sortValue":15,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your hair, Increases hair strength, Makes hair shiny, Controls dandruff",
+              "recommended":"Dull, dry and frizzy hair, Dandruff control, Stress",
+              "ingredients":"Avacado, Vitamin E Content, Argan Oil, Rice Bran Oil"
             },
             {
               "id":77,
@@ -1275,7 +1503,10 @@
               "isDiscounted":null,
               "serviceCategoryID":8,
               "sortValue":16,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Nourishes your hair, Increases hair strength, Makes hair shiny, Controls dandruff",
+              "recommended":"Dull, dry and frizzy hair, Dandruff control, Stress",
+              "ingredients":"Avacado, Vitamin E Content, Argan Oil, Rice Bran Oil"
             }
           ],
           "serviceItemImageList":null,
@@ -1302,7 +1533,10 @@
               "isDiscounted":null,
               "serviceCategoryID":9,
               "sortValue":17,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Even hair color, Covers grey hair completely",
+              "recommended":"Full grey coverage",
+              "ingredients":null
             },
             {
               "id":79,
@@ -1317,7 +1551,10 @@
               "isDiscounted":null,
               "serviceCategoryID":9,
               "sortValue":18,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Even hair color, Covers grey hair completely",
+              "recommended":"Full grey coverage",
+              "ingredients":null
             },
             {
               "id":80,
@@ -1332,7 +1569,10 @@
               "isDiscounted":null,
               "serviceCategoryID":9,
               "sortValue":19,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Even hair color, Covers grey hair completely",
+              "recommended":"Grey Coverage",
+              "ingredients":null
             },
             {
               "id":81,
@@ -1347,7 +1587,10 @@
               "isDiscounted":null,
               "serviceCategoryID":9,
               "sortValue":20,
-              "quantity":null
+              "quantity":null,
+              "benefits":"Natural hair color, Covers grey hair completely",
+              "recommended":"Grey hair",
+              "ingredients":null
             },
             {
               "id":82,
@@ -1362,7 +1605,10 @@
               "isDiscounted":null,
               "serviceCategoryID":9,
               "sortValue":21,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,
@@ -1404,7 +1650,10 @@
               "isDiscounted":null,
               "serviceCategoryID":10,
               "sortValue":22,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":84,
@@ -1419,7 +1668,10 @@
               "isDiscounted":null,
               "serviceCategoryID":10,
               "sortValue":23,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,
@@ -1506,7 +1758,10 @@
               "isDiscounted":null,
               "serviceCategoryID":11,
               "sortValue":24,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":86,
@@ -1521,7 +1776,10 @@
               "isDiscounted":null,
               "serviceCategoryID":11,
               "sortValue":25,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":87,
@@ -1536,7 +1794,10 @@
               "isDiscounted":null,
               "serviceCategoryID":11,
               "sortValue":26,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":88,
@@ -1551,7 +1812,10 @@
               "isDiscounted":null,
               "serviceCategoryID":11,
               "sortValue":27,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,
@@ -1578,7 +1842,10 @@
               "isDiscounted":null,
               "serviceCategoryID":12,
               "sortValue":28,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":90,
@@ -1593,7 +1860,10 @@
               "isDiscounted":null,
               "serviceCategoryID":12,
               "sortValue":29,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":91,
@@ -1608,7 +1878,10 @@
               "isDiscounted":null,
               "serviceCategoryID":12,
               "sortValue":30,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":92,
@@ -1623,7 +1896,10 @@
               "isDiscounted":null,
               "serviceCategoryID":12,
               "sortValue":31,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,
@@ -1665,7 +1941,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-20,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":94,
@@ -1680,7 +1959,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-19,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":95,
@@ -1695,7 +1977,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-18,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":96,
@@ -1710,7 +1995,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-17,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":97,
@@ -1725,7 +2013,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-16,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":98,
@@ -1740,7 +2031,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-15,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":99,
@@ -1755,7 +2049,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-14,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":100,
@@ -1770,7 +2067,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-13,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":101,
@@ -1785,7 +2085,10 @@
               "isDiscounted":null,
               "serviceCategoryID":13,
               "sortValue":-12,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,
@@ -1812,7 +2115,10 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-11,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":103,
@@ -1827,7 +2133,10 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-10,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":104,
@@ -1842,7 +2151,10 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-9,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":105,
@@ -1857,7 +2169,10 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-8,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":106,
@@ -1872,7 +2187,10 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-7,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":107,
@@ -1887,7 +2205,10 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-6,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":108,
@@ -1902,7 +2223,10 @@
               "isDiscounted":null,
               "serviceCategoryID":14,
               "sortValue":-5,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,
@@ -1929,7 +2253,10 @@
               "isDiscounted":null,
               "serviceCategoryID":15,
               "sortValue":-4,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":110,
@@ -1944,7 +2271,10 @@
               "isDiscounted":null,
               "serviceCategoryID":15,
               "sortValue":-3,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":111,
@@ -1959,7 +2289,10 @@
               "isDiscounted":null,
               "serviceCategoryID":15,
               "sortValue":-2,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             },
             {
               "id":112,
@@ -1974,7 +2307,10 @@
               "isDiscounted":null,
               "serviceCategoryID":15,
               "sortValue":-1,
-              "quantity":null
+              "quantity":null,
+              "benefits":null,
+              "recommended":null,
+              "ingredients":null
             }
           ],
           "serviceItemImageList":null,

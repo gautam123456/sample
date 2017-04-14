@@ -2,29 +2,61 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
+import Base from '../base/Base';
 
 export default class Modal extends React.Component {
 
     constructor(props){
         super(props)
         this.state = {
-            display: 'block'
+          display: 'none',
+          data: ''
         }
     }
 
     render() {
+      console.log(this.props.data);
+      const data = this.state.data;
         return (
             <div id = 'modal' className ='modal' style = {{ display: this.state.display }}>
-                <div className = 'modal-content'>
-                    <span className = 'close pull-right' onClick = { this.close.bind(this) } >&times;</span>
-                    <p>Some text in the Modal..</p>
+                <div className = 'modal-content pad0'>
+                  <div className = 'content pad0'>
+                    <img src='../../styles/assets/images/bgg.jpg' height='150px' width='100%'/>
+                    <div className = 'body'>
+                      <h3>{data.name}</h3>
+                      <p>{data.benefits}</p>
+                      <p>Rs. {data.cost}</p>
+                      <p><i className ='fa fa-clock-o'></i> {data.time}</p>
+                      <div className='col-xs-2 border-bottom'></div>
+                      <div className='heading col-xs-12 pad0'>BENEFITS</div>
+                      <div className='bcontent'>{data.information}</div>
+                      <div className='heading'>INGREDIENTS</div>
+                      <div className='bcontent'>{data.ingredients}</div>
+                      <div className='heading'>RECOMMENDED FOR</div>
+                      <div className='bcontent'>{data.recommended}</div>
+                    </div>
+                  </div>
+                  <footer onClick = {this.addToCart.bind(this)}> &#43; ADD TO CART</footer>
                 </div>
+                <div className = 'col-xs-12 cancel' onClick = {this.close.bind(this)}><i className = 'fa fa-times-circle-o fa-3x'></i></div>
             </div>
         )
     }
 
-    close() {
-        this.setState({display: 'none'})
-    }
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      display: nextProps.display,
+      data: nextProps.data
+    });
+  }
+
+  close() {
+      this.setState({display: 'none'})
+      Base.addOverFlow();
+  }
+
+  addToCart() {
+
+  }
 
 }

@@ -51,4 +51,12 @@ export default class Base extends React.Component {
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('app').style.display = 'block';
     }
+
+    static hideOverFlow() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    static addOverFlow() {
+      document.body.style.overflow = 'scroll';
+    }
 }

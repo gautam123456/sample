@@ -2,6 +2,7 @@
  * Created by gautam on 12/12/16.
  */
 import React from 'react';
+import Base from './base/Base';
 
 export default class ServiceMenu extends React.Component {
   render() {
@@ -11,7 +12,7 @@ export default class ServiceMenu extends React.Component {
 
           { this.props.list.name }<br/>
           { this.props.list.condition ? this.renderCondition() : '' }
-          { this.props.list.information ? this.renderModal() : '' }
+          { this.props.list.information ? this.renderInformation() : '' }
 
         </div>
         <div className = 'col-xs-2 cost'> &nbsp; <i className = 'fa fa-inr'></i> { this.props.list.cost }</div>
@@ -32,12 +33,16 @@ export default class ServiceMenu extends React.Component {
     )
   }
 
-  renderModal() {
+  renderInformation() {
     return (
-        <div className='tooltip'>
-          <i className = 'fa fa-info-circle margin5'><span className='tooltiptext'>{ this.props.list.information }</span></i>
+        <div style={{display: 'inline'}}>
+          <i className = 'fa fa-info-circle margin5' onClick = {this.renderModal.bind(this, this.props.list)}></i>
         </div>
     )
+  }
+
+  renderModal(data) {
+    this.props.renderModal(data, 'block')
   }
 
   renderCondition() {
