@@ -27,8 +27,8 @@
     background-color: #fff;
     margin: auto;
     width: 94%;
-    height: 85%;
-    max-height: 80%;
+    height: 90%;
+    max-height: 90%;
     color: #333;
     border-radius: 2px;
 
@@ -48,16 +48,16 @@
         p {
           margin: 5px 0;
 
-          &:nth-child(2) {
+          &:nth-child(1) {
             font-size: 9px;
             color: #999;
           }
 
-          &:nth-child(3) {
+          &:nth-child(2) {
             font-size: 12px;
           }
 
-          &:nth-child(4) {
+          &:nth-child(3) {
             font-size: 9px;
             color: #999;
 
@@ -70,15 +70,26 @@
         .heading {
           margin-top: 25px;
           margin-bottom: 10px;
-          font-size: 9px;
+          font-size: 10px;
           color: #999;
           letter-spacing: 1px;
         }
 
         .bcontent {
-          font-size: 10px;
+          font-size: 11px;
           color: #444;
           padding: 0 5px;
+
+          ul {
+            li {
+              &::before {
+                content: "\2022";
+                font-weight: bolder;
+                margin-right: 5px;
+                font-size: 12px;
+              }
+            }
+          }
         }
       }
     }
@@ -93,7 +104,7 @@
 
     @include screen-iPad {
       width: 380px;
-      height: 80%;
+      height: 90%;
     }
   }
 }
