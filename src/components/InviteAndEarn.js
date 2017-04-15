@@ -1,12 +1,16 @@
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
+import Base from './base/Base';
+import $ from 'jquery';
+import ajaxObj from '../../data/ajax.json';
 
 export default class InviteAndEarn extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      refcode: this.props.location.query.refcode,
-      active: true
+      refCode: 'Please login to see your referral code',
+      active: true,
+      refCount: ''
     }
   }
 
@@ -21,8 +25,8 @@ export default class InviteAndEarn extends React.Component {
           <div className='col-xs-8'>YOUR <strong>LOOK</strong>PLEX INVITE CODE</div>
           <div className='col-xs-2'></div>
         </div>
-        <div className='col-xs-12 center a'>{'euwyfv5434'}</div>
-        <a href="whatsapp://send?text=Hey! I tried LookPlex and had an amazing experience. Here's a gift of Rs 200 for you to try their beauty services. I am sure you'll love them too! http://lookplex.com/referal?code=gautam1234" data-action="share/whatsapp/share">
+        <div className='col-xs-12 center a'>{this.state.refCode}</div>
+        <a href={'whatsapp://send?text=Hey! I tried LookPlex and had an amazing experience. Here\'s a gift of Rs 200 for you to try their beauty services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + this.state.refCode} data-action="share/whatsapp/share">
           <div className='invite-wap col-xs-6 a'><i className='fa fa-whatsapp'></i><span>Invite via WhatsApp</span></div>
         </a>
       </div>
@@ -33,7 +37,9 @@ export default class InviteAndEarn extends React.Component {
     return (
       <div className='rewards col-xs-12'>
         <div className='col-xs-12'>Total <strong>LOOK</strong>PLEX Credits Earned</div>
-        <div className='col-xs-12'><i className='fa fa-inr'></i> {0}</div>
+        <div className='col-xs-12'>Total referrals : {this.state.refCount || 0} </div>
+        <div className='col-xs-12'>Rewards : <i className='fa fa-inr'></i> {this.state.refCount ? this.state.refCount * 200 : '0'} </div>
+        <div className='col-xs-12'>Per booking you can avail maximum Rs. 200 discount by using referral program</div>
       </div>
     )
   }
@@ -51,6 +57,26 @@ export default class InviteAndEarn extends React.Component {
         {this.state.active ? this.renderInviteAndEarn() : this.renderRewards()}
       </div>
     )
+  }
+
+  componentWillMount() {
+    this.getUserDetails();
+  }
+
+  getUserDetails() {
+    let self = this;
+    ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
+    ajaxObj.type = 'GET';
+    ajaxObj.data = '';
+    ajaxObj.success = function(data) {
+      window.bookingDetails.name = data.name;
+      window.bookingDetails.addressList = data.addressList;
+      self.setState({refCode: data.refCode, refCount: data.refCount})
+    }
+    ajaxObj.error = function() {
+      window.bookingDetails.name = null;
+    }
+    $.ajax(ajaxObj);
   }
 
   setActive(active) {

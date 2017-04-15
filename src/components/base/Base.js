@@ -34,9 +34,11 @@ export default class Base extends React.Component {
         ajaxObj.success = function(data) {
             window.bookingDetails.name = data.name;
             window.bookingDetails.addressList = data.addressList;
+            window.userDetails = data;
         }
         ajaxObj.error = function() {
             window.bookingDetails.name = null;
+            window.userDetails = null;
         }
         $.ajax(ajaxObj);
     }
