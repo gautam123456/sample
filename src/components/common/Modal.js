@@ -15,7 +15,6 @@ export default class Modal extends React.Component {
     }
 
     render() {
-      console.log(this.props.data);
       const data = this.state.data;
         return (
             <div id = 'modal' className ='modal' style = {{ display: this.state.display }}>
@@ -51,12 +50,13 @@ export default class Modal extends React.Component {
   }
 
   close() {
-      this.setState({display: 'none'})
+      this.props.renderModal('','','none')
       Base.addOverFlow();
   }
 
   addToCart() {
-
+    this.props.bookingDetailsChanged(this.props.id, this.props.data.name, this.props.data.cost, 0, 1);
+    this.props.renderModal('','','none')
   }
 
 }
