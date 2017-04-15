@@ -4,7 +4,6 @@
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
 import $ from 'jquery';
-import ActivityHeader from './ActivityHeader';
 import Base from './base/Base';
 import DisableScroll from './base/DisableScroll';
 import TopNotification from './TopNotification';

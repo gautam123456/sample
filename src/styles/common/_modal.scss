@@ -4,7 +4,7 @@
 .modal {
   position: fixed;
   z-index: 1;
-  padding-top: 50px;
+  padding-top: 55px;
   left: 0;
   top: 0;
   width: 100%;
@@ -12,11 +12,22 @@
   overflow: auto;
   background-color: rgba(0,0,0,0.7);
 
+  .cancel {
+    color: #fff;
+    margin-top: -10px;
+    margin-left: 88%;
+    position: fixed;
+
+    @include screen-iPad {
+      margin-left: 61%;
+    }
+  }
+
   .modal-content {
     background-color: #fff;
     margin: auto;
     width: 94%;
-    height: 80%;
+    height: 85%;
     max-height: 80%;
     color: #333;
     border-radius: 2px;
@@ -83,17 +94,6 @@
     @include screen-iPad {
       width: 380px;
       height: 80%;
-    }
-  }
-
-  .cancel {
-    height: 10%;
-    margin-top: 50px;
-    text-align: center;
-    color: #eee;
-
-    .fa {
-      font-weight: 100;
     }
   }
 }

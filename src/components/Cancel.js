@@ -39,11 +39,10 @@ export default class Cancel extends React.Component {
 
   cancel() {
     Base.showOverlay();
-    const self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/cancelbooking';
     ajaxObj.data = { bookingid: this.state.id, reason: this.state.reason };
-    ajaxObj.success = function(data) {
+    ajaxObj.success = function() {
       browserHistory.push('appointments');
       Base.hideOverlay();
     }

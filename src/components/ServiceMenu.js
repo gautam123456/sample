@@ -2,7 +2,6 @@
  * Created by gautam on 12/12/16.
  */
 import React from 'react';
-import Base from './base/Base';
 
 export default class ServiceMenu extends React.Component {
   render() {

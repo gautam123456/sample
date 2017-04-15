@@ -2,7 +2,7 @@
  * Created by rgautam on 1/13/17.
  */
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
@@ -58,7 +58,6 @@ export default class Offers extends React.Component {
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmycoupons';
     ajaxObj.success = function(data) {
-      console.log(JSON.stringify(data));
       self.updateOffers(data);
       Base.hideOverlay();
     }

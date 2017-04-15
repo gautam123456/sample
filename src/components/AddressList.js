@@ -2,7 +2,7 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import Address from './Address';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';

@@ -1,6 +1,5 @@
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
-import Base from './base/Base';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
 

@@ -18,6 +18,7 @@ export default class Modal extends React.Component {
       const data = this.state.data;
         return (
             <div id = 'modal' className ='modal' style = {{ display: this.state.display }}>
+                <div className = 'cancel' onClick = {this.close.bind(this)}><i className = 'fa fa-times-circle-o fa-3x pull-right'></i></div>
                 <div className = 'modal-content pad0'>
                   <div className = 'content pad0'>
                     <img src='../../styles/assets/images/bgg.jpg' height='150px' width='100%'/>
@@ -37,7 +38,6 @@ export default class Modal extends React.Component {
                   </div>
                   <footer onClick = {this.addToCart.bind(this)}> &#43; ADD TO CART</footer>
                 </div>
-                <div className = 'col-xs-12 cancel' onClick = {this.close.bind(this)}><i className = 'fa fa-times-circle-o fa-3x'></i></div>
             </div>
         )
     }

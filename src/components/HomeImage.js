@@ -18,12 +18,12 @@ export default class HomeImage extends React.Component {
     const url = this.props.url.pathname;
     let active = 1;
     switch(url){
-      case '/': active = 1; break;
-      case '/face': active = 1; break;
-      case '/body': active = 2; break;
-      case '/hair': active = 3; break;
-      case '/makeup': active = 4; break;
-      case '/packages': active = 5; break;
+      case '/': active = 1; this.changeMetaData(1); break;
+      case '/face': active = 1; this.changeMetaData(1); break;
+      case '/body': active = 2; this.changeMetaData(2); break;
+      case '/hair': active = 3; this.changeMetaData(3); break;
+      case '/makeup': active = 4; this.changeMetaData(4); break;
+      case '/packages': active = 5; this.changeMetaData(5); break;
     }
 
     this.state = {
@@ -83,14 +83,14 @@ export default class HomeImage extends React.Component {
     const attrValue = e.target.getAttribute('data-value');
 
     switch(attrValue){
-      case '1': browserHistory.push('/face'); break;
-      case '2': browserHistory.push('/body'); break;
-      case '3': browserHistory.push('/hair'); break;
-      case '4': browserHistory.push('/makeup'); break;
-      case '5': browserHistory.push('/packages'); break;
+      case '1': browserHistory.push('/face'); this.changeMetaData(1); break;
+      case '2': browserHistory.push('/body'); this.changeMetaData(2); break;
+      case '3': browserHistory.push('/hair');  this.changeMetaData(3); break;
+      case '4': browserHistory.push('/makeup');  this.changeMetaData(4); break;
+      case '5': browserHistory.push('/packages'); this.changeMetaData(5); break;
     }
     this.setState({active: attrValue, data: data.serviceList[attrValue]})
-    var body = $("html, body");
+    var body = $('html, body');
     body.stop().animate({scrollTop:0}, '500', 'swing');
   }
 
@@ -126,5 +126,11 @@ export default class HomeImage extends React.Component {
     let bookingDetails = window.bookingDetails;
     bookingDetails.discount = 0;
     window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
+  }
+
+  changeMetaData(active) {
+    $('meta[property=description]').attr('content', data.serviceList[active].metaDescription);
+    $('meta[property=title]').attr('content', data.serviceList[active].metaTitle);
+    document.title = data.serviceList[active].metaTitle;
   }
 }

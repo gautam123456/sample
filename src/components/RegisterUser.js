@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
-import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
 import TopNotification from './TopNotification';

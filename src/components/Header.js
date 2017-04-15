@@ -4,7 +4,6 @@
 import React from 'react';
 import $ from 'jquery';
 import Base from './base/Base';
-import { browserHistory } from 'react-router';
 
 import ajaxObj from '../../data/ajax.json';
 

@@ -27,7 +27,7 @@ export default class Appointment extends React.Component {
         <div className='col-xs-7'>
           { service.name }<br/>
         </div>
-        <div className='col-xs-3' style={{paddingLeft:14}}><i className="fa fa-inr"></i>{ service.cost }</div>
+        <div className='col-xs-3' style={{paddingLeft:14}}><i className="fa fa-inr"></i> { service.cost }</div>
         <div className='col-xs-2 center'>
           { service.quantity }
         </div>
@@ -83,7 +83,8 @@ export default class Appointment extends React.Component {
         <div className = 'col-xs-12'>
 
           <div className = 'col-xs-12 header'>
-            <div className = 'col-xs-12 pull-right pad0'><strong>Booking Id : {appointment.bookingID}</strong></div>
+            <img className = 'col-xs-2' src='../styles/assets/images/lady.png'/>
+            <div className = 'col-xs-10 pad0'><strong>Booking Id : {appointment.bookingID}</strong></div>
             <div className = 'col-xs-6 pad0 date'>{appointment.formattedDate}</div>
             {this.props.ongoing ? <div className = 'col-xs-4 pad0 ongoing pull-right'>REQUEST ONGOING</div> : <div className = 'col-xs-4 pad0 history pull-right'>{this.getLabel(appointment)}</div>}
           </div>
