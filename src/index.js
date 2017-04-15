@@ -14,6 +14,7 @@ import Cancel from './components/Cancel';
 import FullCart from './components/FullCart';
 import Gallery from './components/Gallery';
 import GalleryHome from './components/GalleryHome';
+import InviteAndEarn from './components/InviteAndEarn';
 import Loader from './components/Loader';
 import Login from './components/Login';
 import OrderConfirm from './components/OrderConfirm';
@@ -48,6 +49,7 @@ render(
     <Route path = { 'reschedule' } component = { Reschedule } />
     <Route path = { 'gallery' } component = { GalleryHome } />
     <Route path = { 'gallery/bridal' } component = { Gallery } />
+    <Route path = { 'referearn' } component = { InviteAndEarn } />
     <Route path = { 'loader' } component = { Loader } />
     <Route path = { 'login' } component = { Login }  />
     <Route path = { 'register' } component = { RegisterUser } />

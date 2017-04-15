@@ -15,8 +15,5 @@
   "timing": "",
   "name": null,
   "mailId": "",
-  "total": 0,
-  "featureFlags": {
-    "welcomeModal" : true
-  }
+  "total": 0
 }

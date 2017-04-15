@@ -60,37 +60,27 @@ export default class Base extends React.Component {
       document.body.style.overflow = 'scroll';
     }
 
-    static saveToLocalStorage() {
-      let bookingDetails = window.bookingDetails;
-      bookingDetails.discount = 0;
-      window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
-    }
-
-    static bookingDetailsChanged(id, name, cost, count, operation) {
-      var cost = parseInt(cost);
-      if(operation){
-        // operation is addition of services....
-        window.bookingDetails.servicesCount += 1;
-        window.bookingDetails.subTotal += cost;
-        if(window.bookingDetails.services[id]){
-          window.bookingDetails.services[id].count += 1;
-        } else {
-          window.bookingDetails.services[id] = {
-            count: 1,
-            name: name,
-            cost: cost
-          }
-        }
-      } else {
-        // operation is removal of services....
-        window.bookingDetails.servicesCount -= 1;
-        window.bookingDetails.subTotal -= cost;
-        window.bookingDetails.services[id].count -= 1;
-        if(window.bookingDetails.services[id].count == 0){
-          delete window.bookingDetails.services[id];
-        }
-      }
-      Base.saveToLocalStorage();
-      this.forceUpdate();
+    static clearCart() {
+      window.localStorage.clear();
+      const name = window.bookingDetails.name;
+      window.bookingDetails = {
+        "minBooking": 800,
+        "convenienceCharges": 0,
+        "subTotal": 0,
+        "servicesCount": 0,
+        "discount": 0,
+        "couponcode": "",
+        "location": "Delhi",
+        "addresslkey": "",
+        "services": {},
+        "otp": "",
+        "hashIndex": "",
+        "addressList": "",
+        "date": "",
+        "timing": "",
+        "name": null,
+        "mailId": "",
+        "total": 0
+      };
     }
 }

@@ -3,6 +3,8 @@
  */
 import React from 'react';
 import $ from 'jquery';
+import Base from './base/Base';
+import { browserHistory } from 'react-router';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -84,13 +86,12 @@ export default class Header extends React.Component {
 
   logOut() {
     const self = this;
-    this.setState({name: ''});
     window.bookingDetails.name = null;
     ajaxObj.url = ajaxObj.baseUrl + '/custlogout';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
     ajaxObj.success = function(data) {
-      self.setState({ addresslist: data.addressList });
+      self.setState({ addresslist: data.addressList, name: ''});
       Base.hideOverlay();
     }
     $.ajax(ajaxObj);
