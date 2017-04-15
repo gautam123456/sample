@@ -27,7 +27,7 @@ export default class InviteAndEarn extends React.Component {
         </div>
         <div className='col-xs-12 center a'>{this.state.refCode}</div>
         <a href={'whatsapp://send?text=Hey! I tried LookPlex and had an amazing experience. Here\'s a gift of Rs 200 for you to try their beauty services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + this.state.refCode} data-action="share/whatsapp/share">
-          <div className='invite-wap col-xs-6 a'><i className='fa fa-whatsapp'></i><span>Invite via WhatsApp</span></div>
+          <div className='invite-wap col-xs-7 a'><i className='col-xs-2 fa fa-whatsapp pad0'></i><div className='col-xs-9 pad0'>Invite via WhatsApp</div></div>
         </a>
       </div>
     )

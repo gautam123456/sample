@@ -36,7 +36,7 @@ export default class Offers extends React.Component {
 
   getOfferRenderer(offer) {
     return (
-      <div className = 'offer col-xs-10 col-xs-offset-1 pad0'>
+      <div className = 'offer col-xs-10 col-xs-offset-1 pad0' key={offer.couponCode}>
         <div className= 'col-xs-12 header'>Coupon Code : <strong>{offer.couponCode}</strong></div>
         <div className= 'col-xs-12 body'>Valid till : {offer.validthru}</div>
         <div className= 'col-xs-12 body'>Discount : <strong>{offer.discount}%</strong></div>
