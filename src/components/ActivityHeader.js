@@ -12,7 +12,7 @@ export default class ActivityHeader extends React.Component {
           <span className='col-xs-10 col-xs-offset-1'>{ this.props.heading }</span>
           <span className='col-xs-1'>
             <Link to = { '/' }>
-              <i className='fa fa-times fa-lg'></i>
+              &#215;
             </Link>
           </span>
         </div>

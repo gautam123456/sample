@@ -32,7 +32,7 @@ export default class Modal extends React.Component {
       const data = this.state.data;
         return (
             <div id = 'modal' className ='modal' style = {{ display: this.state.display }}>
-                <div className = 'cancel' onClick = {this.close.bind(this)}><i className = 'fa fa-times-circle-o fa-3x pull-right'></i></div>
+                <div className = 'cancel' onClick = {this.close.bind(this)}><div>&#215;</div></div>
                 <div className = 'modal-content pad0'>
                   <div className = 'content pad0'>
                     <img src='../../styles/assets/images/bgg.jpg' height='150px' width='100%'/>

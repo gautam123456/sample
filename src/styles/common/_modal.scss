@@ -14,12 +14,23 @@
 
   .cancel {
     color: #fff;
-    margin-top: -10px;
-    margin-left: 88%;
+    margin-top: -18px;
+    margin-left: 92%;
     position: fixed;
+    font-size: 25px;
+    font-weight: 100;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+
+    div {
+      margin-top: -5px;
+    }
 
     @include screen-iPad {
-      margin-left: 61%;
+      margin-left: 63%;
     }
   }
 
@@ -82,6 +93,8 @@
 
           ul {
             li {
+              text-transform: capitalize;
+
               &::before {
                 content: "\2022";
                 font-weight: bolder;
