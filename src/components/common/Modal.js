@@ -35,7 +35,6 @@ export default class Modal extends React.Component {
                 <div className = 'cancel' onClick = {this.close.bind(this)}><div>&#215;</div></div>
                 <div className = 'modal-content pad0'>
                   <div className = 'content pad0'>
-                    <img src='../../styles/assets/images/bgg.jpg' height='150px' width='100%'/>
                     <div className = 'body'>
                       <h3>{data.name}</h3>
                       <p>Rs. {data.cost}</p>
