@@ -69,7 +69,7 @@ export default class Login extends DisableScroll {
     ajaxObj.data = { phonenumber: self.state.number };
     ajaxObj.success = function(data) {
       if(data.isNewUser == true){
-        browserHistory.push( 'register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + '&code=' + self.props.location.query.refcode );
+        browserHistory.push( 'register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + '&refcode=' + self.props.location.query.refcode );
       }else{
         browserHistory.push('otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
       }
