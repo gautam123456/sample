@@ -29,13 +29,14 @@ export default class HomeImage extends React.Component {
     this.state = {
       active: active,
       data: data.serviceList[active],
-      bookingDetails: window.bookingDetails
+      bookingDetails: window.bookingDetails,
+      image: 1
     };
   }
 
   render() {
     var background = {
-      backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
+      backgroundImage: `url(../styles/assets/images/${ this.state.image }.jpg)`,
       backgroundSize: 'cover'
     }
     return (
@@ -67,6 +68,9 @@ export default class HomeImage extends React.Component {
   componentDidMount() {
     let fixed = false,
       target = document.getElementById('filter');
+
+    this.changeImage();
+
     $(window).on('scroll', function(){
       var scrollPos = window.scrollY || window.scollTop || document.getElementsByTagName('html')[0].scrollTop;
       if(scrollPos >= 250 && !fixed) {
@@ -77,6 +81,20 @@ export default class HomeImage extends React.Component {
         fixed = false;
       }
     })
+  }
+
+  changeImage() {
+    const self = this;
+    let image = 1;
+
+    setInterval(function(){
+      image += 1;
+      if(image <= 5){
+        self.setState({image: image});
+      }else {
+        image = 0
+      }
+      }, 3000)
   }
 
   serviceTypeSelected(e) {

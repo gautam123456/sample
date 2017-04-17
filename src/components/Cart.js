@@ -49,7 +49,7 @@ export default class Cart extends React.Component {
   }
 
   navigateTo() {
-    this.isLoggedIn() ?  browserHistory.push('/book') : browserHistory.push('/login')
+    this.isLoggedIn() ?  browserHistory.push('/book') : browserHistory.push('/login?for=book')
   }
 
   showMessage() {

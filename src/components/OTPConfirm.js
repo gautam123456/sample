@@ -83,15 +83,18 @@ export default class OTPConfirm extends DisableScroll {
 
     if(query.isNewUser == true){
 
-      browserHistory.push( '/register?number=' + query.number + '&isNewUser=' + query.isNewUser + '&token=' + query.token + '&otp=' + this.state.otp );
+      browserHistory.push( '/register?number=' + query.number + '&isNewUser=' + query.isNewUser + '&token=' + query.token + '&otp=' + this.state.otp + '&for=' + query.for );
 
     }else{
-
       ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
       ajaxObj.data = { phonenumber: query.number, otp: this.state.otp, token: query.token };
       ajaxObj.success = function() {
         window.bookingDetails.name = 'ZZ';
-        browserHistory.push('/book');
+        if(query.for != 'undefined' && query.for != undefined){
+          browserHistory.push(query.for);
+        }else {
+          browserHistory.push('');
+        }
         Base.hideOverlay();
       }
       ajaxObj.error = function(e) {

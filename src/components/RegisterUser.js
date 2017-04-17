@@ -102,7 +102,11 @@ export default class RegisterUser extends DisableScroll {
             ajaxObj.success = function (data) {
                 Base.hideOverlay();
                 window.bookingDetails.name = data.name || 'dummy';
-                browserHistory.push('/book')
+              if(query.for != 'undefined' && query.for != undefined){
+                browserHistory.push(query.for);
+              }else {
+                browserHistory.push('');
+              }
             }
             ajaxObj.error = function (e) {
                 Base.hideOverlay();
