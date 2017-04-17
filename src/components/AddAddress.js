@@ -25,7 +25,7 @@ export default class AddAddress extends React.Component {
   }
   render() {
     const dropStyle = {
-      height: 40
+      height: 50
     }
 
     return (

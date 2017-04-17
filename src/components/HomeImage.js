@@ -6,6 +6,7 @@ import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
 import { browserHistory } from 'react-router';
 import Cart from './Cart';
+import Carousel from './common/Carousel'
 import $ from 'jquery';
 import Testimonial from './Testimonial';
 
@@ -29,20 +30,18 @@ export default class HomeImage extends React.Component {
     this.state = {
       active: active,
       data: data.serviceList[active],
-      bookingDetails: window.bookingDetails,
-      image: 1
+      bookingDetails: window.bookingDetails
     };
   }
 
   render() {
     var background = {
-      backgroundImage: `url(../styles/assets/images/${ this.state.image }.jpg)`,
+      backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
       backgroundSize: 'cover'
     }
     return (
       <section className = 'col-xs-12 col-md-4 pad0'>
-        <div className = 'bgimage' style = { background }>
-        </div>
+        <Carousel autoplay={true} autoplayInterval={4000}/>
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
               <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
@@ -69,8 +68,6 @@ export default class HomeImage extends React.Component {
     let fixed = false,
       target = document.getElementById('filter');
 
-    this.changeImage();
-
     $(window).on('scroll', function(){
       var scrollPos = window.scrollY || window.scollTop || document.getElementsByTagName('html')[0].scrollTop;
       if(scrollPos >= 250 && !fixed) {
@@ -81,20 +78,6 @@ export default class HomeImage extends React.Component {
         fixed = false;
       }
     })
-  }
-
-  changeImage() {
-    const self = this;
-    let image = 1;
-
-    setInterval(function(){
-      image += 1;
-      if(image <= 5){
-        self.setState({image: image});
-      }else {
-        image = 0
-      }
-      }, 3000)
   }
 
   serviceTypeSelected(e) {

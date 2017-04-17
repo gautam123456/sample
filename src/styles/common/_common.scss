@@ -53,6 +53,7 @@ input{
   font-size: 16px;
   border: 1px solid $brand-color;
   color: $brand-color;
+  background-color: transparent;
 }
 
 body{
@@ -63,7 +64,7 @@ select{
   border: 1px solid $brand-color;
   color: $brand-color;
   height: 40px;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .message {
