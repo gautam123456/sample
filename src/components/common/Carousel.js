@@ -16,10 +16,9 @@ const App = React.createClass({
   render() {
     return (
       <Carousel autoplay = {true} autoplayInterval={3000} dragging={true} easing={'easeInQuint'} wrapAround={'true'}>
-        <img src = '../../styles/assets/images/1.jpg' height = '250px'/>
-        <img src = '../../styles/assets/images/2.jpg' height = '250px'/>
-        <img src = '../../styles/assets/images/3.jpg' height = '250px'/>
-        <img src = '../../styles/assets/images/4.jpg' height = '250px'/>
+        <img src = '../../styles/assets/images/1con.jpg' height = '250px'/>
+        <img src = '../../styles/assets/images/2con.jpg' height = '250px'/>
+        <img src = '../../styles/assets/images/3con.jpg' height = '250px'/>
       </Carousel>
     )
   }
