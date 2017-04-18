@@ -40,8 +40,8 @@ export default class HomeImage extends React.Component {
       backgroundSize: 'cover'
     }
     return (
-      <section className = 'col-xs-12 col-md-4 pad0'>
-        <Carousel autoplay={true} autoplayInterval={4000}/>
+      <section className = 'col-xs-12 col-md-4 pad0 img'>
+        <Carousel />
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
               <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>

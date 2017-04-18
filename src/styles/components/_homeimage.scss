@@ -1,64 +1,68 @@
 @import "../variables/screen";
 
-.bgimage{
-  height: 250px;
+.img{
   margin-top: -1px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
-.filter {
-  height: 40px;
-  background: rgba(0,0,0,0.5);
-  margin-top: -40px;
-
-  .f-list {
-    padding: 7px 3px 6px 0;
-
-    label {
-      display: inline-block;
-      color: #fff;
-      font-weight: 700;
-      text-align: center;
-      padding: 5px 0;
-
-      &.col-xs-2{
-        width: 20%;
-      }
-
-      &.active {
-        display: inline-block;
-        color: $brand-color-2;
-        font-weight: 900;
-        background: rgba(0,0,0,0.6);
-        border-radius: 2px;
-      }
-    }
-
-    input {
-      display: none;
-      border: 0 none;
-      clip: rect(0,0,0,0);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      width: 1px;
-    }
+  .slider-decorator-0, .slider-decorator-1, .slider-decorator-2 {
+    display: none;
   }
-}
 
-.fixed {
-  position: fixed;
-  top: 0;
-  margin-top: 0;
-  background-color: #000;
-  z-index: 9999;
-  width: 33.33%;
-  opacity: 0.8;
-}
-
-@media only screen and (max-width: 1024px) {
-  .fixed {
+  .filter {
+    height: 40px;
+    background: rgba(0,0,0,0.5);
+    margin-top: -40px;
+    position: absolute;
     width: 100%;
+
+    .f-list {
+      padding: 7px 3px 6px 0;
+
+      label {
+        display: inline-block;
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+        padding: 5px 0;
+
+        &.col-xs-2{
+          width: 20%;
+        }
+
+        &.active {
+          display: inline-block;
+          color: $brand-color-2;
+          font-weight: 900;
+          background: rgba(0,0,0,0.6);
+          border-radius: 2px;
+        }
+      }
+
+      input {
+        display: none;
+        border: 0 none;
+        clip: rect(0,0,0,0);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        width: 1px;
+      }
+    }
   }
+
+  .fixed {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    background-color: #000;
+    z-index: 9999;
+    width: 33.33%;
+    opacity: 0.8;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .fixed {
+      width: 100%;
+    }
+  }
+
 }

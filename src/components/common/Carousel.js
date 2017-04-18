@@ -7,13 +7,19 @@ import Carousel from 'nuka-carousel';
 
 const App = React.createClass({
   mixins: [Carousel.ControllerMixin],
+
+  slidesToScroll: React.PropTypes.oneOfType([
+    React.PropTypes.number,
+    React.PropTypes.oneOf(['auto'])
+  ]),
+
   render() {
     return (
-      <Carousel>
-        <img src="../../styles/assets/images/1.jpg"/>
-        <img src="../../styles/assets/images/2.jpg"/>
-        <img src="../../styles/assets/images/3.jpg"/>
-        <img src="../../styles/assets/images/4.jpg"/>
+      <Carousel autoplay = {true} autoplayInterval={3000} dragging={true} easing={'easeInQuint'} wrapAround={'true'}>
+        <img src = '../../styles/assets/images/1.jpg' height = '250px'/>
+        <img src = '../../styles/assets/images/2.jpg' height = '250px'/>
+        <img src = '../../styles/assets/images/3.jpg' height = '250px'/>
+        <img src = '../../styles/assets/images/4.jpg' height = '250px'/>
       </Carousel>
     )
   }
