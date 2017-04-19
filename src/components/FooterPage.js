@@ -13,8 +13,9 @@ export default class FullCart extends React.Component {
         super(props);
         let title = this.props.location.pathname.split('/')[1].split('-')
         this.state = {
-            title: title.join(' '),
-            data: ''
+          title: title.join(' '),
+          data: '',
+          pgTitle: ''
         }
     }
 
@@ -24,7 +25,7 @@ export default class FullCart extends React.Component {
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
         ajaxObj.success = function(response) {
-            self.setState({data: response});
+            self.setState({data: response.data, pgTitle: response.title});
         }
         ajaxObj.error = function() {
             window.bookingDetails.name = null;
@@ -43,9 +44,9 @@ export default class FullCart extends React.Component {
             <div>
                 <ActivityHeader heading = { this.state.title }/>
                     <div className = 'col-md-offset-4 col-xs-12 col-md-4'>
+                      <h3>{this.state.pgTitle}</h3>
                         { this.renderData() }
                     </div>
-                <ActivityFooter next = { '/' } back = { '/' }/>
             </div>
         )
     }

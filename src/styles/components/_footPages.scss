@@ -1,0 +1,12 @@
+@import "../variables/screen";
+
+.footerpages {
+  padding: 20px 10px;
+  background-color: #fff;
+  color: $brand-color;
+
+  h1, h2, h3, h4 {
+    text-align: center;
+    margin: 20px 0 10px 0;
+  }
+}

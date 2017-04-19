@@ -1,34 +1,9 @@
 {
     "title": "Connect with Lookplex. We are all ears!",
-    "data":"<div class='about-cover' id='contact'>
-
-    <div class='wrapper '>
-
-        <h1 class='head-about' style='padding-left: 0;  text-align: center; width: 100%;'></h1>
-    </div>
-
-</div>
-<div class='wrapper clearfix'>
-    <div class='col-md-8 contact-form'>
-        <h3>Please fill this form to send us your queries/feedback.</h3>
-        <form>
-
-            <div class='form-group'>
-                <input class='form-control' type='text' placeholder='Name*'>
-            </div>
-            <div class='form-group'>
-                <input class='form-control' type='email' placeholder='Email*'>
-            </div>
-            <div class='form-group'>
-                <input class='form-control' type='tel' placeholder='Phone number*'>
-            </div>
-            <div class='form-group'>
-                <textarea class='form-control' rows='4'  placeholder='Message*'></textarea>
-            </div>
-            <input class='btn' type='submit' value='Submit Query' style='background-color: #ff7e82'>
+    "data":"
 
 
-        </form>
+
     </div>
     <div class='col-md-4 bussiness-enquiry'>
         <h3 style='font-weight:bold; padding-left:35px;padding-bottom:11px;'>Our mailing address:</h3>
