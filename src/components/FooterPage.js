@@ -24,6 +24,7 @@ export default class FullCart extends React.Component {
         ajaxObj.url = 'https://static.lookplex.com/data' + this.props.location.pathname + '.json';
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
+        ajaxObj.xhrFields = { "withCredentials": false }
         ajaxObj.success = function(response) {
             self.setState({data: response.data, pgTitle: response.title});
         }
@@ -42,9 +43,8 @@ export default class FullCart extends React.Component {
     render() {
         return (
             <div>
-                <ActivityHeader heading = { this.state.title }/>
-                    <div className = 'col-md-offset-4 col-xs-12 col-md-4'>
-                      <h3>{this.state.pgTitle}</h3>
+                <ActivityHeader heading = { this.state.pgTitle }/>
+                    <div className = 'col-md-offset-4 col-xs-12 col-md-4 footerpages'>
                         { this.renderData() }
                     </div>
             </div>
