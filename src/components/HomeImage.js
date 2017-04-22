@@ -6,7 +6,7 @@ import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
 import { browserHistory } from 'react-router';
 import Cart from './Cart';
-import Carousel from 'nuka-carousel';
+import Carousel from './lib/Carousel';
 import $ from 'jquery';
 import Testimonial from './Testimonial';
 
@@ -37,10 +37,10 @@ export default class HomeImage extends React.Component {
 
   renderCarousal() {
     return (
-          <Carousel dragging={true} showIt = {this.state.carousal} slideIndex = {0}>
-            <img src = '../../styles/assets/images/1con.jpg' width = '100%'/>
-            <img src = '../../styles/assets/images/2con.jpg' width = '100%'/>
-            <img src = '../../styles/assets/images/3con.jpg' width = '100%'/>
+          <Carousel dragging={true} showIt = {this.state.carousal} initialSlideWidth = {1} slideWidth = {1} initialSlideHeight = {1} slideHeight = {1} slidesToShow = {1}>
+            <img src = '../../styles/assets/images/1con.jpg' width = '100%' height = 'auto'/>
+            <img src = '../../styles/assets/images/2con.jpg' width = '100%' height = 'auto'/>
+            <img src = '../../styles/assets/images/3con.jpg' width = '100%' height = 'auto'/>
           </Carousel>
     )
   }
@@ -77,10 +77,10 @@ export default class HomeImage extends React.Component {
 
     $(window).on('scroll', function(){
       var scrollPos = window.scrollY || window.scollTop || document.getElementsByTagName('html')[0].scrollTop;
-      if(scrollPos >= 250 && !fixed) {
+      if(scrollPos >= 280 && !fixed) {
         fixed = true;
         target.className += ' fixed';
-      }else if(scrollPos <= 250 && fixed) {
+      }else if(scrollPos <= 280 && fixed) {
         target.className = 'filter';
         fixed = false;
       }
