@@ -3,8 +3,16 @@
 .img{
   margin-top: -1px;
 
-  .slider-decorator-0, .slider-decorator-1, .slider-decorator-2 {
-    display: none;
+  .slider {
+    min-height: 200px;
+
+    .slider-decorator-0, .slider-decorator-1 {
+      display: none;
+    }
+
+    .slider-decorator-2 {
+      bottom: 16px !important;
+    }
   }
 
   .filter {

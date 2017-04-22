@@ -13,14 +13,12 @@
   background-color: rgba(0,0,0,0.7);
 
   .cancel {
-    color: #aaa;
-    margin-top: -18px;
-    margin-left: 92%;
+    color: $brand-color;
+    margin-top: -1px;
+    margin-left: 90%;
     position: fixed;
     font-size: 25px;
     font-weight: 100;
-    border: 1px solid #aaa;
-    border-radius: 20px;
     height: 30px;
     width: 30px;
     text-align: center;
@@ -30,7 +28,7 @@
     }
 
     @include screen-iPad {
-      margin-left: 63%;
+      margin-left: 62%;
     }
   }
 

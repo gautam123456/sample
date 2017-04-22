@@ -15,7 +15,7 @@ const App = React.createClass({
 
   render() {
     return (
-      <Carousel autoplay = {true} autoplayInterval={3000} dragging={true} easing={'easeOutBack'} wrapAround={'true'}>
+      <Carousel autoplayInterval={3000} dragging={true} easing={'easeOutBack'} wrapAround={'true'}>
         <img src = '../../styles/assets/images/1con.jpg' height = '250px'/>
         <img src = '../../styles/assets/images/2con.jpg' height = '250px'/>
         <img src = '../../styles/assets/images/3con.jpg' height = '250px'/>

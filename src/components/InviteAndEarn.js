@@ -17,8 +17,13 @@ export default class InviteAndEarn extends React.Component {
     return (
       <div className='invite'>
 
-        <div className='col-xs-12 a'>Share your service experience with your friends by gifting them Rs.200.</div>
-        <div className='col-xs-12 a'>Earn Rs.200 cashback on their first trial.</div>
+        <div className='col-xs-12 a'>
+          <ul>
+            <li>Your friend sign up using your refer code(check below). </li>
+            <li>You will get 200 Rs OFF on your next booking. </li>
+            <li>our friend will get Rs 200 OFF on her First booking. </li>
+          </ul>
+        </div>
         <div className='col-xs-12 pad0 a'>
           <div className='col-xs-2'></div>
           <div className='col-xs-8'>YOUR <strong>LOOK</strong>PLEX INVITE CODE</div>
@@ -34,20 +39,42 @@ export default class InviteAndEarn extends React.Component {
             <button className='invite-wap col-xs-7 a'>Login</button>
           </a>
         }
+      </div>
+    )
+  }
 
+  renderStaticData() {
+    return (
+      <div className='static col-xs-10 col-xs-offset-1 pad0'>
+        <ul>
+          <li>Hurray! you can avail 200 Rs off per booking as per referral program</li>
+          <li>No need to apply coupon, Just make your booking referral discount will be applied automatically, If eligible.</li>
+        </ul>
       </div>
     )
   }
 
   renderRewards() {
-    return (
-      <div className='rewards col-xs-12'>
-        <div className='col-xs-12'>Total <strong>LOOK</strong>PLEX Credits Earned</div>
-        <div className='col-xs-12'>Total referrals : {this.state.refCount || 0} </div>
-        <div className='col-xs-12'>Rewards : <i className='fa fa-inr'></i> {this.state.refCount ? this.state.refCount * 200 : '0'} </div>
-        <div className='col-xs-12'>Per booking you can avail maximum Rs. 200 discount by using referral program</div>
-      </div>
-    )
+    if(this.state.refCode){
+      return (
+        <div className='rewards col-xs-12'>
+          <div className='col-xs-12'>Total <strong>LOOK</strong>PLEX Credits Earned</div>
+          <div className='col-xs-12'>Total referrals : {this.state.refCount || 0} </div>
+          <div className='col-xs-12'>Rewards : <i className='fa fa-inr'></i> {this.state.refCount ? this.state.refCount * 200 : '0'} </div>
+          {this.renderStaticData()}
+        </div>
+      )
+    } else {
+      return(
+        <div className='invite'>
+          <div className='col-xs-12 center a'>{'Please login to see your Rewards'}</div>
+          <a href={'/login'}>
+            <button className='invite-wap col-xs-7 a'>Login</button>
+          </a>
+          {this.renderStaticData()}
+        </div>
+      )
+    }
   }
 
   render() {

@@ -80,7 +80,7 @@ export default class Base extends React.Component {
         "addressList": "",
         "date": "",
         "timing": "",
-        "name": null,
+        "name": name,
         "mailId": "",
         "total": 0
       };
