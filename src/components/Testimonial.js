@@ -15,12 +15,12 @@ export default class Carousel extends React.Component {
 
   render() {
       return (
-        <div  className = 'testimonials col-xs-12 pad0'>
-            <div  className = 'col-xs-12'>
-                <div className = 'img col-xs-6'>
+        <div  className = 'testimonials col-xs-12'>
+            <div  className = 'col-xs-12 pad0'>
+                <div className = 'img col-xs-4'>
                     <img src = { testimonials[0].image }></img>
                 </div>
-                <div className = 'testimonial col-xs-6'>
+                <div className = 'testimonial col-xs-8 pad0'>
                     <p>
                         { testimonials[0].description }
                     </p>
@@ -29,15 +29,15 @@ export default class Carousel extends React.Component {
                 </div>
             </div>
 
-            <div  className = 'col-xs-12'>
-                <div className = 'testimonial col-xs-6'>
+            <div  className = 'col-xs-12 pad0'>
+                <div className = 'testimonial col-xs-8 pad0'>
                     <p>
                         { testimonials[1].description }
                     </p>
                     <div className = 'name'>{ testimonials[1].name }</div>
                     <div className = 'details'>{ testimonials[1].profession }</div>
                 </div>
-                <div className = 'img col-xs-6'>
+                <div className = 'img col-xs-4'>
                     <img src = { testimonials[1].image }></img>
                 </div>
             </div>

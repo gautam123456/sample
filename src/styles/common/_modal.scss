@@ -12,26 +12,6 @@
   overflow: auto;
   background-color: rgba(0,0,0,0.7);
 
-  .cancel {
-    color: $brand-color;
-    margin-top: -1px;
-    margin-left: 90%;
-    position: fixed;
-    font-size: 25px;
-    font-weight: 100;
-    height: 30px;
-    width: 30px;
-    text-align: center;
-
-    div {
-      margin-top: -5px;
-    }
-
-    @include screen-iPad {
-      margin-left: 62%;
-    }
-  }
-
   .modal-content {
     background-color: #fff;
     margin: auto;
@@ -40,6 +20,21 @@
     max-height: 80%;
     color: #333;
     border-radius: 2px;
+
+    .cancel {
+      color: $brand-color;
+      text-align: center;
+      margin-top: 3px;
+      font-size: 25px;
+      font-weight: 100;
+      height: 30px;
+      width: 30px;
+      float: right;
+
+      div {
+        margin-top: -8px;
+      }
+    }
 
     .content {
       overflow: scroll;

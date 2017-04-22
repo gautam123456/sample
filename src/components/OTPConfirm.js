@@ -93,7 +93,7 @@ export default class OTPConfirm extends DisableScroll {
         if(query.for != 'undefined' && query.for != undefined){
           browserHistory.push(query.for);
         }else {
-          browserHistory.push('');
+          window.location.href = window.location.href;
         }
         Base.hideOverlay();
       }

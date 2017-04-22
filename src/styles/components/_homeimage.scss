@@ -11,7 +11,11 @@
     }
 
     .slider-decorator-2 {
-      bottom: 16px !important;
+      bottom: 24px !important;
+
+      button {
+        padding: 5px !important;
+      }
     }
   }
 

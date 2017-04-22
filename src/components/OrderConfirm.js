@@ -132,7 +132,11 @@ export default class OrderConfirm extends React.Component {
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
             <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) }></input>
+            <div className = 'col-xs-12 pad0' style = {{marginBottom: 30, marginTop: 0}}>
+              <textarea rows="3" cols="50" className = 'col-xs-12 optcomment pad0' placeholder = 'Wish to share something that we can help you with? (Optional)' maxlength='100' onChange = {this.optionalComments.bind(this)}>
 
+              </textarea>
+            </div>
             <div className = 'col-xs-12 datepick'>
               <span> Pick your time </span>
               <div className = 'col-xs-12 date'> { this.state.date + '/' + this.state.month + '/' + this.state.year + ' ' + this.state.timing } </div>
@@ -174,6 +178,11 @@ export default class OrderConfirm extends React.Component {
 
   yearPicked(e) {
     this.setState({ year: e.currentTarget.value });
+  }
+
+  optionalComments(e) {
+    this.setState({ comment: e.currentTarget.value });
+    window.bookingDetails.comment = e.currentTarget.value;
   }
 
   mailIdEntered(e) {
