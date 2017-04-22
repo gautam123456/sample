@@ -35,23 +35,20 @@ export default class HomeImage extends React.Component {
     };
   }
 
-  render() {
-    var background = {
-      backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
-      backgroundSize: 'cover'
-    }
+  renderCarousal() {
     return (
-      <section className = 'col-xs-12 col-md-4 pad0 img'>
-        { this.state.carousal ?
-          <Carousel dragging={true} showIt = {this.state.carousal}>
+          <Carousel dragging={true} showIt = {this.state.carousal} slideIndex = {0}>
             <img src = '../../styles/assets/images/1con.jpg' width = '100%'/>
             <img src = '../../styles/assets/images/2con.jpg' width = '100%'/>
             <img src = '../../styles/assets/images/3con.jpg' width = '100%'/>
-          </Carousel> :
-          ''
-        }
+          </Carousel>
+    )
+  }
 
-
+  render() {
+    return (
+      <section className = 'col-xs-12 col-md-4 pad0 img'>
+        { this.renderCarousal() }
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
               <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
