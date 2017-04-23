@@ -6,7 +6,6 @@ import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
 import { browserHistory } from 'react-router';
 import Cart from './Cart';
-import Carousel from './lib/Carousel';
 import $ from 'jquery';
 import Testimonial from './Testimonial';
 
@@ -35,20 +34,15 @@ export default class HomeImage extends React.Component {
     };
   }
 
-  renderCarousal() {
-    return (
-          <Carousel dragging={true} showIt = {this.state.carousal} initialSlideWidth = {1} slideWidth = {1} initialSlideHeight = {1} slideHeight = {1} slidesToShow = {1}>
-            <img src = '../../styles/assets/images/1con.jpg' width = '100%' height = 'auto'/>
-            <img src = '../../styles/assets/images/2con.jpg' width = '100%' height = 'auto'/>
-            <img src = '../../styles/assets/images/3con.jpg' width = '100%' height = 'auto'/>
-          </Carousel>
-    )
-  }
-
   render() {
+    var background = {
+      backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
+      backgroundSize: 'cover',
+      height: 250
+  }
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>
-        { this.renderCarousal() }
+        <div className = 'bgimage' style = { background }></div>
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
               <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
@@ -77,10 +71,10 @@ export default class HomeImage extends React.Component {
 
     $(window).on('scroll', function(){
       var scrollPos = window.scrollY || window.scollTop || document.getElementsByTagName('html')[0].scrollTop;
-      if(scrollPos >= 280 && !fixed) {
+      if(scrollPos >= 250 && !fixed) {
         fixed = true;
         target.className += ' fixed';
-      }else if(scrollPos <= 280 && fixed) {
+      }else if(scrollPos <= 250 && fixed) {
         target.className = 'filter';
         fixed = false;
       }

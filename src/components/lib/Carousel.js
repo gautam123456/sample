@@ -915,20 +915,5 @@ var Carousel = _react2['default'].createClass({
 
 });
 
-Carousel.ControllerMixin = {
-  getInitialState: function getInitialState() {
-    return {
-      carousels: {}
-    };
-  },
-  setCarouselData: function setCarouselData(carousel) {
-    var data = this.state.carousels;
-    data[carousel] = this.refs[carousel];
-    this.setState({
-      carousels: data
-    });
-  }
-};
-
 exports['default'] = Carousel;
 module.exports = exports['default'];
