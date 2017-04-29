@@ -79,11 +79,12 @@ export default class OTPConfirm extends DisableScroll {
     Base.showOverlay();
     const self = this;
 
-    let query = this.props.location.query;
+    let query = this.props.location.query,
+      forString = query.for ? '&for=' + query.for : '';
 
     if(query.isNewUser == true){
 
-      browserHistory.push( '/register?number=' + query.number + '&isNewUser=' + query.isNewUser + '&token=' + query.token + '&otp=' + this.state.otp + '&for=' + query.for );
+      browserHistory.push( '/register?number=' + query.number + '&isNewUser=' + query.isNewUser + '&token=' + query.token + '&otp=' + this.state.otp + forString );
 
     }else{
       ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';

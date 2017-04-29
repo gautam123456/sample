@@ -64,16 +64,18 @@ export default class Login extends DisableScroll {
   login() {
     Base.showOverlay();
     let self = this,
-      query = this.props.location.query;
+      query = this.props.location.query,
+      forString = query.for ? '&for=' + query.for : '',
+      refcode = query.refcode ? '&refcode=' + query.refcode : '';
 
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
     ajaxObj.data = { phonenumber: self.state.number };
     ajaxObj.success = function(data) {
       if(data.isNewUser == true){
-        browserHistory.push( 'register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + '&refcode=' + query.refcode + '&for=' + query.for );
+        browserHistory.push( 'register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + refcode + forString);
       }else{
-        browserHistory.push('otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + '&for=' + query.for);
+        browserHistory.push('otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + forString);
       }
         Base.hideOverlay();
     }
