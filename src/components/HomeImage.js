@@ -8,6 +8,7 @@ import { browserHistory } from 'react-router';
 import Cart from './Cart';
 import $ from 'jquery';
 import Testimonial from './Testimonial';
+import Carousel from './lib/Carousel';
 
 import data from '../../data/items.json';
 import testimonials from '../../data/testimonials.json';
@@ -35,14 +36,17 @@ export default class HomeImage extends React.Component {
   }
 
   render() {
-    var background = {
+    const background = {
       backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
       backgroundSize: 'cover',
       height: 250
-  }
+      },
+      images = ['../styles/assets/images/1.jpg','../styles/assets/images/2.jpg','../styles/assets/images/3.jpg'];
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>
-        <div className = 'bgimage' style = { background }></div>
+        <div className = 'bgimage'>
+        <Carousel images = {images}/>
+        </div>
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
               <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>

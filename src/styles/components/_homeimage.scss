@@ -3,6 +3,11 @@
 .img{
   margin-top: -1px;
 
+  .bgimage {
+    height: 250px;
+    overflow-x: hidden;
+  }
+
   .slider {
     min-height: 200px;
     visibility: visible !important;
