@@ -92,7 +92,7 @@ export default class OTPConfirm extends DisableScroll {
       ajaxObj.success = function() {
         window.bookingDetails.name = 'ZZ';
         if(query.for != 'undefined' && query.for != undefined){
-          browserHistory.push(query.for);
+          browserHistory.push('/' + query.for);
         }else {
           browserHistory.push('');
         }

@@ -47,7 +47,7 @@ export default class Carousel extends React.Component {
   renderDots(total) {
     const rows = [];
     for(var i = 0 ; i < total; i++){
-      rows.push(<i className = {i == this.state.current ? 'fa fa-circle' : 'fa fa-circle-o'} onClick = {this.handleDotClicked.bind(this, i)}></i>)
+      rows.push(<i key = {i} className = {i == this.state.current ? 'fa fa-circle' : 'fa fa-circle-o'} onClick = {this.handleDotClicked.bind(this, i)}></i>)
     }
       return rows;
   }

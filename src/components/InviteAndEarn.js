@@ -9,7 +9,7 @@ export default class InviteAndEarn extends React.Component {
     this.state = {
       refCode: '',
       active: true,
-      refCount: ''
+      totalrefcount: ''
     }
   }
 
@@ -59,8 +59,8 @@ export default class InviteAndEarn extends React.Component {
       return (
         <div className='rewards col-xs-12'>
           <div className='col-xs-12'>Total <strong>LOOK</strong>PLEX Credits Earned</div>
-          <div className='col-xs-12'>Total referrals : {this.state.refCount || 0} </div>
-          <div className='col-xs-12'>Rewards : <i className='fa fa-inr'></i> {this.state.refCount ? this.state.refCount * 200 : '0'} </div>
+          <div className='col-xs-12'>Total referrals : {this.state.totalrefcount || 0} </div>
+          <div className='col-xs-12'>Rewards earned : <i className='fa fa-inr'></i> {this.state.totalrefcount ? this.state.totalrefcount * 200 : '0'} </div>
           {this.renderStaticData()}
         </div>
       )
@@ -104,7 +104,7 @@ export default class InviteAndEarn extends React.Component {
     ajaxObj.success = function(data) {
       window.bookingDetails.name = data.name;
       window.bookingDetails.addressList = data.addressList;
-      self.setState({refCode: data.refCode, refCount: data.refCount})
+      self.setState({refCode: data.refCode, totalrefcount: data.totalrefcount})
     }
     ajaxObj.error = function() {
       window.bookingDetails.name = null;

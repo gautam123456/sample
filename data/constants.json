@@ -16,5 +16,6 @@
   "name": null,
   "mailId": "",
   "total": 0,
-  "refCount": 0
+  "refCount": 0,
+  "totalrefcount": 0
 }

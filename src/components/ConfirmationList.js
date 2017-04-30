@@ -13,15 +13,24 @@ export default class ConfirmationList extends React.Component {
             discount: window.bookingDetails.discount,
             questionShow: {display: 'block'},
             applySectionShow: {display: 'none'},
-            errormsg: {display: 'none'}
+            errormsg: {display: 'none'},
+            refDiscount: 0
         }
+    }
+
+    componentDidMount() {
+      const self = this;
+      setTimeout(function() {
+        self.setState({refDiscount: window.userDetails ? (window.userDetails.refCount ? 200 : 0) : 0})
+      }, 1000);
     }
 
     render() {
         const then = this,
             objKeys = this.state.bookedItemList ? Object.keys(this.state.bookedItemList.services) : [],
             margin = { marginBottom: 60 },
-            padding = { paddingTop: 8 };
+            padding = { paddingTop: 8 },
+            {refDiscount} = this.state;
         return (
             <div className = 'col-md-offset-4 col-md-4 pad0'>
 
@@ -35,8 +44,12 @@ export default class ConfirmationList extends React.Component {
                         <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { this.state.discount * this.state.bookedItemList.subTotal / 100 } </div>
                     </div>
                     <div className = 'col-xs-12'>
+                      <div className = 'col-xs-8'> Referral Discount </div>
+                      <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { refDiscount } </div>
+                    </div>
+                    <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Total </div>
-                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
+                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) - refDiscount } </div>
                     </div>
                 </div>
 

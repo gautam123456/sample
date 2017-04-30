@@ -17,7 +17,8 @@ export default class BookedServicesList extends React.Component {
       displayType : 'none',
       info: 'Coupon code Applied Successfully',
       infoType: 'info',
-      promoCodeApplied: false
+      promoCodeApplied: false,
+      refDiscount: 0
     }
   }
 
@@ -69,7 +70,8 @@ export default class BookedServicesList extends React.Component {
 
   render() {
     const then = this,
-        objKeys = Object.keys(this.state.bookedItemList.services);
+        objKeys = Object.keys(this.state.bookedItemList.services),
+        {refDiscount} = this.state;
     return (
         <div className = 'col-md-offset-4 col-md-4'>
           {
@@ -98,8 +100,12 @@ export default class BookedServicesList extends React.Component {
               <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { this.state.discount * this.state.bookedItemList.subTotal / 100 } </div>
             </div>
             <div className = 'col-xs-12'>
+              <div className = 'col-xs-8'> Referral Discount </div>
+              <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { refDiscount } </div>
+            </div>
+            <div className = 'col-xs-12'>
               <div className = 'col-xs-8'> Total </div>
-              <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) } </div>
+              <div className = 'col-xs-4'> <i className = "fa fa-inr"></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) - refDiscount } </div>
             </div>
           </div>
           <div className="terms col-xs-12">
@@ -120,6 +126,13 @@ export default class BookedServicesList extends React.Component {
   saveCode(e) {
     let couponCode = e.currentTarget.value;
     this.setState({ couponCode: couponCode });
+  }
+
+  componentDidMount() {
+    const self = this;
+    setTimeout(function() {
+      self.setState({refDiscount: window.userDetails ? (window.userDetails.refCount ? 200 : 0) : 0})
+    }, 1000);
   }
 
   applyPromocode() {
