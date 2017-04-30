@@ -33,14 +33,16 @@ export default class ServicesList extends React.Component {
         <Modal data={this.state.data} display={this.state.modalDisplay} id={this.state.id} renderModal={this.renderModal.bind(this)} bookingDetailsChanged={this.bookingDetailsChanged.bind(this)}/>
         {
           this.props.data.serviceCategoryList.map(function(title) {
-            return <div>
-                      { then.renderHeading(title.name, then.props.service + '-' + title.id) }
-                      { title.serviceItemList.map(function(list) {
-                        let id = then.props.service + '-' + title.id + '-' + list.id;
-                        return <ServiceMenu list = {list} count = { then.props.bookingDetails.services && then.props.bookingDetails.services[id] ? then.props.bookingDetails.services[id].count : 0 } key = { id } id = { id } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) } renderModal={then.renderModal.bind(then, id)}/>
-                      })
-                      }
-            </div>
+            return  (
+              <div key={title.id}>
+                { then.renderHeading(title.name, then.props.service + '-' + title.id) }
+                { title.serviceItemList.map(function(list) {
+                  let id = then.props.service + '-' + title.id + '-' + list.id;
+                  return <ServiceMenu list = {list} count = { then.props.bookingDetails.services && then.props.bookingDetails.services[id] ? then.props.bookingDetails.services[id].count : 0 } key = { id } id = { id } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) } renderModal={then.renderModal.bind(then, id)}/>
+                })
+                }
+              </div>
+            )
           })
         }
 

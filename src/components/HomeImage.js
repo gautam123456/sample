@@ -41,7 +41,7 @@ export default class HomeImage extends React.Component {
       backgroundSize: 'cover',
       height: 250
       },
-      images = ['../styles/assets/images/1.jpg','../styles/assets/images/2.jpg','../styles/assets/images/3.jpg'];
+      images = ['../styles/assets/images/1.jpg','../styles/assets/images/2.jpg','../styles/assets/images/3.jpg', '../styles/assets/images/4.jpg', '../styles/assets/images/5.jpg'];
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>
         <div className = 'bgimage'>
