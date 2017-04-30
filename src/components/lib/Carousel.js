@@ -41,7 +41,7 @@ export default class Carousel extends React.Component {
 
   renderImage(image, index, total) {
     return (
-      <img key = {index} src = {image} style = {{left: (((index - this.state.current) * this.state.screenWidth) - (this.state.position)) + 'px'}}
+      <img key = {index} ref = {index} src = {image} style = {{left: (((index - this.state.current) * this.state.screenWidth) - (this.state.position)) + 'px'}}
            onTouchStart = {this.handleTouchStart.bind(this, index, total)}
            onTouchMove = {this.handleTouchMove.bind(this, index, total)}
            onTouchEnd = {this.handleTouchEnd.bind(this, index, total)}
@@ -71,10 +71,18 @@ export default class Carousel extends React.Component {
       change = this.state.startX - touch.clientX,
       {current, position} = this.state;
 
-    if(change > 100) {
-      this.setState({current: current == total -1 ? current : current + 1})
-    }else if(change < -100) {
-      this.setState({current: current == 0 ? current : current - 1})
+    if(change > 100 && current != total -1) {
+
+      this.setState({current: current + 1})
+      this.refs[current].style.transition = 'all 0.3s';
+      this.refs[current + 1].style.transition = 'all 0.3s';
+
+    }else if(change < -100 && current != 0) {
+
+      this.setState({current: current - 1})
+      this.refs[current].style.transition = 'all 0.3s';
+      this.refs[current - 1].style.transition = 'all 0.3s';
+
     }
 
     this.setState({position: 0})
