@@ -11,6 +11,7 @@ import Testimonial from './Testimonial';
 import Carousel from './lib/Carousel';
 
 import data from '../../data/items.json';
+import allImages from '../../data/imageContoller.json';
 import testimonials from '../../data/testimonials.json';
 
 export default class HomeImage extends React.Component {
@@ -41,7 +42,7 @@ export default class HomeImage extends React.Component {
       backgroundSize: 'cover',
       height: 250
       },
-      images = ['../styles/assets/images/1.jpg','../styles/assets/images/2.jpg','../styles/assets/images/3.jpg', '../styles/assets/images/4.jpg', '../styles/assets/images/5.jpg'];
+      images = allImages.homeImages;
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>
         <div className = 'bgimage'>
