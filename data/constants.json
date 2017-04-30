@@ -15,5 +15,6 @@
   "timing": "",
   "name": null,
   "mailId": "",
-  "total": 0
+  "total": 0,
+  "refCount": 0
 }

@@ -22,6 +22,10 @@
     opacity: 0.6;
     color: #efefef;
 
+    &:hover {
+      opacity: 1;
+    }
+
     &.nav {
       margin-top: 90px;
       width: 30px;

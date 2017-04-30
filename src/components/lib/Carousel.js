@@ -105,16 +105,17 @@ export default class Carousel extends React.Component {
   handleTouchEnd(total, e) {
     let touch = e.changedTouches[0],
       change = this.state.startX - touch.clientX,
-      {current, position} = this.state;
+      {current} = this.state;
 
-    if(change > 100 && current != total -1) {
+    if(change > 70 && current != total -1) {
       this.handleTransition(current + 1);
-    }else if(change < -100 && current != 0) {
+    }else if(change < -70 && current != 0) {
       this.handleTransition(current - 1);
+    }else{
+      this.handleTransition(current);
     }
   }
 
-  handleTouchCancel(index, total, e) {
-    console.log('handleTouchCancel');
+  handleTouchCancel() {
   }
 }
