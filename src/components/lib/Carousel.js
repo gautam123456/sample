@@ -35,26 +35,55 @@ export default class Carousel extends React.Component {
         {this.props.images.map(function(image, index){
           return self.renderImage(image, index, total)
         })}
+        <div className = 'left nav control' onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
+        <div className = 'right nav control' onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
+        <div className = 'dots control col-xs-12'>
+          {this.renderDots(total)}
+        </div>
       </div>
     )
+  }
+
+  renderDots(total) {
+    const rows = [];
+    for(var i = 0 ; i < total; i++){
+      rows.push(<i className = {i == this.state.current ? 'fa fa-circle' : 'fa fa-circle-o'} onClick = {this.handleDotClicked.bind(this, i)}></i>)
+    }
+      return rows;
   }
 
   renderImage(image, index, total) {
     return (
       <img key = {index} ref = {index} src = {image} style = {{left: (((index - this.state.current) * this.state.screenWidth) - (this.state.position)) + 'px'}}
-           onTouchStart = {this.handleTouchStart.bind(this, index, total)}
-           onTouchMove = {this.handleTouchMove.bind(this, index, total)}
-           onTouchEnd = {this.handleTouchEnd.bind(this, index, total)}
+           onTouchStart = {this.handleTouchStart.bind(this)}
+           onTouchMove = {this.handleTouchMove.bind(this, total)}
+           onTouchEnd = {this.handleTouchEnd.bind(this, total)}
            onTouchCancel = {this.handleTouchCancel.bind(this, index, total)}
       />
     )
   }
 
-  handleTouchStart(index, total, e) {
+  handleLeftNav() {
+    if(this.state.current != 0){
+      this.handleTransition(this.state.current - 1)
+    }
+  }
+
+  handleRightNav(total) {
+    if(this.state.current != total -1){
+      this.handleTransition(this.state.current + 1)
+    }
+  }
+
+  handleDotClicked(index) {
+    this.handleTransition(index);
+  }
+
+  handleTouchStart(e) {
     this.state.startX = e.touches[0].clientX;
   }
 
-  handleTouchMove(index, total, e) {
+  handleTouchMove(total, e) {
     let touch = e.touches[0],
       change = this.state.startX - touch.clientX,
       current = this.state.current;
@@ -66,26 +95,23 @@ export default class Carousel extends React.Component {
     }
   }
 
-  handleTouchEnd(index, total, e) {
+  handleTransition(next) {
+    this.setState({current: next})
+    this.refs[this.state.current].style.transition = 'all 0.3s';
+    this.refs[next].style.transition = 'all 0.3s';
+    this.setState({position: 0})
+  }
+
+  handleTouchEnd(total, e) {
     let touch = e.changedTouches[0],
       change = this.state.startX - touch.clientX,
       {current, position} = this.state;
 
     if(change > 100 && current != total -1) {
-
-      this.setState({current: current + 1})
-      this.refs[current].style.transition = 'all 0.3s';
-      this.refs[current + 1].style.transition = 'all 0.3s';
-
+      this.handleTransition(current + 1);
     }else if(change < -100 && current != 0) {
-
-      this.setState({current: current - 1})
-      this.refs[current].style.transition = 'all 0.3s';
-      this.refs[current - 1].style.transition = 'all 0.3s';
-
+      this.handleTransition(current - 1);
     }
-
-    this.setState({position: 0})
   }
 
   handleTouchCancel(index, total, e) {
