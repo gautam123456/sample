@@ -43,11 +43,15 @@ export default class HomeImage extends React.Component {
       height: 250
       },
       images = allImages.homeImages;
+
+    //<div className = 'bgimage'>
+    //<Carousel images = {images}/>
+    //</div>
+
+
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>
-        <div className = 'bgimage'>
-        <Carousel images = {images}/>
-        </div>
+        <div className = 'bgimage' style = { background }></div>
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
               <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
