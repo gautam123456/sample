@@ -43,12 +43,6 @@ export default class HomeImage extends React.Component {
       height: 250
       },
       images = allImages.homeImages;
-
-    //<div className = 'bgimage'>
-    //<Carousel images = {images}/>
-    //</div>
-
-
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>
         <div className = 'bgimage' style = { background }></div>
@@ -106,6 +100,7 @@ export default class HomeImage extends React.Component {
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {
+    fbq('track', 'AddToCart');
     var cost = parseInt(cost);
     if(operation){
       // operation is addition of services....

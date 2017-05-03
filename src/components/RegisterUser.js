@@ -101,6 +101,7 @@ export default class RegisterUser extends DisableScroll {
             };
             ajaxObj.success = function (data) {
                 Base.hideOverlay();
+                fbq('track', 'CompleteRegistration');
                 window.bookingDetails.name = data.name || 'dummy';
               if(query.for != 'undefined' && query.for != undefined){
                 browserHistory.push(query.for);

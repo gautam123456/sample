@@ -53,6 +53,7 @@ export default class BookingConfirm extends React.Component {
   }
 
   confirm(e) {
+    fbq('track', 'Purchase', {value: '1.00', currency: 'USD'});
     Base.showOverlay();
     ajaxObj.type = 'POST'
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';

@@ -49,6 +49,7 @@ export default class Cart extends React.Component {
   }
 
   navigateTo() {
+    fbq('track', 'InitiateCheckout');
     this.isLoggedIn() ?  browserHistory.push('/book') : browserHistory.push('/login?for=book')
   }
 
