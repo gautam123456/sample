@@ -6,23 +6,7 @@
   .bgimage {
     height: 250px;
     overflow-x: hidden;
-  }
-
-  .slider {
-    min-height: 200px;
-    visibility: visible !important;
-
-    .slider-decorator-0, .slider-decorator-1 {
-      display: none;
-    }
-
-    .slider-decorator-2 {
-      bottom: 24px !important;
-
-      button {
-        padding: 5px !important;
-      }
-    }
+    left: 0
   }
 
   .filter {
