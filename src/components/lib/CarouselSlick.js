@@ -29,10 +29,15 @@ export default class Carousel extends React.Component {
   render() {
     const self = this,
       total = this.props.images.length,
-    {position} = this.state;
+      {current, position, screenWidth} = this.state,
+      style = {
+          transform: `translate3d(${-(position + (current * screenWidth))}px, 0px, 0px)`,
+          transition: ' all 0.3ms',
+          width: total * this.state.screenWidth + 'px'
+      };
 
     return (
-      <div className='carousel width100 pad0' style={{transform: `translate3d(${-position}px, 0px, 0px)`, transition: ' all 0.3ms', width: total * this.state.screenWidth + 'px'}}>
+      <div className='carousel width100 pad0' style={style}>
         {this.props.images.map(function(image, index){
           return self.renderImage(image, index, total)
         })}
@@ -87,7 +92,10 @@ export default class Carousel extends React.Component {
   handleTouchMove(total, e) {
     let touch = e.touches[0],
       change = this.state.startX - touch.clientX,
-      current = this.state.current;
+      {current} = this.state;
+
+    console.log('Change' + change)
+    console.log(current);
 
     if (current == 0 && change < 0) {
     }else if(current == total - 1 && change > 0) {
@@ -98,13 +106,12 @@ export default class Carousel extends React.Component {
 
   handleTransition(next) {
     this.setState({current: next})
-    this.refs[this.state.current].style.transition = 'all 0.3s';
-    this.refs[next].style.transition = 'all 0.3s';
+    //this.refs[this.state.current].style.transition = 'all 0.3s';
+    //this.refs[next].style.transition = 'all 0.3s';
     this.setState({position: 0})
   }
 
   handleTouchEnd(total, e) {
-    console.log('ended')
     let touch = e.changedTouches[0],
       change = this.state.startX - touch.clientX,
       {current} = this.state;

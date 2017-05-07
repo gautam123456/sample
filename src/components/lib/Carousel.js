@@ -97,8 +97,8 @@ export default class Carousel extends React.Component {
 
   handleTransition(next) {
     this.setState({current: next})
-    this.refs[this.state.current].style.transition = 'all 0.3s';
-    this.refs[next].style.transition = 'all 0.3s';
+    //this.refs[this.state.current].style.transition = 'all 0.3s';
+   // this.refs[next].style.transition = 'all 0.3s';
     this.setState({position: 0})
   }
 
