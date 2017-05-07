@@ -32,7 +32,7 @@ export default class Carousel extends React.Component {
       {current, position, screenWidth} = this.state,
       style = {
           transform: `translate3d(${-(position + (current * screenWidth))}px, 0px, 0px)`,
-          transition: ' all 0.3ms',
+          transition: 'transform 400ms ease, opacity 400ms ease',
           width: total * this.state.screenWidth + 'px'
       };
 
