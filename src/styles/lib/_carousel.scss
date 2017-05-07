@@ -29,7 +29,8 @@
     &.nav {
       width: 30px;
       cursor: pointer;
-      flex: 0 20px;
+      position: absolute;
+      top: 90px;
       display: none;
 
       .fa {
@@ -37,24 +38,28 @@
         font-weight: 100;
       }
 
+      &.left {
+        left: 0;
+      }
+
       &.right {
         right: 0;
       }
 
-      //@include screen-iPad {
-      //  display: block;
-      //}
+      @include screen-iPad {
+        display: block;
+      }
     }
 
     &.dots {
-      text-align: center;
       top: 190px;
-      display: none;
+      position: absolute;
+      text-align: center;
 
       .fa {
         margin: 0 3px;
         font-size: 9px;
-        color: #555;
+        color: #666;
       }
     }
   }

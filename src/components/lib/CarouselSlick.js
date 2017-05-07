@@ -41,9 +41,9 @@ export default class Carousel extends React.Component {
         {this.props.images.map(function(image, index){
           return self.renderImage(image, index, total)
         })}
-        <div className = 'left nav control' onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
-        <div className = 'right nav control' onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
-        <div className = 'dots control col-xs-12'>
+        <div className = 'left nav control' style = {{left: (current * screenWidth)}} onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
+        <div className = 'right nav control' style = {{right: ((total * screenWidth) - ((current + 1) * screenWidth))}} onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
+        <div className = 'dots control col-xs-12' style = {{width: screenWidth, left: (current * screenWidth)}}>
           {this.renderDots(total)}
         </div>
       </div>
@@ -105,10 +105,7 @@ export default class Carousel extends React.Component {
   }
 
   handleTransition(next) {
-    this.setState({current: next})
-    //this.refs[this.state.current].style.transition = 'all 0.3s';
-    //this.refs[next].style.transition = 'all 0.3s';
-    this.setState({position: 0})
+    this.setState({current: next, position: 0})
   }
 
   handleTouchEnd(total, e) {
