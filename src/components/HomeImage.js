@@ -20,12 +20,12 @@ export default class HomeImage extends React.Component {
     const url = this.props.url.pathname;
     let active = 1;
     switch(url){
-      case '/': active = 1; this.changeMetaData(1); break;
-      case '/face': active = 1; this.changeMetaData(1); break;
-      case '/body': active = 2; this.changeMetaData(2); break;
-      case '/hair': active = 3; this.changeMetaData(3); break;
-      case '/makeup': active = 4; this.changeMetaData(4); break;
-      case '/packages': active = 5; this.changeMetaData(5); break;
+      case '/': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
+      case '/face': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
+      case '/body': active = 2; this.changeMetaData(2); fbq('track', 'ViewContent'); break;
+      case '/hair': active = 3; this.changeMetaData(3); fbq('track', 'ViewContent'); break;
+      case '/makeup': active = 4; this.changeMetaData(4); fbq('track', 'ViewContent'); break;
+      case '/packages': active = 5; this.changeMetaData(5); fbq('track', 'ViewContent'); break;
     }
 
     this.state = {
