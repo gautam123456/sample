@@ -30,20 +30,29 @@ export default class Carousel extends React.Component {
     const self = this,
       total = this.props.images.length,
       {current, position, screenWidth} = this.state,
+      strTrnsfrm = `translate3d(${-(position + (current * screenWidth))}px, 0px, 0px)`,
       style = {
-          transform: `translate3d(${-(position + (current * screenWidth))}px, 0px, 0px)`,
+          transform: strTrnsfrm,
+          moztransform: strTrnsfrm,
+          WebkitTransform: strTrnsfrm,
+          msTransform: strTrnsfrm,
+          oTransform: strTrnsfrm,
           transition: 'transform 400ms ease, opacity 400ms ease',
+          WebkitTransition: 'transform 400ms ease, opacity 400ms ease',
+          msTransition: 'transform 400ms ease, opacity 400ms ease',
           width: total * this.state.screenWidth + 'px'
       };
 
     return (
-      <div className='carousel width100 pad0' style={style}>
-        {this.props.images.map(function(image, index){
-          return self.renderImage(image, index, total)
-        })}
-        <div className = 'left nav control' style = {{left: (current * screenWidth)}} onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
-        <div className = 'right nav control' style = {{right: ((total * screenWidth) - ((current + 1) * screenWidth))}} onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
-        <div className = 'dots control col-xs-12' style = {{width: screenWidth, left: (current * screenWidth)}}>
+      <div className="carousel-container">
+        <div className='carousel width100 pad0' style={style}>
+          {this.props.images.map(function(image, index){
+            return self.renderImage(image, index, total)
+          })}
+        </div>
+        <div className = 'left nav control' onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
+        <div className = 'right nav control' onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
+        <div className = 'dots control col-xs-12'>
           {this.renderDots(total)}
         </div>
       </div>
