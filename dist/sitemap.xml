@@ -3,43 +3,42 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
   <url>
     <loc>https://lookplex.com/</loc>
-    <lastmod>2017-3-31T08:58:18+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1</priority>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
+
   <url>
     <loc>https://lookplex.com/face/</loc>
-    <lastmod>2017-3-31T08:58:18+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
+
   <url>
     <loc>https://lookplex.com/body/</loc>
-    <lastmod>2017-3-31T08:58:18+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
+
   <url>
     <loc>https://lookplex.com/hair/</loc>
-    <lastmod>2017-3-31T08:58:18+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
+
   <url>
     <loc>https://lookplex.com/makeup/</loc>
-    <lastmod>2017-3-31T08:58:18+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
+
   <url>
     <loc>https://lookplex.com/packages/</loc>
-    <lastmod>2017-3-31T08:58:18+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>
