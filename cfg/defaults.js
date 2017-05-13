@@ -56,6 +56,15 @@ function getDefaultModules() {
         test: /\.json$/,
         loader: 'json',
         exclude: /(node_modules)/
+      },
+      {
+        test: /index\.html$/,
+        loader: 'string-replace',
+        query: {
+          search: '13062017.12',
+          replace: 'window',
+          flags: ''
+        }
       }
     ]
   };

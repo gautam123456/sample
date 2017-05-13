@@ -41,4 +41,28 @@
     <lastmod>2017-05-10</lastmod>
     <changefreq>monthly</changefreq>
   </url>
+
+  <url>
+    <loc>https://lookplex.com/about-us/</loc>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://lookplex.com/contact-us/</loc>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://lookplex.com/privacy-policy/</loc>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://lookplex.com/terms-of-service/</loc>
+    <lastmod>2017-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
