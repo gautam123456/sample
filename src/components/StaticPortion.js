@@ -20,33 +20,25 @@ export default class StaticPortion extends React.Component {
         </div>
         <div className='desc-bottom'></div>
         <div className='advantage clearfix'>
-          <div className='text-center bb'><b>LOOK</b>PLEX Advantage</div>
-
-            <div className='col-xs-6 col-md-6 text-center'>
-              <div className='clearfix'>
-                <i className='fa fa-shield fa-2x'></i>
-              </div>
+          <div className='header'><b>LOOK</b>PLEX Advantage</div>
+          <div className = 'col-xs-12 pad0 flex'>
+            <div>
+              <i className='fa fa-shield fa-2x'></i>
               <h5 className='f12'>Trusted Professionals</h5>
             </div>
-            <div className='col-xs-6 col-md-6 text-center'>
-              <div className='clearfix'>
-                <i className='fa fa-briefcase  fa-2x'></i>
-              </div>
+            <div>
+              <i className='fa fa-briefcase  fa-2x'></i>
               <h5 className='f12'>Branded Products</h5>
             </div>
-            <div className='col-xs-6 col-md-6 text-center'>
-              <div className='clearfix'>
-                <i className='fa fa-heartbeat fa-2x'></i>
-              </div>
+            <div>
+              <i className='fa fa-heartbeat fa-2x'></i>
               <h5 className='f12'>Satisfaction Guaranteed</h5>
             </div>
-            <div className='col-xs-6 col-md-6 text-center'>
-              <div className='clearfix'>
-                <i className='fa fa-money fa-2x'></i>
-              </div>
+            <div>
+              <i className='fa fa-money fa-2x'></i>
               <h5 className='f12'>Reasonable Price</h5>
             </div>
-
+          </div>
         </div>
         <div className='desc-bottom d'>
           <div className='col-xs-6 col-md-6'></div>
