@@ -28,6 +28,7 @@ export default class ServicesList extends React.Component {
 
   render() {
     const then = this;
+
     return (
       <div>
         <Modal data={this.state.data} display={this.state.modalDisplay} id={this.state.id} renderModal={this.renderModal.bind(this)} bookingDetailsChanged={this.bookingDetailsChanged.bind(this)}/>

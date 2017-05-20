@@ -27,6 +27,7 @@ export default class HomeImage extends React.Component {
     }
 
     this.state = {
+      fullData: this.props.data,
       active: active,
       data: this.getActiveListData(active),
       bookingDetails: window.bookingDetails,
@@ -35,12 +36,18 @@ export default class HomeImage extends React.Component {
   }
 
   getActiveListData(id) {
-    const {data} = this.props;
-    for(let i = 0; i < data.serviceList.length; i++){
-      if(data.serviceList[i].id == id){
-        return data.serviceList[i];
+    const fullData = this.props.data;
+    for(let i = 0; i < fullData.serviceList.length; i++){
+      if(fullData.serviceList[i].id == id){
+        return fullData.serviceList[i];
       }
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(JSON.stringify(nextProps.data));
+    console.log("##################################################");
+    this.setState({fullData: nextProps.data});
   }
 
   render() {

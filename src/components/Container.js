@@ -18,6 +18,7 @@ export default class Container extends React.Component {
   }
 
   render() {
+    console.log(' #### Rendered =======  >>>>>>>    ');
     return (
       <div className='col-md-12 col-xs-12 pad0 clearfix'>
         <div className='col-md-4 nomob'></div>
@@ -32,6 +33,7 @@ export default class Container extends React.Component {
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
     ajaxObj.success = function(data) {
+      console.log('   Fetched ====== >>>>>>>>>   ');
       self.setState({data: data})
     }
     $.ajax(ajaxObj);
