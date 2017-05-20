@@ -9,8 +9,6 @@ import Cart from './Cart';
 import $ from 'jquery';
 import Testimonial from './Testimonial';
 import Carousel from './lib/CarouselSlick';
-
-import data from '../../data/items.json';
 import allImages from '../../data/imageContoller.json';
 import testimonials from '../../data/testimonials.json';
 
@@ -30,10 +28,19 @@ export default class HomeImage extends React.Component {
 
     this.state = {
       active: active,
-      data: data.serviceList[active],
+      data: this.getActiveListData(active),
       bookingDetails: window.bookingDetails,
       carousal: true
     };
+  }
+
+  getActiveListData(id) {
+    const {data} = this.props;
+    for(let i = 0; i < data.serviceList.length; i++){
+      if(data.serviceList[i].id == id){
+        return data.serviceList[i];
+      }
+    }
   }
 
   render() {
@@ -97,7 +104,7 @@ export default class HomeImage extends React.Component {
       case '4': browserHistory.push('/makeup');  this.changeMetaData(4); break;
       case '5': browserHistory.push('/packages'); this.changeMetaData(5); break;
     }
-    this.setState({active: attrValue, data: data.serviceList[attrValue]})
+    this.setState({active: attrValue, data: this.getActiveListData(attrValue)});
     var body = $('html, body');
     body.stop().animate({scrollTop:0}, '500', 'swing');
   }
@@ -138,8 +145,8 @@ export default class HomeImage extends React.Component {
   }
 
   changeMetaData(active) {
-    $('meta[property=description]').attr('content', data.serviceList[active].metaDescription);
-    $('meta[property=title]').attr('content', data.serviceList[active].metaTitle);
-    document.title = data.serviceList[active].metaTitle;
+    //$('meta[property=description]').attr('content', this.getActiveListData(active).metaDescription);
+    //$('meta[property=title]').attr('content', this.getActiveListData(active).metaTitle);
+    //document.title = this.getActiveListData(active).metaTitle;
   }
 }
