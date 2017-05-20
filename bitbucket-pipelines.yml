@@ -14,4 +14,4 @@ pipelines:
           - mkdir -p ~/.ssh
           - cat myknownhost >> ~/.ssh/known_hosts
           - (umask  077 ; echo $SFTP_DEV | base64 --decode > ~/.ssh/id_rsa)
-          - sftp -r sftpdev@35.154.104.155:dev <<< $'put dist'
+          - sftp -oPort=1115 user@host -r sftpdev@35.154.104.155:dev <<< $'put dist'
