@@ -3,8 +3,6 @@
  */
 import React from 'react';
 
-import data from '../../data/items.json';
-
 export default class StaticPortion extends React.Component {
   constructor(props) {
     super(props);
@@ -15,8 +13,8 @@ export default class StaticPortion extends React.Component {
       <div className='static-portion'>
         <div className='description'>
           <img src="../styles/assets/images/bg.png" height="112" width="112" alt=""/>
-          <h3>{data.serviceList[this.props.active].serviceDescriptionHeading}</h3>
-          <div className='desc' dangerouslySetInnerHTML={{__html: data.serviceList[this.props.active].serviceDescription}}></div>
+          <h3>{this.props.data.serviceDescriptionHeading}</h3>
+          <div className='desc' dangerouslySetInnerHTML={{__html: this.props.data.serviceDescription}}></div>
         </div>
         <div className='desc-bottom'></div>
         <div className='advantage clearfix'>

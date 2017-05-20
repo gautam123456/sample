@@ -15,44 +15,16 @@ import testimonials from '../../data/testimonials.json';
 export default class HomeImage extends React.Component {
   constructor(props) {
     super(props);
-    const url = this.props.url.pathname;
-    let active = 1;
-    switch(url){
-      case '/': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/face': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/body': active = 2; this.changeMetaData(2); fbq('track', 'ViewContent'); break;
-      case '/hair': active = 3; this.changeMetaData(3); fbq('track', 'ViewContent'); break;
-      case '/makeup': active = 4; this.changeMetaData(4); fbq('track', 'ViewContent'); break;
-      case '/packages': active = 5; this.changeMetaData(5); fbq('track', 'ViewContent'); break;
-    }
 
     this.state = {
-      fullData: this.props.data,
-      active: active,
-      data: this.getActiveListData(active),
       bookingDetails: window.bookingDetails,
       carousal: true
     };
   }
 
-  getActiveListData(id) {
-    const fullData = this.props.data;
-    for(let i = 0; i < fullData.serviceList.length; i++){
-      if(fullData.serviceList[i].id == id){
-        return fullData.serviceList[i];
-      }
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(JSON.stringify(nextProps.data));
-    console.log("##################################################");
-    this.setState({fullData: nextProps.data});
-  }
-
   render() {
     const background = {
-      backgroundImage: `url(../styles/assets/images/${ this.state.active }.jpg)`,
+      backgroundImage: `url(../styles/assets/images/${ this.props.active }.jpg)`,
       backgroundSize: 'cover',
       height: 250
       },
@@ -65,20 +37,20 @@ export default class HomeImage extends React.Component {
         </div>
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
-              <label className = { this.state.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
+              <label className = { this.props.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
 
-              <label className = { this.state.active == '2' ? 'active col-xs-2' : 'col-xs-2'} data-value = '2' onClick = { this.serviceTypeSelected.bind(this) }>Body</label>
+              <label className = { this.props.active == '2' ? 'active col-xs-2' : 'col-xs-2'} data-value = '2' onClick = { this.serviceTypeSelected.bind(this) }>Body</label>
 
-              <label className = { this.state.active == '3' ? 'active col-xs-2' : 'col-xs-2'} data-value = '3' onClick = { this.serviceTypeSelected.bind(this) }>Hair</label>
+              <label className = { this.props.active == '3' ? 'active col-xs-2' : 'col-xs-2'} data-value = '3' onClick = { this.serviceTypeSelected.bind(this) }>Hair</label>
 
-              <label className = { this.state.active == '4' ? 'active col-xs-2' : 'col-xs-2'} data-value = '4' onClick = { this.serviceTypeSelected.bind(this) }>Makeup</label>
+              <label className = { this.props.active == '4' ? 'active col-xs-2' : 'col-xs-2'} data-value = '4' onClick = { this.serviceTypeSelected.bind(this) }>Makeup</label>
 
-              <label className = { this.state.active == '5' ? 'active col-xs-2' : 'col-xs-2'} data-value = '5' onClick = { this.serviceTypeSelected.bind(this) }>Packages</label>
+              <label className = { this.props.active == '5' ? 'active col-xs-2' : 'col-xs-2'} data-value = '5' onClick = { this.serviceTypeSelected.bind(this) }>Packages</label>
           </span>
         </div>
 
-        <ServicesList data = { this.state.data } service = { this.state.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
-        <StaticPortion active={this.state.active}/>
+        <ServicesList data = { this.props.data } service = { this.props.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
+        <StaticPortion data={this.props.data}/>
         <Testimonial data = { testimonials } />
         <Cart bookingDetails = { this.state.bookingDetails } />
       </section>
@@ -103,15 +75,7 @@ export default class HomeImage extends React.Component {
 
   serviceTypeSelected(e) {
     const attrValue = e.target.getAttribute('data-value');
-
-    switch(attrValue){
-      case '1': browserHistory.push('/face'); this.changeMetaData(1); break;
-      case '2': browserHistory.push('/body'); this.changeMetaData(2); break;
-      case '3': browserHistory.push('/hair');  this.changeMetaData(3); break;
-      case '4': browserHistory.push('/makeup');  this.changeMetaData(4); break;
-      case '5': browserHistory.push('/packages'); this.changeMetaData(5); break;
-    }
-    this.setState({active: attrValue, data: this.getActiveListData(attrValue)});
+    this.props.serviceSelected(attrValue);
     var body = $('html, body');
     body.stop().animate({scrollTop:0}, '500', 'swing');
   }
@@ -149,11 +113,5 @@ export default class HomeImage extends React.Component {
     let bookingDetails = window.bookingDetails;
     bookingDetails.discount = 0;
     window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
-  }
-
-  changeMetaData(active) {
-    //$('meta[property=description]').attr('content', this.getActiveListData(active).metaDescription);
-    //$('meta[property=title]').attr('content', this.getActiveListData(active).metaTitle);
-    //document.title = this.getActiveListData(active).metaTitle;
   }
 }
