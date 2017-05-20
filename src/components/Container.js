@@ -32,7 +32,7 @@ export default class Container extends React.Component {
     ajaxObj.url = 'https://static.lookplex.com/data/items.json';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
-    ajaxObj.xhrFields = { "withCredentials": false },
+    ajaxObj.xhrFields = { "withCredentials": true },
     ajaxObj.success = function(data) {
       console.log('   Fetched ====== >>>>>>>>>   ');
       self.setState({data: data})
