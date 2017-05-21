@@ -68,7 +68,12 @@ export default class Container extends React.Component {
     ajaxObj.data = '';
     ajaxObj.xhrFields = { withCredentials: false };
     ajaxObj.success = function(data) {
+      ajaxObj.xhrFields = { withCredentials: true };
       self.setState({data: data})
+    }
+    ajaxObj.error = function() {
+      ajaxObj.xhrFields = { withCredentials: true };
+      window.bookingDetails.name = null;
     }
     $.ajax(ajaxObj);
   }

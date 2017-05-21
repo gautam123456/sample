@@ -55,6 +55,7 @@ export default class addresslist extends React.Component {
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
+        ajaxObj.xhrFields = { withCredentials: true };
         ajaxObj.success = function(data) {
             self.setState({ addresslist: data.addressList });
             Base.hideOverlay();
