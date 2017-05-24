@@ -81,7 +81,7 @@ export default class AddAddress extends React.Component {
     Base.showOverlay();
     ajaxObj.url = ajaxObj.baseUrl + '/addaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark };
-    ajaxObj.success = function() { browserHistory.push('/address') }
+    ajaxObj.success = function() { browserHistory.push('/address?update=true') }
     ajaxObj.error = function() { Base.hideOverlay(); browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
@@ -90,7 +90,7 @@ export default class AddAddress extends React.Component {
     Base.showOverlay();
     ajaxObj.url = ajaxObj.baseUrl + '/editaddress';
     ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark, lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('/address') }
+    ajaxObj.success = function(){ browserHistory.push('/address?update=true') }
     ajaxObj.error = function() { Base.hideOverlay(); browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }
@@ -99,7 +99,7 @@ export default class AddAddress extends React.Component {
     Base.showOverlay();
     ajaxObj.url = ajaxObj.baseUrl + '/deleteaddress';
     ajaxObj.data = { lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('/address') }
+    ajaxObj.success = function(){ browserHistory.push('/address?update=true') }
     ajaxObj.error = function() { Base.hideOverlay(); browserHistory.push('/oops') }
     $.ajax(ajaxObj);
   }

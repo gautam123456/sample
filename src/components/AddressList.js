@@ -41,7 +41,15 @@ export default class addresslist extends React.Component {
     }
 
     componentWillMount(){
+      this.getaddresslist();
+    }
+
+    componentWillReceiveProps(props) {
+      if (props.location.query.update) {
         this.callGetAddressListIn3Sec();
+      } else {
+        this.getaddresslist();
+      }
     }
 
     callGetAddressListIn3Sec(){
