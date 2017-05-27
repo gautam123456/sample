@@ -85,25 +85,24 @@ export default class OrderConfirm extends React.Component {
   }
 
   getHours() {
-    let hours = [['9:00','09:00 AM'], ['9:30','09:30 AM'], ['10:00','10:00 AM'], ['10:30','10:30 AM'],
-      ['11:00','11:00 AM'], ['11:30','11:30 AM'], ['12:00','12:00 PM'],['12:30','12:30 PM'],['1:00','01:00 PM'],
-      ['1:30','01:30 PM'], ['2:00','02:00 PM'], ['2:30','02:30 PM'],['3:00','03:00 PM'],['3:30','03:30 PM'],
-      ['4:00','04:00 PM'], ['4:30','04:30 PM'], ['5:00','05:00 PM'],['5:30','05:30 PM'],['6:00','06:00 PM']];
+    let hours = [['9:00','09:00 AM', 9], ['9:30','09:30 AM', 9], ['10:00','10:00 AM', 10], ['10:30','10:30 AM', 10],
+      ['11:00','11:00 AM', 11], ['11:30','11:30 AM', 11], ['12:00','12:00 PM', 12],['12:30','12:30 PM', 12],['1:00','01:00 PM', 13],
+      ['1:30','01:30 PM', 13], ['2:00','02:00 PM', 14], ['2:30','02:30 PM', 14],['3:00','03:00 PM', 15],['3:30','03:30 PM', 15],
+      ['4:00','04:00 PM', 16], ['4:30','04:30 PM', 16], ['5:00','05:00 PM', 17],['5:30','05:30 PM', 17],['6:00','06:00 PM', 18]];
 
-    return hours;
-
-    //if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.state.year) >= 0 && this.state.date == this.date.getDate() && this.date.getHours() < 16){
-    //  let currentHour = this.date.getHours()
-    //  let index;
-    //  for(var i = 0 ; i < hours.length ; i++){
-    //    if(hours[i][0].split(':')[0] == currentHour && hours[i][0].split(' ')[1] == 'AM'){
-    //      index = i;
-    //    }
-    //  }
-    //  return index ? hours.slice(index + 5, hours.length) : hours;
-    //}else{
-    //  return hours;
-    //}
+    if( this.state.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.state.year) >= 0 && this.state.date == this.date.getDate()){
+      let currentHour = this.date.getHours();
+      let index;
+      for(var i = 0 ; i < hours.length ; i++){
+        if(hours[i][2] == currentHour){
+          index = i;
+          break;
+        }
+      }
+      return index ? hours.slice(index + 5, hours.length) : hours;
+    }else{
+      return hours;
+    }
 
   }
 
