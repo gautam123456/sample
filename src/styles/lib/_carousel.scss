@@ -38,6 +38,7 @@
       cursor: pointer;
       position: absolute;
       bottom: 120px;
+      display: none;
 
 
       .fa {
@@ -53,8 +54,14 @@
         right: 0;
       }
 
-      @include screen-iPad {
+      &.true {
         display: block;
+      }
+
+      @include screen-iPad {
+        &.true {
+          display: block;
+        }
       }
     }
 

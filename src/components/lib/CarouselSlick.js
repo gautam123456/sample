@@ -16,7 +16,8 @@ export default class Carousel extends React.Component {
   }
 
   static propTypes = {
-    images: PropTypes.array
+    images: PropTypes.array,
+    showArrow: PropTypes.bool
   }
 
   componentDidMount() {
@@ -50,8 +51,8 @@ export default class Carousel extends React.Component {
             return self.renderImage(image, index, total)
           })}
         </div>
-        <div className = 'left nav control' onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
-        <div className = 'right nav control' onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
+        <div className = {'left nav control ' + this.props.showArrow} onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
+        <div className = {'right nav control ' + this.props.showArrow} onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
         <div className = 'dots control col-xs-12'>
           {this.renderDots(total)}
         </div>

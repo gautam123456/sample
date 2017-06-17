@@ -33,7 +33,7 @@ export default class HomeImage extends React.Component {
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>
         <div className = 'bgimage'>
-          <Carousel images = {images}/>
+          <Carousel images = {images} showArrow={true}/>
         </div>
         <div id = 'filter' className = 'filter'>
           <span className = 'f-list col-xs-12'>
