@@ -9,10 +9,11 @@ export default class Footer extends React.Component {
       <footer className = 'col-md-12 col-xs-12'>
         <div className = 'col-md-4 col-md-offset-4 col-xs-12 pad0'>
             <div className = 'h col-xs-12'>
-              <div className='col-xs-4 pad0'><a href='/about-us' >About Us</a></div>
-              <div className='col-xs-4 pad0'><a href='/contact-us' >Contact Us</a></div>
-              <div className='col-xs-4 pad0'><a href='/privacy-policy' >Privacy</a></div>
-              <div className='col-xs-4 col-xs-offset-4 pad0'><a href='/terms-of-service' >Terms of Service</a></div>
+              <div className='col-xs-6 pad0'><a href='/about-us' >About Us</a></div>
+              <div className='col-xs-6 pad0'><a href='/contact-us' >Contact Us</a></div>
+              <div className='col-xs-6 pad0'><a href='/privacy-policy' >Privacy</a></div>
+              <div className='col-xs-6 pad0'><a href='/terms-of-service' >Terms of Service</a></div>
+              <div className='col-xs-6 pad0'><a href='/refund-policy' >Refund & Cancellation Policy</a></div>
             </div>
 
             <div className='social col-xs-12'>

@@ -59,6 +59,7 @@ render(
     <Route path = { 'about-us' } component = { FooterPage } />
     <Route path = { 'contact-us' } component = { FooterPage } />
     <Route path = { 'privacy-policy' } component = { FooterPage } />
+    <Route path = { 'refund-policy' } component = { FooterPage } />
     <Route path = { 'terms-of-service' } component = { FooterPage } />
     <Route path = { 'oops' } component = { SomethingWentWrong } />
     <Route path = { 'shell' } component = { Shell } />
