@@ -17,11 +17,11 @@ export default class Container extends React.Component {
     let active = 1;
     switch(url){
       case '/': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/face': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/body': active = 2; this.changeMetaData(2); fbq('track', 'ViewContent'); break;
-      case '/hair': active = 3; this.changeMetaData(3); fbq('track', 'ViewContent'); break;
-      case '/makeup': active = 4; this.changeMetaData(4); fbq('track', 'ViewContent'); break;
-      case '/packages': active = 5; this.changeMetaData(5); fbq('track', 'ViewContent'); break;
+      case '/salonathome/face': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
+      case '/salonathome/body': active = 2; this.changeMetaData(2); fbq('track', 'ViewContent'); break;
+      case '/salonathome/hair': active = 3; this.changeMetaData(3); fbq('track', 'ViewContent'); break;
+      case '/salonathome/makeup': active = 4; this.changeMetaData(4); fbq('track', 'ViewContent'); break;
+      case '/salonathome/packages': active = 5; this.changeMetaData(5); fbq('track', 'ViewContent'); break;
     }
 
     this.state = {
@@ -44,11 +44,11 @@ export default class Container extends React.Component {
 
     switch(url){
       case '/': this.setState({active: 1}); this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/face': this.setState({active: 1}); this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/body': this.setState({active: 2}); this.changeMetaData(2); fbq('track', 'ViewContent'); break;
-      case '/hair': this.setState({active: 3}); this.changeMetaData(3); fbq('track', 'ViewContent'); break;
-      case '/makeup': this.setState({active: 4}); this.changeMetaData(4); fbq('track', 'ViewContent'); break;
-      case '/packages': this.setState({active: 5}); this.changeMetaData(5); fbq('track', 'ViewContent'); break;
+      case '/salonathome/face': this.setState({active: 1}); this.changeMetaData(1); fbq('track', 'ViewContent'); break;
+      case '/salonathome/body': this.setState({active: 2}); this.changeMetaData(2); fbq('track', 'ViewContent'); break;
+      case '/salonathome/hair': this.setState({active: 3}); this.changeMetaData(3); fbq('track', 'ViewContent'); break;
+      case '/salonathome/makeup': this.setState({active: 4}); this.changeMetaData(4); fbq('track', 'ViewContent'); break;
+      case '/salonathome/packages': this.setState({active: 5}); this.changeMetaData(5); fbq('track', 'ViewContent'); break;
     }
   }
 
@@ -80,11 +80,11 @@ export default class Container extends React.Component {
 
   serviceSelected(attrValue) {
     switch(attrValue){
-      case '1': browserHistory.push('/face');  break;
-      case '2': browserHistory.push('/body');  break;
-      case '3': browserHistory.push('/hair');   break;
-      case '4': browserHistory.push('/makeup');   break;
-      case '5': browserHistory.push('/packages');  break;
+      case '1': browserHistory.push('/salonathome/face');  break;
+      case '2': browserHistory.push('/salonathome/body');  break;
+      case '3': browserHistory.push('/salonathome/hair');   break;
+      case '4': browserHistory.push('/salonathome/makeup');   break;
+      case '5': browserHistory.push('/salonathome/packages');  break;
     }
     this.setState({active: attrValue});
   }
@@ -100,6 +100,7 @@ export default class Container extends React.Component {
   changeMetaData(active) {
     $('meta[property=description]').attr('content', this.getStaticData(active).metaDescription);
     $('meta[property=title]').attr('content', this.getStaticData(active).metaTitle);
+    $('meta[name=keywords]').attr('content', this.getStaticData(active).metaKeyword);
     document.title = this.getStaticData(active).metaTitle;
   }
 }
