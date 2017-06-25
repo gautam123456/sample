@@ -32,12 +32,21 @@ import Appointments from './components/AppointmentList';
 render(
   <Router history = { browserHistory } onEnter = { Base.routerInvoked() }>
     <Route path = { '/' } component = { App } />
-    <Route path = { 'salonathome' } component = { App } />
-    <Route path = { 'salonathome/face' } component = { App } />
-    <Route path = { 'salonathome/body' } component = { App } />
-    <Route path = { 'salonathome/hair' } component = { App } />
-    <Route path = { 'salonathome/makeup' } component = { App } />
-    <Route path = { 'salonathome/packages' } component = { App } />
+    <Route path = { 'salon-at-home' } component = { App } />
+    <Route path = { 'salon-at-home/in/delhi' } component = { App } />
+    <Route path = { 'salon-at-home/in/gurgaon' } component = { App } />
+    <Route path = { 'salon-at-home/in/noida' } component = { App } />
+    <Route path = { 'salon-at-home/in/indirapuram' } component = { App } />
+    <Route path = { 'face' } component = { App } />
+    <Route path = { 'body' } component = { App } />
+    <Route path = { 'hair' } component = { App } />
+    <Route path = { 'makeup' } component = { App } />
+    <Route path = { 'packages' } component = { App } />
+    <Route path = { 'salon-at-home/face' } component = { App } />
+    <Route path = { 'salon-at-home/body' } component = { App } />
+    <Route path = { 'salon-at-home/hair' } component = { App } />
+    <Route path = { 'salon-at-home/makeup' } component = { App } />
+    <Route path = { 'salon-at-home/packages' } component = { App } />
     <Route path = { 'address' } component = { AddressList } />
     <Route path = { 'address/add' } component = { AddAddress } />
     <Route path = { 'appointments' } component = { Appointments } />
@@ -48,20 +57,21 @@ render(
     <Route path = { 'cancel' } component = { Cancel } />
     <Route path = { 'reschedule' } component = { Reschedule } />
     <Route path = { 'gallery' } component = { GalleryHome } />
-    <Route path = { 'salonathome/gallery/bridal' } component = { Gallery } />
+    <Route path = { 'salon-at-home/gallery/bridal' } component = { Gallery } />
     <Route path = { 'referearn' } component = { InviteAndEarn } />
     <Route path = { 'loader' } component = { Loader } />
     <Route path = { 'login' } component = { Login }  />
     <Route path = { 'register' } component = { RegisterUser } />
     <Route path = { 'order/details' } component = { OrderConfirm } />
     <Route path = { 'otp/confirm' } component = { OTPConfirm } />
-    <Route path = { 'salonathome/offers' } component = { Offers } />
+    <Route path = { 'salon-at-home/offers' } component = { Offers } />
     <Route path = { 'about-us' } component = { FooterPage } />
     <Route path = { 'contact-us' } component = { FooterPage } />
     <Route path = { 'privacy-policy' } component = { FooterPage } />
     <Route path = { 'refund-policy' } component = { FooterPage } />
     <Route path = { 'terms-of-service' } component = { FooterPage } />
     <Route path = { 'oops' } component = { SomethingWentWrong } />
+    <Route path = { 'salon-at-home/*' } component = { App } />
     <Route path = { '*' } component = { ErrorPage } />
   </Router>
 , document.getElementById('app'));

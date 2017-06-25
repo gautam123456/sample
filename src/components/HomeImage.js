@@ -62,7 +62,7 @@ export default class HomeImage extends React.Component {
       target = document.getElementById('filter');
 
     $(window).on('scroll', function(){
-      var scrollPos = window.scrollY || window.scollTop || document.getElementsByTagName('html')[0].scrollTop;
+      var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
       if(scrollPos >= 250 && !fixed) {
         fixed = true;
         target.className += ' fixed';

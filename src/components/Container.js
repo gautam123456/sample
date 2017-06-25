@@ -14,19 +14,12 @@ export default class Container extends React.Component {
   constructor(props) {
     super(props);
     const url = this.props.url.pathname;
-    let active = 1;
-    switch(url){
-      case '/': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/salonathome/face': active = 1; this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/salonathome/body': active = 2; this.changeMetaData(2); fbq('track', 'ViewContent'); break;
-      case '/salonathome/hair': active = 3; this.changeMetaData(3); fbq('track', 'ViewContent'); break;
-      case '/salonathome/makeup': active = 4; this.changeMetaData(4); fbq('track', 'ViewContent'); break;
-      case '/salonathome/packages': active = 5; this.changeMetaData(5); fbq('track', 'ViewContent'); break;
-    }
+    this.active = 1;
+    this.switchUrl(url);
 
     this.state = {
       data: data,
-      active: active
+      active: this.active
     }
   }
 
@@ -39,24 +32,45 @@ export default class Container extends React.Component {
     }
   }
 
+  switchUrl(url) {
+    switch(url){
+      case '/': this.changeData(1); break;
+      case '/salon-at-home/in/delhi': this.changeData(1); break;
+      case '/salon-at-home/in/gurgaon': this.changeData(1); break;
+      case '/salon-at-home/in/noida': this.changeData(1); break;
+      case '/salon-at-home/in/indirapuram': this.changeData(1); break;
+      case '/salon-at-home/face': this.changeData(1); break;
+      case '/salon-at-home/face/': this.changeData(1); break;
+      case '/face': this.changeData(1); break;
+      case '/salon-at-home/body': this.changeData(2); break;
+      case '/salon-at-home/body/': this.changeData(2); break;
+      case '/body': this.changeData(2); break;
+      case '/salon-at-home/hair': this.changeData(3); break;
+      case '/salon-at-home/hair/': this.changeData(3); break;
+      case '/hair': this.changeData(3); break;
+      case '/salon-at-home/makeup': this.changeData(4); break;
+      case '/salon-at-home/makeup/': this.changeData(4); break;
+      case '/makeup': this.changeData(4); break;
+      case '/salon-at-home/packages': this.changeData(5); break;
+      case '/salon-at-home/packages/': this.changeData(5); break;
+      case '/packages': this.changeData(5); break;
+    }
+  }
+
+  changeData(active) {
+    this.active = active; this.setState({active: active}); this.changeMetaData(active); fbq('track', 'ViewContent');
+  }
+
   componentWillReceiveProps(nextProp) {
     const url = nextProp.url.pathname;
-
-    switch(url){
-      case '/': this.setState({active: 1}); this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/salonathome/face': this.setState({active: 1}); this.changeMetaData(1); fbq('track', 'ViewContent'); break;
-      case '/salonathome/body': this.setState({active: 2}); this.changeMetaData(2); fbq('track', 'ViewContent'); break;
-      case '/salonathome/hair': this.setState({active: 3}); this.changeMetaData(3); fbq('track', 'ViewContent'); break;
-      case '/salonathome/makeup': this.setState({active: 4}); this.changeMetaData(4); fbq('track', 'ViewContent'); break;
-      case '/salonathome/packages': this.setState({active: 5}); this.changeMetaData(5); fbq('track', 'ViewContent'); break;
-    }
+    this.switchUrl(url);
   }
 
   render() {
     return (
       <div className='col-md-12 col-xs-12 pad0 clearfix'>
         <div className='col-md-4 nomob'></div>
-        <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active}/>
+        <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1}/>
       </div>
     )
   }
@@ -80,11 +94,11 @@ export default class Container extends React.Component {
 
   serviceSelected(attrValue) {
     switch(attrValue){
-      case '1': browserHistory.push('/salonathome/face');  break;
-      case '2': browserHistory.push('/salonathome/body');  break;
-      case '3': browserHistory.push('/salonathome/hair');   break;
-      case '4': browserHistory.push('/salonathome/makeup');   break;
-      case '5': browserHistory.push('/salonathome/packages');  break;
+      case '1': browserHistory.push('/salon-at-home/face');  break;
+      case '2': browserHistory.push('/salon-at-home/body');  break;
+      case '3': browserHistory.push('/salon-at-home/hair');   break;
+      case '4': browserHistory.push('/salon-at-home/makeup');   break;
+      case '5': browserHistory.push('/salon-at-home/packages');  break;
     }
     this.setState({active: attrValue});
   }
