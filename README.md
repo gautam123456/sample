@@ -1,7 +1,7 @@
 This is new Salon at Home Mobile first project, build in ### react ###, ### relay ###, backend is  ### graphQL ###.
 
 # Set Up on local #
-In order to get started..
+In order to get started...
  
 * Install node Version 7+
 * Clone this repo
