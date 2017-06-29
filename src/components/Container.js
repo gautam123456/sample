@@ -66,6 +66,7 @@ export default class Container extends React.Component {
 
   render() {
     if(this.state.data !== '') {
+      document.getElementById('load').style.display = 'none';
       return (
         <div className='col-md-12 col-xs-12 pad0 clearfix'>
           <div className='col-md-4 nomob'></div>
@@ -73,8 +74,9 @@ export default class Container extends React.Component {
         </div>
       )
     } else {
+      document.getElementById('load').style.display = 'block';
       return (
-        <div></div>
+        <div style={{minHeight: 700}}></div>
       )
     }
   }
