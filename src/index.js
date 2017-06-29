@@ -13,9 +13,9 @@ import BookingSummary from './components/BookingSummary';
 import Cancel from './components/Cancel';
 import FullCart from './components/FullCart';
 import Gallery from './components/Gallery';
-import GalleryHome from './components/GalleryHome';
+//import GalleryHome from './components/GalleryHome';
 import InviteAndEarn from './components/InviteAndEarn';
-import Loader from './components/Loader';
+//import Loader from './components/Loader';
 import Login from './components/Login';
 import OrderConfirm from './components/OrderConfirm';
 import OTPConfirm from './components/OTPConfirm';
@@ -56,10 +56,8 @@ render(
     <Route path = { 'cart' } component = { FullCart } />
     <Route path = { 'cancel' } component = { Cancel } />
     <Route path = { 'reschedule' } component = { Reschedule } />
-    <Route path = { 'gallery' } component = { GalleryHome } />
     <Route path = { 'salon-at-home/gallery/bridal' } component = { Gallery } />
     <Route path = { 'referearn' } component = { InviteAndEarn } />
-    <Route path = { 'loader' } component = { Loader } />
     <Route path = { 'login' } component = { Login }  />
     <Route path = { 'register' } component = { RegisterUser } />
     <Route path = { 'order/details' } component = { OrderConfirm } />

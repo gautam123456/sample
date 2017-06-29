@@ -7,20 +7,18 @@ import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
 
-import data from '../../data/items.json';
-
 export default class Container extends React.Component {
 
   constructor(props) {
     super(props);
-    const url = this.props.url.pathname;
     this.active = 1;
-    this.switchUrl(url);
 
     this.state = {
-      data: data,
+      data: '',
       active: this.active
     }
+
+    this.getStaticData = this.getStaticData.bind(this);
   }
 
   getActiveData(id) {
@@ -67,16 +65,23 @@ export default class Container extends React.Component {
   }
 
   render() {
-    return (
-      <div className='col-md-12 col-xs-12 pad0 clearfix'>
-        <div className='col-md-4 nomob'></div>
-        <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1}/>
-      </div>
-    )
+    if(this.state.data !== '') {
+      return (
+        <div className='col-md-12 col-xs-12 pad0 clearfix'>
+          <div className='col-md-4 nomob'></div>
+          <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1}/>
+        </div>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let self = this;
+    const url = this.props.url.pathname;
     ajaxObj.url = 'https://s3-us-west-2.amazonaws.com/lplexassets/data/items.json';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
@@ -84,6 +89,7 @@ export default class Container extends React.Component {
     ajaxObj.success = function(data) {
       ajaxObj.xhrFields = { withCredentials: true };
       self.setState({data: data})
+      self.switchUrl(url);
     }
     ajaxObj.error = function() {
       ajaxObj.xhrFields = { withCredentials: true };
@@ -104,6 +110,7 @@ export default class Container extends React.Component {
   }
 
   getStaticData(id) {
+    const {data} = this.state;
     for(let i = 0; i < data.serviceList.length; i++){
       if(data.serviceList[i].id == id){
         return data.serviceList[i];

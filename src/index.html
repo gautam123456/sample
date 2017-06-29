@@ -16,6 +16,224 @@
         #overlay{
             display: none;
         }
+
+        @-webkit-keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0
+          }
+          100% {
+            background-position: 468px 0
+          }
+        }
+
+        @keyframes placeHolderShimmer {
+          0% {
+            background-position: -468px 0
+          }
+          100% {
+            background-position: 468px 0
+          }
+        }
+
+        .animated-background {
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+          -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+          background: #f6f7f8;
+          background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+          background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+          height: 577px;
+          position: relative;
+        }
+
+        /* Place holder styling for lookplex */
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        .background-masker {
+          background-color: #fff;
+          position: absolute;
+        }
+
+        .filter-background-masker {
+          background-color: #666;
+          position: absolute;
+        }
+
+        .header-background-masker {
+          background-color: #068481;
+          position: absolute;
+        }
+
+        .ph-header {
+          background-color: #068481;
+          width: 100%;
+          height: 40px;
+          position: relative;
+        }
+
+        .ph-image {
+          height: 250px;
+          min-height: 250px;
+        }
+
+        .ph-filters {
+          height: 40px;
+          margin-top: -40px;
+          background-color: rgba(0, 0, 0, 0.5);
+          position: relative;
+        }
+
+        .ph-heading {
+          background-color: #068481;
+          height: 35px;
+        }
+
+        .ph-option-top {
+          height: 15px;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+
+        .ph-option-bottom {
+          height: 1px;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+
+        .ph-option {
+          height: 63px;
+          position: relative;
+        }
+
+        .ph-option-left {
+          top: 0;
+          width: 10px;
+          height: 95%;
+        }
+
+        .ph-option-title-right {
+          left: 190px;
+          top: 12px;
+          height: 20px;
+          width: 50px;
+        }
+
+        .ph-option-title-bottom {
+          left: 0;
+          top: 27px;
+          height: 10px;
+          width: 200px;
+        }
+
+        .ph-option-desc-right {
+          left: 130px;
+          top: 32px;
+          height: 20px;
+          width: 110px;
+        }
+
+        .ph-option-desc-bottom {
+          left: 0;
+          top: 47px;
+          height: 14px;
+          width: 100%;
+        }
+
+        .ph-option-price-top {
+          left: 190px;
+          top: 7px;
+          width: 54%;
+          height: 15px;
+        }
+
+        .ph-option-price-bottom {
+          left: 170px;
+          top: 42px;
+          width: 59%;
+          height: 15px;
+        }
+
+        .ph-option-price-right {
+          left: 300px;
+          top: 22px;
+          width: 83px;
+          height: 20px;
+        }
+
+        .ph-option-add-right {
+          right: 0;
+          top: 22px;
+          width: 10px;
+          height: 20px;
+        }
+
+        .ph-tb-filter {
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 10px;
+        }
+
+        .ph-tb-filter.b {
+          top: 30px;
+        }
+
+        .ph-fil {
+          width: 8%;
+          top: 10px;
+          height: 30px;
+        }
+
+        .ph-fil.a {
+          left: 12%;
+        }
+
+        .ph-fil.b {
+          left: 34%;
+        }
+
+        .ph-fil.c {
+          left: 56%;
+        }
+
+        .ph-fil.d {
+          left: 79%;
+        }
+
+        @media only screen and (min-width: 992px) {
+          .animated-background {
+            margin-left: 33%;
+            width: 33%;
+          }
+
+          .ph-option-price-bottom {
+            width: 65%;
+          }
+
+          .ph-option-price-top {
+            width: 65%;
+          }
+
+          .ph-option-price-right {
+            width: 123px;
+            left: 320px;
+          }
+        }
     </style>
 
 
@@ -59,11 +277,80 @@
       }
   </script>
 </head>
-
-
-<body style='background-color: #068481'>
-
-<div id='load' style='background: url("https://static.lookplex.com/mobileImages/logo.png") center no-repeat;background-size: contain;min-height: 50px;width: 150px;margin: 200px auto'></div>
+<body>
+  <div id="load" class="ph">
+    <div class="animated-background">
+      <header class="ph-header">
+        <div class="header-background-masker ph-header-tb a"></div>
+        <div class="header-background-masker ph-header-s l"></div>
+        <div class="header-background-masker ph-header-s r"></div>
+        <div class="header-background-masker ph-header-tb b"></div>
+      </header>
+      <div class="ph-image"></div>
+      <div class="ph-filters">
+        <div class="filter-background-masker ph-tb-filter"></div>
+        <div class="filter-background-masker ph-fil a"></div>
+        <div class="filter-background-masker ph-fil b"></div>
+        <div class="filter-background-masker ph-fil c"></div>
+        <div class="filter-background-masker ph-fil d"></div>
+        <div class="filter-background-masker ph-tb-filter b"></div>
+      </div>
+      <div class="ph-heading"></div>
+      <div class="ph-option">
+        <div class="background-masker ph-option-top"></div>
+        <div class="background-masker ph-option-left"></div>
+        <div class="background-masker ph-option-title-right"></div>
+        <div class="background-masker ph-option-price-top"></div>
+        <div class="background-masker ph-option-price-right"></div>
+        <div class="background-masker ph-option-add-right"></div>
+        <div class="background-masker ph-option-price-bottom"></div>
+        <div class="background-masker ph-option-title-bottom"></div>
+        <div class="background-masker ph-option-desc-right"></div>
+        <div class="background-masker ph-option-desc-bottom"></div>
+        <div class="background-masker ph-option-bottom"></div>
+      </div>
+      <div class="ph-option">
+        <div class="background-masker ph-option-top"></div>
+        <div class="background-masker ph-option-left"></div>
+        <div class="background-masker ph-option-title-right"></div>
+        <div class="background-masker ph-option-price-top"></div>
+        <div class="background-masker ph-option-price-right"></div>
+        <div class="background-masker ph-option-add-right"></div>
+        <div class="background-masker ph-option-price-bottom"></div>
+        <div class="background-masker ph-option-title-bottom"></div>
+        <div class="background-masker ph-option-desc-right"></div>
+        <div class="background-masker ph-option-desc-bottom"></div>
+        <div class="background-masker ph-option-bottom"></div>
+      </div>
+      <div class="ph-option">
+        <div class="background-masker ph-option-top"></div>
+        <div class="background-masker ph-option-left"></div>
+        <div class="background-masker ph-option-title-right"></div>
+        <div class="background-masker ph-option-price-top"></div>
+        <div class="background-masker ph-option-price-right"></div>
+        <div class="background-masker ph-option-add-right"></div>
+        <div class="background-masker ph-option-price-bottom"></div>
+        <div class="background-masker ph-option-title-bottom"></div>
+        <div class="background-masker ph-option-desc-right"></div>
+        <div class="background-masker ph-option-desc-bottom"></div>
+        <div class="background-masker ph-option-bottom"></div>
+      </div>
+      <div class="ph-option">
+        <div class="background-masker ph-option-top"></div>
+        <div class="background-masker ph-option-left"></div>
+        <div class="background-masker ph-option-title-right"></div>
+        <div class="background-masker ph-option-price-top"></div>
+        <div class="background-masker ph-option-price-right"></div>
+        <div class="background-masker ph-option-add-right"></div>
+        <div class="background-masker ph-option-price-bottom"></div>
+        <div class="background-masker ph-option-title-bottom"></div>
+        <div class="background-masker ph-option-desc-right"></div>
+        <div class="background-masker ph-option-desc-bottom"></div>
+        <div class="background-masker ph-option-bottom"></div>
+      </div>
+    </div>
+  </div>
+<!--<div id='load' style='background: url("https://static.lookplex.com/mobileImages/logo.png") center no-repeat;background-size: contain;min-height: 50px;width: 150px;margin: 200px auto'></div>-->
 <div id='app' style='height: 100%'></div>
 <div id='overlay'>
     <div class = 'col-md-12 col-xs-12 bg-loader'>
@@ -72,6 +359,6 @@
     </div>
 </div>
 
-<script src='/assets/app.js?v=23062017.12'></script>
+<script src='/assets/app.js?v=29062017.12'></script>
 </body>
 </html>
