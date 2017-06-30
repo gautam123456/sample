@@ -5,6 +5,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import BookedServicesList from './BookedServicesList';
+import Base from './base/Base';
 
 export default class BookingSummary extends React.Component {
   constructor(props){
@@ -37,8 +38,8 @@ export default class BookingSummary extends React.Component {
   }
 
   bookingConfirm() {
-    const subTotal = window.bookingDetails.subTotal;
-    if((subTotal - (subTotal * window.bookingDetails.discount/100)) >= window.bookingDetails.minBooking){
+    const subTotal = Base.sandbox.bookingDetails.subTotal;
+    if((subTotal - (subTotal * Base.sandbox.bookingDetails.discount/100)) >= Base.sandbox.bookingDetails.minBooking){
       browserHistory.push('address');
     }
   }

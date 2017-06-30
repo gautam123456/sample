@@ -115,15 +115,11 @@ export default class DateWidget extends React.Component {
   }
 
   render() {
-    const background = {
-      backgroundImage: `url(../styles/asset/images/time.png)`,
-      backgroundSize: 'contain'
-    };
 
     return (
       <div>
         <div className = 'col-xs-12 confirm pad0'>
-          <div className = 'col-xs-12 datepick' style={background}>
+          <div className = 'col-xs-12 datepick'>
             <span> Pick your time </span>
             <div className = 'col-xs-12 date' style={{height:40}}> { this.props.data.date + '/' + this.props.data.month + '/' + this.props.data.year + ' ' + this.props.data.timing.split('_')[0] || '' + ' ' + this.props.data.timing.split('_')[1] || '' } </div>
 

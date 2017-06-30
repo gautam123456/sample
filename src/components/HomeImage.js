@@ -18,7 +18,7 @@ export default class HomeImage extends React.Component {
     super(props);
 
     this.state = {
-      bookingDetails: window.bookingDetails,
+      bookingDetails: Base.sandbox.bookingDetails,
       carousal: true
     };
   }
@@ -105,12 +105,12 @@ export default class HomeImage extends React.Component {
     //  }
     //}
     this.forceUpdate();
-    this.saveToLocalStorage();
+    Base.saveToLocalStorage();
   }
-
-  saveToLocalStorage() {
-    let bookingDetails = window.bookingDetails;
-    bookingDetails.discount = 0;
-    window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
-  }
+  //TODO Remove
+  //saveToLocalStorage() {
+  //  let bookingDetails = window.bookingDetails;
+  //  bookingDetails.discount = 0;
+  //  window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
+  //}
 }

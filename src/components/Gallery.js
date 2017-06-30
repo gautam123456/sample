@@ -36,7 +36,7 @@ export default class GalleryHome extends React.Component {
       }
       ajaxObj.error = function() {
         ajaxObj.xhrFields = { withCredentials: true };
-        window.bookingDetails.name = null;
+        Base.sandbox.bookingDetails.name = null;
       }
       $.ajax(ajaxObj);
     }

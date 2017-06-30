@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
+import Base from './base/Base';
 
 export default class Cart extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ export default class Cart extends React.Component {
   }
 
   isLoggedIn() {
-    if(window.bookingDetails.name)
+    if(Base.sandbox.bookingDetails.name)
       return true;
     return false;
   }

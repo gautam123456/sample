@@ -31,7 +31,7 @@ export default class BookingConfirm extends React.Component {
   }
 
   validateAndConfirm() {
-    const details = window.bookingDetails,
+    const details = Base.sandbox.bookingDetails,
       sandbox = Base.sandbox;
 
     details.addresslkey = sandbox.lkey;

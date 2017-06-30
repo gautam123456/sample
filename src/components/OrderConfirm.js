@@ -10,7 +10,7 @@ export default class OrderConfirm extends React.Component {
     super(props);
     this.date = new Date();
     this.state = {
-      mailId: window.bookingDetails.mailId,
+      mailId: Base.sandbox.bookingDetails.mailId,
       timing: '',
       date: this.getDate(),
       month: (parseInt(this.date.getMonth()) + 1).toString(),
@@ -59,7 +59,7 @@ export default class OrderConfirm extends React.Component {
   optionalComments(e) {
     const comment  = e.currentTarget.value;
     this.setState({comment});
-    window.bookingDetails.comment = comment;
+    Base.sandbox.bookingDetails.comment = comment;
     Base.sandbox.comment = comment;
   }
 

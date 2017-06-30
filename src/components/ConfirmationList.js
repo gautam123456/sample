@@ -5,6 +5,7 @@ import React from 'react';
 import BookedMenu from './BookedMenu';
 import ajaxObj from '../../data/ajax.json';
 import $ from 'jquery';
+import Base from './base/Base';
 
 export default class ConfirmationList extends React.Component {
 
@@ -24,10 +25,10 @@ export default class ConfirmationList extends React.Component {
         displayType : 'none',
         info: 'Coupon code Applied Successfully',
         infoType: 'info',
-        discount: window.bookingDetails.discount,
+        discount: Base.sandbox.bookingDetails.discount,
         questionShow: {display: 'block', paddingTop: 0},
         applySectionShow: {display: 'none', paddingTop: 0},
-        bookedItemList: window.bookingDetails,
+        bookedItemList: Base.sandbox.bookingDetails,
         errormsg: {display: 'none'}
       }
     }
@@ -35,7 +36,7 @@ export default class ConfirmationList extends React.Component {
     componentDidMount() {
       const self = this;
       setTimeout(function() {
-        self.setState({refDiscount: window.userDetails ? (window.userDetails.refCount ? 200 : 0) : 0})
+        self.setState({refDiscount: Base.sandbox.userDetails ? (Base.sandbox.userDetails.refCount ? 200 : 0) : 0})
       }, 1000);
     }
 
@@ -48,7 +49,7 @@ export default class ConfirmationList extends React.Component {
     }
 
     removeCode() {
-      window.bookingDetails.discount = 0;
+      Base.sandbox.bookingDetails.discount = 0;
       this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
     }
 
@@ -159,8 +160,8 @@ export default class ConfirmationList extends React.Component {
       ajaxObj.data = { couponcode: self.state.couponCode }
       ajaxObj.success = function(data) {
         self.setState({ discount: data.discount, displayType: 'block', info: 'Coupon code Applied Successfully', infoType: 'info', promoCodeApplied: true });
-        window.bookingDetails.couponcode = self.state.couponCode;
-        window.bookingDetails.discount = data.discount;
+        Base.sandbox.bookingDetails.couponcode = self.state.couponCode;
+        Base.sandbox.bookingDetails.discount = data.discount;
         setTimeout(function(){
           self.hideMsg();
         }, 3000)

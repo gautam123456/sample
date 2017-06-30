@@ -2,6 +2,7 @@ import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
+import Base from './base/Base';
 
 export default class InviteAndEarn extends React.Component {
   constructor(props) {
@@ -102,12 +103,12 @@ export default class InviteAndEarn extends React.Component {
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
     ajaxObj.success = function(data) {
-      window.bookingDetails.name = data.name;
-      window.bookingDetails.addressList = data.addressList;
+      Base.sandbox.bookingDetails.name = data.name;
+      Base.sandbox.bookingDetails.addressList = data.addressList;
       self.setState({refCode: data.refCode, totalrefcount: data.totalrefcount})
     }
     ajaxObj.error = function() {
-      window.bookingDetails.name = null;
+      Base.sandbox.bookingDetails.name = null;
     }
     $.ajax(ajaxObj);
   }

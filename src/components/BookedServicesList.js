@@ -10,8 +10,8 @@ export default class BookedServicesList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookedItemList: window.bookingDetails,
-      discount: window.bookingDetails.discount,
+      bookedItemList: Base.sandbox.bookingDetails,
+      discount: Base.sandbox.bookingDetails.discount,
       questionShow: {display: 'block', paddingTop: 0},
       applySectionShow: {display: 'none', paddingTop: 0},
       couponCode:'',
@@ -40,7 +40,7 @@ export default class BookedServicesList extends React.Component {
   }
 
   removeCode() {
-    window.bookingDetails.discount = 0;
+    Base.sandbox.bookingDetails.discount = 0;
     this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
   }
 
@@ -132,7 +132,7 @@ export default class BookedServicesList extends React.Component {
   componentDidMount() {
     const self = this;
     setTimeout(function() {
-      self.setState({refDiscount: window.userDetails ? (window.userDetails.refCount ? 200 : 0) : 0})
+      self.setState({refDiscount: Base.sandbox.userDetails ? (Base.sandbox.userDetails.refCount ? 200 : 0) : 0})
     }, 1000);
   }
 
@@ -143,8 +143,8 @@ export default class BookedServicesList extends React.Component {
     ajaxObj.data = { couponcode: self.state.couponCode }
     ajaxObj.success = function(data) {
       self.setState({ discount: data.discount, displayType: 'block', info: 'Coupon code Applied Successfully', infoType: 'info', promoCodeApplied: true });
-      window.bookingDetails.couponcode = self.state.couponCode;
-      window.bookingDetails.discount = data.discount;
+      Base.sandbox.bookingDetails.couponcode = self.state.couponCode;
+      Base.sandbox.bookingDetails.discount = data.discount;
       setTimeout(function(){
         self.hideMsg();
       }, 3000)
@@ -161,12 +161,13 @@ export default class BookedServicesList extends React.Component {
   bookingDetailsChanged(id, name, cost, count, operation) {
     Base.bookingDetailsChanged({id, name, cost, count, operation});
     this.forceUpdate();
-    this.saveToLocalStorage();
+    Base.saveToLocalStorage();
   }
 
-  saveToLocalStorage() {
-    let bookingDetails = window.bookingDetails;
-    bookingDetails.discount = 0;
-    window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
-  }
+  //TODO Remove
+  //saveToLocalStorage() {
+  //  let bookingDetails = window.bookingDetails;
+  //  bookingDetails.discount = 0;
+  //  window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
+  //}
 }

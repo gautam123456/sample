@@ -6,6 +6,7 @@ import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
+import Base from './base/Base';
 
 export default class FullCart extends React.Component {
 
@@ -29,7 +30,7 @@ export default class FullCart extends React.Component {
             self.setState({data: response.data, pgTitle: response.title});
         }
         ajaxObj.error = function() {
-            window.bookingDetails.name = null;
+          Base.sandbox.bookingDetails.name = null;
         }
         $.ajax(ajaxObj);
     }

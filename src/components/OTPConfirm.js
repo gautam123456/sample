@@ -90,7 +90,7 @@ export default class OTPConfirm extends DisableScroll {
       ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
       ajaxObj.data = { phonenumber: query.number, otp: this.state.otp, token: query.token };
       ajaxObj.success = function() {
-        window.bookingDetails.name = 'ZZ';
+        Base.sandbox.bookingDetails.name = 'ZZ';
         if(query.for != 'undefined' && query.for != undefined){
           browserHistory.push('/' + query.for);
         }else {

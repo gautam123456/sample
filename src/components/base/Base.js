@@ -26,7 +26,7 @@ export default class Base extends React.Component {
         }catch(e){
             console.log(' Error in localStorage BookingDetails :: ' + window.localStorage.bookingDetails);
         }
-        window.bookingDetails = bookingDetailsLS || bookingDetails;
+        Base.sandbox.bookingDetails = bookingDetailsLS || bookingDetails;
         this.loginStatus();
     }
 
@@ -40,17 +40,17 @@ export default class Base extends React.Component {
             Base.sandbox.userDetails = data;
 
           //TODO Remove
-            window.bookingDetails.name = data.name;
-            window.bookingDetails.addressList = data.addressList;
-            window.userDetails = data;
+          //  window.bookingDetails.name = data.name;
+          //  window.bookingDetails.addressList = data.addressList;
+          //  window.userDetails = data;
         }
         ajaxObj.error = function() {
             Base.sandbox.bookingDetails.name = null;
             Base.sandbox.userDetails = null;
 
           //TODO Remove
-            window.bookingDetails.name = null;
-            window.userDetails = null;
+          //  window.bookingDetails.name = null;
+          //  window.userDetails = null;
         }
         $.ajax(ajaxObj);
     }
@@ -78,9 +78,9 @@ export default class Base extends React.Component {
       window.localStorage.clear();
 
       //TODO Remove
-      const {name} = window.bookingDetails;
-      window.bookingDetails = bookingDetails;
-      window.bookingDetails.name = name;
+      //const {name} = window.bookingDetails;
+      //window.bookingDetails = bookingDetails;
+      //window.bookingDetails.name = name;
 
       const {name2} = Base.sandbox.bookingDetails;
       Base.sandbox.bookingDetails = bookingDetails;
@@ -113,27 +113,56 @@ export default class Base extends React.Component {
     static bookingDetailsChanged({id, name, cost, count, operation}) {
 
         var cost = parseInt(cost);
+    //    if(operation){
+    //// if operation is addition of services....
+    //      window.bookingDetails.servicesCount += 1;
+    //      window.bookingDetails.subTotal += cost;
+    //      if(window.bookingDetails.services[id]){
+    //        window.bookingDetails.services[id].count += 1;
+    //      } else {
+    //        window.bookingDetails.services[id] = {
+    //          count: 1,
+    //          name: name,
+    //          cost: cost
+    //        }
+    //      }
+    //    } else {
+    //// If operation is removal of services....
+    //      window.bookingDetails.servicesCount -= 1;
+    //      window.bookingDetails.subTotal -= cost;
+    //      window.bookingDetails.services[id].count -= 1;
+    //      if(window.bookingDetails.services[id].count == 0){
+    //        delete window.bookingDetails.services[id];
+    //      }
+    //    }
+
         if(operation){
-    // if operation is addition of services....
-          window.bookingDetails.servicesCount += 1;
-          window.bookingDetails.subTotal += cost;
-          if(window.bookingDetails.services[id]){
-            window.bookingDetails.services[id].count += 1;
+          // if operation is addition of services....
+          Base.sandbox.bookingDetails.servicesCount += 1;
+          Base.sandbox.bookingDetails.subTotal += cost;
+          if(Base.sandbox.bookingDetails.services[id]){
+            Base.sandbox.bookingDetails.services[id].count += 1;
           } else {
-            window.bookingDetails.services[id] = {
+            Base.sandbox.bookingDetails.services[id] = {
               count: 1,
               name: name,
               cost: cost
             }
           }
         } else {
-    // If operation is removal of services....
-          window.bookingDetails.servicesCount -= 1;
-          window.bookingDetails.subTotal -= cost;
-          window.bookingDetails.services[id].count -= 1;
-          if(window.bookingDetails.services[id].count == 0){
-            delete window.bookingDetails.services[id];
+          // If operation is removal of services....
+          Base.sandbox.bookingDetails.servicesCount -= 1;
+          Base.sandbox.bookingDetails.subTotal -= cost;
+          Base.sandbox.bookingDetails.services[id].count -= 1;
+          if(Base.sandbox.bookingDetails.services[id].count == 0){
+            delete Base.sandbox.bookingDetails.services[id];
           }
         }
+    }
+
+    static saveToLocalStorage() {
+      let bookingDetails = Base.sandbox.bookingDetails;
+      bookingDetails.discount = 0;
+      window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
     }
 }

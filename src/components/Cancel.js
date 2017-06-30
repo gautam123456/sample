@@ -46,7 +46,7 @@ export default class Cancel extends React.Component {
       browserHistory.push('appointments');
       Base.hideOverlay();
     }
-    ajaxObj.error = () => {if(!window.bookingDetails.name){browserHistory.push('login')}}
+    ajaxObj.error = () => {if(!Base.sandbox.bookingDetails.name){browserHistory.push('login')}}
     $.ajax(ajaxObj);
   }
 }

@@ -12,7 +12,7 @@ export default class Header extends React.Component {
     super(props);
     this.state = {
       width:{width:0},
-      name: window.bookingDetails.name || 'ZZ'
+      name: Base.sandbox.bookingDetails.name || 'ZZ'
     }
   }
 
@@ -74,7 +74,7 @@ export default class Header extends React.Component {
   }
 
   isLoggedIn() {
-    if(window.bookingDetails.name)
+    if(Base.sandbox.bookingDetails.name)
       return true;
     return false;
   }
@@ -86,7 +86,7 @@ export default class Header extends React.Component {
 
   logOut() {
     const self = this;
-    window.bookingDetails.name = null;
+    Base.sandbox.bookingDetails.name = null;
     ajaxObj.url = ajaxObj.baseUrl + '/custlogout';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';

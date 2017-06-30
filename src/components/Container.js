@@ -6,6 +6,7 @@ import HomeImage from './HomeImage';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
+import Base from './base/Base';
 
 export default class Container extends React.Component {
 
@@ -95,7 +96,7 @@ export default class Container extends React.Component {
     }
     ajaxObj.error = function() {
       ajaxObj.xhrFields = { withCredentials: true };
-      window.bookingDetails.name = null;
+      Base.sandbox.bookingDetails.name = null;
     }
     $.ajax(ajaxObj);
   }
