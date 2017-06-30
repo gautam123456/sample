@@ -31,12 +31,13 @@ export default class BookingConfirm extends React.Component {
   }
 
   validateAndConfirm() {
-    const details = window.bookingDetails;
+    const details = window.bookingDetails,
+      sandbox = Base.sandbox;
 
-    details.addresslkey = this.props.location.query.lkey;
-    details.timing = this.props.location.query.timing;
-    details.date = this.props.location.query.date;
-    details.mailId = this.props.location.query.mailId;
+    details.addresslkey = sandbox.lkey;
+    details.timing = sandbox.timing;
+    details.date = sandbox.month + '/' + sandbox.date + '/' + sandbox.year;
+    details.mailId = sandbox.mailId;
 
     if (details.addresslkey && details.timing && details.date && details.mailId && details.services){
 

@@ -14,6 +14,8 @@ export default class Base extends React.Component {
 
     // This method is called everytime router is invoked
 
+    static sandbox = {};
+
     static routerInvoked() {
         document.getElementById('load').style.display = 'none';
         let bookingDetailsLS = '';

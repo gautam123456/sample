@@ -23,12 +23,7 @@ export default class HomeImage extends React.Component {
   }
 
   render() {
-    const background = {
-      backgroundImage: `url(../styles/assets/images/${ this.props.active }.jpg)`,
-      backgroundSize: 'cover',
-      height: 250
-      },
-      images = allImages.homeImages;
+    const images = allImages.homeImages;
 
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img'>

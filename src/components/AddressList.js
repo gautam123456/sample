@@ -27,7 +27,6 @@ export default class addresslist extends React.Component {
             <div>
                 <ActivityHeader heading = { 'Select your Address' }/>
                     <div className = 'col-md-offset-4 col-md-4 col-xs-12'>
-
                         { this.state.addresslist ? this.state.addresslist.map( function(address, index) {
                             return (<Address key = { address.lkey } address = { address } index = { index } active = { self.state.activelkey === address.lkey } selectedAddress = { self.selectedAddress.bind(self) }/>)
                         }):'' }
@@ -35,7 +34,7 @@ export default class addresslist extends React.Component {
                         <div className='add-address col-xs-4'><Link to = '/address/add'>Add New Address</Link></div>
 
                     </div>
-                <ActivityFooter key = { 45 } next = { this.state.address ? 'order/details?lkey='+this.state.address.lkey :'address' } back = { 'book' } address = { this.state.address } info = { 'please select address' }/>
+                <ActivityFooter key = { 45 } next = { this.state.address ? 'booking/confirm' :'address' } back = { 'order/details' } address = { this.state.address } info = { 'please select address' }/>
             </div>
         )
     }
@@ -73,7 +72,8 @@ export default class addresslist extends React.Component {
     }
 
     selectedAddress(address){
-        this.setState({ address: address, activelkey: address.lkey });
+        this.setState({ address, activelkey: address.lkey });
+        Base.sandbox.lkey = address.lkey;
     }
 
 }

@@ -59,7 +59,7 @@ export default class FullCart extends React.Component {
 
   navigateTo() {
     if(window.bookingDetails.name){
-      return 'book'
+      return '/order/details'
     }else{
       return 'login';
     }
