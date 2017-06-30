@@ -11,6 +11,7 @@ import Testimonial from './Testimonial';
 import Carousel from './lib/CarouselSlick';
 import allImages from '../../data/imageContoller.json';
 import testimonials from '../../data/testimonials.json';
+import Base from './base/Base';
 
 export default class HomeImage extends React.Component {
   constructor(props) {
@@ -77,29 +78,32 @@ export default class HomeImage extends React.Component {
 
   bookingDetailsChanged(id, name, cost, count, operation) {
     fbq('track', 'AddToCart');
-    var cost = parseInt(cost);
-    if(operation){
-      // operation is addition of services....
-      window.bookingDetails.servicesCount += 1;
-      window.bookingDetails.subTotal += cost;
-      if(window.bookingDetails.services[id]){
-        window.bookingDetails.services[id].count += 1;
-      } else {
-        window.bookingDetails.services[id] = {
-          count: 1,
-          name: name,
-          cost: cost
-        }
-      }
-    } else {
-      // operation is removal of services....
-      window.bookingDetails.servicesCount -= 1;
-      window.bookingDetails.subTotal -= cost;
-      window.bookingDetails.services[id].count -= 1;
-      if(window.bookingDetails.services[id].count == 0){
-        delete window.bookingDetails.services[id];
-      }
-    }
+    Base.bookingDetailsChanged({id, name, cost, count, operation});
+
+    //TODO Remove
+    //var cost = parseInt(cost);
+    //if(operation){
+    //  // operation is addition of services....
+    //  window.bookingDetails.servicesCount += 1;
+    //  window.bookingDetails.subTotal += cost;
+    //  if(window.bookingDetails.services[id]){
+    //    window.bookingDetails.services[id].count += 1;
+    //  } else {
+    //    window.bookingDetails.services[id] = {
+    //      count: 1,
+    //      name: name,
+    //      cost: cost
+    //    }
+    //  }
+    //} else {
+    //  // operation is removal of services....
+    //  window.bookingDetails.servicesCount -= 1;
+    //  window.bookingDetails.subTotal -= cost;
+    //  window.bookingDetails.services[id].count -= 1;
+    //  if(window.bookingDetails.services[id].count == 0){
+    //    delete window.bookingDetails.services[id];
+    //  }
+    //}
     this.forceUpdate();
     this.saveToLocalStorage();
   }

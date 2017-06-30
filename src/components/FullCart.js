@@ -59,7 +59,12 @@ export default class FullCart extends React.Component {
 
   navigateTo() {
     if(window.bookingDetails.name){
-      return '/order/details'
+      if(window.bookingDetails.subTotal >= window.bookingDetails.minBooking) {
+        return 'order/details';
+      } else {
+        return '';
+      }
+
     }else{
       return 'login';
     }

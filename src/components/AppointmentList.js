@@ -109,7 +109,7 @@ export default class AppointmentList extends React.Component {
       self.addBookingType(data.customerBookingList);
       Base.hideOverlay();
     }
-    ajaxObj.error = () => {if(!window.bookingDetails.name){browserHistory.push('login')}}
+    ajaxObj.error = () => {if(!Base.sandbox.bookingDetails.name){browserHistory.push('login')}}
     $.ajax(ajaxObj);
   }
 }

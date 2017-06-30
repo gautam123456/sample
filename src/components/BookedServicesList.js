@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
 import $ from 'jquery';
+import Base from './base/Base';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -158,30 +159,7 @@ export default class BookedServicesList extends React.Component {
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {
-
-    var cost = parseInt(cost);
-    if(operation){
-// if operation is addition of services....
-      window.bookingDetails.servicesCount += 1;
-      window.bookingDetails.subTotal += cost;
-      if(window.bookingDetails.services[id]){
-        window.bookingDetails.services[id].count += 1;
-      } else {
-        window.bookingDetails.services[id] = {
-          count: 1,
-          name: name,
-          cost: cost
-        }
-      }
-    } else {
-// If operation is removal of services....
-      window.bookingDetails.servicesCount -= 1;
-      window.bookingDetails.subTotal -= cost;
-      window.bookingDetails.services[id].count -= 1;
-      if(window.bookingDetails.services[id].count == 0){
-        delete window.bookingDetails.services[id];
-      }
-    }
+    Base.bookingDetailsChanged({id, name, cost, count, operation});
     this.forceUpdate();
     this.saveToLocalStorage();
   }
