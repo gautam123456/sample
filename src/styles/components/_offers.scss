@@ -1,39 +1,39 @@
 @import "../variables/screen";
 
 .offers {
-  .message {
-    background-color: #fff;
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 14px;
+
+  .img {
+    margin-top: 5px;
+    background: url('../styles/assets/images/coupons.jpg') center no-repeat;
+    background-size: contain;
+    height: 120px;
   }
+
   .offer {
     background-color: #fff;
-    min-height: 100px;
-    margin-top: 20px;
+    margin-top: 17px;
     border-radius: 2px;
-    font-size: 20px;
 
     .header {
-      background-color: #cde6e5;
-      color: $brand-color;
+      background-color: $notify-info;
+      color: #fff;
+      padding: 10px;
 
-      &.col-xs-2 {
-        font-size: 10px;
-        padding-top: 13px;
-        border: 1px solid $brand-color;
-        border-radius: 2px;
-        text-align: center;
-        background-color: $brand-color;
-        color: #fff;
-        cursor: pointer;
+      strong {
+        font-size: 16px;
       }
     }
 
     .body {
       font-size: 15px;
-      padding-top: 5px;
       color: #666;
+      font-weight: bolder;
+      border: 1px dotted $brand-color-lightest;
+      border-top: none;
+
+      strong {
+        font-size: 60px;
+      }
     }
   }
 }

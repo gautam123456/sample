@@ -46,7 +46,7 @@ export default class InviteAndEarn extends React.Component {
 
   renderStaticData() {
     return (
-      <div className='static col-xs-10 col-xs-offset-1 pad0'>
+      <div className='static col-xs-12 pad0'>
         <ul>
           <li>Hurray! you can avail 200 Rs off per booking as per referral program</li>
           <li>No need to apply coupon, just make your booking, referral discount will be applied automatically, If eligible.</li>
@@ -60,8 +60,8 @@ export default class InviteAndEarn extends React.Component {
       return (
         <div className='rewards col-xs-12'>
           <div className='col-xs-12'>Total <strong>LOOK</strong>PLEX Credits Earned</div>
-          <div className='col-xs-12'>Total referrals : {this.state.totalrefcount || 0} </div>
-          <div className='col-xs-12'>Rewards earned : <i className='fa fa-inr'></i> {this.state.totalrefcount ? this.state.totalrefcount * 200 : '0'} </div>
+          <div className='col-xs-12'>Total referrals: <strong className='i'>{this.state.totalrefcount || 0} </strong></div>
+          <div className='col-xs-12'>Rewards earned: <i className='fa fa-inr'></i> <strong className='i'>{this.state.totalrefcount ? this.state.totalrefcount * 200 : '0'}</strong> </div>
           {this.renderStaticData()}
         </div>
       )
