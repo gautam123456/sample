@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import TopNotification from './TopNotification';
@@ -15,7 +16,14 @@ export default class OrderConfirm extends React.Component {
       date: this.getDate(),
       month: (parseInt(this.date.getMonth()) + 1).toString(),
       year: parseInt(this.date.getFullYear()),
-      months:[]
+      months:[],
+      notify: {
+        show: false,
+        type: 'info',
+        timeout: 4000,
+        msg:'',
+        top: 30
+      }
     }
 
     Base.sandbox.date = this.getDate();
@@ -31,6 +39,7 @@ export default class OrderConfirm extends React.Component {
     return (
         <div>
           <ActivityHeader heading = { 'Enter booking Details' }/>
+          <TopNotification data={this.state.notify}/>
           { this.props.location.query.error ? <TopNotification msg = { !(this.state.mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
@@ -46,14 +55,35 @@ export default class OrderConfirm extends React.Component {
             </div>
 
           </div>
-          <ActivityFooter key = {34} next = { this.state.date && this.state.mailId && this.state.timing ? 'address' : 'order/details?error=true' } back = { '' } info = 'Please make sure all fields are valid'/>
+          <ActivityFooter key = {34} next = { this.navigateNext.bind(this) } back = { this.navigateBack.bind(this) } info = 'Please make sure all fields are valid'/>
         </div>
     )
+  }
+
+  navigateNext() {
+    if(this.state.mailId) {
+      if(this.state.timing) {
+        browserHistory.push('/address');
+      } else {
+        this.showNotification('info', 'Please select your time slot', 4000, 30);
+      }
+    } else {
+      this.showNotification('info', 'Please provide email address', 4000, 30);
+    }
+  }
+
+  navigateBack() {
+    browserHistory.push('');
+  }
+
+  showNotification(type, msg, timeout, top) {
+    this.setState({notify: {show: true, timeout, type, msg, top}})
   }
 
   scheduleHandler(param, value) {
     this.setState({[param]: value});
     Base.sandbox[param] = value;
+    this.setState({notify: {show: false}})
   }
 
   optionalComments(e) {
@@ -69,6 +99,7 @@ export default class OrderConfirm extends React.Component {
       this.setState({mailId});
     }
     Base.sandbox.mailId = mailId;
+    this.setState({notify: {show: false}})
   }
 
   isValidEmailId(email) {

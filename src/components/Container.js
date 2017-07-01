@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import HomeImage from './HomeImage';
+import TopNotification from './TopNotification';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
@@ -15,8 +16,15 @@ export default class Container extends React.Component {
     this.active = 1;
 
     this.state = {
-      data: '',
-      active: this.active
+      data: Base.sandbox.items || '',
+      active: this.active,
+      notify: {
+        show: false,
+        type: 'info',
+        timeout: 12000,
+        msg:'',
+        bottom: 60
+      }
     }
 
     this.getStaticData = this.getStaticData.bind(this);
@@ -60,6 +68,10 @@ export default class Container extends React.Component {
     this.active = active; this.setState({active: active}); this.changeMetaData(active); fbq('track', 'ViewContent');
   }
 
+  showNotification(type, msg, timeout, bottom) {
+    this.setState({notify: {show: true, timeout, type, msg, bottom}})
+  }
+
   componentWillReceiveProps(nextProp) {
     const url = nextProp.url.pathname;
     this.switchUrl(url);
@@ -70,8 +82,9 @@ export default class Container extends React.Component {
       document.getElementById('load').style.display = 'none';
       return (
         <div className='col-md-12 col-xs-12 pad0 clearfix'>
+          <TopNotification data={this.state.notify}/>
           <div className='col-md-4 nomob'></div>
-          <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1}/>
+          <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1} showNotification={this.showNotification.bind(this)}/>
         </div>
       )
     } else {
@@ -92,6 +105,7 @@ export default class Container extends React.Component {
     ajaxObj.success = function(data) {
       ajaxObj.xhrFields = { withCredentials: true };
       self.setState({data: data})
+      Base.sandbox.items = data;
       self.switchUrl(url);
     }
     ajaxObj.error = function() {

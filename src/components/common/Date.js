@@ -115,13 +115,18 @@ export default class DateWidget extends React.Component {
   }
 
   render() {
+    let timing = '', meridian = '';
+    if (this.props.data.timing) {
+      timing = this.props.data.timing.split('_')[0];
+      meridian = this.props.data.timing.split('_')[1];
+    }
 
     return (
       <div>
         <div className = 'col-xs-12 confirm pad0'>
           <div className = 'col-xs-12 datepick'>
             <span> Pick your time </span>
-            <div className = 'col-xs-12 date' style={{height:40}}> { this.props.data.date + '/' + this.props.data.month + '/' + this.props.data.year + ' ' + this.props.data.timing.split('_')[0] || '' + ' ' + this.props.data.timing.split('_')[1] || '' } </div>
+            <div className = 'col-xs-12 date' style={{height:40}}> { this.props.data.date + '/' + this.props.data.month + '/' + this.props.data.year + ' ' + timing + meridian } </div>
 
             <div className = 'col-xs-3 pad0'>
               <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.props.data.year }>

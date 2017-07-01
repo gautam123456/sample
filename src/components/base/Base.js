@@ -82,9 +82,9 @@ export default class Base extends React.Component {
       //window.bookingDetails = bookingDetails;
       //window.bookingDetails.name = name;
 
-      const {name2} = Base.sandbox.bookingDetails;
+      const {name} = Base.sandbox.bookingDetails;
       Base.sandbox.bookingDetails = bookingDetails;
-      Base.sandbox.bookingDetails.name = name2;
+      Base.sandbox.bookingDetails.name = name;
 
 
 

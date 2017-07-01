@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import ServiceMenu from './ServiceMenu';
+import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import Base from './base/Base';
@@ -21,7 +22,7 @@ export default class FullCart extends React.Component {
         <div>
           <ActivityHeader heading = { 'Cart' }/>
           { this.renderCart() }
-          <ActivityFooter next = { this.navigateTo() } back = { '/' }/>
+          <ActivityFooter key = { 45 } next = { this.navigateNext.bind(this) } back = { this.navigateBack.bind(this) }/>
         </div>
     )
   }
@@ -58,16 +59,20 @@ export default class FullCart extends React.Component {
     )
   }
 
-  navigateTo() {
+  navigateBack() {
+    browserHistory.push('');
+  }
+
+  navigateNext() {
     if(Base.sandbox.bookingDetails.name){
       if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
-        return 'order/details';
+        browserHistory.push('/order/details');
       } else {
-        return '';
+        browserHistory.push('');
       }
 
     }else{
-      return 'login';
+      browserHistory.push('/login');
     }
   }
 

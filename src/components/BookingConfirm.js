@@ -4,6 +4,7 @@
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import ConfirmationList from './ConfirmationList';
+import TopNotification from './TopNotification';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import Base from './base/Base';
@@ -15,6 +16,16 @@ export default class BookingConfirm extends React.Component {
 
   constructor (props){
     super(props);
+    this.state = {
+      notify: {
+        show: false,
+        type: 'info',
+        timeout: 4000,
+        msg:'',
+        top: 30
+      }
+    }
+
     this.validateAndConfirm = this.validateAndConfirm.bind(this);
   }
 
@@ -22,7 +33,8 @@ export default class BookingConfirm extends React.Component {
     return (
       <div>
         <ActivityHeader heading = { 'Confirm Booking' }/>
-        <ConfirmationList />
+        <TopNotification data={this.state.notify}/>
+        <ConfirmationList showNotification={this.showNotification.bind(this)}/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 pad0'>
          <button className = 'col-xs-12 col-md-4' style = {{padding: 15,fontSize: 17, fontWeight: 600,position: 'fixed',bottom:0}} onClick = { this.validateAndConfirm }> Confirm Booking </button>
         </div>
@@ -51,6 +63,10 @@ export default class BookingConfirm extends React.Component {
       this.confirm(details);
 
     }
+  }
+
+  showNotification(type, msg, timeout, top) {
+    this.setState({notify: {show: true, timeout, type, msg, top}})
   }
 
   confirm(e) {

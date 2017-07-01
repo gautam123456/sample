@@ -4,16 +4,9 @@
   font-size: 14px;
 
   input{
-    min-height: 50px;
+    min-height: 40px;
     margin: 30px 0;
-  }
-
-  textarea {
-    background-color: transparent;
-    padding: 5px;
-    color: $brand-color;
-    border-color: $brand-color-lightest;
-    border-radius: 2px;
+    padding-left: 5px;
   }
 
   .datepick{
@@ -22,9 +15,9 @@
     color: $brand-color;
     padding: 20px 0;
 
-    //span {
-    //  font-size: 12px;
-    //}
+    span {
+      margin-left: 5px;
+    }
 
     .date{
       text-align: center;
@@ -32,7 +25,8 @@
     }
 
     .col-xs-3 {
-      margin-right: 12%;
+      width: 30%;
+      margin-right: 5%;
 
       &:nth-child(5) {
         margin-right: 0%;

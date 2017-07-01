@@ -40,7 +40,7 @@ export default class BookingSummary extends React.Component {
   bookingConfirm() {
     const subTotal = Base.sandbox.bookingDetails.subTotal;
     if((subTotal - (subTotal * Base.sandbox.bookingDetails.discount/100)) >= Base.sandbox.bookingDetails.minBooking){
-      browserHistory.push('address');
+      browserHistory.push('order/details');
     }
   }
 }

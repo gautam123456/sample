@@ -8,7 +8,9 @@ import Base from './base/Base';
 export default class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { opacity: 1 };
+    this.state = {
+      opacity: 1
+    };
   }
 
   render() {
@@ -23,11 +25,10 @@ export default class Cart extends React.Component {
         <div className='col-xs-5 pad0'>
           Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
         </div>
-        <div className='col-xs-4 full-height book pad0' onClick = { this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking ? this.navigateTo.bind(this) : this.showMessage.bind(this) }>
+        <div className='col-xs-4 full-height book pad0' onClick = {this.navigateTo.bind(this)}>
 
-          <div className='tooltip'>Book Now
-            <span className='tooltiptext'> Minimum booking amount is <i className='fa fa-inr'></i> 800, add more services. </span>
-          </div>
+          { this.isLoggedIn() ? 'Book Now' : 'Login to Book'}
+
         </div>
       </div>
     )
@@ -51,11 +52,15 @@ export default class Cart extends React.Component {
 
   navigateTo() {
     fbq('track', 'InitiateCheckout');
-    this.isLoggedIn() ?  browserHistory.push('/order/details') : browserHistory.push('/login?for=book')
-  }
-
-  showMessage() {
-
+    if(this.isLoggedIn()) {
+      if(this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking) {
+        browserHistory.push('order/details');
+      } else {
+        this.props.showNotification('info', 'Minimum booking amount is Rs 800, please add more services.', 4000, 60);
+      }
+    } else {
+      browserHistory.push('login')
+    }
   }
 
   isLoggedIn() {

@@ -22,14 +22,10 @@ export default class ConfirmationList extends React.Component {
         promoCodeApplied: false,
         refDiscount: 0,
         couponCode:'',
-        displayType : 'none',
-        info: 'Coupon code Applied Successfully',
-        infoType: 'info',
         discount: Base.sandbox.bookingDetails.discount,
         questionShow: {display: 'block', paddingTop: 0},
         applySectionShow: {display: 'none', paddingTop: 0},
-        bookedItemList: Base.sandbox.bookingDetails,
-        errormsg: {display: 'none'}
+        bookedItemList: Base.sandbox.bookingDetails
       }
     }
 
@@ -40,10 +36,6 @@ export default class ConfirmationList extends React.Component {
       }, 1000);
     }
 
-    hideMsg() {
-      this.setState({displayType:'none'});
-    }
-
     havePromoCode() {
       this.setState({ applySectionShow:{ display: 'block', paddingTop: 0}, questionShow: { display: 'none', paddingTop: 0 } })
     }
@@ -51,6 +43,7 @@ export default class ConfirmationList extends React.Component {
     removeCode() {
       Base.sandbox.bookingDetails.discount = 0;
       this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
+      this.props.showNotification('success', 'Coupon removed successfully', 4000, 30);
     }
 
     renderPromoCodeSection() {
@@ -82,18 +75,6 @@ export default class ConfirmationList extends React.Component {
       }
     }
 
-    renderNotification() {
-      let classs = `col-xs-10 col-md-4 top-msg ${ this.state.infoType }`;
-      return (
-        <header className = { classs } style = {{display: this.state.displayType}}>
-          <div>
-            <span >{ this.state.info }</span>
-            <span className = 'pull-right' onClick = { this.hideMsg.bind(this) }><i className = 'fa fa-times'></i></span>
-          </div>
-        </header>
-      )
-    }
-
     render() {
         const then = this,
             objKeys = this.state.bookedItemList ? Object.keys(this.state.bookedItemList.services) : [],
@@ -102,7 +83,6 @@ export default class ConfirmationList extends React.Component {
             {refDiscount} = this.state;
         return (
             <div className = 'col-md-offset-4 col-md-4 pad0'>
-                { this.renderNotification.bind(this) }
                 <div className = 'col-xs-12 summary pad0 rr'>
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Sub Total </div>
@@ -127,10 +107,6 @@ export default class ConfirmationList extends React.Component {
                     { this.renderPromoCodeSection.bind(this)() }
                     { this.renderCouponAppliedSection.bind(this)() }
                 </div>
-
-
-
-
                 <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
                         <div className = 'col-xs-12 pad0'>
@@ -159,18 +135,14 @@ export default class ConfirmationList extends React.Component {
       ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
       ajaxObj.data = { couponcode: self.state.couponCode }
       ajaxObj.success = function(data) {
-        self.setState({ discount: data.discount, displayType: 'block', info: 'Coupon code Applied Successfully', infoType: 'info', promoCodeApplied: true });
+        self.setState({ discount: data.discount, promoCodeApplied: true });
+        self.props.showNotification('success', 'Coupon applied successfully', 4000, 30);
         Base.sandbox.bookingDetails.couponcode = self.state.couponCode;
         Base.sandbox.bookingDetails.discount = data.discount;
-        setTimeout(function(){
-          self.hideMsg();
-        }, 3000)
       }
       ajaxObj.error = function(e){
-        self.setState({ discount: 0, displayType: 'block', info: e.responseJSON.message , infoType: 'error' });
-        setTimeout(function(){
-          self.hideMsg();
-        }, 3000)
+        self.setState({ discount: 0});
+        self.props.showNotification('error', e.responseJSON.message, 4000, 30);
       }
       $.ajax(ajaxObj);
     }

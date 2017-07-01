@@ -15,16 +15,20 @@ export default class OTPConfirm extends DisableScroll {
     super(props);
     this.state = {
       otp : '',
-      display: this.props.location.query.errorDisplay || 'none',
-      error: false,
-      msg: ''
+      notify: {
+        show: false,
+        type: 'info',
+        timeout: 4000,
+        msg:'',
+        top: 30
+      }
     }
   }
 
   render() {
     return (
       <div className='lo'>
-        { this.state.error ? <TopNotification msg = { this.state.msg } type = 'error'/> : ''}
+        <TopNotification data={this.state.notify}/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
           <div className = 'discard col-xs-12 col-md-4'>
             <Link to = { '/' }>
@@ -45,17 +49,17 @@ export default class OTPConfirm extends DisableScroll {
     )
   }
 
-  otpChanged(e) {
-    const otp = e.currentTarget.value;
-    otp.length <= 6 ? this.setState({otp}) : '';
+  showNotification(type, msg, timeout, top) {
+    this.setState({notify: {show: true, timeout, type, msg, top}})
   }
 
-  wrongOtpEntered(e) {
-    const self = this;
-    self.setState({error: true, msg: e.responseText});
-    setTimeout(function(){
-      self.setState({error: false, msg: ''});
-    }, 4000);
+  otpChanged(e) {
+    const otp = e.currentTarget.value;
+    if(otp.length <= 6) {
+      this.setState({otp, notify: {show: false}});
+    } else {
+      this.showNotification('warning', 'Please provide 6 digit OTP', 4000, 30);
+    }
   }
 
   resendOtp() {
@@ -63,14 +67,14 @@ export default class OTPConfirm extends DisableScroll {
     let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
-    ajaxObj.data = { phonenumber: self.props.location.query.number };
+    ajaxObj.data = { phonenumber: Base.sandbox.number };
     ajaxObj.success = function(data) {
       Base.hideOverlay();
-      browserHistory.push('/otp/confirm?number=' + self.props.location.query.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token);
+      self.showNotification('success', 'OTP successfully resent on your mobile number', 4000, 30);
     }
     ajaxObj.error = function(e) {
       Base.hideOverlay();
-      self.wrongOtpEntered(e);
+      self.showNotification('error', e.responseText, 4000, 30);
     }
     $.ajax(ajaxObj);
   }
@@ -78,28 +82,18 @@ export default class OTPConfirm extends DisableScroll {
   register() {
     Base.showOverlay();
     const self = this;
-
-    let query = this.props.location.query,
-      forString = query.for ? '&for=' + query.for : '';
-
-    if(query.isNewUser == true){
-
-      browserHistory.push( '/register?number=' + query.number + '&isNewUser=' + query.isNewUser + '&token=' + query.token + '&otp=' + this.state.otp + forString );
-
-    }else{
+    if (Base.sandbox.isNewUser == true) {
+      browserHistory.push('/register');
+    } else {
       ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
-      ajaxObj.data = { phonenumber: query.number, otp: this.state.otp, token: query.token };
+      ajaxObj.data = { phonenumber: Base.sandbox.number, otp: this.state.otp, token: Base.sandbox.token };
       ajaxObj.success = function() {
         Base.sandbox.bookingDetails.name = 'ZZ';
-        if(query.for != 'undefined' && query.for != undefined){
-          browserHistory.push('/' + query.for);
-        }else {
-          browserHistory.push('');
-        }
+        browserHistory.push('');
         Base.hideOverlay();
       }
       ajaxObj.error = function(e) {
-        self.wrongOtpEntered(e);
+        self.showNotification('error', e.responseText, 4000, 30);
         Base.hideOverlay();
       }
       $.ajax(ajaxObj);

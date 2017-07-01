@@ -6,6 +6,7 @@ import { Link, browserHistory } from 'react-router';
 import Address from './Address';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
+import TopNotification from './TopNotification';
 import $ from 'jquery';
 import Base from './base/Base';
 
@@ -15,9 +16,16 @@ export default class addresslist extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            address: '',
-            addresslist: [],
-            activelkey: ''
+          address: '',
+          addresslist: [],
+          activelkey: '',
+          notify: {
+            show: false,
+            type: 'info',
+            timeout: 4000,
+            msg:'',
+            top: 30
+          }
         }
     }
 
@@ -26,6 +34,7 @@ export default class addresslist extends React.Component {
         return (
             <div>
                 <ActivityHeader heading = { 'Select your Address' }/>
+                  <TopNotification data={this.state.notify}/>
                     <div className = 'col-md-offset-4 col-md-4 col-xs-12'>
                         { this.state.addresslist ? this.state.addresslist.map( function(address, index) {
                             return (<Address key = { address.lkey } address = { address } index = { index } active = { self.state.activelkey === address.lkey } selectedAddress = { self.selectedAddress.bind(self) }/>)
@@ -34,9 +43,25 @@ export default class addresslist extends React.Component {
                         <div className='add-address col-xs-4'><Link to = '/address/add'>Add New Address</Link></div>
 
                     </div>
-                <ActivityFooter key = { 45 } next = { this.state.address ? 'booking/confirm' :'address' } back = { 'order/details' } address = { this.state.address } info = { 'please select address' }/>
+                <ActivityFooter key = { 45 } next = { this.navigateNext.bind(this) } back = { this.navigateBack.bind(this) }/>
             </div>
         )
+    }
+
+    navigateNext() {
+      if(this.state.address) {
+          browserHistory.push('booking/confirm');
+      } else {
+        this.showNotification('info', 'Please add and select address', 4000, 30);
+      }
+    }
+
+    navigateBack() {
+      browserHistory.push('/order/details');
+    }
+
+    showNotification(type, msg, timeout, top) {
+      this.setState({notify: {show: true, timeout, type, msg, top}})
     }
 
     componentWillMount(){

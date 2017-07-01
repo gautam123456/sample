@@ -16,14 +16,20 @@ export default class Login extends DisableScroll {
     super(props);
     this.state = {
       number : '',
-      msg: ''
+      notify: {
+        show: false,
+        type: 'info',
+        timeout: 4000,
+        msg:'',
+        top: 30
+      }
     }
   }
 
   render() {
     return (
       <div className='lo'>
-        <TopNotification msg = { this.state.msg } type = 'error'/>
+        <TopNotification data={this.state.notify}/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
           <div className = 'discard col-xs-12 col-md-4'>
             <Link to = { '/' }>
@@ -38,7 +44,7 @@ export default class Login extends DisableScroll {
           <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-user-o'></i></div>
           <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.numberChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
           </div>
-          <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.state.number.length === 10 ? this.login.bind(this) : this.showErrorMessage.bind(this) }> LOG IN / SIGN UP</button>
+          <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.login.bind(this) }> LOG IN / SIGN UP</button>
         </div>
       </div>
     )
@@ -48,42 +54,51 @@ export default class Login extends DisableScroll {
     Base.hideOverlay();
   }
 
-  showErrorMessage() {
-    this.setState({msg:'Mobile no should be of 10 digits'})
-  }
-
-  hideErrorMessage(number) {
-    this.setState({msg:'', number})
+  showNotification(type, msg, timeout, top) {
+    this.setState({notify: {show: true, timeout, type, msg, top}})
   }
 
   numberChanged(e) {
     let number = e.currentTarget.value;
-    number.length <= 10 ? this.hideErrorMessage(number) : this.showErrorMessage();
+    this.setState({number});
+    if(!(number.length <= 10)) {
+      this.showNotification('warning', 'Please provide 10 digit mobile number', 4000, 30);
+    } else {
+      this.setState({notify: {show: false}});
+    }
   }
 
   login() {
-    Base.showOverlay();
-    let self = this,
-      query = this.props.location.query,
-      forString = query.for ? '&for=' + query.for : '',
-      refcode = query.refcode ? '&refcode=' + query.refcode : '';
+    if(this.state.number.length !== 10) {
+      this.showNotification('warning', 'Please provide 10 digit mobile number', 4000, 30);
+    } else {
+      Base.showOverlay();
+      let self = this,
+        query = this.props.location.query;
 
-    ajaxObj.type = 'POST';
-    ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
-    ajaxObj.data = { phonenumber: self.state.number };
-    ajaxObj.success = function(data) {
-      if(data.isNewUser == true){
-        browserHistory.push( 'register?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + refcode + forString);
-      }else{
-        browserHistory.push('otp/confirm?number=' + self.state.number + '&isNewUser=' + data.isNewUser + '&token=' + data.token + forString);
-      }
+
+      Base.sandbox.refcode = query.refcode;
+      Base.sandbox.number = self.state.number;
+
+      ajaxObj.type = 'POST';
+      ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
+      ajaxObj.data = { phonenumber: self.state.number };
+      ajaxObj.success = function(data) {
+        Base.sandbox.isNewUser = data.isNewUser;
+        Base.sandbox.token = data.token;
+        if(data.isNewUser == true){
+          browserHistory.push( '/register');
+        }else{
+          browserHistory.push('/otp/confirm');
+        }
         Base.hideOverlay();
+      }
+      ajaxObj.error = function(e) {
+        Base.hideOverlay();
+        self.showNotification('error', e.responseText, 4000, 30);
+      }
+      $.ajax(ajaxObj);
     }
-    ajaxObj.error = function(e) {
-      Base.hideOverlay();
-      self.setState({msg:e.responseText})
-    }
-    $.ajax(ajaxObj);
   }
 }
 

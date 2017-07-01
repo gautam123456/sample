@@ -7,6 +7,7 @@ import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
 import Appointment from './Appointment';
+import TopNotification from './TopNotification';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -16,7 +17,14 @@ export default class AppointmentList extends React.Component {
     this.state = {
       ongoing: true,
       ongoingList: [],
-      historyList: []
+      historyList: [],
+      notify: {
+        show: this.props.location.query.notify,
+        type: 'success',
+        timeout: 4000,
+        msg: Base.sandbox.notify || '',
+        top: 30
+      }
     }
     this.ongoingList = [];
     this.historyList = [];
@@ -41,6 +49,7 @@ export default class AppointmentList extends React.Component {
     return (
       <div className = 'col-xs-12 pad0 col-md-4 col-md-offset-4 appointments'>
         <ActivityHeader heading = { 'My Appointments' }/>
+        <TopNotification data={this.state.notify}/>
         <div className = 'col-xs-10 col-xs-offset-1 tab'>
           <div className = {'col-xs-6 ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>ONGOING</div>
           <div className = {'col-xs-6 ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
@@ -52,6 +61,10 @@ export default class AppointmentList extends React.Component {
         }
       </div>
     )
+  }
+
+  showNotification(type, msg, timeout, top) {
+    this.setState({notify: {show: true, timeout, type, msg, top}})
   }
 
   addBookingType(list) {
@@ -78,7 +91,7 @@ export default class AppointmentList extends React.Component {
         case 'apr': numericMonth = 3; break;
         case 'may': numericMonth = 4; break;
         case 'june': numericMonth = 5; break;
-        case 'july': numericMonth = 6; break;
+        case 'jul': numericMonth = 6; break;
         case 'aug': numericMonth = 7; break;
         case 'sep': numericMonth = 8; break;
         case 'oct': numericMonth = 9; break;

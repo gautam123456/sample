@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
+import TopNotification from './TopNotification';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import Base from './base/Base';
@@ -20,7 +21,14 @@ export default class AddAddress extends React.Component {
       address: address ? address.address : '',
       landmark: address ? address.landmark : '',
       lkey: address ? address.lkey : '',
-      op: op
+      op: op,
+      notify: {
+        show: false,
+        type: 'info',
+        timeout: 4000,
+        msg:'',
+        top: 30
+      }
     }
   }
   render() {
@@ -31,6 +39,7 @@ export default class AddAddress extends React.Component {
     return (
       <div>
         <ActivityHeader heading = { 'Provide Address' } />
+        <TopNotification data={this.state.notify}/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
           <select className = 'col-xs-12' style = { dropStyle } onChange = { this.saveCity.bind(this) } value = { this.state.city }>
             <option value = 'New Delhi'> New Delhi </option>
@@ -46,7 +55,7 @@ export default class AddAddress extends React.Component {
 
           <input type = 'text' placeholder = 'Landmark' className = 'col-xs-12' onChange = { this.saveLandMark.bind(this) } value = { this.state.landmark }/>
 
-          <button type = 'text' className = 'col-xs-12' onClick={ this.state.address && this.state.city && this.state.landmark ? this.updateAddress.bind(this) : '' }> { this.state.op === 'edit' ? 'Update' : (this.state.op === 'delete' ? 'Delete' : 'Submit')} </button>
+          <button type = 'text' className = 'col-xs-12' onClick={this.updateAddress.bind(this)}> { this.state.op === 'edit' ? 'Update' : (this.state.op === 'delete' ? 'Delete' : 'Submit')} </button>
 
           <div className = 'col-xs-12 message'>
             *All fields are mandatory
@@ -58,24 +67,40 @@ export default class AddAddress extends React.Component {
     )
   }
 
+  showNotification(type, msg, timeout, top) {
+    this.setState({notify: {show: true, timeout, type, msg, top}})
+  }
+
   saveAddress(e) {
     let address = e.currentTarget.value;
-    this.setState({ address: address });
+    this.setState({ address, notify: {show: false}});
   }
 
   saveCity(e) {
     let city = e.currentTarget.value;
-    this.setState({ city: city });
+    this.setState({ city, notify: {show: false} });
   }
 
   saveLandMark(e) {
     let landmark = e.currentTarget.value;
-    this.setState({ landmark: landmark });
+    this.setState({ landmark, notify: {show: false} });
   }
 
   updateAddress() {
-    this.state.op === 'edit' ? this.editAddress() : (this.state.op === 'delete' ? this.deleteAddress() : this.addAddress())
-    browserHistory.push('/address');
+    if(this.state.city) {
+      if(this.state.address) {
+        if(this.state.landmark) {
+          this.state.op === 'edit' ? this.editAddress() : (this.state.op === 'delete' ? this.deleteAddress() : this.addAddress())
+          browserHistory.push('/address');
+        } else {
+          this.showNotification('info', 'Please provide your nearest landmark', 4000, 30);
+        }
+      } else {
+        this.showNotification('info', 'Please provide your complete address', 4000, 30);
+      }
+    } else {
+      this.showNotification('info', 'Please select your city', 4000, 30);
+    }
   }
 
   addAddress() {

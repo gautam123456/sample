@@ -48,7 +48,7 @@ export default class HomeImage extends React.Component {
         <ServicesList data = { this.props.data } service = { this.props.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
         <StaticPortion data={this.props.data}/>
         <Testimonial data = { testimonials } />
-        <Cart bookingDetails = { this.state.bookingDetails } />
+        <Cart bookingDetails = { this.state.bookingDetails } showNotification={this.props.showNotification}/>
       </section>
     )
   }

@@ -4,9 +4,12 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
+import ActivityFooter from './ActivityFooter';
 import $ from 'jquery';
 import Base from './base/Base';
 import DateWidget from './common/Date';
+import TopNotification from './TopNotification';
+
 import ajaxObj from '../../data/ajax.json';
 
 export default class Reschedule extends React.Component {
@@ -22,7 +25,13 @@ export default class Reschedule extends React.Component {
       month: (parseInt(this.date.getMonth()) + 1).toString(),
       year: parseInt(this.date.getFullYear()),
       months: [],
-      msg: 'Please select time'
+      notify: {
+        show: false,
+        type: 'info',
+        timeout: 4000,
+        msg:'',
+        top: 30
+      }
     }
   }
 
@@ -30,17 +39,27 @@ export default class Reschedule extends React.Component {
     return (
       <div>
         <ActivityHeader heading = { 'Reschedule booking' }/>
+        <TopNotification data={this.state.notify}/>
         <div className = 'col-md-offset-4 col-xs-12 col-md-4 cancel'>
           <div className = 'col-xs-12 center'>Booking ID : {this.state.id}</div>
           <DateWidget scheduleHandler = {this.scheduleHandler.bind(this)} data = {this.state} date={this.date}/>
           <button type = 'text' className = 'col-xs-12' onClick={  this.reschedule.bind(this) }> RESCHEDULE</button>
         </div>
+        <ActivityFooter key = { 45 } back = { this.navigateBack.bind(this) }/>
       </div>
     )
   }
 
+  navigateBack() {
+    browserHistory.push('/appointments');
+  }
+
+  showNotification(type, msg, timeout, top) {
+    this.setState({notify: {show: true, timeout, type, msg, top}})
+  }
+
   scheduleHandler(param, value) {
-    this.setState({[param]: value});
+    this.setState({[param]: value, notify: {show: false}});
   }
 
   getDateTime() {
@@ -49,19 +68,25 @@ export default class Reschedule extends React.Component {
   }
 
   reschedule() {
-    const state = this.state;
+    const state = this.state,
+      self = this;
     if(state.month && state.date && state.year && state.timing){
       Base.showOverlay();
-      const self = this;
       ajaxObj.type = 'POST';
       ajaxObj.url = ajaxObj.baseUrl + '/reschedulebooking';
       ajaxObj.data = { bookingid: self.state.id, datetime: self.getDateTime() };
-      ajaxObj.success = function() {
-        browserHistory.push('appointments');
+      ajaxObj.success = function(data) {
         Base.hideOverlay();
+        Base.sandbox.notify = data.message;
+        browserHistory.push('/appointments?notify=true');
       }
-      ajaxObj.error = () => {if(!Base.sandbox.bookingDetails.name){browserHistory.push('login')}}
+      ajaxObj.error = (e) => {
+        Base.hideOverlay();
+        self.showNotification('error', e.responseJSON.message, 4000, 30);
+      }
       $.ajax(ajaxObj);
+    } else {
+      self.showNotification('info', 'Please select your new time slot', 4000, 30);
     }
   }
 }
