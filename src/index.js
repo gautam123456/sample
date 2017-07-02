@@ -2,20 +2,17 @@ import 'styles/salonathome.scss';
 // TODO
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory  } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 
 import App from './components/Main';
 import AddAddress from './components/AddAddress';
 import AddressList from './components/AddressList';
 import Base from './components/base/Base';
 import BookingConfirm from './components/BookingConfirm';
-//import BookingSummary from './components/BookingSummary';
 import Cancel from './components/Cancel';
 import FullCart from './components/FullCart';
 import Gallery from './components/Gallery';
-//import GalleryHome from './components/GalleryHome';
 import InviteAndEarn from './components/InviteAndEarn';
-//import Loader from './components/Loader';
 import Login from './components/Login';
 import OrderConfirm from './components/OrderConfirm';
 import OTPConfirm from './components/OTPConfirm';
@@ -24,7 +21,6 @@ import Reschedule from './components/Reschedule';
 import RegisterUser from './components/RegisterUser';
 import ThankYou from './components/ThankYou';
 import ErrorPage from './components/ErrorPage';
-//import SomethingWentWrong from './components/SomethingWentWrong';
 import FooterPage from './components/FooterPage';
 import Appointments from './components/AppointmentList';
 

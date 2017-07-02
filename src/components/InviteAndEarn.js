@@ -22,7 +22,7 @@ export default class InviteAndEarn extends React.Component {
           <ul>
             <li>If your friend sign up using your refer code & books an appointment, then.</li>
             <li>You will get 200 Rs OFF on your next booking. </li>
-            <li>Your friend will get Rs 200 OFF on her First booking. </li>
+            <li>Your friend will get Rs 200 OFF on her first booking. </li>
           </ul>
         </div>
         <div className='col-xs-12 pad0 a'>
@@ -49,7 +49,7 @@ export default class InviteAndEarn extends React.Component {
       <div className='static col-xs-12 pad0'>
         <ul>
           <li>Hurray! you can avail 200 Rs off per booking as per referral program</li>
-          <li>No need to apply coupon, just make your booking, referral discount will be applied automatically, If eligible.</li>
+          <li>No need to apply coupon, just make your booking, referral discount will be applied automatically, if eligible.</li>
         </ul>
       </div>
     )
