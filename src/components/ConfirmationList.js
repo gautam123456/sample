@@ -12,12 +12,6 @@ export default class ConfirmationList extends React.Component {
     constructor(props) {
         super(props);
 
-      //this.renderNotification = this.renderNotification.bind(this);
-      //this.renderPromoCodeSection = this.renderPromoCodeSection.bind(this);
-      //this.renderCouponAppliedSection = this.renderCouponAppliedSection.bind(this);
-      //this.havePromoCode = this.havePromoCode.bind(this);
-      //this.hideMsg = this.hideMsg.bind(this);
-
       this.state = {
         promoCodeApplied: false,
         refDiscount: 0,
@@ -148,6 +142,3 @@ export default class ConfirmationList extends React.Component {
     }
 
 }
-//{ this.renderPromoCodeSection() }
-//{ this.renderCouponAppliedSection() }
-//{ this.renderNotification() }

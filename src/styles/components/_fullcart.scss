@@ -7,16 +7,20 @@
     width: 127px;
     padding: 17px;
     position: relative;
-    margin: 100px auto 20px;
-    background-color: #ddd;
+    margin: 40% auto 20px;
+    background-color: #fab450;
     border-radius: 90px;
 
     .fa {
       font-size: 90px;
-      opacity: 0.3;
       color: $brand-color;
 
     }
+  }
+
+  .col-xs-12 {
+    color: $brand-color;
+    margin-top: 10px;
   }
 }
 

@@ -163,11 +163,4 @@ export default class BookedServicesList extends React.Component {
     this.forceUpdate();
     Base.saveToLocalStorage();
   }
-
-  //TODO Remove
-  //saveToLocalStorage() {
-  //  let bookingDetails = window.bookingDetails;
-  //  bookingDetails.discount = 0;
-  //  window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
-  //}
 }

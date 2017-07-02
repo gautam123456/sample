@@ -22,5 +22,3 @@ export default class Drawer extends React.Component {
     document.getElementById('grey-overlay').className = 'a';
   }
 }
-
-// Need to work on this....Currently this is not being used and direct HTM node is being used as of now... for more look at HTML file...
