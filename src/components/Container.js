@@ -65,7 +65,7 @@ export default class Container extends React.Component {
   }
 
   changeData(active) {
-    this.active = active; this.setState({active: active}); this.changeMetaData(active); fbq('track', 'ViewContent');
+    this.active = active; this.setState({active: active, notify: {show: false}}); this.changeMetaData(active); fbq('track', 'ViewContent');
   }
 
   showNotification(type, msg, timeout, bottom) {
@@ -123,7 +123,7 @@ export default class Container extends React.Component {
       case '4': browserHistory.push('/salon-at-home/makeup');   break;
       case '5': browserHistory.push('/salon-at-home/packages');  break;
     }
-    this.setState({active: attrValue});
+    this.setState({active: attrValue, notify: {show: false}});
   }
 
   getStaticData(id) {

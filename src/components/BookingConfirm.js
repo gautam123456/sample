@@ -70,6 +70,7 @@ export default class BookingConfirm extends React.Component {
   }
 
   confirm(e) {
+    const self = this;
     fbq('track', 'Purchase', {value: '1.00', currency: 'USD'});
     Base.showOverlay();
     ajaxObj.type = 'POST'
@@ -81,8 +82,9 @@ export default class BookingConfirm extends React.Component {
       Base.sandbox.finalAmount = data.finalAmount;
       browserHistory.push('/booking/confirmed');
     }
-    ajaxObj.error = function(){
-      Base.hideOverlay(); browserHistory.push('/oops');
+    ajaxObj.error = function(e){
+      Base.hideOverlay();
+      self.showNotification('error', e.responseJSON.message, 4000, 30);
     }
     $.ajax(ajaxObj);
   }

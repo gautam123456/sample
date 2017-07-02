@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import $ from 'jquery';
+import { browserHistory } from 'react-router';
 
 import bookingDetails from '../../../data/constants.json';
 import ajaxObj from '../../../data/ajax.json';
@@ -102,5 +103,9 @@ export default class Base extends React.Component {
       let bookingDetails = Base.sandbox.bookingDetails;
       bookingDetails.discount = 0;
       window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
+    }
+
+    static navigateTo(to) {
+      browserHistory.push(to);
     }
 }

@@ -1,15 +1,15 @@
 //Common Browser Reset files..
 @import "./common/normalize";
 @import "./common/grid";
-@import "./common/tooltip";
+//@import "./common/tooltip";
 
 //Common file
 @import "./common/common";
+@import "./common/loader";
+@import "./common/modal";
 
 //Font Awesome Icons
 @import "./common/fonticon";
-@import "./common/loader";
-@import "./common/modal";
 
 //Google Lato-Regular font
 @import "./variables/font";
@@ -38,7 +38,6 @@
 @import "./components/orderconfirm";
 @import "./components/errorPage";
 @import "./components/topNotification";
-@import "./components/somthingWentWrong";
 @import "./components/otpConfirm";
 @import "./components/login";
 @import "./components/appointment";
@@ -50,7 +49,7 @@
 
 
 /* Shell & it's components...*/
-@import "./components/base/shell";
+//@import "./components/base/shell";
 
 
 

@@ -4,7 +4,6 @@
 import React from 'react';
 import ServicesList from './ServicesList';
 import StaticPortion from './StaticPortion';
-import { browserHistory } from 'react-router';
 import Cart from './Cart';
 import $ from 'jquery';
 import Testimonial from './Testimonial';

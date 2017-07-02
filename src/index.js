@@ -9,7 +9,7 @@ import AddAddress from './components/AddAddress';
 import AddressList from './components/AddressList';
 import Base from './components/base/Base';
 import BookingConfirm from './components/BookingConfirm';
-import BookingSummary from './components/BookingSummary';
+//import BookingSummary from './components/BookingSummary';
 import Cancel from './components/Cancel';
 import FullCart from './components/FullCart';
 import Gallery from './components/Gallery';
@@ -24,7 +24,7 @@ import Reschedule from './components/Reschedule';
 import RegisterUser from './components/RegisterUser';
 import ThankYou from './components/ThankYou';
 import ErrorPage from './components/ErrorPage';
-import SomethingWentWrong from './components/SomethingWentWrong';
+//import SomethingWentWrong from './components/SomethingWentWrong';
 import FooterPage from './components/FooterPage';
 import Appointments from './components/AppointmentList';
 
@@ -52,7 +52,6 @@ render(
     <Route path = { 'appointments' } component = { Appointments } />
     <Route path = { 'booking/confirm' } component = { BookingConfirm } />
     <Route path = { 'booking/confirmed' } component = { ThankYou } />
-    <Route path = { 'book' } component = { BookingSummary } />
     <Route path = { 'cart' } component = { FullCart } />
     <Route path = { 'cancel' } component = { Cancel } />
     <Route path = { 'reschedule' } component = { Reschedule } />
@@ -68,7 +67,6 @@ render(
     <Route path = { 'privacy-policy' } component = { FooterPage } />
     <Route path = { 'refund-policy' } component = { FooterPage } />
     <Route path = { 'terms-of-service' } component = { FooterPage } />
-    <Route path = { 'oops' } component = { SomethingWentWrong } />
     <Route path = { 'salon-at-home/*' } component = { App } />
     <Route path = { '*' } component = { ErrorPage } />
   </Router>
