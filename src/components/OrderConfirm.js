@@ -45,7 +45,7 @@ export default class OrderConfirm extends React.Component {
 
             <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) }></input>
             <div className = 'col-xs-12 pad0' style = {{marginBottom: 10, marginTop: 0}}>
-              <textarea rows="3" cols="50" className = 'col-xs-12 optcomment pad0' placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100' onChange = {this.optionalComments.bind(this)}>
+              <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment' placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100' onChange = {this.optionalComments.bind(this)}>
 
               </textarea>
             </div>

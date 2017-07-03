@@ -20,7 +20,7 @@ export default class InviteAndEarn extends React.Component {
 
         <div className='col-xs-12 a'>
           <ul>
-            <li>If your friend sign up using your refer code & books an appointment, then.</li>
+            <li>If your friend sign up using your refer code and books an appointment, then.</li>
             <li>You will get 200 Rs OFF on your next booking. </li>
             <li>Your friend will get Rs 200 OFF on her first booking. </li>
           </ul>

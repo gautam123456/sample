@@ -10,16 +10,11 @@ export default class ErrorPage extends React.Component {
         return (
             <div>
                 <Header />
-                <div className = 'col-md-12 col-xs-12 error'>
-                    <div className = 'error-msg'>
-                        <i className = 'fa fa-exclamation-triangle'></i> 404
-                        <div className = "error-info">
-                            OOps!! Seems like you are lost<br/>
-                            Here's a button to take you back to our homepage
-                        </div>
-                    </div>
+                <div className = 'col-md-12 col-xs-12'>
+                  <img src="../styles/assets/images/404.gif" style={{width:'100%', margin:'20px 0'}} alt=''/>
+
                     <Link to = '/'>
-                        <button className = 'col-xs-12 col-md-4 col-md-offset-4'>Home</button>
+                        <button className = 'col-xs-6 col-xs-offset-3 col-md-2 col-md-offset-5'>Back to home page</button>
                     </ Link>
                 </div>
             </div>
