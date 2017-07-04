@@ -61,7 +61,7 @@ export default class HomeImage extends React.Component {
       if(scrollPos >= 250 && !fixed) {
         fixed = true;
         target.className += ' fixed';
-      }else if(scrollPos <= 250 && fixed) {
+      }else if(scrollPos < 250 && fixed) {
         target.className = 'filter';
         fixed = false;
       }

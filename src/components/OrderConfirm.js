@@ -22,7 +22,7 @@ export default class OrderConfirm extends React.Component {
         type: 'info',
         timeout: 4000,
         msg:'',
-        top: 30
+        bottom: 50
       }
     }
 
@@ -65,10 +65,10 @@ export default class OrderConfirm extends React.Component {
       if(this.state.timing) {
         browserHistory.push('/address');
       } else {
-        this.showNotification('info', 'Please select your time slot', 4000, 30);
+        this.showNotification('info', 'Please select your time slot', 4000, 50);
       }
     } else {
-      this.showNotification('info', 'Please provide email address', 4000, 30);
+      this.showNotification('info', 'Please provide email address', 4000, 50);
     }
   }
 
@@ -76,8 +76,8 @@ export default class OrderConfirm extends React.Component {
     browserHistory.push('');
   }
 
-  showNotification(type, msg, timeout, top) {
-    this.setState({notify: {show: true, timeout, type, msg, top}})
+  showNotification(type, msg, timeout, bottom) {
+    this.setState({notify: {show: true, timeout, type, msg, bottom}})
   }
 
   scheduleHandler(param, value) {

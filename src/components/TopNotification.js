@@ -26,8 +26,8 @@ export default class TopNotification extends React.Component {
       return (
         <div className = 'notification-container' style={{bottom, top, display: this.state.show ? 'block' : 'none'}}>
           <div className = {'col-xs-12 notification ' + this.getNotificationClass() + ' ' + this.state.current}>
-            <div className = 'col-xs-1 pad0'><i className={'fa ' + this.getIcon() }></i></div>
-            <div className = 'col-xs-11 pad0'><span> { msg }</span></div>
+            <i className={'fa ' + this.getIcon() }></i>  &nbsp;&nbsp;
+            { msg }
           </div>
         </div>
       )

@@ -24,7 +24,7 @@ export default class addresslist extends React.Component {
             type: 'info',
             timeout: 4000,
             msg:'',
-            top: 30
+            bottom: 50
           }
         }
     }
@@ -52,7 +52,7 @@ export default class addresslist extends React.Component {
       if(this.state.address) {
           browserHistory.push('booking/confirm');
       } else {
-        this.showNotification('info', 'Please add and select address', 4000, 30);
+        this.showNotification('info', 'Please add and select address', 4000, 50);
       }
     }
 
@@ -60,8 +60,8 @@ export default class addresslist extends React.Component {
       browserHistory.push('/order/details');
     }
 
-    showNotification(type, msg, timeout, top) {
-      this.setState({notify: {show: true, timeout, type, msg, top}})
+    showNotification(type, msg, timeout, bottom) {
+      this.setState({notify: {show: true, timeout, type, msg, bottom}})
     }
 
     componentWillMount(){

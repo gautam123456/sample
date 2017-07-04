@@ -89,8 +89,12 @@ export default class OTPConfirm extends DisableScroll {
       ajaxObj.data = { phonenumber: Base.sandbox.number, otp: this.state.otp, token: Base.sandbox.token };
       ajaxObj.success = function() {
         Base.sandbox.bookingDetails.name = 'ZZ';
-        browserHistory.push('');
         Base.hideOverlay();
+        if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
+          browserHistory.push('/order/details');
+        } else{
+          browserHistory.push('');
+        }
       }
       ajaxObj.error = function(e) {
         self.showNotification('error', e.responseText, 4000, 30);
