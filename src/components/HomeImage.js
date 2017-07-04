@@ -72,7 +72,7 @@ export default class HomeImage extends React.Component {
     const attrValue = e.target.getAttribute('data-value');
     this.props.serviceSelected(attrValue);
     var body = $('html, body');
-    body.stop().animate({scrollTop:0}, '500', 'swing');
+    body.stop().animate({scrollTop: 250}, '500', 'swing');
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {

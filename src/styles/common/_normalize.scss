@@ -91,11 +91,7 @@ input, select, textarea {
 
 input[type='text'], input[type='number'] {
   border: none;
-  border-bottom: 1px solid $brand-color-lightest;
-
-  &:focus {
-    border-bottom: 1px solid #82c1c0;
-  }
+  border-bottom: 1px solid $border-color;
 }
 
 img {

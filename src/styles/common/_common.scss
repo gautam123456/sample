@@ -55,16 +55,16 @@ button {
 
 input{
   font-size: 14px;
-  border: 1px solid $brand-color-lightest;
-  color: $brand-color;
+  border: 1px solid $border-color;
+  color: $font-color;
   background-color: transparent;
 }
 
 textarea {
   background-color: transparent;
   padding: 5px;
-  color: $brand-color;
-  border-color: $brand-color-lightest;
+  color: $font-color;
+  border-color: $border-color;
   border-radius: 2px;
 }
 
@@ -74,8 +74,8 @@ body{
 }
 
 select{
-  border: 1px solid $brand-color-lightest;
-  color: $brand-color;
+  border: 1px solid $border-color;
+  color: $font-color;
   height: 40px;
   background-color: transparent;
 }
@@ -100,6 +100,12 @@ select{
 }
 .pull-left {
   float: left;
+}
+
+input[type='text'], input[type='number'], select, textarea {
+  &:focus {
+    border-bottom: 1px solid $brand-color-lightest;
+  }
 }
 
 
