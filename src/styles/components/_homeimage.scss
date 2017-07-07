@@ -33,7 +33,7 @@
 
         &.active {
           display: inline-block;
-          color: $brand-color-2;
+          color: $brand-color-2-darker;
           font-weight: 900;
           background: rgba(0,0,0,0.6);
           border-radius: 2px;
@@ -59,7 +59,6 @@
     background-color: #000;
     z-index: 9999;
     width: 33.33%;
-    opacity: 0.8;
   }
 
   @media only screen and (max-width: 1024px) {

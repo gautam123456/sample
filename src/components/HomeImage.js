@@ -53,26 +53,49 @@ export default class HomeImage extends React.Component {
   }
 
   componentDidMount() {
-    let fixed = false,
+    let fixed = 0,
       target = document.getElementById('filter');
 
-    $(window).on('scroll', function(){
+    document.getElementById('body').onscroll = function() {
       var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
-      if(scrollPos >= 250 && !fixed) {
-        fixed = true;
-        target.className += ' fixed';
-      }else if(scrollPos < 250 && fixed) {
-        target.className = 'filter';
-        fixed = false;
+      if(scrollPos >= 250 && fixed === 0) {
+        fixed += 2;
+        console.log(fixed);
+        target.classList.add('fixed');
+      } else if(scrollPos <= 250 && fixed === 2) {
+        target.classList.remove('fixed');
+        fixed -= 1;
+        console.log(fixed);
+      } else if(scrollPos < 240 && fixed === 1) {
+        target.classList.remove('fixed');
+        fixed -= 1;
+        console.log(fixed);
       }
-    })
+    };
+
+    //$(window).on('scroll', () => {
+      //var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
+      //if(scrollPos >= 250 && fixed === 0) {
+      //  fixed += 2;
+      //  console.log(fixed);
+      //  target.classList.add('fixed');
+      //} else if(scrollPos <= 250 && scrollPos >= 240 && fixed === 2) {
+      //  target.classList.remove('fixed');
+      //  fixed -= 1;
+      //  console.log(fixed);
+      //} else if(scrollPos < 240 && fixed === 1) {
+      //  target.classList.remove('fixed');
+      //  fixed -= 1;
+      //  console.log(fixed);
+      //}
+    //})
   }
 
   serviceTypeSelected(e) {
     const attrValue = e.target.getAttribute('data-value');
     this.props.serviceSelected(attrValue);
     var body = $('html, body');
-    body.stop().animate({scrollTop: 250}, '500', 'swing');
+    body.stop().animate({scrollTop: 0}, '500', 'swing');
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {
