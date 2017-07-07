@@ -36,6 +36,7 @@ export default class ConfirmationList extends React.Component {
 
     removeCode() {
       Base.sandbox.bookingDetails.discount = 0;
+      Base.sandbox.bookingDetails.couponcode = '';
       this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
       this.props.showNotification('success', 'Coupon removed successfully', 4000, 30);
     }
