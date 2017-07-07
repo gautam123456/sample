@@ -43,9 +43,9 @@ export default class OrderConfirm extends React.Component {
           { this.props.location.query.error ? <TopNotification msg = { !(this.state.mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
-            <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) }></input>
+            <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) } onFocus = {this.mailFocus.bind(this) } onBlur = { this.mailUnFocus.bind(this) }></input>
             <div className = 'col-xs-12 pad0' style = {{marginBottom: 10, marginTop: 0}}>
-              <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment' placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100' onChange = {this.optionalComments.bind(this)}>
+              <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment' placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100' onChange = {this.optionalComments.bind(this)} onFocus = {this.commentFocus.bind(this) } onBlur = { this.commentUnFocus.bind(this) }>
 
               </textarea>
             </div>
@@ -91,6 +91,26 @@ export default class OrderConfirm extends React.Component {
     this.setState({comment});
     Base.sandbox.bookingDetails.comment = comment;
     Base.sandbox.comment = comment;
+  }
+
+  mailFocus(e) {
+    e.currentTarget.setAttribute('placeholder', '');
+  }
+
+  mailUnFocus(e) {
+    if (e.currentTarget.value == '') {
+      e.currentTarget.setAttribute('placeholder', 'Enter your mail Id');
+    }
+  }
+
+  commentUnFocus(e) {
+    if (e.currentTarget.value == '') {
+      e.currentTarget.setAttribute('placeholder', 'Wish to share something that we can help you with? (Optional)');
+    }
+  }
+
+  commentFocus(e) {
+    e.currentTarget.setAttribute('placeholder', '');
   }
 
   mailIdEntered(e) {
