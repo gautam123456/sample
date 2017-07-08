@@ -8,6 +8,7 @@ import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
 import Base from './base/Base';
+import Footer from './Footer';
 
 export default class Container extends React.Component {
 
@@ -81,10 +82,11 @@ export default class Container extends React.Component {
     if(this.state.data !== '') {
       document.getElementById('load').style.display = 'none';
       return (
-        <div className='col-md-12 col-xs-12 pad0 clearfix'>
+        <div className='col-md-12 col-xs-12 pad0 clearfix b-fix'>
           <TopNotification data={this.state.notify}/>
           <div className='col-md-4 nomob'></div>
           <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1} showNotification={this.showNotification.bind(this)}/>
+          <Footer />
         </div>
       )
     } else {

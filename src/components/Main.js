@@ -15,7 +15,6 @@ class AppComponent extends React.Component {
         <Header />
         <div id = 'grey-overlay'></div>
         <Container url={this.props.location}/>
-        <Footer />
       </div>
     )
   }
