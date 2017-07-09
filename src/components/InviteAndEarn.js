@@ -48,10 +48,11 @@ export default class InviteAndEarn extends React.Component {
 
   renderStaticData() {
     return (
-      <div className='static col-xs-12 pad0'>
+      <div className='static col-xs-12'>
         <ul>
-          <li>Hurray! you can avail 200 Rs off per booking as per referral program</li>
-          <li>No need to apply coupon, just make your booking, referral discount will be applied automatically, if eligible.</li>
+          <li>As per Lookplex Refer and Earn Program, you can avail a discount of Rs.200 on every appointment.</li>
+          <br />
+          <li>While booking an appointment, you do not need to apply any coupon code. If eligible, referral discount will be applied automatically to the total bill.</li>
         </ul>
       </div>
     )
