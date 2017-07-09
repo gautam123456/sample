@@ -20,9 +20,11 @@ export default class InviteAndEarn extends React.Component {
 
         <div className='col-xs-12 a'>
           <ul>
-            <li>If your friend sign up using your refer code and books an appointment, then.</li>
-            <li>You will get 200 Rs OFF on your next booking. </li>
-            <li>Your friend will get Rs 200 OFF on her first booking. </li>
+            <li>Lookplex Refer and Earn Program lets you invite friends to join Lookplex.com</li>
+            <br />
+            <li>If your friends accept the invite and sign up with your referral code at Lookplex.com, they get Rs.200 Off on their first appointment. </li>
+            <br />
+            <li>Additionally, you will also get Rs.200 Off on your next appointment. </li>
           </ul>
         </div>
         <div className='col-xs-12 pad0 a'>

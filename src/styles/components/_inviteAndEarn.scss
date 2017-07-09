@@ -95,18 +95,10 @@
   }
 
     ul {
-
       li {
         margin-bottom: 8px;
-        text-align: center;
+        text-align: left;
         color: #fff;
-
-        &::before {
-          content: "\2022";
-          font-weight: bolder;
-          margin-right: 5px;
-          font-size: 12px;
-        }
       }
     }
 }

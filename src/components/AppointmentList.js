@@ -31,11 +31,11 @@ export default class AppointmentList extends React.Component {
   }
 
   handlerHistory() {
-    this.setState({ongoing: false})
+    this.setState({ongoing: false, notify: {show: false}})
   }
 
   handlerOngoing() {
-    this.setState({ongoing: true})
+    this.setState({ongoing: true, notify: {show: false}})
   }
 
   getRenderer(appointment) {
