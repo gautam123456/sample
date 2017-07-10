@@ -77,16 +77,13 @@ export default class HomeImage extends React.Component {
       var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
       if(scrollPos >= 250 && fixed === 0) {
         fixed += 2;
-        console.log(fixed);
         target.classList.add('fixed');
-      } else if(scrollPos <= 250 && fixed === 2) {
+      } else if(scrollPos <= 250) {
         target.classList.remove('fixed');
         fixed -= 1;
-        console.log(fixed);
-      } else if(scrollPos < 190 && fixed === 1) {
+      } else if(scrollPos < 190 && fixed <= 1) {
         target.classList.remove('fixed');
         fixed -= 1;
-        console.log(fixed);
       }
     })
   }
