@@ -100,12 +100,12 @@ export default class Container extends React.Component {
   componentDidMount() {
     let self = this;
     const url = this.props.url.pathname;
-    ajaxObj.url = 'https://s3-us-west-2.amazonaws.com/lplexassets/data/items.json';
+    ajaxObj.url = 'https://static.lookplex.com/data/items.json';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
-    ajaxObj.xhrFields = { withCredentials: false };
+    ajaxObj.xhrFields = {withCredentials: false};
     ajaxObj.success = function(data) {
-      ajaxObj.xhrFields = { withCredentials: true };
+      ajaxObj.xhrFields = {withCredentials: true};
       self.setState({data: data})
       Base.sandbox.items = data;
       self.switchUrl(url);
