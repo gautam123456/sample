@@ -76,7 +76,7 @@ export default class HomeImage extends React.Component {
         }
       }
 
-      });
+    });
   }
 
   serviceTypeSelected(e) {
