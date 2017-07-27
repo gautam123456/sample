@@ -64,7 +64,7 @@ export default class HomeImage extends React.Component {
 
       var scrollPos = $(this).scrollTop();
       if(scrollPos < 251) {
-        self.setState({opacity: 1 - (scrollPos) / 250});
+        self.setState({opacity: 1 - (scrollPos * 1.3) / 250});
         if(fixed) {
           self.setState({fixed: "", bg:'#000'});
           fixed = false;
