@@ -35,7 +35,7 @@ export default class InviteAndEarn extends React.Component {
         <div className='col-xs-12 center a'>{this.state.refCode || 'Please login to see your referral code'}</div>
         {
           this.state.refCode ?
-          <a href={'whatsapp://send?text=Hey! I tried LookPlex and had an amazing experience. Here\'s a gift of Rs 200 for you to try their beauty services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + this.state.refCode} data-action="share/whatsapp/share">
+          <a href={'whatsapp://send?text=Hey! I tried Lookplex for Beauty Services at Home and had an amazing experience. Here\'s a gift of Rs.200 for you to try their services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + this.state.refCode} data-action="share/whatsapp/share">
             <div className='invite-wap col-xs-7 a'><i className='col-xs-2 fa fa-whatsapp pad0'></i><div className='col-xs-9 pad0'>Invite via WhatsApp</div></div>
           </a> :
           <a href={'/login'}>
@@ -84,10 +84,10 @@ export default class InviteAndEarn extends React.Component {
   render() {
     return (
       <div className = 'col-xs-12 col-md-4 col-md-offset-4 pad0 refer'>
-        <ActivityHeader heading = { 'Earn Free Services' }/>
+        <ActivityHeader heading = { 'Refer & Earn' }/>
         <div className='head col-xs-12 pad0'>
           <div className={'col-xs-6 pad0 ' + this.state.active} onClick={this.setActive.bind(this, true)}>INVITE &#38; EARN</div>
-          <div className={'col-xs-6 pad0 ' + !this.state.active} onClick={this.setActive.bind(this, false)}>REWARDS</div>
+          <div className={'col-xs-6 pad0 ' + !this.state.active} onClick={this.setActive.bind(this, false)}>MY CREDITS</div>
         </div>
         <img className='col-xs-12 pad0' src='../styles/assets/images/refer.jpg' height='150px'/>
         <div className='col-xs-12 pad0 mask'></div>

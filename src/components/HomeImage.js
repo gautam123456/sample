@@ -18,7 +18,10 @@ export default class HomeImage extends React.Component {
 
     this.state = {
       bookingDetails: Base.sandbox.bookingDetails,
-      carousal: true
+      carousal: true,
+      opacity: 1,
+      fixed: "",
+      bg: '#000'
     };
   }
 
@@ -26,11 +29,11 @@ export default class HomeImage extends React.Component {
     const images = allImages.homeImages;
 
     return (
-      <section className = 'col-xs-12 col-md-4 pad0 img'>
-        <div className = 'bgimage'>
+      <section className = 'col-xs-12 col-md-4 pad0 img' style={{backgroundColor: this.state.bg}}>
+        <div className = 'bgimage' style={{opacity: this.state.opacity}}>
           <Carousel images = {images} showArrow={true}/>
         </div>
-        <div id = 'filter' className = 'filter'>
+        <div id = 'filter' className = {'filter ' + this.state.fixed}>
           <span className = 'f-list col-xs-12'>
               <label className = { this.props.active == '1' ? 'active col-xs-2' : 'col-xs-2'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
 
@@ -53,45 +56,27 @@ export default class HomeImage extends React.Component {
   }
 
   componentDidMount() {
-    let fixed = 0,
-      target = document.getElementById('filter');
+    let fixed = false;
 
-    //document.getElementById('body').onscroll = function() {
-    //  var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
-    //  if(scrollPos >= 250 && fixed === 0) {
-    //    fixed += 2;
-    //    console.log(fixed);
-    //    target.classList.add('fixed');
-    //  } else if(scrollPos <= 250 && fixed === 2) {
-    //    target.classList.remove('fixed');
-    //    fixed -= 1;
-    //    console.log(fixed);
-    //  } else if(scrollPos < 198 && fixed === 1) {
-    //    target.classList.remove('fixed');
-    //    fixed -= 1;
-    //    console.log(fixed);
-    //  }
-    //};
+    const self = this;
 
-    $(window).on('scroll', () => {
-      var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
-      if(scrollPos >= 250 && fixed === 0) {
-        fixed += 2;
-        console.log(fixed);
-        target.classList.add('fixed');
-      } else if(scrollPos <= 250 && (fixed === 2 || fixed === 1)) {
-        target.classList.remove('fixed');
-        fixed -= 1;
-        console.log(fixed);
-      } else if(scrollPos < 190 && (fixed === 2 || fixed === 1)) {
-        target.classList.remove('fixed');
-        fixed -= 1;
-        console.log(fixed);
-      } else if(scrollPos < 10) {
-        target.classList.remove('fixed');
-        fixed = 0;
+    $(window).on('scroll', function() {
+
+      var scrollPos = $(this).scrollTop();
+      if(scrollPos < 251) {
+        self.setState({opacity: 1 - (scrollPos) / 250});
+        if(fixed) {
+          self.setState({fixed: "", bg:'#000'});
+          fixed = false;
+        }
+      }else {
+        if(!fixed) {
+          self.setState({fixed: "fixed", bg:'#fff'});
+          fixed = true;
+        }
       }
-    })
+
+      });
   }
 
   serviceTypeSelected(e) {

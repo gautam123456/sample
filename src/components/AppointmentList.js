@@ -51,7 +51,7 @@ export default class AppointmentList extends React.Component {
         <ActivityHeader heading = { 'My Appointments' }/>
         <TopNotification data={this.state.notify}/>
         <div className = 'col-xs-10 col-xs-offset-1 tab'>
-          <div className = {'col-xs-6 ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>ONGOING</div>
+          <div className = {'col-xs-6 ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>UPCOMING</div>
           <div className = {'col-xs-6 ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
         </div>
         {

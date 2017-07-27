@@ -54,7 +54,7 @@ export default class Cart extends React.Component {
       if(this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking) {
         browserHistory.push('/order/details');
       } else {
-        this.props.showNotification('info', 'Minimum booking amount is Rs 800, please add more services.', 4000, 60);
+        this.props.showNotification('info', 'Minimum booking amount is Rs.800, please add more services.', 4000, 60);
       }
     } else {
       browserHistory.push('/login')

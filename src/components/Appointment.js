@@ -62,9 +62,10 @@ export default class Appointment extends React.Component {
             return (self.renderMenue(service))
           })}
         </div>
-        <div className='col-xs-6'>Subtotal : </div><div className='col-xs-6 right'>{appointment.serviceAmountBeforeDiscount}</div>
-        <div className='col-xs-6'>Convenience Charge : </div> <div className='col-xs-6 right'>{appointment.conviniencefee || 0}</div>
-        <div className='col-xs-6'>Discount : </div><div className='col-xs-6 right'>{appointment.discount || 0} %</div>
+        <div className='col-xs-8'>Subtotal : </div><div className='col-xs-4 right'>{appointment.serviceAmountBeforeDiscount}</div>
+        <div className='col-xs-8 '>Referral Discount : </div> <div className='col-xs-4 right'>{appointment.refDiscount || 0}</div>
+        <div className='col-xs-8'>Discount : </div><div className='col-xs-4 right'>{appointment.discount || 0} %</div>
+        <strong><div className='col-xs-8'>Amount Payable : </div><div className='col-xs-4 right'>{appointment.payAmount}</div></strong>
 
         {this.props.ongoing ? this.renderActionButtons(appointment) : ''}
 
@@ -91,7 +92,7 @@ export default class Appointment extends React.Component {
 
           <div className = 'col-xs-12 body pad0'>
             <div className = 'col-xs-12 add'> <strong> Service Location : </strong> {appointment.customerAddress} </div>
-            <div className = 'col-xs-12 add'> <strong> Amount Payable: </strong> {appointment.payAmount} </div>
+            <div className = 'col-xs-12 add'> <strong> Amount Payable : </strong> {appointment.payAmount} </div>
             {this.state.detailView ? this.renderDetailView(serviceItemListObj, appointment) : ''}
             {!this.state.detailView ? <div className='col-xs-12 detail' onClick={this.handlerDetailView.bind(this, true)}>View Details</div> : ''}
           </div>
