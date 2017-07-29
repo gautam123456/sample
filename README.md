@@ -26,8 +26,9 @@ We have mostly used brand color **#068481** & **#ff6666** in our project.
 
 # Guidelines for using images on home screen carousel #
 Home page images used on website Have following dimensions:-
-
-* First compress your images using https://compressor.io/
+* Make sure image is only jpg format & size of image doesn't exceeds 50kb.
+* png format images will only be accepted if there is need of transparent image or animation.
+* Compress your images using https://compressor.io/
 * Use thumbnail creator for creating thumbnails of below sizes. http://www.fookes.com/easy-thumbnails
   Mobile. 
 378*252
