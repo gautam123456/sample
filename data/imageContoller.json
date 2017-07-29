@@ -1,7 +1,7 @@
 {
   "homeImages": [
-    "../styles/assets/images/{screen}/tn_1.jpg",
-    "../styles/assets/images/{screen}/tn_2.jpg",
-    "../styles/assets/images/{screen}/tn_3.jpg"
+    "../styles/assets/images/{screen}/tn_1-compressor.jpg",
+    "../styles/assets/images/{screen}/tn_2-compressor.jpg",
+    "../styles/assets/images/{screen}/tn_3-compressor.jpg"
   ]
 }
