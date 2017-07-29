@@ -30,7 +30,7 @@ export default class ThankYou extends React.Component {
             <div className = 'col-xs-12' > Refer your friends and earn. <a href='/referearn'><u>know more</u></a></div>
             <div className = 'col-xs-12' > Call 8826755766 for any query or assistance.</div>
             {
-              Base.sandbox.bookingID && Base.sandbox.finalAmount && ((window.location.href.splice('.')[0] == 'https://lookplex') || (window.location.href.splice('.')[0] == 'https://m')) && false ?
+              Base.sandbox.bookingID && Base.sandbox.finalAmount && ((window.location.origin == 'https://lookplex.com') || (window.location.origin == 'https://m.lookplex.com')) && false ?
               <iframe src={'https://coupondunia.go2cloud.org/aff_l?offer_id=1413&adv_sub='+Base.sandbox.bookingID+'&amount='+Base.sandbox.finalAmount} scrolling="no" frameborder="0" width="1" height="1"></iframe>
                 : null
             }
