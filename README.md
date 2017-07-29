@@ -29,10 +29,11 @@ Home page images used on website Have following dimensions:-
 
 * First compress your images using https://compressor.io/
 * Use thumbnail creator for creating thumbnails of below sizes. http://www.fookes.com/easy-thumbnails
-* Create 3 folders with name mobile, ipad & desktop and put corresponding images in folders.
-Mobile size.
+  Mobile. 
 378*252
-For Desktop.
+  Desktop.
 479 * 250
-For iPad.
+  iPad.
 768 * 250
+* Create 3 folders with name mobile, ipad & desktop and put corresponding images in folders.
+
