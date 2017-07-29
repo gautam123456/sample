@@ -27,9 +27,9 @@ We have mostly used brand color **#068481** & **#ff6666** in our project.
 # Guidelines for using images on home screen carousel #
 Home page images used on website Have following dimensions:-
 
-First compress your images using https://compressor.io/
-Use thumbnail creator for creating thumbnails of below sizes. http://www.fookes.com/easy-thumbnails
-Create 3 folders with name mobile, ipad & desktop and put corresponding images in folders.
+* First compress your images using https://compressor.io/
+* Use thumbnail creator for creating thumbnails of below sizes. http://www.fookes.com/easy-thumbnails
+* Create 3 folders with name mobile, ipad & desktop and put corresponding images in folders.
 Mobile size.
 378*252
 For Desktop.
