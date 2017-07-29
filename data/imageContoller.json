@@ -1,7 +1,7 @@
 {
   "homeImages": [
-    "../styles/assets/images/{screen}/tn_1.jpg",
-    "../styles/assets/images/{screen}/tn_2.jpg",
-    "../styles/assets/images/{screen}/tn_3.jpg"
+    "../styles/assets/images/{screen}/1.jpg",
+    "../styles/assets/images/{screen}/2.jpg",
+    "../styles/assets/images/{screen}/3.jpg"
   ]
 }
