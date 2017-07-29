@@ -48,6 +48,7 @@ export default class HomeImage extends React.Component {
         </div>
 
         <ServicesList data = { this.props.data } service = { this.props.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
+        <iframe className="col-xs-12 pad0" width="100%" src="https://www.youtube.com/embed/w0C1xPhafec?rel=0&showinfo=0&autohide=1" frameborder="10" allowfullscreen="true"></iframe>
         <StaticPortion data={this.props.data}/>
         <Testimonial data = { testimonials } />
         <Cart bookingDetails = { this.state.bookingDetails } showNotification={this.props.showNotification}/>
@@ -67,11 +68,13 @@ export default class HomeImage extends React.Component {
         self.setState({opacity: 1 - (scrollPos * 1.3) / 250});
         if(fixed) {
           self.setState({fixed: "", bg:'#000'});
+          $('meta[name=theme-color]').attr('content', '#068481');
           fixed = false;
         }
       }else {
         if(!fixed) {
           self.setState({fixed: "fixed", bg:'#fff'});
+          $('meta[name=theme-color]').attr('content', '#000');
           fixed = true;
         }
       }

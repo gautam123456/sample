@@ -70,13 +70,24 @@ export default class Carousel extends React.Component {
 
   renderImage(image, index, total) {
     return (
-      <img key = {index} ref = {index} src = {image} style = {{ width: this.state.screenWidth}}
+      <img key = {index} ref = {index} src = {this.getScreen(image)} style = {{ width: this.state.screenWidth}}
            onTouchStart = {this.handleTouchStart.bind(this)}
            onTouchMove = {this.handleTouchMove.bind(this, total)}
            onTouchEnd = {this.handleTouchEnd.bind(this, total)}
            onTouchCancel = {this.handleTouchCancel.bind(this, index, total)}
         />
     )
+  }
+
+  getScreen(image) {
+    const {screenWidth} = this.state;
+    if(screenWidth > 1024) {
+      return image.replace('{screen}', 'desktop');
+    } else if(screenWidth > 767) {
+      return image.replace('{screen}', 'ipad');
+    }else {
+      return image.replace('{screen}', 'mobile');
+    }
   }
 
   handleLeftNav() {
