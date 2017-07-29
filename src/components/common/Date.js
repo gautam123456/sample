@@ -39,7 +39,7 @@ export default class DateWidget extends React.Component {
   getMonths(){
     this.props.data.months = [[1,'Jan'],[2,'Feb'],[3,'March'],[4,'April'],[5,'May'],[6,'June'],[7,'July'],[8,'Aug'],[9,'Sep'],[10,'Oct'],[11,'Nov'],[12,'Dec']];
     if(this.props.data.year == this.date.getFullYear()){
-      this.props.data.months = this.props.data.months.slice(this.date.getMonth(),11);
+      this.props.data.months = this.props.data.months.slice(this.date.getMonth());
     }
   }
 
@@ -127,17 +127,16 @@ export default class DateWidget extends React.Component {
           <div className = 'col-xs-12 datepick'>
             <span> Pick your time </span>
             <div className = 'col-xs-12 date' style={{height:40}}> { this.props.data.date + '/' + this.props.data.month + '/' + this.props.data.year + ' ' + timing + meridian } </div>
-
             <div className = 'col-xs-3 pad0'>
-              <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.props.data.year }>
-                <option value='2017'>2017</option>
-              </select>
+              { this.renderDate() }
             </div>
             <div className = 'col-xs-3 pad0'>
               { this.renderMonths() }
             </div>
             <div className = 'col-xs-3 pad0'>
-              { this.renderDate() }
+              <select className = 'col-xs-12' onChange = { this.yearPicked.bind(this) } value = { this.props.data.year }>
+                <option value='2017'>2017</option>
+              </select>
             </div>
 
             <div className = 'col-xs-6 col-xs-offset-3 pad0'>

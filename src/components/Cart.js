@@ -23,7 +23,9 @@ export default class Cart extends React.Component {
           </Link>
         </div>
         <div className='col-xs-5 pad0'>
+          <Link to= { '/cart' } style={{color: '#fff'}}>
           Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
+          </Link>
         </div>
         <div className='col-xs-4 full-height book pad0' onClick = {this.navigateTo.bind(this)}>
           {'Book Now'}

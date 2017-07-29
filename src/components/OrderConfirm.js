@@ -10,8 +10,9 @@ export default class OrderConfirm extends React.Component {
   constructor(props) {
     super(props);
     this.date = new Date();
+    const {sandbox} = Base;
     this.state = {
-      mailId: Base.sandbox.bookingDetails.mailId,
+      mailId: sandbox.mailId || sandbox.userDetails ? sandbox.userDetails.email : '',
       timing: '',
       date: this.getDate(),
       month: (parseInt(this.date.getMonth()) + 1).toString(),
@@ -36,17 +37,17 @@ export default class OrderConfirm extends React.Component {
   }
 
   render() {
+    const {mailId, notify} = this.state;
     return (
         <div>
           <ActivityHeader heading = { 'Enter booking Details' }/>
-          <TopNotification data={this.state.notify}/>
-          { this.props.location.query.error ? <TopNotification msg = { !(this.state.mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
+          <TopNotification data={notify}/>
+          { this.props.location.query.error ? <TopNotification msg = { !(mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
-            <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' onChange = { this.mailIdEntered.bind(this) } onFocus = {this.mailFocus.bind(this) } onBlur = { this.mailUnFocus.bind(this) }></input>
+            <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' defaultValue={mailId} onChange = { this.mailIdEntered.bind(this) } onFocus = {this.mailFocus.bind(this) } onBlur = { this.mailUnFocus.bind(this) }></input>
             <div className = 'col-xs-12 pad0' style = {{marginBottom: 10, marginTop: 0}}>
               <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment' placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100' onChange = {this.optionalComments.bind(this)} onFocus = {this.commentFocus.bind(this) } onBlur = { this.commentUnFocus.bind(this) }>
-
               </textarea>
             </div>
             <DateWidget scheduleHandler = {this.scheduleHandler.bind(this)} data = {this.state} date={this.date}/>
