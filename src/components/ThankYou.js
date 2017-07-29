@@ -16,7 +16,7 @@ export default class ThankYou extends React.Component {
           <ActivityHeader heading = { 'Booking Confirmed' }/>
 
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
-            <img src="../styles/assets/images/booked.png" style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
+            <img src="../styles/assets/images/booked.jpg" style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
 
             <Link to = { '/' }>
             <div className="col-xs-12" style={{marginTop: -120,height:60}}>
@@ -29,6 +29,11 @@ export default class ThankYou extends React.Component {
             <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Booking details have been sent on your registered mobile number. </div>
             <div className = 'col-xs-12' > Refer your friends and earn. <a href='/referearn'><u>know more</u></a></div>
             <div className = 'col-xs-12' > Call 8826755766 for any query or assistance.</div>
+            {
+              Base.sandbox.bookingID && Base.sandbox.finalAmount && ((window.location.href.splice('.')[0] == 'https://lookplex') || (window.location.href.splice('.')[0] == 'https://m')) && false ?
+              <iframe src={'https://coupondunia.go2cloud.org/aff_l?offer_id=1413&adv_sub='+Base.sandbox.bookingID+'&amount='+Base.sandbox.finalAmount} scrolling="no" frameborder="0" width="1" height="1"></iframe>
+                : null
+            }
 
 
           </div>
@@ -39,6 +44,7 @@ export default class ThankYou extends React.Component {
 
   componentDidMount() {
     Base.clearCart();
+    console.log(window.location.href.splice('.')[0]);
   }
 }
 

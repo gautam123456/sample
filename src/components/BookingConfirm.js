@@ -80,6 +80,7 @@ export default class BookingConfirm extends React.Component {
       Base.hideOverlay();
       Base.sandbox.moneySaved = data.moneySaved;
       Base.sandbox.finalAmount = data.finalAmount;
+      Base.sandbox.bookingID = data.bookingID;
       browserHistory.push('/booking/confirmed');
     }
     ajaxObj.error = function(e){

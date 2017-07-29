@@ -108,7 +108,7 @@ export default class InviteAndEarn extends React.Component {
     ajaxObj.success = function(data) {
       Base.sandbox.bookingDetails.name = data.name;
       Base.sandbox.bookingDetails.addressList = data.addressList;
-      self.setState({refCode: data.refCode, totalrefcount: data.totalrefcount})
+      self.setState({refCode: data.refCode, totalrefcount: data.refCount});
     }
     ajaxObj.error = function() {
       Base.sandbox.bookingDetails.name = null;
