@@ -25,6 +25,16 @@ export default class Carousel extends React.Component {
     window.onresize = function() {
       self.setState({screenWidth: $(window).width() > 992 ? $(window).width()/3 : $(window).width()})
     };
+
+    if(self.props.autoPlay) {
+      setInterval(() => {
+        if(self.state.current != self.props.images.length - 1){
+          self.handleTransition(self.state.current + 1);
+        } else {
+          self.handleTransition(0);
+        }
+      }, 3000);
+    }
   }
 
   render() {

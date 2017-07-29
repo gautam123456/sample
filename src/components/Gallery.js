@@ -26,7 +26,7 @@ export default class GalleryHome extends React.Component {
 
     componentDidMount() {
       let self = this;
-      ajaxObj.url = 'https://s3-us-west-2.amazonaws.com/lplexassets/data/items.json';
+      ajaxObj.url = 'https://static.lookplex.com/data/items.json';
       ajaxObj.type = 'GET';
       ajaxObj.data = '';
       ajaxObj.xhrFields = { withCredentials: false };

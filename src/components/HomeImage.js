@@ -31,7 +31,7 @@ export default class HomeImage extends React.Component {
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img' style={{backgroundColor: this.state.bg}}>
         <div className = 'bgimage' style={{opacity: this.state.opacity}}>
-          <Carousel images = {images} showArrow={true}/>
+          <Carousel images = {images} showArrow={false} autoPlay={true}/>
         </div>
         <div id = 'filter' className = {'filter ' + this.state.fixed}>
           <span className = 'f-list col-xs-12'>
@@ -48,7 +48,6 @@ export default class HomeImage extends React.Component {
         </div>
 
         <ServicesList data = { this.props.data } service = { this.props.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
-        <iframe className="col-xs-12 pad0" width="100%" src="https://www.youtube.com/embed/w0C1xPhafec?rel=0&showinfo=0&autohide=1" frameborder="10" allowfullscreen="true"></iframe>
         <StaticPortion data={this.props.data}/>
         <Testimonial data = { testimonials } />
         <Cart bookingDetails = { this.state.bookingDetails } showNotification={this.props.showNotification}/>
@@ -96,3 +95,4 @@ export default class HomeImage extends React.Component {
     Base.saveToLocalStorage();
   }
 }
+//<iframe className="col-xs-12 pad0" width="100%" height="220px" src="https://www.youtube.com/embed/w0C1xPhafec?rel=0&showinfo=0&autohide=1" frameborder="10" allowfullscreen="true"></iframe>
