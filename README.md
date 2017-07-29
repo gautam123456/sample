@@ -24,12 +24,15 @@ We have mostly used brand color **#068481** & **#ff6666** in our project.
 
 ![Screen Shot 2017-01-16 at 11.48.18 PM.png](https://bitbucket.org/repo/jeKzAG/images/4123259503-Screen%20Shot%202017-01-16%20at%2011.48.18%20PM.png)
 
-# All images used should have thumbnails of below dimesions. #
+# Guidelines for using images on home screen carousel #
 Home page images used on website Have following dimensions:-
 
-For Mobile standard size taken is of IPhone 6
-375*250
-For Desktop
+First compress your images using https://compressor.io/
+Use thumbnail creator for creating thumbnails of below sizes. http://www.fookes.com/easy-thumbnails
+Create 3 folders with name mobile, ipad & desktop and put corresponding images in folders.
+Mobile size.
+378*252
+For Desktop.
 479 * 250
-For iPad
+For iPad.
 768 * 250
