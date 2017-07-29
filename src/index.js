@@ -52,7 +52,7 @@ render(
     <Route path = { 'cancel' } component = { Cancel } />
     <Route path = { 'reschedule' } component = { Reschedule } />
     <Route path = { 'salon-at-home/gallery/bridal' } component = { Gallery } />
-    <Route path = { 'referearn' } component = { InviteAndEarn } />
+    <Route path = { 'salon-at-home/referearn' } component = { InviteAndEarn } />
     <Route path = { 'login' } component = { Login }  />
     <Route path = { 'register' } component = { RegisterUser } />
     <Route path = { 'order/details' } component = { OrderConfirm } />

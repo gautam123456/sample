@@ -91,10 +91,10 @@ export default class Carousel extends React.Component {
 
   getScreen(image) {
     const {screenWidth} = this.state;
-    if(screenWidth > 1024) {
-      return image.replace('{screen}', 'desktop');
-    } else if(screenWidth > 767) {
+    if(screenWidth > 760) {
       return image.replace('{screen}', 'ipad');
+    } else if(screenWidth > 376) {
+      return image.replace('{screen}', 'desktop');
     }else {
       return image.replace('{screen}', 'mobile');
     }

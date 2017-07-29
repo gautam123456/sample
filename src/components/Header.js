@@ -4,6 +4,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Base from './base/Base';
+import { Link } from 'react-router';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -41,10 +42,10 @@ export default class Header extends React.Component {
         <div id='mySidenav' className='sidenav' style = { this.state.width }>
           <div className='closebtn' onClick = { this.closeDrawer.bind(this) }>&times;</div>
           { this.isLoggedIn() ? this.loggedInRender() : this.nonLoggedInRender() }
-          <a href='/salon-at-home/offers'>My Offers</a>
-          <a href='/referearn'>Refer &#38; Earn</a>
-          <a href='/'>Home</a>
-          <a href='/salon-at-home/gallery/bridal'>Gallery</a>
+          <Link to='/salon-at-home/offers'>My Offers</Link>
+          <Link to='/salon-at-home/referearn'>Refer &#38; Earn</Link>
+          <Link to='/'>Home</Link>
+          <Link to='/salon-at-home/gallery/bridal'>Gallery</Link>
           <div className="contact col-xs-12 pad0">
             <a href="tel:918826755766"><i className = "fa fa-phone"></i></a>
             <span>Tap call or Whatsapp on +918826755766 for assistance.</span>

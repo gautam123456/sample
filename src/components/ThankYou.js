@@ -27,7 +27,7 @@ export default class ThankYou extends React.Component {
             {moneySaved ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
             {finalAmount ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount payable: <strong>Rs. {finalAmount} </strong></div> : ''}
             <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Booking details have been sent on your registered mobile number. </div>
-            <div className = 'col-xs-12' > Refer your friends and earn. <a href='/referearn'><u>know more</u></a></div>
+            <div className = 'col-xs-12' > Refer your friends and earn. <Link to='/salon-at-home/referearn'><u>know more</u></Link></div>
             <div className = 'col-xs-12' > Call 8826755766 for any query or assistance.</div>
             {
               Base.sandbox.bookingID && Base.sandbox.finalAmount && ((window.location.origin == 'https://lookplex.com') || (window.location.origin == 'https://m.lookplex.com')) && false ?
@@ -44,7 +44,6 @@ export default class ThankYou extends React.Component {
 
   componentDidMount() {
     Base.clearCart();
-    console.log(window.location.href.splice('.')[0]);
   }
 }
 
