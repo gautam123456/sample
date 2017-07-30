@@ -111,6 +111,10 @@ input[type='text'], input[type='number'], select, textarea {
 
 .cli {
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 
 

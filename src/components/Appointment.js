@@ -65,6 +65,7 @@ export default class Appointment extends React.Component {
         <div className='col-xs-8'>Subtotal : </div><div className='col-xs-4 right'>{appointment.serviceAmountBeforeDiscount}</div>
         <div className='col-xs-8 '>Referral Discount : </div> <div className='col-xs-4 right'>{appointment.refDiscount || 0}</div>
         <div className='col-xs-8'>Discount : </div><div className='col-xs-4 right'>{appointment.discount || 0} %</div>
+        <div className='col-xs-8'>{appointment.ajustmentDescription} : </div><div className='col-xs-4 right'>{appointment.adjustment || 0}</div>
         <strong><div className='col-xs-8'>Amount Payable : </div><div className='col-xs-4 right'>{appointment.payAmount}</div></strong>
 
         {this.props.ongoing ? this.renderActionButtons(appointment) : ''}

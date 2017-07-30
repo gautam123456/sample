@@ -7,6 +7,7 @@ import $ from 'jquery';
 import Base from './base/Base';
 import DisableScroll from './base/DisableScroll';
 import TopNotification from './TopNotification';
+import RightColumn from './RightColumn';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -45,6 +46,9 @@ export default class Login extends DisableScroll {
           <input type = 'number' placeholder = 'Enter mobile number' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.numberChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
           </div>
           <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.login.bind(this) }> LOG IN / SIGN UP</button>
+        </div>
+        <div className='col-md-4 nomob pad0'>
+          <RightColumn top={-30} position={'fixed'}/>
         </div>
       </div>
     )

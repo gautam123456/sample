@@ -58,12 +58,11 @@ function getDefaultModules() {
         exclude: /(node_modules)/
       },
       {
-        test: /index\.html$/,
+        test: /\.html$/,
         loader: 'string-replace',
         query: {
-          search: '13062017.12',
-          replace: 'window',
-          flags: ''
+          search: 'Dude',
+          replace: 'window'
         }
       }
     ]
