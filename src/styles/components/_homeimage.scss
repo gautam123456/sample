@@ -6,7 +6,8 @@
   .bgimage {
     height: 250px;
     overflow-x: hidden;
-    left: 0
+    left: 0;
+    border-radius: 1px;
   }
 
   .filter {
@@ -15,7 +16,7 @@
     margin-top: -40px;
     position: absolute;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
 
     .f-list {
       padding: 7px 3px 6px 0;
@@ -67,4 +68,10 @@
     }
   }
 
+  &.h{
+    @media only screen and (min-width: 992px) {
+      top: 45px;
+      border-radius: 1px;
+    }
+  }
 }

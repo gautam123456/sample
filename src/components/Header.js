@@ -3,33 +3,14 @@
  */
 import React from 'react';
 import $ from 'jquery';
-import Base from './base/Base';
-import { Link } from 'react-router';
-
-import ajaxObj from '../../data/ajax.json';
+import MenueOptions from './MenueOptions';
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width:{width:0},
-      name: Base.sandbox.bookingDetails.name || 'ZZ'
+      width:{width:0}
     }
-  }
-
-  loggedInRender() {
-    return (
-        <div>
-          <a onClick = { this.logOut.bind(this) }>Logout</a>
-          <a href='/appointments'>My Appointments</a>
-        </div>
-    )
-  }
-
-  nonLoggedInRender() {
-    return (
-        <a href='/login'>Login/Sign up</a>
-    )
   }
 
   render() {
@@ -41,11 +22,7 @@ export default class Header extends React.Component {
 
         <div id='mySidenav' className='sidenav' style = { this.state.width }>
           <div className='closebtn' onClick = { this.closeDrawer.bind(this) }>&times;</div>
-          { this.isLoggedIn() ? this.loggedInRender() : this.nonLoggedInRender() }
-          <Link to='/salon-at-home/offers'>My Offers</Link>
-          <Link to='/salon-at-home/referearn'>Refer &#38; Earn</Link>
-          <Link to='/'>Home</Link>
-          <Link to='/salon-at-home/gallery/bridal'>Gallery</Link>
+          <MenueOptions />
           <div className="contact col-xs-12 pad0">
             <a href="tel:918826755766"><i className = "fa fa-phone"></i></a>
             <span>Tap call or Whatsapp on +918826755766 for assistance.</span>
@@ -72,31 +49,6 @@ export default class Header extends React.Component {
   closeDrawer() {
     this.setState({width:{width:0}});
     document.getElementById('grey-overlay').className = '';
-  }
-
-  isLoggedIn() {
-    if(Base.sandbox.bookingDetails.name)
-      return true;
-    return false;
-  }
-
-  getShortName() {
-    let name = this.state.name.split(' ');
-    return name[0].substring(0,1).toUpperCase() + name[name.length-1].substring(0,1).toUpperCase();
-  }
-
-  logOut() {
-    const self = this;
-    Base.sandbox.bookingDetails.name = null;
-    ajaxObj.url = ajaxObj.baseUrl + '/custlogout';
-    ajaxObj.type = 'GET';
-    ajaxObj.data = '';
-    ajaxObj.success = function(data) {
-      self.setState({ addresslist: data.addressList, name: ''});
-      Base.hideOverlay();
-    }
-    $.ajax(ajaxObj);
-
   }
 }
 

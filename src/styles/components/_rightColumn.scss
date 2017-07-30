@@ -1,0 +1,24 @@
+.rc{
+  margin: 5px;
+  position: fixed;
+  top: 40px;
+
+  .ut{
+    background-color: #fff;
+    min-height: 200px;
+    height: 200px;
+    border-radius: 1px;
+    padding: 8px;
+    margin-bottom: 10px;
+
+    @media only screen and (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  .fb {
+    @media only screen and (max-width: 991px) {
+      display: none;
+    }
+  }
+}

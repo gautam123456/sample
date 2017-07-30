@@ -11,11 +11,20 @@ import ajaxObj from '../../../data/ajax.json';
 export default class Base extends React.Component {
     constructor(props) {
         super(props);
+        Base.screenWidth = $(window).width() > 992 ? $(window).width()/3 : $(window).width()
     }
 
     static sandbox = {
       bookingDetails
     };
+
+  componentDidMount() {
+    const self = this;
+    Base
+    window.onresize = function () {
+      Base.screenWidth = $(window).width() > 992 ? $(window).width() / 3 : $(window).width();
+    };
+  }
 
     // This method is called every time router is invoked
 

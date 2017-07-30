@@ -27,9 +27,8 @@ export default class HomeImage extends React.Component {
 
   render() {
     const images = allImages.homeImages;
-
     return (
-      <section className = 'col-xs-12 col-md-4 pad0 img' style={{backgroundColor: this.state.bg}}>
+      <section className = 'col-xs-12 col-md-4 pad0 img h' style={{backgroundColor: this.props.screenWidth < 992 ? this.state.bg : '#fff'}}>
         <div className = 'bgimage' style={{opacity: this.state.opacity}}>
           <Carousel images = {images} showArrow={false} autoPlay={true}/>
         </div>
@@ -64,7 +63,9 @@ export default class HomeImage extends React.Component {
 
       var scrollPos = $(this).scrollTop();
       if(scrollPos < 251) {
-        self.setState({opacity: 1 - (scrollPos * 1.3) / 250});
+        if (self.props.screenWidth < 769) {
+          self.setState({opacity: 1 - (scrollPos * 1.3) / 250});
+        }
         if(fixed) {
           self.setState({fixed: "", bg:'#000'});
           $('meta[name=theme-color]').attr('content', '#068481');

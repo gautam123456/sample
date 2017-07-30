@@ -125,9 +125,6 @@ export default class Carousel extends React.Component {
       change = this.state.startX - touch.clientX,
       {current} = this.state;
 
-    console.log('Change' + change)
-    console.log(current);
-
     if (current == 0 && change < 0) {
     }else if(current == total - 1 && change > 0) {
     }else {

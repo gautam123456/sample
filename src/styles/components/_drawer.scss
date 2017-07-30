@@ -12,6 +12,29 @@
   padding-top: 40px;
   opacity: 0.98;
 
+  .col-md-12 {
+    padding: 16px 8px 16px 15px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+    background-color: #057370 !important;
+    box-shadow: 0px 2px 2px #046260;
+    margin-bottom: 2px;
+
+    .fa {
+      margin-right: 10px;
+    }
+
+    a {
+      color: #fff;
+    }
+
+    &:hover {
+      color: #f1f1f1;
+      background-color: #046260 !important;
+    }
+  }
+
   .contact {
     height: 100px;
     background-color: #057370;
@@ -28,6 +51,7 @@
       padding: 5px;
       margin-left: 100px;
       background-color: #046260;
+      color: #fff;
     }
 
     span {
@@ -53,18 +77,6 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
-  a {
-    color: #fff;
-    padding: 16px 8px 16px 32px;
-    text-decoration: none;
-    font-size: 14px;
-    display: block;
-    transition: 0.3s;
-    background-color: #057370 !important;
-    box-shadow: 0px 2px 2px #046260;
-    margin-bottom: 2px;
-  }
-
   .closebtn {
     position: absolute;
     top: 2px;
@@ -75,9 +87,4 @@
     text-shadow: 1px 1px 1px black;
     font-size: 25px;
   }
-}
-
-.sidenav a:hover, .offcanvas a:focus {
-  color: #f1f1f1;
-  background-color: #046260 !important;
 }
