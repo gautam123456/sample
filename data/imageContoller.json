@@ -2,6 +2,6 @@
   "homeImages": [
     "../styles/assets/images/{screen}/1.jpg",
     "../styles/assets/images/{screen}/2.jpg",
-    "../styles/assets/images/{screen}/3.jpg"
+    "../styles/assets/images/{screen}/3.png"
   ]
 }
