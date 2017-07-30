@@ -8,11 +8,7 @@ export default class RightColumn extends React.Component {
           <div id="fbwidgetencloser" className='col-md-12 pad0'>
             <iframe 
                 id="showfbwidget" width="100%" height="300" style={{border:'none',overflow:'hidden'}} scrolling="no" frameBorder="0" allowTransparency="true"></iframe>
-          <script>
-             var width=document.getElementById('fbwidgetencloser').clientWidth;
-             document.getElementById("showfbwidget").src =
-              "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLookplex%2F&tabs=timeline&width="+width+"&height=500&small_header=false&adapt_container_width=true&hide_cta=true&hide_cover=false&show_facepile=true&appId";
-          </script>
+          
           </div>
         </div>
         <div className='col-md-9 ut'>
