@@ -34,6 +34,14 @@
     fbq('track', 'PageView');
   </script>
   <script type="text/javascript">
+  function setiframefbwidget()
+  {
+             var width=document.getElementById('fbwidgetencloser').clientWidth;
+             document.getElementById("showfbwidget").src =
+              "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLookplex%2F&tabs=timeline&width="+width+"&height=500&small_header=false&adapt_container_width=true&hide_cta=true&hide_cover=false&show_facepile=true&appId";
+              }
+  </script>
+  <script type="text/javascript">
     window.smartlook||(function(d) {
       var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
       var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
@@ -80,7 +88,7 @@
 </script>
 
 </head>
-<body id="body">
+<body id="body" onload="setiframefbwidget()">
 <div id="fb-root"></div>
   <div id="load" class="ph"> <div class="a-b"> <header class="ph-header"> <div style='float: right;background-color: #045c5a;height: 20px;width: 8px;margin: 10px;margin-right: 20px'></div><div style='background: url("https://static.lookplex.com/mobileImages/logo.png") center no-repeat;background-size: contain;height: 35px;width: 130px;margin-left: 34%;padding-top: 5px'></div></header> <div class="ph-image" style="background: url('styles/assets/images/mobile/tn_1.jpg') center no-repeat;background-size: inherit;"></div><div class="ph-filters"> <div class="f-b-m ph-tb-filter"></div><div class="f-b-m ph-fil a"></div><div class="f-b-m ph-fil b"></div><div class="f-b-m ph-fil c"></div><div class="f-b-m ph-fil d"></div><div class="f-b-m ph-tb-filter b"></div></div><div class="ph-heading"></div><div class="ph-option"> <div class="b-m p-o-top"></div><div class="b-m p-o-left"></div><div class="b-m p-o-title-right"></div><div class="b-m p-o-price-top"></div><div class="b-m p-o-price-right"></div><div class="b-m p-o-add-right"></div><div class="b-m p-o-price-bottom"></div><div class="b-m p-o-title-bottom"></div><div class="b-m p-o-desc-right"></div><div class="b-m p-o-desc-bottom"></div><div class="b-m p-o-bottom"></div></div><div class="ph-option"> <div class="b-m p-o-top"></div><div class="b-m p-o-left"></div><div class="b-m p-o-title-right"></div><div class="b-m p-o-price-top"></div><div class="b-m p-o-price-right"></div><div class="b-m p-o-add-right"></div><div class="b-m p-o-price-bottom"></div><div class="b-m p-o-title-bottom"></div><div class="b-m p-o-desc-right"></div><div class="b-m p-o-desc-bottom"></div><div class="b-m p-o-bottom"></div></div><div class="ph-option"> <div class="b-m p-o-top"></div><div class="b-m p-o-left"></div><div class="b-m p-o-title-right"></div><div class="b-m p-o-price-top"></div><div class="b-m p-o-price-right"></div><div class="b-m p-o-add-right"></div><div class="b-m p-o-price-bottom"></div><div class="b-m p-o-title-bottom"></div><div class="b-m p-o-desc-right"></div><div class="b-m p-o-desc-bottom"></div><div class="b-m p-o-bottom"></div></div><div class="ph-option"> <div class="b-m p-o-top"></div><div class="b-m p-o-left"></div><div class="b-m p-o-title-right"></div><div class="b-m p-o-price-top"></div><div class="b-m p-o-price-right"></div><div class="b-m p-o-add-right"></div><div class="b-m p-o-price-bottom"></div><div class="b-m p-o-title-bottom"></div><div class="b-m p-o-desc-right"></div><div class="b-m p-o-desc-bottom"></div><div class="b-m p-o-bottom"></div></div></div></div>
   <div id='app' style='height: 100%'></div>
