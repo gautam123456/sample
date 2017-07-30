@@ -27,7 +27,7 @@ export default class Cart extends React.Component {
           Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
           </Link>
         </div>
-        <div className='col-xs-4 full-height book pad0' onClick = {this.navigateTo.bind(this)}>
+        <div className='col-xs-4 full-height book pad0 cli' onClick = {this.navigateTo.bind(this)}>
           {'Book Now'}
         </div>
       </div>

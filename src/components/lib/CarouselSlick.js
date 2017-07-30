@@ -33,7 +33,7 @@ export default class Carousel extends React.Component {
         } else {
           self.handleTransition(0);
         }
-      }, 3000);
+      }, 5000);
     }
   }
 
@@ -52,9 +52,9 @@ export default class Carousel extends React.Component {
           WebkitTransform: strTrnsfrm,
           msTransform: strTrnsfrm,
           oTransform: strTrnsfrm,
-          transition: 'transform 400ms ease, opacity 400ms ease',
-          WebkitTransition: 'transform 400ms ease, opacity 400ms ease',
-          msTransition: 'transform 400ms ease, opacity 400ms ease',
+          transition: 'transform 300ms ease, opacity 300ms ease',
+          WebkitTransition: 'transform 300ms ease, opacity 300ms ease',
+          msTransition: 'transform 300ms ease, opacity 300ms ease',
           width: total * this.state.screenWidth + 'px'
       };
 
@@ -77,7 +77,7 @@ export default class Carousel extends React.Component {
   renderDots(total) {
     const rows = [];
     for(var i = 0 ; i < total; i++){
-      rows.push(<i key = {i} className = {i == this.state.current ? 'fa fa-circle' : 'fa fa-circle-o'} onClick = {this.handleDotClicked.bind(this, i)}></i>)
+      rows.push(<i key = {i} className = {i == this.state.current ? 'fa fa-circle' : 'fa fa-circle-o cli'} onClick = {this.handleDotClicked.bind(this, i)}></i>)
     }
     return rows;
   }

@@ -18,7 +18,7 @@ export default class RightColumn extends React.Component {
                     frameBorder="0">
             </iframe>
           </div>
-          <div className='col-md-12 cu'>Pretty is a big time lookplex fan!</div>
+          <div className='col-md-12 cu'> &nbsp;Priti is a big time lookplex fan!</div>
           <div className='yt col-md-12'>What do real customers have to say about Lookplex?</div>
         </div>
       </div>

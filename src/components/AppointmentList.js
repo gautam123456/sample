@@ -8,6 +8,7 @@ import $ from 'jquery';
 import Base from './base/Base';
 import Appointment from './Appointment';
 import TopNotification from './TopNotification';
+import LeftNav from './common/LeftNav';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -48,12 +49,15 @@ export default class AppointmentList extends React.Component {
 
     return (
       <div>
-        <ActivityHeader heading = { 'My Appointments' }/>
-        <div className = 'col-xs-12 pad0 col-md-4 col-md-offset-4 appointments'>
+        <ActivityHeader heading = { 'My Appointments' } fixed={true}/>
+        <div className='col-md-4 nomob'>
+          <LeftNav />
+        </div>
+        <div className = 'col-xs-12 pad0 col-md-4 appointments'>
           <TopNotification data={this.state.notify}/>
           <div className = 'col-xs-10 col-xs-offset-1 tab'>
-            <div className = {'col-xs-6 ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>UPCOMING</div>
-            <div className = {'col-xs-6 ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
+            <div className = {'col-xs-6 cli ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>UPCOMING</div>
+            <div className = {'col-xs-6 cli ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
           </div>
           {
             list.map(function(appointment){

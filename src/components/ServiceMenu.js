@@ -17,7 +17,7 @@ export default class ServiceMenu extends React.Component {
         <div className = 'col-xs-2 cost'> &nbsp; <i className = 'fa fa-inr'></i> { this.props.list.cost }</div>
         <div className = 'col-xs-1 center'>
 
-          { this.props.count > 0 ? <i className = 'fa fa-minus-circle fa-2x' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 0) }></i> : '' }
+          { this.props.count > 0 ? <i className = 'fa fa-minus-circle fa-2x cli' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 0) }></i> : '' }
 
         </div>
         <div className = 'col-xs-1 center'>
@@ -26,7 +26,7 @@ export default class ServiceMenu extends React.Component {
 
         </div>
         <div className = 'col-xs-1 center'>
-        <i className = 'fa fa-plus-circle fa-2x' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 1) }></i>
+        <i className = 'fa fa-plus-circle fa-2x cli' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 1) }></i>
         </div>
       </div>
     )
@@ -35,7 +35,7 @@ export default class ServiceMenu extends React.Component {
   renderInformation() {
     return (
         <div style={{display: 'inline'}}>
-          <i className = 'fa fa-info-circle margin5' onClick = {this.renderModal.bind(this, this.props.list)}></i>
+          <i className = 'fa fa-info-circle margin5 cli' onClick = {this.renderModal.bind(this, this.props.list)}></i>
         </div>
     )
   }

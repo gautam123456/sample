@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
+import LeftNav from './common/LeftNav';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -22,8 +23,11 @@ export default class Offers extends React.Component {
     const self = this;
     return (
       <div>
-        <ActivityHeader heading = { 'My Offers' }/>
-        <div className = 'col-xs-12 col-md-4 col-md-offset-4 pad0 offers'>
+        <ActivityHeader heading = { 'My Offers' } fixed={true}/>
+        <div className='col-md-4 nomob'>
+          <LeftNav />
+        </div>
+        <div className = 'col-xs-12 col-md-4 pad0 offers'>
           <div className = 'col-xs-10 col-xs-offset-1 pad0 img'></div>
 
           {this.state.offers.map(function(offer){

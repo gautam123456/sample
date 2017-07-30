@@ -38,8 +38,8 @@ export default class Appointment extends React.Component {
   renderActionButtons(appointment) {
     return(
       <div className = 'col-xs-12 actionBtn'>
-        <div className = 'col-xs-4 col-xs-offset-1' onClick={this.handleCancel.bind(this, appointment.bookingID)}>Cancel</div>
-        <div className = 'col-xs-4 col-xs-offset-2' onClick={this.handleReschedule.bind(this, appointment.bookingID)}>Reschedule</div>
+        <div className = 'col-xs-4 col-xs-offset-1 cli' onClick={this.handleCancel.bind(this, appointment.bookingID)}>Cancel</div>
+        <div className = 'col-xs-4 col-xs-offset-2 cli' onClick={this.handleReschedule.bind(this, appointment.bookingID)}>Reschedule</div>
       </div>
     )
   }
@@ -69,7 +69,7 @@ export default class Appointment extends React.Component {
 
         {this.props.ongoing ? this.renderActionButtons(appointment) : ''}
 
-        <div className='col-xs-12 detail' onClick={this.handlerDetailView.bind(this, false)}>Hide Details</div>
+        <div className='col-xs-12 detail cli' onClick={this.handlerDetailView.bind(this, false)}>Hide Details</div>
       </div>
     )
   }
@@ -87,14 +87,14 @@ export default class Appointment extends React.Component {
             <img className = 'col-xs-2' src='../styles/assets/images/lady.png'/>
             <div className = 'col-xs-10 pad0'><strong>Booking Id : {appointment.bookingID}</strong></div>
             <div className = 'col-xs-6 pad0 date'>{appointment.formattedDate}</div>
-            {this.props.ongoing ? <div className = 'col-xs-4 pad0 ongoing pull-right'>REQUEST ONGOING</div> : <div className = 'col-xs-4 pad0 history pull-right'>{this.getLabel(appointment)}</div>}
+            {this.props.ongoing ? <div className = 'col-xs-4 pad0 ongoing pull-right'>REQUEST UPCOMING</div> : <div className = 'col-xs-4 pad0 history pull-right'>{this.getLabel(appointment)}</div>}
           </div>
 
           <div className = 'col-xs-12 body pad0'>
             <div className = 'col-xs-12 add'> <strong> Service Location : </strong> {appointment.customerAddress} </div>
             <div className = 'col-xs-12 add'> <strong> Amount Payable : </strong> {appointment.payAmount} </div>
             {this.state.detailView ? this.renderDetailView(serviceItemListObj, appointment) : ''}
-            {!this.state.detailView ? <div className='col-xs-12 detail' onClick={this.handlerDetailView.bind(this, true)}>View Details</div> : ''}
+            {!this.state.detailView ? <div className='col-xs-12 detail cli' onClick={this.handlerDetailView.bind(this, true)}>View Details</div> : ''}
           </div>
         </div>
       </div>

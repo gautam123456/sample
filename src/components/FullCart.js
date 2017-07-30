@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import Base from './base/Base';
+import LeftNav from './common/LeftNav';
 
 export default class FullCart extends React.Component {
 
@@ -21,6 +22,9 @@ export default class FullCart extends React.Component {
     return (
         <div>
           <ActivityHeader heading = { 'Cart' }/>
+          <div className='col-md-4 nomob'>
+            <LeftNav />
+          </div>
           { this.renderCart() }
           <ActivityFooter key = { 45 } next = { this.navigateNext.bind(this) } back = { this.navigateBack.bind(this) }/>
         </div>
@@ -30,7 +34,7 @@ export default class FullCart extends React.Component {
   renderCart() {
     if(this.state.bookedItemList.servicesCount == 0)
       return (
-          <div className = 'col-md-offset-4 col-md-4 us'>
+          <div className = 'col-md-4 us'>
             <div className = 'emptyCart'>
               <i className = 'fa fa-shopping-cart'></i>
             </div>
@@ -42,7 +46,7 @@ export default class FullCart extends React.Component {
     const then = this,
         objKeys = Object.keys(this.state.bookedItemList.services);
     return (
-        <div className = 'col-md-offset-4 col-md-4 pad0'>
+        <div className = 'col-md-4 pad0'>
           {
             objKeys.map( function(key) {
               return <ServiceMenu list = { then.state.bookedItemList.services[key] } count = { then.state.bookedItemList.services && then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) }/>

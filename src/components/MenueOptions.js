@@ -44,28 +44,28 @@ export default class MenueOptions extends React.Component {
           }
 
 
-        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, 'appointments')}>
+        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, '/appointments')}>
           <i className="fa fa-clock-o"></i>
           <Link to = { '/appointments' }>
             My Appointments
           </Link>
         </div>
 
-        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, 'salon-at-home/offers')}>
+        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, '/salon-at-home/offers')}>
           <i className="fa fa-hand-peace-o"></i>
           <Link to = { '/salon-at-home/offers' }>
             Offers
           </Link>
         </div>
 
-        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, 'salon-at-home/referearn')}>
+        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, '/salon-at-home/referearn')}>
           <i className="fa fa-money"></i>
           <Link to = { '/salon-at-home/referearn' }>
             Refer &#38; Earn
           </Link>
         </div>
 
-        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, 'salon-at-home/gallery/bridal')}>
+        <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, '/salon-at-home/gallery/bridal')}>
           <i className="fa fa-camera-retro"></i>
           <Link to = { '/salon-at-home/gallery/bridal' }>
             Gallery
