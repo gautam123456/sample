@@ -1,15 +1,25 @@
 .rc{
-  margin: 5px;
-  position: fixed;
-  top: 40px;
+  margin: 4px 5px;
+  position: relative;
+  top: 32px;
 
-  .ut{
+  .ut, .fb{
     background-color: #fff;
-    min-height: 200px;
-    height: 200px;
     border-radius: 1px;
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+
+    .yt {
+      padding: 4px 4px 0 2px;
+      color: #999;
+      font-size: 12px;
+    }
+
+    .cu {
+      font-size: 11px;
+      color: #345;
+      padding: 0;
+    }
 
     @media only screen and (max-width: 991px) {
       display: none;
