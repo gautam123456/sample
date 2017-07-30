@@ -27,7 +27,7 @@ export default class Carousel extends React.Component {
     };
 
     if(self.props.autoPlay) {
-      setInterval(() => {
+      self.interval = setInterval(() => {
         if(self.state.current != self.props.images.length - 1){
           self.handleTransition(self.state.current + 1);
         } else {
@@ -35,6 +35,10 @@ export default class Carousel extends React.Component {
         }
       }, 3000);
     }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
