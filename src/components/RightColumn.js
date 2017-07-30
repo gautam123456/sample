@@ -6,8 +6,8 @@ export default class RightColumn extends React.Component {
       <div className='rc' style={{marginTop: this.props.top, position: this.props.position}}>
         <div className='col-md-9 fb'>
           <div className='col-md-12 pad0'>
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLookplex%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cta=true&hide_cover=false&show_facepile=true&appId"
-                    height="300" style={{border:'none',overflow:'hidden'}} scrolling="no" frameBorder="0" allowTransparency="true"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLookplex%2F&tabs=timeline&width=100%&height=500&small_header=false&adapt_container_width=true&hide_cta=true&hide_cover=false&show_facepile=true&appId"
+                    height="300" width="100%" style={{border:'none',overflow:'hidden'}} scrolling="no" frameBorder="0" allowTransparency="true"></iframe>
           </div>
         </div>
         <div className='col-md-9 ut'>
