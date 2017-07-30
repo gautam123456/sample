@@ -47,18 +47,20 @@ export default class AppointmentList extends React.Component {
       self = this;
 
     return (
-      <div className = 'col-xs-12 pad0 col-md-4 col-md-offset-4 appointments'>
+      <div>
         <ActivityHeader heading = { 'My Appointments' }/>
-        <TopNotification data={this.state.notify}/>
-        <div className = 'col-xs-10 col-xs-offset-1 tab'>
-          <div className = {'col-xs-6 ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>UPCOMING</div>
-          <div className = {'col-xs-6 ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
-        </div>
-        {
-          list.map(function(appointment){
-            return (self.getRenderer(appointment))
-          })
-        }
+        <div className = 'col-xs-12 pad0 col-md-4 col-md-offset-4 appointments'>
+          <TopNotification data={this.state.notify}/>
+          <div className = 'col-xs-10 col-xs-offset-1 tab'>
+            <div className = {'col-xs-6 ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>UPCOMING</div>
+            <div className = {'col-xs-6 ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
+          </div>
+          {
+            list.map(function(appointment){
+              return (self.getRenderer(appointment))
+            })
+          }
+          </div>
       </div>
     )
   }

@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 export default class ActivityHeader extends React.Component {
   render() {
     return (
-      <header className='header'>
+      <header className='header width100'>
         <div className='a-header'>
           <span className='col-xs-10 col-xs-offset-1'>{ this.props.heading }</span>
           <span className='col-xs-1'>

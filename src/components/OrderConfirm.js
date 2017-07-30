@@ -11,8 +11,12 @@ export default class OrderConfirm extends React.Component {
     super(props);
     this.date = new Date();
     const {sandbox} = Base;
+    if(!sandbox.mailId) {
+      sandbox.mailId = sandbox.userDetails ? sandbox.userDetails.email : '';
+    }
+
     this.state = {
-      mailId: sandbox.mailId || sandbox.userDetails ? sandbox.userDetails.email : '',
+      mailId: sandbox.mailId,
       timing: '',
       date: this.getDate(),
       month: (parseInt(this.date.getMonth()) + 1).toString(),

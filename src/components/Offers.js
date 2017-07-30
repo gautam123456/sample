@@ -21,14 +21,15 @@ export default class Offers extends React.Component {
   render() {
     const self = this;
     return (
-      <div className = 'col-xs-12 col-md-4 col-md-offset-4 pad0 offers'>
+      <div>
         <ActivityHeader heading = { 'My Offers' }/>
+        <div className = 'col-xs-12 col-md-4 col-md-offset-4 pad0 offers'>
+          <div className = 'col-xs-10 col-xs-offset-1 pad0 img'></div>
 
-        <div className = 'col-xs-10 col-xs-offset-1 pad0 img'></div>
-
-        {this.state.offers.map(function(offer){
-          return self.getOfferRenderer(offer);
-        })}
+          {this.state.offers.map(function(offer){
+            return self.getOfferRenderer(offer);
+          })}
+          </div>
 
       </div>
     )

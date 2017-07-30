@@ -15,7 +15,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <header className='full-width header'>
+      <header className='full-width header h'>
         <div className='hlg'>
           <div className='col-xs-1 full-height menue pull-right' onClick={this.openDrawer.bind(this)}><i className='fa fa-ellipsis-v fa-lg w'></i></div>
         </div>

@@ -89,7 +89,7 @@ export default class InviteAndEarn extends React.Component {
           <div className={'col-xs-6 pad0 ' + this.state.active} onClick={this.setActive.bind(this, true)}>INVITE &#38; EARN</div>
           <div className={'col-xs-6 pad0 ' + !this.state.active} onClick={this.setActive.bind(this, false)}>MY CREDITS</div>
         </div>
-        <img className='col-xs-12 pad0' src='../styles/assets/images/refer.jpg' height='150px'/>
+        <img className='col-xs-12 pad0' src='../styles/assets/images/refer.jpg' height='150px' alt='refer'/>
         <div className='col-xs-12 pad0 mask'></div>
         {this.state.active ? this.renderInviteAndEarn() : this.renderRewards()}
       </div>
