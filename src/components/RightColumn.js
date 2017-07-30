@@ -1,6 +1,3 @@
-/**
- * Created by gautam on 19/12/16.
- */
 import React from 'react';
 
 export default class RightColumn extends React.Component {
