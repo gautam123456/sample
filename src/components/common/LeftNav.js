@@ -7,15 +7,18 @@ export default class LeftNav extends React.Component {
   }
 
   render() {
-
-    return (
-      <div className = 'col-md-offset-1 col-xs-12 col-md-3 leftNav'>
-        <MenueOptions />
-        <div className='col-md-12 call'>
-          Call or WhatsApp us on +918826755766 for any assistance.
+    if(this.props.screenWidth > 991) {
+      return (
+        <div className = 'col-md-offset-1 col-xs-12 col-md-3 leftNav'>
+          <MenueOptions />
+          <div className='col-md-12 call'>
+            Call or WhatsApp us on +918826755766 for any assistance.
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return null;
+    }
   }
 }
 

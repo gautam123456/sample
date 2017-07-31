@@ -29,13 +29,6 @@ export default class ThankYou extends React.Component {
             <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Booking details have been sent on your registered mobile number. </div>
             <div className = 'col-xs-12' > Refer your friends and earn. <Link to='/salon-at-home/referearn'><u>know more</u></Link></div>
             <div className = 'col-xs-12' style={{marginBottom: 70}} > Call 8826755766 for any query or assistance.</div>
-            {
-              Base.sandbox.bookingID && Base.sandbox.finalAmount && ((window.location.origin == 'https://lookplex.com') || (window.location.origin == 'https://m.lookplex.com')) && false ?
-              <iframe src={'https://coupondunia.go2cloud.org/aff_l?offer_id=1413&adv_sub='+Base.sandbox.bookingID+'&amount='+Base.sandbox.finalAmount} scrolling="no" frameborder="0" width="1" height="1"></iframe>
-                : null
-            }
-
-
           </div>
           <ThankYouFooter />
         </div>
@@ -47,4 +40,8 @@ export default class ThankYou extends React.Component {
   }
 }
 
-
+//{
+//  Base.sandbox.bookingID && Base.sandbox.finalAmount && ((window.location.origin == 'https://lookplex.com') || (window.location.origin == 'https://m.lookplex.com')) && false ?
+//    <iframe src={'https://coupondunia.go2cloud.org/aff_l?offer_id=1413&adv_sub='+Base.sandbox.bookingID+'&amount='+Base.sandbox.finalAmount} scrolling="no" frameborder="0" width="1" height="1"></iframe>
+//    : null
+//}

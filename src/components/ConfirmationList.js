@@ -12,12 +12,13 @@ export default class ConfirmationList extends React.Component {
     constructor(props) {
         super(props);
 
-      Base.sandbox.bookingDetails.discount = Base.sandbox.discount;
+      Base.sandbox.bookingDetails.discount = Base.offerbox.discount;
+      Base.offerbox.discount ? Base.sandbox.bookingDetails.couponcode = Base.offerbox.coupon : null;
 
       this.state = {
-        promoCodeApplied: !!Base.sandbox.discount,
+        promoCodeApplied: !!Base.offerbox.discount,
         refDiscount: 0,
-        couponCode: Base.sandbox.discount ? 'LOOK30' : '',
+        couponCode: Base.offerbox.discount ? Base.offerbox.coupon : '',
         discount: Base.sandbox.bookingDetails.discount,
         questionShow: {display: 'block', paddingTop: 0},
         applySectionShow: {display: 'none', paddingTop: 0},
@@ -72,6 +73,27 @@ export default class ConfirmationList extends React.Component {
       }
     }
 
+    renderDiscountSection() {
+      if(this.state.promoCodeApplied) {
+        return (
+          <div className = 'col-xs-12 promo'>
+            <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }<i className = 'fa fa-times-circle-o pull-right cli' onClick = { this.removeCode.bind(this) }></i></div>
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
+              <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
+            </div>
+            { this.renderPromoCodeSection.bind(this)() }
+            { this.renderCouponAppliedSection.bind(this)() }
+          </div>
+        )
+      }
+
+    }
+
     render() {
         const then = this,
             objKeys = this.state.bookedItemList ? Object.keys(this.state.bookedItemList.services) : [],
@@ -98,9 +120,7 @@ export default class ConfirmationList extends React.Component {
                         <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) - refDiscount } </div>
                     </div>
 
-                  <div className = 'col-xs-12 promo'>
-                    <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }</div>
-                  </div>
+                  {this.renderDiscountSection()}
 
 
                 </div>
@@ -143,12 +163,4 @@ export default class ConfirmationList extends React.Component {
       }
       $.ajax(ajaxObj);
     }
-
 }
-
-//<div className = 'col-xs-12 promo' style = { this.state.questionShow }>
-//  <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
-//</div>
-//{ this.renderPromoCodeSection.bind(this)() }
-//{ this.renderCouponAppliedSection.bind(this)() }
-//{Base.sandbox.discount ? <i className = 'fa fa-times-circle-o pull-right cli' onClick = { this.removeCode.bind(this) }></i> : null}

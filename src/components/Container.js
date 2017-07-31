@@ -21,7 +21,6 @@ export default class Container extends React.Component {
     this.state = {
       data: Base.sandbox.items || '',
       active: this.active,
-      screenWidth: $(window).width(),
       notify: {
         show: false,
         type: 'info',
@@ -88,11 +87,13 @@ export default class Container extends React.Component {
         <div className='col-md-12 col-xs-12 pad0 clearfix b-fix'>
           <TopNotification data={this.state.notify}/>
           <div className='col-md-4 nomob'>
-            <LeftNav />
+            <LeftNav screenWidth={this.props.screenWidth}/>
           </div>
-          <HomeImage data = {this.getActiveData(this.state.active)} serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1} showNotification={this.showNotification.bind(this)} screenWidth={this.state.screenWidth}/>
+          <HomeImage data = {this.getActiveData(this.state.active)}
+                     serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1}
+                     showNotification={this.showNotification.bind(this)} screenWidth={this.props.screenWidth}/>
           <div className='col-md-4 nomob pad0'>
-            <RightColumn />
+            <RightColumn screenWidth={this.props.screenWidth}/>
           </div>
           <Footer />
         </div>

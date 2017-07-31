@@ -29,6 +29,7 @@ render(
   <Router history = { browserHistory } onEnter = { Base.routerInvoked() }>
     <Route path = { '/' } component = { App } />
     <Route path = { 'salon-at-home' } component = { App } />
+    <Route path = { 'beauty-at-home.html' } component = { App } />
     <Route path = { 'salon-at-home/in/delhi' } component = { App } />
     <Route path = { 'salon-at-home/in/gurgaon' } component = { App } />
     <Route path = { 'salon-at-home/in/noida' } component = { App } />

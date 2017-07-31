@@ -15,17 +15,21 @@ export default class Base extends React.Component {
     }
 
     static sandbox = {
-      bookingDetails,
-      discount: 0
+      bookingDetails
     };
 
-  componentDidMount() {
-    const self = this;
-    Base
-    window.onresize = function () {
-      Base.screenWidth = $(window).width() > 992 ? $(window).width() / 3 : $(window).width();
+    static offerbox = {
+      coupon: 'LOOK30',
+      discount: 30
     };
-  }
+
+    componentDidMount() {
+      const self = this;
+      Base
+      window.onresize = function () {
+        Base.screenWidth = $(window).width() > 992 ? $(window).width() / 3 : $(window).width();
+      };
+    }
 
     // This method is called every time router is invoked
 

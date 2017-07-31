@@ -125,8 +125,8 @@ export default class DateWidget extends React.Component {
       <div>
         <div className = 'col-xs-12 confirm pad0'>
           <div className = 'col-xs-12 datepick'>
-            <span> Pick your time </span>
-            <div className = 'col-xs-12 date' style={{height:40}}> { this.props.data.date + '/' + this.props.data.month + '/' + this.props.data.year + ' ' + timing + meridian } </div>
+            <div className = 'col-xs-3 pad0'> Pick your time </div>
+            <div className = 'col-xs-7 date' style={{height:40}}> { this.props.data.date + '/' + this.props.data.month + '/' + this.props.data.year + ' ' + timing + meridian } </div>
             <div className = 'col-xs-3 pad0'>
               { this.renderDate() }
             </div>

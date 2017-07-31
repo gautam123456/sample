@@ -24,7 +24,7 @@ export default class Cart extends React.Component {
         </div>
         <div className='col-xs-5 pad0'>
           <Link to= { '/cart' } style={{color: '#fff'}}>
-          Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal - (this.props.bookingDetails.subTotal * Base.sandbox.discount /100) || 0 }
+          Subtotal &nbsp; <i className='fa fa-inr'></i> { this.getSubTotal() }
           </Link>
         </div>
         <div className='col-xs-4 full-height book pad0 cli' onClick = {this.navigateTo.bind(this)}>
@@ -32,6 +32,20 @@ export default class Cart extends React.Component {
         </div>
       </div>
     )
+  }
+
+  getSubTotal() {
+    console.log(this.props);
+    if(this.props.bookingDetails.subTotal) {
+      if(Base.offerbox.discount) {
+        return (this.props.bookingDetails.subTotal - (this.props.bookingDetails.subTotal * Base.offerbox.discount/100));
+      } else {
+        return this.props.bookingDetails.subTotal;
+      }
+    } else {
+      return 0;
+    }
+
   }
 
   componentDidMount() {
@@ -53,13 +67,22 @@ export default class Cart extends React.Component {
   navigateTo() {
     fbq('track', 'InitiateCheckout');
     if(this.isLoggedIn()) {
-      if(this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking) {
+      if(this.isMinAmountValid()) {
         browserHistory.push('/order/details');
       } else {
         this.props.showNotification('info', 'Minimum booking amount is Rs.800, please add more services.', 4000, 60);
       }
     } else {
       browserHistory.push('/login')
+    }
+  }
+
+  isMinAmountValid() {
+    if (Base.offerbox.discount) {
+      const subTotal = this.props.bookingDetails.subTotal - (this.props.bookingDetails.subTotal * Base.offerbox.discount/100);
+      return subTotal >= this.props.bookingDetails.minBooking;
+    }else {
+      return this.props.bookingDetails.subTotal >= this.props.bookingDetails.minBooking;
     }
   }
 

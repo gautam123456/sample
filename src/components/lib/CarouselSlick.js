@@ -20,11 +20,15 @@ export default class Carousel extends React.Component {
     showArrow: PropTypes.bool
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({screenWidth: nextProps.screenWidth > 992 ? nextProps.screenWidth/3 : nextProps.screenWidth});
+  }
+
   componentDidMount() {
     const self = this;
-    window.onresize = function() {
-      self.setState({screenWidth: $(window).width() > 992 ? $(window).width()/3 : $(window).width()})
-    };
+    //window.onresize = function() {
+    //  self.setState({screenWidth: $(window).width() > 992 ? $(window).width()/3 : $(window).width()})
+    //};
 
     if(self.props.autoPlay) {
       self.interval = setInterval(() => {

@@ -30,7 +30,7 @@ export default class HomeImage extends React.Component {
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img h' style={{backgroundColor: this.props.screenWidth < 992 ? this.state.bg : '#fff'}}>
         <div className = 'bgimage' style={{opacity: this.state.opacity}}>
-          <Carousel images = {images} showArrow={false} autoPlay={false}/>
+          <Carousel images = {images} showArrow={false} autoPlay={true} screenWidth={this.props.screenWidth}/>
         </div>
         <div id = 'filter' className = {'filter ' + this.state.fixed}>
           <span className = 'f-list col-xs-12'>
