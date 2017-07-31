@@ -75,7 +75,7 @@ export default class OrderConfirm extends React.Component {
       if(this.state.timing) {
         browserHistory.push('/address');
       } else {
-        this.showNotification('info', 'Please select your date & time slot', 4000, 50);
+        this.showNotification('info', 'Please select your dattime slot', 4000, 50);
       }
     } else {
       this.showNotification('info', 'Please provide email address', 4000, 50);
@@ -113,6 +113,7 @@ export default class OrderConfirm extends React.Component {
   }
 
   commentFocus(e) {
+    console.log('Focus');
     e.currentTarget.setAttribute('placeholder', '');
   }
 
