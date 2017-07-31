@@ -6,18 +6,18 @@ export default class RightColumn extends React.Component {
       const width = Math.round(window.screen.availWidth * 21/100),
         src = `https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLookplex%2F&tabs=timeline&width=${width}&height=500&small_header=false&adapt_container_width=true&hide_cta=true&hide_cover=false&show_facepile=true&appId`;
       return (
-        <div className='rc' style={{marginTop: this.props.top, position: this.props.position}}>
-          <div className='col-md-8 fb'>
+        <div className='rc' style={{marginTop: this.props.top, position: this.props.position, width: width+12}}>
+          <div className='col-md-12 fb' style = {{width: width+12}}>
             <div className='col-md-12 pad0'>
               <iframe src={src}
                       width={width} height="300"
                       style={{border:'none',overflow:'hidden'}} scrolling="no" frameBorder="0" allowTransparency="true"></iframe>
             </div>
           </div>
-          <div className='col-md-8 ut'>
+          <div className='col-md-12 ut' style = {{width: width+12}}>
             <div className='col-md-12 pad0'>
               <iframe className="col-xs-12 pad0 nomob"
-                      width="99" height="168"
+                      width={width} height="168"
                       src="https://www.youtube.com/embed/w0C1xPhafec?rel=0&showinfo=0&autohide=1"
                       frameBorder="0">
               </iframe>
