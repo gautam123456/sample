@@ -18,14 +18,14 @@ export default class ThankYou extends React.Component {
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
             <img src='../styles/assets/images/booked.jpg' style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
 
-            <a onClick={this.reload}>
+            <a className='cli' onClick={this.reload}>
               <div className="col-xs-12" style={{marginTop: -120, height:60}}></div>
             </a>
 
             {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
             {finalAmount ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount payable: <strong>Rs. {finalAmount} </strong></div> : ''}
             <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Booking details have been sent on your registered mobile number. </div>
-            <div className = 'col-xs-12' > Refer your friends and earn. <Link to='/salon-at-home/referearn'><u>know more</u></Link></div>
+            <div className = 'col-xs-12' > Refer your friends and earn. <a className='cli' onClick={this.referEarn}><u>know more</u></a></div>
             <div className = 'col-xs-12' style={{marginBottom: 70}} > Call 8826755766 for any query or assistance.</div>
           </div>
           <ThankYouFooter />
@@ -35,6 +35,10 @@ export default class ThankYou extends React.Component {
 
   reload() {
     window.location.assign(location.origin);
+  }
+
+  referEarn() {
+    window.location.assign(location.origin+'/salon-at-home/referearn');
   }
 
   componentDidMount() {
