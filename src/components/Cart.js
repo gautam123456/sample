@@ -24,7 +24,7 @@ export default class Cart extends React.Component {
         </div>
         <div className='col-xs-5 pad0'>
           <Link to= { '/cart' } style={{color: '#fff'}}>
-          Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal || 0 }
+          Subtotal &nbsp; <i className='fa fa-inr'></i> { this.props.bookingDetails.subTotal - (this.props.bookingDetails.subTotal * Base.sandbox.discount /100) || 0 }
           </Link>
         </div>
         <div className='col-xs-4 full-height book pad0 cli' onClick = {this.navigateTo.bind(this)}>

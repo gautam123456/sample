@@ -36,7 +36,7 @@ export default class BookingConfirm extends React.Component {
         <TopNotification data={this.state.notify}/>
         <ConfirmationList showNotification={this.showNotification.bind(this)}/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 pad0'>
-         <button className = 'col-xs-12 col-md-4' style = {{padding: 15,fontSize: 17, fontWeight: 600,position: 'fixed',bottom:0}} onClick = { this.validateAndConfirm }> Confirm Booking </button>
+         <button className = 'col-xs-12 col-md-4 cli' style = {{padding: 15,fontSize: 17, fontWeight: 600,position: 'fixed',bottom:0}} onClick = { this.validateAndConfirm }> Confirm Booking </button>
         </div>
       </div>
     )

@@ -56,7 +56,7 @@ export default class FullCart extends React.Component {
           <div className = 'col-xs-12 summary pad0'>
             <div className = 'col-xs-12'>
               <div className = 'col-xs-8'> Sub Total </div>
-              <div className = 'col-xs-4'> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal } </div>
+              <div className = 'col-xs-4'> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.bookedItemList.subTotal * Base.sandbox.discount/100) } </div>
             </div>
           </div>
         </div>

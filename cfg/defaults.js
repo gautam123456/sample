@@ -9,6 +9,7 @@
 const path = require('path');
 const srcPath = path.join(__dirname, '/../src');
 const dfltPort = 80;
+const StringReplacePlugin = require("string-replace-webpack-plugin");
 
 /**
  * Get the default modules object for webpack
@@ -58,12 +59,17 @@ function getDefaultModules() {
         exclude: /(node_modules)/
       },
       {
-        test: /\.html$/,
-        loader: 'string-replace',
-        query: {
-          search: 'Dude',
-          replace: 'window'
-        }
+        test: /index.html$/,
+        loader: StringReplacePlugin.replace({
+          replacements: [
+            {
+              pattern: /<!-- @secret (\w*?) -->/ig,
+              replacement: function (match, p1, offset, string) {
+                return secrets.web[p1];
+              }
+            }
+          ]
+        })
       }
     ]
   };

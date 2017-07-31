@@ -116,6 +116,7 @@ export default class Container extends React.Component {
       ajaxObj.xhrFields = {withCredentials: true};
       self.setState({data: data})
       Base.sandbox.items = data;
+      Base.sandbox.discount = 30;
       self.switchUrl(url);
     }
     ajaxObj.error = function() {

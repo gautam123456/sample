@@ -15,7 +15,8 @@ export default class Base extends React.Component {
     }
 
     static sandbox = {
-      bookingDetails
+      bookingDetails,
+      discount: 0
     };
 
   componentDidMount() {

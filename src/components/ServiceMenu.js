@@ -1,7 +1,5 @@
-/**
- * Created by gautam on 12/12/16.
- */
 import React from 'react';
+import Amount from './common/Amount';
 
 export default class ServiceMenu extends React.Component {
   render() {
@@ -14,7 +12,7 @@ export default class ServiceMenu extends React.Component {
           { this.props.list.information ? this.renderInformation() : '' }
 
         </div>
-        <div className = 'col-xs-2 cost'> &nbsp; <i className = 'fa fa-inr'></i> { this.props.list.cost }</div>
+        <Amount cost={this.props.list.cost} />
         <div className = 'col-xs-1 center'>
 
           { this.props.count > 0 ? <i className = 'fa fa-minus-circle fa-2x cli' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 0) }></i> : '' }

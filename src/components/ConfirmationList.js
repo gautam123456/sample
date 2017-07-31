@@ -12,10 +12,12 @@ export default class ConfirmationList extends React.Component {
     constructor(props) {
         super(props);
 
+      Base.sandbox.bookingDetails.discount = Base.sandbox.discount;
+
       this.state = {
-        promoCodeApplied: false,
+        promoCodeApplied: !!Base.sandbox.discount,
         refDiscount: 0,
-        couponCode:'',
+        couponCode: Base.sandbox.discount ? 'LOOK30' : '',
         discount: Base.sandbox.bookingDetails.discount,
         questionShow: {display: 'block', paddingTop: 0},
         applySectionShow: {display: 'none', paddingTop: 0},
@@ -64,7 +66,7 @@ export default class ConfirmationList extends React.Component {
       if(this.state.promoCodeApplied){
         return(
           <div className = 'col-xs-12 promo'>
-            <div className = 'col-xs-offset-3 col-xs-6 applied' onClick = { this.removeCode.bind(this) }>{ this.state.couponCode } <i className = 'fa fa-times-circle-o pull-right'></i></div>
+            <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }</div>
           </div>
         )
       }
@@ -96,11 +98,11 @@ export default class ConfirmationList extends React.Component {
                         <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) - refDiscount } </div>
                     </div>
 
-                    <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
-                      <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
-                    </div>
-                    { this.renderPromoCodeSection.bind(this)() }
-                    { this.renderCouponAppliedSection.bind(this)() }
+                  <div className = 'col-xs-12 promo'>
+                    <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }</div>
+                  </div>
+
+
                 </div>
                 <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
@@ -143,3 +145,10 @@ export default class ConfirmationList extends React.Component {
     }
 
 }
+
+//<div className = 'col-xs-12 promo' style = { this.state.questionShow }>
+//  <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
+//</div>
+//{ this.renderPromoCodeSection.bind(this)() }
+//{ this.renderCouponAppliedSection.bind(this)() }
+//{Base.sandbox.discount ? <i className = 'fa fa-times-circle-o pull-right cli' onClick = { this.removeCode.bind(this) }></i> : null}
