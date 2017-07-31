@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
+import Footer from './Footer';
 import Appointment from './Appointment';
 import TopNotification from './TopNotification';
 import LeftNav from './common/LeftNav';
@@ -16,6 +17,7 @@ export default class AppointmentList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      screenWidth: $(window).width(),
       ongoing: true,
       ongoingList: [],
       historyList: [],
@@ -51,7 +53,7 @@ export default class AppointmentList extends React.Component {
       <div>
         <ActivityHeader heading = { 'My Appointments' } fixed={true}/>
         <div className='col-md-4 nomob'>
-          <LeftNav />
+          <LeftNav screenWidth={this.state.screenWidth}/>
         </div>
         <div className = 'col-xs-12 pad0 col-md-4 appointments'>
           <TopNotification data={this.state.notify}/>
@@ -65,6 +67,7 @@ export default class AppointmentList extends React.Component {
             })
           }
           </div>
+        <Footer />
       </div>
     )
   }
@@ -113,6 +116,18 @@ export default class AppointmentList extends React.Component {
         this.ongoingList.push(appointment);
       }
     }
+  }
+
+  updateDimensions() {
+    this.setState({screenWidth: $(window).width()});
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
   componentWillMount() {

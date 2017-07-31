@@ -3,11 +3,16 @@ import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
 import Base from './base/Base';
+import LeftNav from './common/LeftNav';
+import Footer from './Footer';
+import { Link } from 'react-router';
+
 
 export default class InviteAndEarn extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      screenWidth: $(window).width(),
       refCode: '',
       active: true,
       totalrefcount: ''
@@ -26,29 +31,25 @@ export default class InviteAndEarn extends React.Component {
             <br />
             <li>Additionally, you will also get Rs.200 Off on your next appointment. </li>
           </ul>
+          <div className='col-xs-12'>{this.state.refCode ? <div>YOUR <strong>LOOK</strong>PLEX INVITE CODE</div>:'PLEASE LOGIN TO SEE YOUR INVITE CODE'}</div>
+          <div className='col-xs-12'><div className='code col-xs-4 col-xs-offset-4'>{this.state.refCode || 'XXXXXX'}</div></div>
+          {
+            this.state.refCode ?
+              <a href={'whatsapp://send?text=Hey! I tried Lookplex for Beauty Services at Home and had an amazing experience. Here\'s a gift of Rs.200 for you to try their services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + this.state.refCode} data-action="share/whatsapp/share">
+                <div className='invite-wap col-xs-7 a'><i className='col-xs-2 fa fa-whatsapp pad0'></i><div className='col-xs-9 pad0'>Invite via WhatsApp</div></div>
+              </a> :
+              <Link to={'/login'}>
+                <button className='invite-wap col-xs-7 a'>Login</button>
+              </Link>
+          }
         </div>
-        <div className='col-xs-12 pad0 a'>
-          <div className='col-xs-2'></div>
-          <div className='col-xs-8'>YOUR <strong>LOOK</strong>PLEX INVITE CODE</div>
-          <div className='col-xs-2'></div>
-        </div>
-        <div className='col-xs-12 center a'>{this.state.refCode || 'Please login to see your referral code'}</div>
-        {
-          this.state.refCode ?
-          <a href={'whatsapp://send?text=Hey! I tried Lookplex for Beauty Services at Home and had an amazing experience. Here\'s a gift of Rs.200 for you to try their services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + this.state.refCode} data-action="share/whatsapp/share">
-            <div className='invite-wap col-xs-7 a'><i className='col-xs-2 fa fa-whatsapp pad0'></i><div className='col-xs-9 pad0'>Invite via WhatsApp</div></div>
-          </a> :
-          <a href={'/login'}>
-            <button className='invite-wap col-xs-7 a'>Login</button>
-          </a>
-        }
       </div>
     )
   }
 
   renderStaticData() {
     return (
-      <div className='static col-xs-12'>
+      <div className='static col-xs-12 pad0'>
         <ul>
           <li>As per Lookplex Refer and Earn Program, you can avail a discount of Rs.200 on every appointment.</li>
           <br />
@@ -72,9 +73,9 @@ export default class InviteAndEarn extends React.Component {
       return(
         <div className='invite'>
           <div className='col-xs-12 center a'>{'Please login to see your Rewards'}</div>
-          <a href={'/login'}>
-            <button className='invite-wap col-xs-7 a'>Login</button>
-          </a>
+          <Link to={'/login'}>
+            <button className='invite-wap col-xs-7 a cli'>Login</button>
+          </Link>
           {this.renderStaticData()}
         </div>
       )
@@ -83,21 +84,37 @@ export default class InviteAndEarn extends React.Component {
 
   render() {
     return (
-      <div className = 'col-xs-12 col-md-4 col-md-offset-4 pad0 refer'>
-        <ActivityHeader heading = { 'Refer & Earn' }/>
-        <div className='head col-xs-12 pad0'>
-          <div className={'col-xs-6 pad0 ' + this.state.active} onClick={this.setActive.bind(this, true)}>INVITE &#38; EARN</div>
-          <div className={'col-xs-6 pad0 ' + !this.state.active} onClick={this.setActive.bind(this, false)}>MY CREDITS</div>
+      <div>
+        <ActivityHeader heading = { 'Refer & Earn' } fixed={true}/>
+        <div className='col-md-4 nomob'>
+          <LeftNav screenWidth={this.state.screenWidth}/>
         </div>
-        <img className='col-xs-12 pad0' src='../styles/assets/images/refer.jpg' height='150px' alt='refer'/>
-        <div className='col-xs-12 pad0 mask'></div>
-        {this.state.active ? this.renderInviteAndEarn() : this.renderRewards()}
+        <div className='head col-xs-12 col-md-4 pad0 refer'>
+          <div className = 'col-xs-10 col-xs-offset-1 tab'>
+            <div className = {'col-xs-6 cli ' + this.state.active } onClick={this.setActive.bind(this, true)}>INVITE &#38; EARN</div>
+            <div className = {'col-xs-6 cli ' + !this.state.active } onClick={this.setActive.bind(this, false)}>MY CREDITS</div>
+          </div>
+          {this.state.active ? this.renderInviteAndEarn() : this.renderRewards()}
+        </div>
+        <Footer />
       </div>
     )
   }
 
   componentWillMount() {
     this.getUserDetails();
+  }
+
+  updateDimensions() {
+    this.setState({screenWidth: $(window).width()});
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
   getUserDetails() {

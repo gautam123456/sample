@@ -17,6 +17,7 @@ export default class OrderConfirm extends React.Component {
 
     this.state = {
       mailId: sandbox.mailId,
+      comment: sandbox.bookingDetails.comment,
       timing: '',
       date: this.getDate(),
       month: (parseInt(this.date.getMonth()) + 1).toString(),
@@ -51,7 +52,11 @@ export default class OrderConfirm extends React.Component {
 
             <input type = 'text' placeholder = 'Enter your mail Id' className = 'col-xs-12' defaultValue={mailId} onChange = { this.mailIdEntered.bind(this) } onFocus = {this.mailFocus.bind(this) } onBlur = { this.mailUnFocus.bind(this) }></input>
             <div className = 'col-xs-12 pad0' style = {{marginBottom: 10, marginTop: 0}}>
-              <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment' placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100' onChange = {this.optionalComments.bind(this)} onFocus = {this.commentFocus.bind(this) } onBlur = { this.commentUnFocus.bind(this) }>
+              <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment'
+                        placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100'
+                        onBlur = {this.optionalComments.bind(this)}
+                        onFocus = {this.commentFocus.bind(this) }
+                        value = {this.state.comment}>
               </textarea>
             </div>
             <DateWidget scheduleHandler = {this.scheduleHandler.bind(this)} data = {this.state} date={this.date}/>
@@ -70,7 +75,7 @@ export default class OrderConfirm extends React.Component {
       if(this.state.timing) {
         browserHistory.push('/address');
       } else {
-        this.showNotification('info', 'Please select your time slot', 4000, 50);
+        this.showNotification('info', 'Please select your date & time slot', 4000, 50);
       }
     } else {
       this.showNotification('info', 'Please provide email address', 4000, 50);
@@ -95,7 +100,6 @@ export default class OrderConfirm extends React.Component {
     const comment  = e.currentTarget.value;
     this.setState({comment});
     Base.sandbox.bookingDetails.comment = comment;
-    Base.sandbox.comment = comment;
   }
 
   mailFocus(e) {
@@ -105,12 +109,6 @@ export default class OrderConfirm extends React.Component {
   mailUnFocus(e) {
     if (e.currentTarget.value == '') {
       e.currentTarget.setAttribute('placeholder', 'Enter your mail Id');
-    }
-  }
-
-  commentUnFocus(e) {
-    if (e.currentTarget.value == '') {
-      e.currentTarget.setAttribute('placeholder', 'Wish to share something that we can help you with? (Optional)');
     }
   }
 

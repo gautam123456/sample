@@ -35,7 +35,6 @@ export default class Cart extends React.Component {
   }
 
   getSubTotal() {
-    console.log(this.props);
     if(this.props.bookingDetails.subTotal) {
       if(Base.offerbox.discount) {
         return (this.props.bookingDetails.subTotal - (this.props.bookingDetails.subTotal * Base.offerbox.discount/100));

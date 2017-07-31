@@ -7,6 +7,7 @@ import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import Base from './base/Base';
 import LeftNav from './common/LeftNav';
+import Footer from './Footer';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -14,6 +15,7 @@ export default class Offers extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      screenWidth: $(window).width(),
       offers: [],
       message: ''
     }
@@ -25,7 +27,7 @@ export default class Offers extends React.Component {
       <div>
         <ActivityHeader heading = { 'My Offers' } fixed={true}/>
         <div className='col-md-4 nomob'>
-          <LeftNav />
+          <LeftNav screenWidth={this.state.screenWidth}/>
         </div>
         <div className = 'col-xs-12 col-md-4 pad0 offers'>
           <div className = 'col-xs-10 col-xs-offset-1 pad0 img'></div>
@@ -34,7 +36,7 @@ export default class Offers extends React.Component {
             return self.getOfferRenderer(offer);
           })}
           </div>
-
+        <Footer />
       </div>
     )
   }
@@ -54,6 +56,18 @@ export default class Offers extends React.Component {
 
   updateOffers(data) {
     this.setState({offers: data.customerCouponList, message: data.message})
+  }
+
+  updateDimensions() {
+    this.setState({screenWidth: $(window).width()});
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
   componentWillMount() {

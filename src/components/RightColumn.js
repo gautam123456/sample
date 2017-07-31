@@ -17,7 +17,7 @@ export default class RightColumn extends React.Component {
           <div className='col-md-8 ut'>
             <div className='col-md-12 pad0'>
               <iframe className="col-xs-12 pad0 nomob"
-                      width="100" height="168"
+                      width="99" height="168"
                       src="https://www.youtube.com/embed/w0C1xPhafec?rel=0&showinfo=0&autohide=1"
                       frameBorder="0">
               </iframe>

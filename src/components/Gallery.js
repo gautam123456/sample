@@ -3,12 +3,15 @@ import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
 import LeftNav from './common/LeftNav';
+import RightColumn from './RightColumn';
+import Footer from './Footer';
 
 export default class GalleryHome extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: ''
+          screenWidth: $(window).width(),
+          data: ''
         };
     }
 
@@ -40,6 +43,9 @@ export default class GalleryHome extends React.Component {
         Base.sandbox.bookingDetails.name = null;
       }
       $.ajax(ajaxObj);
+
+      window.addEventListener("resize", this.updateDimensions.bind(this));
+
     }
 
     render() {
@@ -50,7 +56,7 @@ export default class GalleryHome extends React.Component {
           <div>
             <ActivityHeader heading = { 'Gallery' } fixed={true}/>
             <div className='col-md-4 nomob'>
-              <LeftNav />
+              <LeftNav screenWidth={this.state.screenWidth}/>
             </div>
             <section className = 'col-xs-12 col-md-4 pad0 gallery' style = {{ backgroundColor:'#000',color:'#fff', marginTop: 40}}>
               <div className = 'col-xs-12 gal-header'>BRIDAL</div>
@@ -60,6 +66,10 @@ export default class GalleryHome extends React.Component {
                 return <div>{ self.renderImage(data.imageUrl, data.date, data.caption) }</div>
               }) }
             </section>
+            <div className='col-md-4 nomob pad0'>
+              <RightColumn screenWidth={this.state.screenWidth}/>
+            </div>
+            <Footer />
           </div>
         )
       } else {
@@ -67,6 +77,12 @@ export default class GalleryHome extends React.Component {
           <div></div>
         )
       }
-
     }
+  updateDimensions() {
+    this.setState({screenWidth: $(window).width()});
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
+  }
 }

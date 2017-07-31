@@ -17,6 +17,7 @@ export default class Login extends DisableScroll {
     super(props);
     this.state = {
       number : '',
+      screenWidth: $(window).width(),
       notify: {
         show: false,
         type: 'info',
@@ -47,15 +48,21 @@ export default class Login extends DisableScroll {
           </div>
           <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.login.bind(this) }> LOG IN / SIGN UP</button>
         </div>
-        <div className='col-md-4 nomob pad0'>
-          <RightColumn top={-30} position={'fixed'}/>
-        </div>
       </div>
     )
   }
 
+  updateDimensions() {
+    this.setState({screenWidth: $(window).width()});
+  }
+
   componentDidMount() {
     Base.hideOverlay();
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
   showNotification(type, msg, timeout, top) {
