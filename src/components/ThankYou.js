@@ -16,12 +16,10 @@ export default class ThankYou extends React.Component {
           <ActivityHeader heading = { 'Booking Confirmed' }/>
 
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
-            <img src="../styles/assets/images/booked.jpg" style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
+            <img src='../styles/assets/images/booked.jpg' style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
 
             <Link to = { '/' }>
-              <div className="col-xs-12" style={{marginTop: -120,height:60}}>
-
-              </div>
+              <div className="col-xs-12" style={{marginTop: -120, height:60}}></div>
             </Link>
 
             {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
@@ -39,9 +37,3 @@ export default class ThankYou extends React.Component {
     Base.clearCart();
   }
 }
-
-//{
-//  Base.sandbox.bookingID && Base.sandbox.finalAmount && ((window.location.origin == 'https://lookplex.com') || (window.location.origin == 'https://m.lookplex.com')) && false ?
-//    <iframe src={'https://coupondunia.go2cloud.org/aff_l?offer_id=1413&adv_sub='+Base.sandbox.bookingID+'&amount='+Base.sandbox.finalAmount} scrolling="no" frameborder="0" width="1" height="1"></iframe>
-//    : null
-//}

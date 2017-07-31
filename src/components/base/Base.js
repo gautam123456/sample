@@ -84,6 +84,7 @@ export default class Base extends React.Component {
       window.localStorage.clear();
       const {name} = Base.sandbox.bookingDetails;
       Base.sandbox.bookingDetails = bookingDetails;
+      Base.sandbox.bookingDetails.services = {};
       Base.sandbox.bookingDetails.name = name;
     }
 
