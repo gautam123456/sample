@@ -13,7 +13,7 @@ export default class ThankYou extends React.Component {
     const {moneySaved, finalAmount} = Base.sandbox;
     return (
         <div>
-          <ActivityHeader heading = { 'Booking Confirmed' }/>
+          <ActivityHeader heading = { 'Booking Confirmed' } refresh={true}/>
 
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
             <img src='../styles/assets/images/booked.jpg' style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
