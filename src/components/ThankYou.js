@@ -18,9 +18,9 @@ export default class ThankYou extends React.Component {
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
             <img src='../styles/assets/images/booked.jpg' style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
 
-            <Link to = { '/' }>
+            <a onClick={this.reload}>
               <div className="col-xs-12" style={{marginTop: -120, height:60}}></div>
-            </Link>
+            </a>
 
             {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
             {finalAmount ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount payable: <strong>Rs. {finalAmount} </strong></div> : ''}
@@ -31,6 +31,10 @@ export default class ThankYou extends React.Component {
           <ThankYouFooter />
         </div>
     )
+  }
+
+  reload() {
+    window.location.assign(location.origin);
   }
 
   componentDidMount() {
