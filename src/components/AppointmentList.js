@@ -52,7 +52,7 @@ export default class AppointmentList extends React.Component {
     return (
       <div>
         <ActivityHeader heading = { 'My Appointments' } fixed={true}/>
-        <div className='col-md-4 nomob'>
+        <div className='col-md-4 nomob' style={{minHeight: 500}}>
           <LeftNav screenWidth={this.state.screenWidth}/>
         </div>
         <div className = 'col-xs-12 pad0 col-md-4 appointments'>
