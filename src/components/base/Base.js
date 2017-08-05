@@ -123,4 +123,10 @@ export default class Base extends React.Component {
     static navigateTo(to) {
       browserHistory.push(to);
     }
+
+    static logEvent(eventCategory, eventAction, eventLabel) {
+      if(window.location.origin == 'https://lookplex.com'){
+        ga('send', 'event', eventCategory, eventAction, eventLabel);
+      }
+    }
 }

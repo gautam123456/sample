@@ -57,6 +57,7 @@ export default class Cancel extends React.Component {
   }
 
   cancel() {
+    ga('send', 'event', 'Booking Cancelled', '', Base.sandbox.source);
     const self = this;
     Base.showOverlay();
     ajaxObj.type = 'POST';

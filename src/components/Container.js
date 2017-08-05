@@ -125,6 +125,8 @@ export default class Container extends React.Component {
       Base.sandbox.bookingDetails.name = null;
     }
     $.ajax(ajaxObj);
+    Base.sandbox.source = document.referrer || 'Direct';
+    Base.logEvent('Main page', 'Landed', Base.sandbox.source);
   }
 
   serviceSelected(attrValue) {
