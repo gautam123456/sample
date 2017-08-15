@@ -21,13 +21,15 @@ export default class FullCart extends React.Component {
     }
 
     componentDidMount() {
+        Base.showOverlay();
         const self = this;
         ajaxObj.url = 'https://static.lookplex.com/data' + this.props.location.pathname + '.json';
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
         ajaxObj.xhrFields = { "withCredentials": false }
         ajaxObj.success = function(response) {
-            self.setState({data: response.data, pgTitle: response.title});
+          self.setState({data: response.data, pgTitle: response.title});
+          Base.hideOverlay();
         }
         ajaxObj.error = function() {
           Base.sandbox.bookingDetails.name = null;
