@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 require('babel-polyfill');
 require('core-js/fn/object/assign');
 
