@@ -45,6 +45,7 @@ export default class OTPModal extends React.Component {
   }
 
   confirmOTP() {
+    const self = this;
     if(this.state.otp.length !== 6){
       this.showNotification();
     }else {
@@ -55,7 +56,7 @@ export default class OTPModal extends React.Component {
         browserHistory.push('/address');
       }
       ajaxObj.error = function(e) {
-        self.showNotification('error', e.responseText, 4000, 30);
+        self.props.showNotification('error', e.responseText, 4000, 30);
         Base.hideOverlay();
       }
       $.ajax(ajaxObj);
