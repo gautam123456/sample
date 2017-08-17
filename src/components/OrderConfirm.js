@@ -61,11 +61,11 @@ export default class OrderConfirm extends React.Component {
           { this.props.location.query.error ? <TopNotification msg = { !(mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
-            <input type = 'text' placeholder = 'Enter mail id (You will receive booking details on this id)' className = 'col-xs-12'
+            <input type = 'text' placeholder = 'Enter mail id (To receive booking details)' className = 'col-xs-12'
                                               defaultValue={mailId} onChange = { this.mailIdEntered.bind(this) }
                                               onFocus = {this.mailFocus.bind(this) }
                                               onBlur = { this.mailUnFocus.bind(this) }></input>
-            { this.isLoggedIn() ? '' : <input type = 'text' placeholder = 'Enter mobile no (You will receive status change alerts on this no)' className = 'col-xs-12' style={{marginTop: -10}}
+            { this.isLoggedIn() ? '' : <input type = 'text' placeholder = 'Enter mobile no (To receive booking status updates)' className = 'col-xs-12' style={{marginTop: -10}}
                    defaultValue={mobile} onChange = { this.mobileEntered.bind(this) } onFocus = {this.mobileFocus.bind(this) }
                    onBlur = { this.mobileUnFocus.bind(this) }></input> }
 
@@ -168,7 +168,7 @@ export default class OrderConfirm extends React.Component {
 
   mailUnFocus(e) {
     if (e.currentTarget.value == '') {
-      e.currentTarget.setAttribute('placeholder', 'Enter mail id (You will receive booking details on this id)');
+      e.currentTarget.setAttribute('placeholder', 'Enter mail id (To receive booking details)');
     }
   }
 
@@ -187,7 +187,7 @@ export default class OrderConfirm extends React.Component {
 
   mobileUnFocus(e) {
     if (e.currentTarget.value == '') {
-      e.currentTarget.setAttribute('placeholder', 'Enter mobile no (You will receive status change alerts on this no)');
+      e.currentTarget.setAttribute('placeholder', 'Enter mobile no (To receive booking status updates)');
     }
   }
 

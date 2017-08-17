@@ -70,21 +70,22 @@ export default class AddAddress extends React.Component {
             <option value = 'Greater Noida'> Greater Noida </option>
             <option value = 'Dehradun'> Dehradun </option>
           </select>
-
-          <button type = 'text' className = 'col-xs-12' onClick={this.updatePreferences.bind(this)}> { this.state.op === 'edit' ? 'Update' : (this.state.op === 'delete' ? 'Delete' : 'Submit')} </button>
-
           <div className = 'col-xs-12 message'>
             *All fields are mandatory
           </div>
 
         </div>
-        <ActivityFooter key = { 45 } back = { this.navigateBack.bind(this) }/>
+        <ActivityFooter key = { 45 } back = { this.navigateBack.bind(this) } next = { this.navigateNext.bind(this) }/>
       </div>
     )
   }
 
   navigateBack() {
-    browserHistory.push('/address');
+    browserHistory.push('/');
+  }
+
+  navigateNext() {
+    this.updatePreferences();
   }
 
   showNotification(type, msg, timeout, top) {
