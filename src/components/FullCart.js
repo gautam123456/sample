@@ -76,15 +76,10 @@ export default class FullCart extends React.Component {
   }
 
   navigateNext() {
-    if(Base.sandbox.bookingDetails.name){
-      if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
-        browserHistory.push('/order/details');
-      } else {
-        browserHistory.push('');
-      }
-
-    }else{
-      browserHistory.push('/login');
+    if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
+      browserHistory.push('/order/details');
+    } else {
+      browserHistory.push('');
     }
   }
 
