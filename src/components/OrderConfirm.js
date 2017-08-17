@@ -65,7 +65,7 @@ export default class OrderConfirm extends React.Component {
                                               defaultValue={mailId} onChange = { this.mailIdEntered.bind(this) }
                                               onFocus = {this.mailFocus.bind(this) }
                                               onBlur = { this.mailUnFocus.bind(this) }></input>
-            { this.isLoggedIn() ? '' : <input type = 'text' placeholder = 'Enter mobile no (To receive booking status updates)' className = 'col-xs-12' style={{marginTop: -10}}
+            { this.isLoggedIn() ? '' : <input type = 'text' placeholder = 'Enter mobile no (To receive status updates)' className = 'col-xs-12' style={{marginTop: -10}}
                    defaultValue={mobile} onChange = { this.mobileEntered.bind(this) } onFocus = {this.mobileFocus.bind(this) }
                    onBlur = { this.mobileUnFocus.bind(this) }></input> }
 
@@ -187,7 +187,7 @@ export default class OrderConfirm extends React.Component {
 
   mobileUnFocus(e) {
     if (e.currentTarget.value == '') {
-      e.currentTarget.setAttribute('placeholder', 'Enter mobile no (To receive booking status updates)');
+      e.currentTarget.setAttribute('placeholder', 'Enter mobile no (To receive status updates)');
     }
   }
 
