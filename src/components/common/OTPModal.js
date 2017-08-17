@@ -20,10 +20,11 @@ export default class OTPModal extends React.Component {
 
   render() {
     return (
-      <div id = 'modal' className ='modal otp' style = {{ display: this.props.display }}>
+      <div id = 'modal' className ='modal otp' style = {{ display: 'block' || this.props.display }}>
         <div className = 'modal-content pad0'>
           <div className = 'cancel' onClick = {this.close.bind(this)}><div>&#215;</div></div>
           <div className = 'content pad0'>
+            <div className='col-xs-12' style={{textAlign: 'center', margin: 5}}>Please check your message box for OTP</div>
             <div className = 'otpbody'>
               <input type = 'text' placeholder = 'Enter OTP' className = 'col-xs-12'
                      onChange = { this.saveOTP.bind(this)} value={this.state.otp}></input>

@@ -65,7 +65,7 @@ render(
     <Route path = { 'refund-policy' } component = { FooterPage } />
     <Route path = { 'terms-of-service' } component = { FooterPage } />
     <Route path = { 'salon-at-home/*' } component = { App } />
-    <Route path = { '*' } component = { ErrorPage } />
+    <Route path = { '*' } component = { App } />
   </Router>
 , document.getElementById('app'));
 
