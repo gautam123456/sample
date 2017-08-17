@@ -46,6 +46,7 @@ export default class Base extends React.Component {
     }
 
     static loginStatus() {
+      Base.sandbox.bookingDetails.name = undefined;
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
         ajaxObj.type = 'GET';
         ajaxObj.data = '';

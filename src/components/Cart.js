@@ -65,15 +65,15 @@ export default class Cart extends React.Component {
 
   navigateTo() {
     fbq('track', 'InitiateCheckout');
-    if(this.isLoggedIn()) {
+    //if(this.isLoggedIn()) {
       if(this.isMinAmountValid()) {
         browserHistory.push('/order/details');
       } else {
         this.props.showNotification('info', 'Minimum booking amount is Rs.800, please add more services.', 4000, 60);
       }
-    } else {
-      browserHistory.push('/login')
-    }
+   // } else {
+   //   browserHistory.push('/login')
+   // }
   }
 
   isMinAmountValid() {

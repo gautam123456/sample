@@ -98,3 +98,17 @@ input[type='text'], input[type='number'] {
 img {
   border: 0;
 }
+
+::-webkit-input-placeholder {
+  font-size: 13px!important;
+  color: $brand-color;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-size: 13px!important;
+  color: $brand-color;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+  font-size: 13px!important;
+  color: $brand-color;
+}
