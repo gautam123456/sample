@@ -20,7 +20,7 @@ export default class OTPModal extends React.Component {
 
   render() {
     return (
-      <div id = 'modal' className ='modal otp' style = {{ display: 'block' || this.props.display }}>
+      <div id = 'modal' className ='modal otp' style = {{ display: this.props.display }}>
         <div className = 'modal-content pad0'>
           <div className = 'cancel' onClick = {this.close.bind(this)}><div>&#215;</div></div>
           <div className = 'content pad0'>
