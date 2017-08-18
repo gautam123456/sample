@@ -74,12 +74,17 @@ export default class MenueOptions extends React.Component {
 
         <div className='col-md-12 col-xs-12' onClick={this.navigateTo.bind(this, '')}>
           <i className="fa fa-home"></i>
-          <Link to = { '/' }>
+          <a onClick={this.goToHome.bind(this)}>
             Home
-          </Link>
+          </a>
         </div>
       </div>
     )
+  }
+
+  goToHome() {
+    this.props.closeDrawer ? this.props.closeDrawer() : null;
+    browserHistory.push('');
   }
 
   logIn(e) {

@@ -22,7 +22,7 @@ export default class Header extends React.Component {
 
         <div id='mySidenav' className='sidenav' style = { this.state.width }>
           <div className='closebtn' onClick = { this.closeDrawer.bind(this) }>&times;</div>
-          <MenueOptions />
+          <MenueOptions closeDrawer={this.closeDrawer.bind(this)}/>
           <div className="contact col-xs-12 pad0">
             <a href="tel:918826755766"><i className = "fa fa-phone"></i></a>
             <span>Tap call or Whatsapp on +918826755766 for assistance.</span>
