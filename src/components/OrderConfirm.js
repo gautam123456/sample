@@ -68,7 +68,7 @@ export default class OrderConfirm extends React.Component {
             { this.isLoggedIn() ? '' : <input type = 'text' placeholder = 'Enter mobile no (To receive status updates)' className = 'col-xs-12' style={{marginTop: -10}}
                    defaultValue={mobile} onChange = { this.mobileEntered.bind(this) } onFocus = {this.mobileFocus.bind(this) }
                    onBlur = { this.mobileUnFocus.bind(this) }></input> }
-
+            <DateWidget scheduleHandler = {this.scheduleHandler.bind(this)} data = {this.state} date={this.date}/>
             <div className = 'col-xs-12 pad0' style = {{marginBottom: 10, marginTop: 0}}>
               <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment'
                         placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100'
@@ -77,9 +77,7 @@ export default class OrderConfirm extends React.Component {
                         value = {this.state.comment}>
               </textarea>
             </div>
-            <DateWidget scheduleHandler = {this.scheduleHandler.bind(this)} data = {this.state} date={this.date}/>
             <div className = 'col-xs-11 message'>
-              *All fields are mandatory
             </div>
 
           </div>
@@ -151,6 +149,9 @@ export default class OrderConfirm extends React.Component {
   }
 
   scheduleHandler(param, value) {
+    if(param === 'date') {
+      this.setState({timing: ''});
+    }
     this.setState({[param]: value});
     Base.sandbox[param] = value;
     this.setState({notify: {show: false}})

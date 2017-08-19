@@ -59,6 +59,9 @@ export default class Reschedule extends React.Component {
   }
 
   scheduleHandler(param, value) {
+    if(param === 'date') {
+      this.setState({timing: ''});
+    }
     this.setState({[param]: value, notify: {show: false}});
   }
 

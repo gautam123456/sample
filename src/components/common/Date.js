@@ -81,14 +81,20 @@ export default class DateWidget extends React.Component {
 
     if( this.props.data.month == (this.date.getMonth() + 1)  && this.date.getFullYear().toString().indexOf(this.props.data.year) >= 0 && this.props.data.date == this.date.getDate()){
       let currentHour = this.date.getHours();
+
       let index;
-      for(var i = 0 ; i < hours.length ; i++){
-        if(hours[i][2] == currentHour){
-          index = i;
-          break;
+      if (currentHour > 6 && currentHour <= 10) {
+        index = 1
+      }else {
+        for(var i = 0 ; i < hours.length ; i++){
+          if(hours[i][2] == currentHour){
+            index = i;
+            break;
+          }
         }
       }
-      return index ? hours.slice(index + 5, hours.length) : hours;
+
+      return index ? hours.slice(index + 7, hours.length) : hours;
     }else{
       return hours;
     }
