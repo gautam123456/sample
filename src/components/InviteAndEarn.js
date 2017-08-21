@@ -13,7 +13,7 @@ export default class InviteAndEarn extends React.Component {
     super(props)
     this.state = {
       screenWidth: $(window).width(),
-      refCode: '',
+      refCode: this.props.location.query.refcode,
       active: true,
       totalrefcount: ''
     }
@@ -125,7 +125,10 @@ export default class InviteAndEarn extends React.Component {
     ajaxObj.success = function(data) {
       Base.sandbox.bookingDetails.name = data.name;
       Base.sandbox.bookingDetails.addressList = data.addressList;
-      self.setState({refCode: data.refCode, totalrefcount: data.refCount});
+      self.setState({totalrefcount: data.refCount});
+      if(!self.state.refCode) {
+        self.setState({refCode: data.refCode});
+      }
     }
     ajaxObj.error = function() {
       Base.sandbox.bookingDetails.name = null;
