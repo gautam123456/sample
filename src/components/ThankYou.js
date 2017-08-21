@@ -31,7 +31,7 @@ export default class ThankYou extends React.Component {
             <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Booking details have been sent on your registered mobile number. </div>
             <div className = 'col-xs-12' > Refer your friends and earn. <a className='cli' onClick={this.referEarn}><u>know more</u></a></div>
             <div className = 'col-xs-12' style={{marginBottom: 70}} > Call 8826755766 for any query or assistance.</div>
-            {finalAmount ? <img height="1" width="1" style="border-style:none;" alt=''
+            {finalAmount ? <img height="1" width="1" style={{border:'none'}} alt=''
                   src={src}/> : null}
           </div>
           <ThankYouFooter />
