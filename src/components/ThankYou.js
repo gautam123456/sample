@@ -11,7 +11,7 @@ export default class ThankYou extends React.Component {
 
   render() {
     const {moneySaved, finalAmount} = Base.sandbox,
-      src=`//www.googleadservices.com/pagead/conversion/844167913/?value=${finalAmount}currency_code=INRlabel=fopCCK7XknQQ6fXDkgMguid=ONscript=0`;
+      src=`//www.googleadservices.com/pagead/conversion/844167913/?value=${finalAmount}&currency_code=INR&label=fopCCK7XknQQ6fXDkgM&guid=ON&script=0`;
 
     return (
         <div>
