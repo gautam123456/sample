@@ -9,7 +9,7 @@ const open = require('open');
  * @type {boolean}
  */
 
-let isInitialCompilation = true;
+var isInitialCompilation = true;
 
 const listenOn = 'localhost';
 const compiler = webpack(config);

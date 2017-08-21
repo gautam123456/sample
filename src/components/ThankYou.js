@@ -10,7 +10,9 @@ import { Link } from 'react-router';
 export default class ThankYou extends React.Component {
 
   render() {
-    const {moneySaved, finalAmount} = Base.sandbox;
+    const {moneySaved, finalAmount} = Base.sandbox,
+      src=`//www.googleadservices.com/pagead/conversion/844167913/?value=${finalAmount}&amp;currency_code=INR&amp;label=fopCCK7XknQQ6fXDkgM&amp;guid=ON&amp;script=0`;
+
     return (
         <div>
           <ActivityHeader heading = { 'Booking Confirmed' } refresh={true}/>
@@ -22,11 +24,15 @@ export default class ThankYou extends React.Component {
               <div className="col-xs-12" style={{marginTop: -120, height:60}}></div>
             </a>
 
+
+
             {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
             {finalAmount ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount payable: <strong>Rs. {finalAmount} </strong></div> : ''}
             <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Booking details have been sent on your registered mobile number. </div>
             <div className = 'col-xs-12' > Refer your friends and earn. <a className='cli' onClick={this.referEarn}><u>know more</u></a></div>
             <div className = 'col-xs-12' style={{marginBottom: 70}} > Call 8826755766 for any query or assistance.</div>
+            {finalAmount ? <img height="1" width="1" style="border-style:none;" alt=''
+                  src={src}/> : null}
           </div>
           <ThankYouFooter />
         </div>
