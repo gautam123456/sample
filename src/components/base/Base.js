@@ -54,6 +54,7 @@ export default class Base extends React.Component {
             Base.sandbox.bookingDetails.name = data.name;
             Base.sandbox.bookingDetails.addressList = data.addressList;
             Base.sandbox.userDetails = data;
+            Base.sandbox.refCount = data.refCount;
         }
         ajaxObj.error = function() {
             Base.sandbox.bookingDetails.name = null;
