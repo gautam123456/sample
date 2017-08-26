@@ -142,9 +142,11 @@ export default class Container extends React.Component {
 
   getStaticData(id) {
     const {data} = this.state;
-    for(let i = 0; i < data.serviceList.length; i++){
-      if(data.serviceList[i].id == id){
-        return data.serviceList[i];
+    if(data.serviceList) {
+      for(let i = 0; i < data.serviceList.length; i++){
+        if(data.serviceList[i].id == id){
+          return data.serviceList[i];
+        }
       }
     }
   }

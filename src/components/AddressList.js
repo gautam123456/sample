@@ -90,6 +90,7 @@ export default class addresslist extends React.Component {
         ajaxObj.xhrFields = { withCredentials: true };
         ajaxObj.success = function(data) {
             self.setState({ addresslist: data.addressList });
+            Base.sandbox.refCount = data.refCount;
             Base.hideOverlay();
         }
         ajaxObj.error = () => { if(!Base.sandbox.bookingDetails.name){browserHistory.push('login')} }

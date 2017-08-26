@@ -29,7 +29,7 @@ export default class ConfirmationList extends React.Component {
     componentDidMount() {
       const self = this;
       setTimeout(function() {
-        self.setState({refDiscount: Base.sandbox.userDetails ? (Base.sandbox.userDetails.refCount ? 200 : 0) : 0})
+        self.setState({refDiscount: Base.sandbox.refCount || Base.sandbox.userDetails ? (Base.sandbox.userDetails.refCount ? 200 : 0) : 0})
       }, 1000);
     }
 
