@@ -27,10 +27,7 @@ export default class ConfirmationList extends React.Component {
     }
 
     componentDidMount() {
-      const self = this;
-      setTimeout(function() {
-        self.setState({refDiscount: Base.sandbox.refCount || Base.sandbox.userDetails ? (Base.sandbox.userDetails.refCount ? 200 : 0) : 0})
-      }, 1000);
+      this.checkReferal();
     }
 
     havePromoCode() {
@@ -55,7 +52,6 @@ export default class ConfirmationList extends React.Component {
           </div>
         )
       }
-
     }
 
     saveCode(e) {
@@ -144,6 +140,19 @@ export default class ConfirmationList extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    checkReferal() {
+      const self = this;
+      ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
+      ajaxObj.type = 'GET';
+      ajaxObj.data = '';
+      ajaxObj.success = function(data) {
+        self.setState({refDiscount: data.refCount ? 200 : 0});
+      }
+      ajaxObj.error = function() {
+      }
+      $.ajax(ajaxObj);
     }
 
     applyPromocode() {
