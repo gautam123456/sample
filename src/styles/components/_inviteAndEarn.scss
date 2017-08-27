@@ -5,9 +5,15 @@
   color: #898989;
 
   .invite {
+
+    .img {
+      background: url('../styles/assets/images/refer.jpg') center no-repeat;
+      background-size: contain;
+      height: 150px;
+      margin: -20px 0 10px 0;
+    }
     .a {
       text-align: center;
-      background-color: #fff;
       border-radius: 2px;
       padding: 10px 10px 40px 10px;
 
@@ -47,7 +53,13 @@
   }
 
   .rewards {
-    background-color: #fff;
+    .img {
+      background: url('../styles/assets/images/credits.jpg') center no-repeat;
+      background-size: contain;
+      height: 100px;
+      margin: -20px 0 30px 0;
+    }
+
     border-radius: 2px;
     height: 70%;
     text-align: center;

@@ -125,10 +125,16 @@ export default class Base extends React.Component {
     static navigateTo(to) {
       browserHistory.push(to);
     }
-
+    // To track events to google
     static logEvent(eventCategory, eventAction, eventLabel) {
       if(window.location.origin == 'https://lookplex.com'){
         ga('send', 'event', eventCategory, eventAction, eventLabel);
+      }
+    }
+    // To track evnts to facebook
+    static track(type, activity, data) {
+      if (window.location.origin === 'https://lookplex.com') {
+        fbq(type, activity, data);
       }
     }
 }

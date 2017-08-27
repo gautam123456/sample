@@ -68,7 +68,7 @@ export default class Container extends React.Component {
   }
 
   changeData(active) {
-    this.active = active; this.setState({active: active, notify: {show: false}}); this.changeMetaData(active); fbq('track', 'ViewContent');
+    this.active = active; this.setState({active: active, notify: {show: false}}); this.changeMetaData(active); Base.track('track', 'ViewContent');
   }
 
   showNotification(type, msg, timeout, bottom) {

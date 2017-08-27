@@ -19,7 +19,7 @@ export default class Cart extends React.Component {
         <div className='col-xs-3 pad0'>
           <span className='count'>{ this.props.bookingDetails.servicesCount || 0 }</span>
           <Link to= { '/cart' }>
-            <i className='fa fa-shopping-cart fa-2x'></i>
+            <i className='fa fa-opencart' style={{paddingLeft: 5}}></i>
           </Link>
         </div>
         <div className='col-xs-5 pad0'>
@@ -64,7 +64,7 @@ export default class Cart extends React.Component {
   }
 
   navigateTo() {
-    fbq('track', 'InitiateCheckout');
+    Base.track('track', 'InitiateCheckout');
     //if(this.isLoggedIn()) {
       if(this.isMinAmountValid()) {
         browserHistory.push('/order/details');

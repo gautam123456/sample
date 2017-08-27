@@ -90,7 +90,7 @@ export default class HomeImage extends React.Component {
   }
 
   bookingDetailsChanged(id, name, cost, count, operation) {
-    fbq('track', 'AddToCart');
+    Base.track('track', 'AddToCart');
     Base.bookingDetailsChanged({id, name, cost, count, operation});
     this.forceUpdate();
     Base.saveToLocalStorage();

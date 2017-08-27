@@ -72,7 +72,6 @@ export default class BookingConfirm extends React.Component {
 
   confirm(e) {
     const self = this;
-    fbq('track', 'Purchase', {value: '1.00', currency: 'USD'});
     Base.showOverlay();
     ajaxObj.type = 'POST'
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';
@@ -83,6 +82,7 @@ export default class BookingConfirm extends React.Component {
       Base.sandbox.finalAmount = data.finalAmount;
       Base.sandbox.bookingID = data.bookingID;
       Base.clearCart();
+      Base.track('track', 'Purchase', {value: data.finalAmount, currency: 'INR'});
       Base.logEvent('Booking Confirmed', 'Booking Id ' + data.bookingID, Base.sandbox.source);
       browserHistory.push('/booking/confirmed');
     }

@@ -22,6 +22,8 @@ export default class InviteAndEarn extends React.Component {
   renderInviteAndEarn() {
     return (
       <div className='invite'>
+        <div className='col-xs-12 pad0 img'>
+        </div>
 
         <div className='col-xs-12 a'>
           <ul>
@@ -63,6 +65,8 @@ export default class InviteAndEarn extends React.Component {
     if(this.state.refCode){
       return (
         <div className='rewards col-xs-12'>
+          <div className='col-xs-12 pad0 img'>
+          </div>
           <div className='col-xs-12'>Total <strong>LOOK</strong>PLEX Credits Earned</div>
           <div className='col-xs-12'>Total referrals: <strong className='i'>{this.state.totalrefcount || 0} </strong></div>
           <div className='col-xs-12'>Rewards earned: <i className='fa fa-inr'></i> <strong className='i'>{this.state.totalrefcount ? this.state.totalrefcount * 200 : '0'}</strong> </div>

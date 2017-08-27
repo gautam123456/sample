@@ -2,6 +2,7 @@
  * Created by gautam on 12/12/16.
  */
 import React from 'react';
+import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import MenueOptions from './MenueOptions';
 
@@ -17,6 +18,9 @@ export default class Header extends React.Component {
     return (
       <header className='full-width header h'>
         <div className='hlg'>
+          <div className='col-xs-10' style={{height: 30, paddingLeft: 8}} onClick={this.navigateTo.bind(this)}>
+            {this.props.showNav ? <i className='fa fa-long-arrow-left'></i> : null}
+          </div>
           <div className='col-xs-1 full-height menue pull-right' onClick={this.openDrawer.bind(this)}><i className='fa fa-ellipsis-v fa-lg w'></i></div>
         </div>
 
@@ -31,6 +35,10 @@ export default class Header extends React.Component {
 
       </header>
     )
+  }
+
+  navigateTo() {
+    browserHistory.push('');
   }
 
   openDrawer() {

@@ -36,7 +36,7 @@ export default class FullCart extends React.Component {
       return (
           <div className = 'col-md-4 us'>
             <div className = 'emptyCart'>
-              <i className = 'fa fa-shopping-cart'></i>
+              <i className = 'fa fa-opencart'></i>
             </div>
 
             <div className = 'message center' style = {{fontSize: 15}}>Your cart is empty, please add services.</div>
