@@ -50,7 +50,7 @@ export default class addresslist extends React.Component {
 
     navigateNext() {
       if(this.state.address) {
-          browserHistory.push('booking/confirm');
+        browserHistory.push('booking/confirm');
       } else {
         this.showNotification('info', 'Please add and select address', 4000, 50);
       }

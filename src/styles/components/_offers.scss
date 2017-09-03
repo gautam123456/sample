@@ -5,8 +5,8 @@
   .img {
     margin-top: 5px;
     background: url('../styles/assets/images/offers.jpg') center no-repeat;
-    background-size: cover;
-    height: 180px;
+    background-size: contain;
+    height: 120px;
 
     @media only screen and (min-width: 992px) {
       margin-top: 50px;

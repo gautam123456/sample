@@ -61,10 +61,14 @@ export default class AppointmentList extends React.Component {
             <div className = {'col-xs-6 cli ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>UPCOMING</div>
             <div className = {'col-xs-6 cli ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
           </div>
-          {
+          {console.log(list.length)}
+          { list.length > 0 ?
             list.map(function(appointment){
               return (self.getRenderer(appointment))
             })
+            : <div className='img'>
+                <div className='caption'>OMG! You have no upcoming events.<br /> Let's change that!</div>
+              </div>
           }
           </div>
         <Footer />
