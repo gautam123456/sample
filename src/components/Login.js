@@ -59,6 +59,7 @@ export default class Login extends DisableScroll {
   componentDidMount() {
     Base.hideOverlay();
     window.addEventListener("resize", this.updateDimensions.bind(this));
+    $zoho.salesiq.visitor.contactnumber("8373928697");
   }
 
   componentWillUnmount() {
