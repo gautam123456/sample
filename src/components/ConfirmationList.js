@@ -23,7 +23,8 @@ export default class ConfirmationList extends React.Component {
         discount: Base.sandbox.bookingDetails.discount,
         questionShow: {display: 'block', paddingTop: 0},
         applySectionShow: {display: 'none', paddingTop: 0},
-        bookedItemList: Base.sandbox.bookingDetails
+        bookedItemList: Base.sandbox.bookingDetails,
+        complementaryOffer: null
       }
     }
 
@@ -31,65 +32,65 @@ export default class ConfirmationList extends React.Component {
       this.checkReferal();
     }
 
-    havePromoCode() {
-      this.setState({ applySectionShow:{ display: 'block', paddingTop: 0}, questionShow: { display: 'none', paddingTop: 0 } })
-    }
+    //havePromoCode() {
+    //  this.setState({ applySectionShow:{ display: 'block', paddingTop: 0}, questionShow: { display: 'none', paddingTop: 0 } })
+    //}
 
-    removeCode() {
-      Base.sandbox.bookingDetails.discount = 0;
-      Base.sandbox.bookingDetails.couponcode = '';
-      this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
-      this.props.showNotification('success', 'Coupon removed successfully', 4000, 30);
-    }
+    //removeCode() {
+    //  Base.sandbox.bookingDetails.discount = 0;
+    //  Base.sandbox.bookingDetails.couponcode = '';
+    //  this.setState({promoCodeApplied: false, couponCode:'', discount: 0 })
+    //  this.props.showNotification('success', 'Coupon removed successfully', 4000, 30);
+    //}
 
-    renderPromoCodeSection() {
-      if(!this.state.promoCodeApplied) {
-        return (
-          <div className='col-xs-12 promo' style={ this.state.applySectionShow }>
-            <input id='promocode' className='col-xs-offset-1 col-xs-4 pad0' type='text' placeholder='Promo Code'
-                   onChange={ this.saveCode.bind(this) }></input>
-            <button className='col-xs-offset-2 col-xs-4 apply' onClick={ this.applyPromocode.bind(this) }> Apply
-            </button>
-          </div>
-        )
-      }
-    }
+    //renderPromoCodeSection() {
+    //  if(!this.state.promoCodeApplied) {
+    //    return (
+    //      <div className='col-xs-12 promo' style={ this.state.applySectionShow }>
+    //        <input id='promocode' className='col-xs-offset-1 col-xs-4 pad0' type='text' placeholder='Promo Code'
+    //               onChange={ this.saveCode.bind(this) }></input>
+    //        <button className='col-xs-offset-2 col-xs-4 apply' onClick={ this.applyPromocode.bind(this) }> Apply
+    //        </button>
+    //      </div>
+    //    )
+    //  }
+    //}
 
-    saveCode(e) {
-      let couponCode = e.currentTarget.value;
-      this.setState({ couponCode: couponCode });
-    }
+    //saveCode(e) {
+    //  let couponCode = e.currentTarget.value;
+    //  this.setState({ couponCode: couponCode });
+    //}
 
-    renderCouponAppliedSection() {
-      if(this.state.promoCodeApplied){
-        return(
-          <div className = 'col-xs-12 promo'>
-            <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }</div>
-          </div>
-        )
-      }
-    }
+    //renderCouponAppliedSection() {
+    //  if(this.state.promoCodeApplied){
+    //    return(
+    //      <div className = 'col-xs-12 promo'>
+    //        <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }</div>
+    //      </div>
+    //    )
+    //  }
+    //}
 
-    renderDiscountSection() {
-      if(this.state.promoCodeApplied) {
-        return (
-          <div className = 'col-xs-12 promo'>
-            <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }<i className = 'fa fa-times-circle-o pull-right cli' onClick = { this.removeCode.bind(this) }></i></div>
-          </div>
-        )
-      } else {
-        return (
-          <div>
-            <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
-              <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
-            </div>
-            { this.renderPromoCodeSection.bind(this)() }
-            { this.renderCouponAppliedSection.bind(this)() }
-          </div>
-        )
-      }
-
-    }
+    //renderDiscountSection() {
+    //  if(this.state.promoCodeApplied) {
+    //    return (
+    //      <div className = 'col-xs-12 promo'>
+    //        <div className = 'col-xs-offset-3 col-xs-6 applied'>{ this.state.couponCode }<i className = 'fa fa-times-circle-o pull-right cli' onClick = { this.removeCode.bind(this) }></i></div>
+    //      </div>
+    //    )
+    //  } else {
+    //    return (
+    //      <div>
+    //        <div className = 'col-xs-12 promo' style = { this.state.questionShow }>
+    //          <button className = 'col-xs-offset-3 col-xs-6 qn' onClick = { this.havePromoCode.bind(this) }> Have Promo code ? </button>
+    //        </div>
+    //        { this.renderPromoCodeSection.bind(this)() }
+    //        { this.renderCouponAppliedSection.bind(this)() }
+    //      </div>
+    //    )
+    //  }
+    //
+    //}
 
     render() {
         const then = this,
@@ -118,7 +119,7 @@ export default class ConfirmationList extends React.Component {
                         <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) - refDiscount } </div>
                     </div>
                 </div>
-                <Coupons />
+                <Coupons updateDiscount={this.updateDiscount.bind(this)}/>
                 <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
                         <div className = 'col-xs-12 pad0'>
@@ -131,6 +132,10 @@ export default class ConfirmationList extends React.Component {
                             </div>
                         </div>
                     </header>
+                    {this.state.complementaryOffer ?
+                    <div className='cm-offers'>
+                      {this.state.complementaryOffer}
+                    </div>: null}
                     {
                         objKeys.map( function(key) {
                             return <BookedMenu key={key} list = {then.state.bookedItemList.services[key]} count = { then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 }/>
@@ -139,6 +144,11 @@ export default class ConfirmationList extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    updateDiscount(discount, msg, complementaryOffer) {
+      this.setState({discount, complementaryOffer});
+      this.props.showNotification('success', msg, 4000, 30);
     }
 
     checkReferal() {
@@ -154,21 +164,20 @@ export default class ConfirmationList extends React.Component {
       $.ajax(ajaxObj);
     }
 
-    applyPromocode() {
-      let self = this;
-      ajaxObj.type = 'POST';
-      ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
-      ajaxObj.data = { couponcode: self.state.couponCode }
-      ajaxObj.success = function(data) {
-        self.setState({ discount: data.discount, promoCodeApplied: true });
-        self.props.showNotification('success', 'Coupon applied successfully', 4000, 30);
-        Base.sandbox.bookingDetails.couponcode = self.state.couponCode;
-        Base.sandbox.bookingDetails.discount = data.discount;
-      }
-      ajaxObj.error = function(e){
-        self.setState({ discount: 0});
-        self.props.showNotification('error', e.responseJSON.message, 4000, 30);
-      }
-      $.ajax(ajaxObj);
-    }
+    //applyPromocode() {
+    //  let self = this;
+    //  ajaxObj.type = 'POST';
+    //  ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
+    //  ajaxObj.data = { couponcode: self.state.couponCode }
+    //  ajaxObj.success = function(data) {
+    //
+    //    Base.sandbox.bookingDetails.couponcode = self.state.couponCode;
+    //    Base.sandbox.bookingDetails.discount = data.discount;
+    //  }
+    //  ajaxObj.error = function(e){
+    //    self.setState({ discount: 0});
+    //    self.props.showNotification('error', e.responseJSON.message, 4000, 30);
+    //  }
+    //  $.ajax(ajaxObj);
+    //}
 }
