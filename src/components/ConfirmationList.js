@@ -6,6 +6,7 @@ import BookedMenu from './BookedMenu';
 import ajaxObj from '../../data/ajax.json';
 import $ from 'jquery';
 import Base from './base/Base';
+import Coupons from './common/Coupons';
 
 export default class ConfirmationList extends React.Component {
 
@@ -96,6 +97,7 @@ export default class ConfirmationList extends React.Component {
             margin = { marginBottom: 60 },
             padding = { paddingTop: 8 },
             {refDiscount} = this.state;
+
         return (
             <div className = 'col-md-offset-4 col-md-4 pad0'>
                 <div className = 'col-xs-12 summary pad0 rr'>
@@ -115,11 +117,8 @@ export default class ConfirmationList extends React.Component {
                         <div className = 'col-xs-8'> Total </div>
                         <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) - refDiscount } </div>
                     </div>
-
-                  {this.renderDiscountSection()}
-
-
                 </div>
+                <Coupons />
                 <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
                         <div className = 'col-xs-12 pad0'>
