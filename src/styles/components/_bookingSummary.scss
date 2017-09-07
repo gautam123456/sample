@@ -2,10 +2,10 @@
 
 .summary {
   font-size: 15px;
-  margin: 8px 0 50px 0;
+  margin: 8px 0 0px 0;
 
   &.rr {
-    height: 300px;
+    height: 270px;
     background-color: #f8f8f8;
 
     .promo {
@@ -98,6 +98,15 @@
     padding-top: 10px;
     padding-right: 10px;
 
+  }
+
+  .offers {
+    height: 200px;
+    margin: 10px;
+    position: relative;
+    min-height: 200px;
+    padding: 0;
+    background-color: red;
   }
 }
 

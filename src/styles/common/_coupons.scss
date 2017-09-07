@@ -1,0 +1,24 @@
+.b-offers {
+  background-color: #e6f2f2;
+  margin-bottom: 20px;
+  font-weight: 600;
+
+  .head {
+    padding: 10px;
+    min-height: 40px;
+  }
+
+  .offer {
+    padding: 5px;
+    border: 1px dashed #999;
+    margin-bottom: 2px;
+
+    button {
+      float: right;
+      padding: 2px 5px;
+      background-color: yellow;
+      color: #444;
+      border: 1px solid #ccc;
+    }
+  }
+}
