@@ -18,18 +18,12 @@ export default class ConfirmationList extends React.Component {
 
       this.state = {
         promoCodeApplied: !!Base.offerbox.discount,
-        refDiscount: 0,
         couponCode: Base.offerbox.discount ? Base.offerbox.coupon : '',
         discount: Base.sandbox.bookingDetails.discount,
         questionShow: {display: 'block', paddingTop: 0},
         applySectionShow: {display: 'none', paddingTop: 0},
-        bookedItemList: Base.sandbox.bookingDetails,
-        complementaryOffer: null
+        bookedItemList: Base.sandbox.bookingDetails
       }
-    }
-
-    componentDidMount() {
-      this.checkReferal();
     }
 
     //havePromoCode() {
@@ -97,7 +91,10 @@ export default class ConfirmationList extends React.Component {
             objKeys = this.state.bookedItemList ? Object.keys(this.state.bookedItemList.services) : [],
             margin = { marginBottom: 60 },
             padding = { paddingTop: 8 },
-            {refDiscount} = this.state;
+            {refDiscount, discount, complementaryOffer} = this.props,
+            amountPayable = this.state.bookedItemList.subTotal - (discount * this.state.bookedItemList.subTotal / 100) - refDiscount;
+
+      console.log(discount);
 
         return (
             <div className = 'col-md-offset-4 col-md-4 pad0'>
@@ -108,7 +105,7 @@ export default class ConfirmationList extends React.Component {
                     </div>
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Discount </div>
-                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { this.state.discount * this.state.bookedItemList.subTotal / 100 } </div>
+                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { discount * this.state.bookedItemList.subTotal / 100 } </div>
                     </div>
                     <div className = 'col-xs-12'>
                       <div className = 'col-xs-8'> Referral Discount </div>
@@ -116,10 +113,10 @@ export default class ConfirmationList extends React.Component {
                     </div>
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Total </div>
-                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal - (this.state.discount * this.state.bookedItemList.subTotal / 100) - refDiscount } </div>
+                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { amountPayable } </div>
                     </div>
                 </div>
-                <Coupons updateDiscount={this.updateDiscount.bind(this)}/>
+                <Coupons updateDiscount={this.updateDiscount.bind(this)} amountPayable={amountPayable} showNotification={this.props.showNotification.bind(this)} subTotal={this.state.bookedItemList.subTotal}/>
                 <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
                         <div className = 'col-xs-12 pad0'>
@@ -132,9 +129,9 @@ export default class ConfirmationList extends React.Component {
                             </div>
                         </div>
                     </header>
-                    {this.state.complementaryOffer ?
+                    {complementaryOffer ?
                     <div className='cm-offers'>
-                      {this.state.complementaryOffer}
+                      {complementaryOffer}
                     </div>: null}
                     {
                         objKeys.map( function(key) {
@@ -147,21 +144,8 @@ export default class ConfirmationList extends React.Component {
     }
 
     updateDiscount(discount, msg, complementaryOffer) {
-      this.setState({discount, complementaryOffer});
+      this.props.updateDiscount(discount, msg, complementaryOffer);
       this.props.showNotification('success', msg, 4000, 30);
-    }
-
-    checkReferal() {
-      const self = this;
-      ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
-      ajaxObj.type = 'GET';
-      ajaxObj.data = '';
-      ajaxObj.success = function(data) {
-        self.setState({refDiscount: data.refCount ? 200 : 0});
-      }
-      ajaxObj.error = function() {
-      }
-      $.ajax(ajaxObj);
     }
 
     //applyPromocode() {

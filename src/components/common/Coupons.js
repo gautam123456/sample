@@ -51,10 +51,15 @@ export default class LeftNav extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
     ajaxObj.data = { couponcode: couponApplied }
     ajaxObj.success = function(data) {
-      self.setState({ discount: data.discount, couponApplied, loading: false});
-      self.props.updateDiscount(data.discount, data.status, data.complementaryOffer);
-      Base.sandbox.bookingDetails.couponcode = couponApplied;
-      Base.sandbox.bookingDetails.discount = data.discount;
+      if (self.props.subTotal > data.minimumAmount) {
+        self.setState({ discount: data.discount, couponApplied, loading: false});
+        self.props.updateDiscount(data.discount, data.status, data.complementaryOffer);
+        Base.sandbox.bookingDetails.couponcode = couponApplied;
+        Base.sandbox.bookingDetails.discount = data.discount;
+      } else {
+        self.setState({loading: false});
+        self.props.showNotification('error', 'Minimum amount to avail this offer is Rs.' + data.minimumAmount, 4000, 30);
+      }
     }
     ajaxObj.error = function(e){
       self.setState({ discount: 0, loading: false});
