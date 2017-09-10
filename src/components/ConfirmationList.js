@@ -104,8 +104,8 @@ export default class ConfirmationList extends React.Component {
                         <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal } </div>
                     </div>
                     <div className = 'col-xs-12'>
-                        <div className = 'col-xs-8'> Discount </div>
-                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { discount * this.state.bookedItemList.subTotal / 100 } ({discount}%)</div>
+                        <div className = 'col-xs-8'> Discount ({discount}%)</div>
+                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { discount * this.state.bookedItemList.subTotal / 100 }</div>
                     </div>
                     <div className = 'col-xs-12'>
                       <div className = 'col-xs-8'> Referral Discount </div>
