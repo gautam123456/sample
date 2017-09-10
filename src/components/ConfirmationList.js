@@ -135,7 +135,7 @@ export default class ConfirmationList extends React.Component {
                     </div>: null}
                     {
                         objKeys.map( function(key) {
-                            return <BookedMenu key={key} list = {then.state.bookedItemList.services[key]} count = { then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 }/>
+                            return <BookedMenu key={key} list = {then.state.bookedItemList.services[key]} count = { then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } discount={discount}/>
                         })
                     }
                 </div>
