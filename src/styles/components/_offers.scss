@@ -17,11 +17,12 @@
     background-color: #fff;
     margin-top: 17px;
     border-radius: 2px;
+    border: 1px dotted $brand-color-lightest;
 
     .header {
       background-color: $notify-info;
       color: #fff;
-      padding: 10px;
+      padding: 13px;
       min-height: 50px;
 
       strong {
@@ -33,7 +34,6 @@
       font-size: 15px;
       color: #666;
       font-weight: bolder;
-      border: 1px dotted $brand-color-lightest;
       border-top: none;
 
       strong {

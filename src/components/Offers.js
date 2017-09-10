@@ -49,11 +49,14 @@ export default class Offers extends React.Component {
           <div className='col-xs-10 pad0'>Coupon Code: <strong id='code'>{offer.couponCode}</strong></div>
           <div className='col-xs-5 col-xs-offset-7' style={{background: "url('../styles/assets/images/barcode.png') center no-repeat",backgroundSize: 'contain', height: 120}}></div>
         </div>
-        <div className= 'col-xs-12 body' style={{borderBottom: 'none'}}><strong>{offer.discount}%</strong> Off</div>
+        <div className= 'col-xs-12 body' ><strong>{offer.discount}%</strong> Off</div>
         {offer.complementaryOffer ?
-          <div className='col-xs-12 body' >
+          <div className='col-xs-12'>
             Complementary Offer : {offer.complementaryOffer}
           </div>: null}
+          <div className='col-xs-12'>
+            Minimum Booking Amount : Rs.{offer.minimumAmount}
+          </div>
         <div className= 'col-xs-5 pad0 pull-right' style={{fontSize: 8, textAlign: 'right'}}>Valid till : {offer.validthru || 'Limited Period'}</div>
       </div>
     )
