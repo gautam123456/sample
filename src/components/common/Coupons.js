@@ -27,8 +27,8 @@ export default class LeftNav extends React.Component {
           <div className='b-offers' style={loading ? {opacity: 0.1} : {opacity: 1}}>
             {customerCouponList.map(offer => {
               return (
-                <div className='offer'>
-                  <div>Coupon Code : {offer.couponCode} <button className='cli' onClick={this.applyCoupon.bind(this, offer.couponCode)}>{couponApplied === offer.couponCode ? 'Applied' : 'Apply'}</button></div>
+                <div className='offer' style={couponApplied === offer.couponCode ? {backgroundColor: '#9bcdcc'} : null} onClick={this.applyCoupon.bind(this, offer.couponCode)}>
+                  <div>Coupon Code : {offer.couponCode} <button className='cli' >{couponApplied === offer.couponCode ? 'Applied' : 'Apply'}</button></div>
                   <div>Discount : {offer.discount}%</div>
                   {offer.complementaryOffer ? <div>Complementary Offer : {offer.complementaryOffer}</div> : null}
                   <div>Minimum Booking Amount : Rs.{offer.minimumAmount}</div>
@@ -51,7 +51,7 @@ export default class LeftNav extends React.Component {
     ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
     ajaxObj.data = { couponcode: couponApplied }
     ajaxObj.success = function(data) {
-      if (self.props.subTotal > data.minimumAmount) {
+      if (self.props.amountPayable > data.minimumAmount) {
         self.setState({ discount: data.discount, couponApplied, loading: false});
         self.props.updateDiscount(data.discount, data.status, data.complementaryOffer);
         Base.sandbox.bookingDetails.couponcode = couponApplied;
