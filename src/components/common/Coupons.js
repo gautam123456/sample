@@ -30,7 +30,7 @@ export default class LeftNav extends React.Component {
                 <div className='offer' style={couponApplied === offer.couponCode ? {backgroundColor: '#9bcdcc'} : null} onClick={this.applyCoupon.bind(this, offer.couponCode)}>
                   <div>Coupon Code : {offer.couponCode} <button className='cli' >{couponApplied === offer.couponCode ? 'Applied' : 'Apply'}</button></div>
                   <div>Discount : {offer.discount}%</div>
-                  {offer.complementaryOffer ? <div>Complementary Offer : {offer.complementaryOffer}</div> : null}
+                  {offer.complementaryOffer ? <div>Complimentary Offer : {offer.complementaryOffer}</div> : null}
                   <div>Minimum Booking Amount : Rs.{offer.minimumAmount}</div>
                   <div>{offer.validthru}</div>
                 </div>

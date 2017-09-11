@@ -52,7 +52,7 @@ export default class Offers extends React.Component {
         <div className= 'col-xs-12 body' ><strong>{offer.discount}%</strong> Off</div>
         {offer.complementaryOffer ?
           <div className='col-xs-12'>
-            Complementary Offer : {offer.complementaryOffer}
+            Complimentary Offer : {offer.complementaryOffer}
           </div>: null}
           <div className='col-xs-12'>
             Minimum Booking Amount : Rs.{offer.minimumAmount}
