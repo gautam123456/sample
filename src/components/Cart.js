@@ -61,6 +61,14 @@ export default class Cart extends React.Component {
       s1.setAttribute('crossorigin','*');
       s0.parentNode.insertBefore(s1,s0);
     })();
+
+    Tawk_API.onChatMaximized = function(){
+      console.log(Base.sandbox);
+      Tawk_API.visitor = {
+        name  : 'Name',
+        email : 'email@email.com'
+      };
+    };
   }
 
   navigateTo() {
