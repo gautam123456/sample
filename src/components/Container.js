@@ -44,11 +44,12 @@ export default class Container extends React.Component {
 
   switchUrl(url) {
     switch(url){
-      case '/': this.changeData(1); break;
-      case '/salon-at-home/in/delhi': this.changeData(1); break;
-      case '/salon-at-home/in/gurgaon': this.changeData(1); break;
-      case '/salon-at-home/in/noida': this.changeData(1); break;
-      case '/salon-at-home/in/indirapuram': this.changeData(1); break;
+      case '/': this.changeData(5); break;
+      case '/salon-at-home': this.changeData(5); break;
+      case '/salon-at-home/in/delhi': this.changeData(5); break;
+      case '/salon-at-home/in/gurgaon': this.changeData(5); break;
+      case '/salon-at-home/in/noida': this.changeData(5); break;
+      case '/salon-at-home/in/indirapuram': this.changeData(5); break;
       case '/salon-at-home/face': this.changeData(1); break;
       case '/salon-at-home/face/': this.changeData(1); break;
       case '/face': this.changeData(1); break;

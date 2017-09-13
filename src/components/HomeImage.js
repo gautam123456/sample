@@ -34,6 +34,8 @@ export default class HomeImage extends React.Component {
         </div>
         <div id = 'filter' className = {'filter ' + this.state.fixed}>
           <span className = 'f-list col-xs-12'>
+              <label className = { this.props.active == '5' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '5' onClick = { this.serviceTypeSelected.bind(this) }>Packages</label>
+
               <label className = { this.props.active == '1' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
 
               <label className = { this.props.active == '2' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '2' onClick = { this.serviceTypeSelected.bind(this) }>Body</label>
@@ -41,8 +43,6 @@ export default class HomeImage extends React.Component {
               <label className = { this.props.active == '3' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '3' onClick = { this.serviceTypeSelected.bind(this) }>Hair</label>
 
               <label className = { this.props.active == '4' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '4' onClick = { this.serviceTypeSelected.bind(this) }>Makeup</label>
-
-              <label className = { this.props.active == '5' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '5' onClick = { this.serviceTypeSelected.bind(this) }>Packages</label>
           </span>
         </div>
 
