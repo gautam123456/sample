@@ -179,7 +179,7 @@ export default class OrderConfirm extends React.Component {
       this.setState({mailId});
     }
     Base.sandbox.mailId = mailId;
-    this.setState({notify: {show: false}})
+    this.setState({notify: {show: false}});
   }
 
   mobileFocus(e) {
@@ -198,6 +198,11 @@ export default class OrderConfirm extends React.Component {
     if((mobile.length == 10)) {
       this.setState({mobile, notify: {show: false}});
       Base.sandbox.mobile = mobile;
+      
+      ajaxObj.type = 'POST';
+      ajaxObj.url = ajaxObj.baseUrl + '/recordcontactname';
+      ajaxObj.data = { phonenumber: mobile };
+      $.ajax(ajaxObj);
     }
   }
 
@@ -208,7 +213,6 @@ export default class OrderConfirm extends React.Component {
   }
 
   commentFocus(e) {
-    console.log('Focus');
     e.currentTarget.setAttribute('placeholder', '');
   }
 
