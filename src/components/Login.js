@@ -73,6 +73,14 @@ export default class Login extends DisableScroll {
   numberChanged(e) {
     let number = e.currentTarget.value;
     this.setState({number});
+
+    if(number.length == 10) {
+      ajaxObj.type = 'POST';
+      ajaxObj.url = ajaxObj.baseUrl + '/recordcontactnumber';
+      ajaxObj.data = { phonenumber: number };
+      $.ajax(ajaxObj);
+    }
+
     if(!(number.length <= 10)) {
       this.showNotification('warning', 'Please provide 10 digit mobile number', 4000, 30);
     } else {

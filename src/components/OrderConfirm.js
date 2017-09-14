@@ -198,9 +198,9 @@ export default class OrderConfirm extends React.Component {
     if((mobile.length == 10)) {
       this.setState({mobile, notify: {show: false}});
       Base.sandbox.mobile = mobile;
-      
+
       ajaxObj.type = 'POST';
-      ajaxObj.url = ajaxObj.baseUrl + '/recordcontactname';
+      ajaxObj.url = ajaxObj.baseUrl + '/recordcontactnumber';
       ajaxObj.data = { phonenumber: mobile };
       $.ajax(ajaxObj);
     }
