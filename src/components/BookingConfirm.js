@@ -118,7 +118,7 @@ export default class BookingConfirm extends React.Component {
       Base.sandbox.finalAmount = data.finalAmount;
       Base.sandbox.bookingID = data.bookingID;
       Base.clearCart();
-      Base.track('track', 'Purchase', {value: data.finalAmount, currency: 'INR'});
+      Base.track('track', 'Purchase', {value: data.finalAmount, currency: 'INR', content_name: Base.sandbox.source});
       Base.logEvent('Booking Confirmed', 'Booking Id ' + data.bookingID, Base.sandbox.source);
       browserHistory.push('/booking/confirmed');
     }
