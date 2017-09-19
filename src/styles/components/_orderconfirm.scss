@@ -15,10 +15,6 @@
     min-height: 220px;
     padding: 20px 0;
 
-    span {
-      margin-left: 5px;
-    }
-
     .date{
       text-align: center;
       font-size: 16px;
@@ -26,13 +22,25 @@
       color: $brand-color-lighter;
     }
 
+    .timer {
+      display: flex;
+      padding: 0;
+
+      .one {
+        flex: 1;
+      }
+
+      .two {
+        flex: 1;
+      }
+
+      .three {
+        flex: 1
+      }
+    }
+
     .col-xs-3 {
       width: 30%;
-      margin-right: 5%;
-
-      &:nth-child(5) {
-        margin-right: 0%;
-      }
     }
 
     select{
