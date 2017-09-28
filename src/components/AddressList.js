@@ -30,16 +30,18 @@ export default class addresslist extends React.Component {
     }
 
     render() {
-        const self = this;
+        const self = this,
+          {addresslist} = this.state;
+
         return (
             <div>
                 <ActivityHeader heading = { 'Select your Address' }/>
                   <TopNotification data={this.state.notify}/>
                     <div className = 'col-md-offset-4 col-md-4 col-xs-12'>
-                        { this.state.addresslist ? this.state.addresslist.map( function(address, index) {
+                        { addresslist ? addresslist.map( function(address, index) {
                             return (<Address key = { address.lkey } address = { address } index = { index } active = { self.state.activelkey === address.lkey } selectedAddress = { self.selectedAddress.bind(self) }/>)
                         }):'' }
-                        <div className = 'message' style = {{marginTop: 20}}>{this.state.addresslist.length > 1 ? '*Tap to select your desired address':''}</div>
+                        <div className = 'message' style = {{marginTop: 20}}>{Array.isArray(addresslist) && addresslist.length > 1 ? '*Tap to select your desired address':''}</div>
                         <div className='add-address col-xs-4'><Link to = '/address/add'>Add New Address</Link></div>
 
                     </div>
@@ -64,7 +66,7 @@ export default class addresslist extends React.Component {
       this.setState({notify: {show: true, timeout, type, msg, bottom}})
     }
 
-    componentWillMount(){
+    componentDidMount(){
       this.getaddresslist();
     }
 
@@ -86,6 +88,7 @@ export default class addresslist extends React.Component {
         const self = this;
         ajaxObj.type = 'GET';
         ajaxObj.data = '';
+        ajaxObj.dataType = 'json',
         ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
         ajaxObj.xhrFields = { withCredentials: true };
         ajaxObj.success = function(data) {

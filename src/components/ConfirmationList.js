@@ -94,8 +94,6 @@ export default class ConfirmationList extends React.Component {
             {refDiscount, discount, complementaryOffer} = this.props,
             amountPayable = this.state.bookedItemList.subTotal - (discount * this.state.bookedItemList.subTotal / 100) - refDiscount;
 
-      console.log(discount);
-
         return (
             <div className = 'col-md-offset-4 col-md-4 pad0'>
                 <div className = 'col-xs-12 summary pad0 rr'>
