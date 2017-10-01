@@ -9,10 +9,13 @@ import ActivityFooter from './ActivityFooter';
 import TopNotification from './TopNotification';
 import $ from 'jquery';
 import Base from './base/Base';
+import {I, ADDRESS} from '../constants';
+import {connect} from 'react-redux';
+import {addressSelected, getUserDetails} from '../actions';
 
 import ajaxObj from '../../data/ajax.json';
 
-export default class addresslist extends React.Component {
+class AddressList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -51,10 +54,10 @@ export default class addresslist extends React.Component {
     }
 
     navigateNext() {
-      if(this.state.address) {
+      if(this.state.activelkey) {
         browserHistory.push('booking/confirm');
       } else {
-        this.showNotification('info', 'Please add and select address', 4000, 50);
+        this.showNotification(I, ADDRESS, 4000, 50);
       }
     }
 
@@ -67,43 +70,77 @@ export default class addresslist extends React.Component {
     }
 
     componentDidMount(){
-      this.getaddresslist();
-    }
-
-    componentWillReceiveProps(props) {
-      if (props.location.query.update) {
-        this.callGetAddressListIn3Sec();
-      } else {
+      const {details} = this.props.userDetails;
+      if(details && Array.isArray(details.addressList)) {
+        this.setState({ addresslist: details.addressList });
+      }else {
         this.getaddresslist();
       }
     }
 
+    componentWillReceiveProps(props) {
+      const {details} = this.props.userDetails;
+
+      if (props.location.query.update) {
+        this.callGetAddressListIn3Sec();
+      } else {
+        if(details && Array.isArray(details.addressList)) {
+          this.setState({ addresslist: details.addressList });
+        }else {
+          this.getaddresslist();
+        }
+
+      }
+    }
+
     callGetAddressListIn3Sec(){
-        let self = this;
-        Base.showOverlay();
-        setTimeout(function(){ self.getaddresslist() }, 3000)
+      let self = this;
+      Base.showOverlay();
+      setTimeout(function(){ self.getaddresslist() }, 3000)
     }
 
     getaddresslist() {
-        const self = this;
-        ajaxObj.type = 'GET';
-        ajaxObj.data = '';
-        ajaxObj.dataType = 'json',
-        ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
-        ajaxObj.xhrFields = { withCredentials: true };
-        ajaxObj.success = function(data) {
-            self.setState({ addresslist: data.addressList });
-            Base.sandbox.refCount = data.refCount;
-            Base.hideOverlay();
-        }
-        ajaxObj.error = () => { if(!Base.sandbox.bookingDetails.name){browserHistory.push('login')} }
-        $.ajax(ajaxObj);
+      this.props.getUserDetails();
+        //ajaxObj.type = 'GET';
+        //ajaxObj.data = '';
+        //ajaxObj.dataType = 'json',
+        //ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
+        //ajaxObj.xhrFields = { withCredentials: true };
+        //ajaxObj.success = (data) => {
+        //    this.setState({ addresslist: data.addressList });
+        //    Base.hideOverlay();
+        //}
+        //ajaxObj.error = () => {
+        //  if(!this.props.userDetails.isLoggedIn){
+        //    browserHistory.push('login')
+        //  }
+        //}
+        //$.ajax(ajaxObj);
     }
 
     selectedAddress(address){
         this.setState({ address, activelkey: address.lkey });
-        Base.sandbox.lkey = address.lkey;
+        this.props.addressSelected({activelkey: address.lkey});
     }
-
 }
+
+function mapStateToProps(state) {
+  return {
+    userDetails: state.userDetails
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addressSelected: (options) => {
+      dispatch(addressSelected(options));
+    },
+    getUserDetails: () => {
+      dispatch(getUserDetails());
+    }
+  };
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddressList);
 

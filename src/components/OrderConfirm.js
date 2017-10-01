@@ -7,28 +7,26 @@ import DateWidget from './common/Date';
 import Base from './base/Base';
 import $ from 'jquery';
 import OTPModal from './common/OTPModal';
-
 import ajaxObj from '../../data/ajax.json';
+import {connect} from 'react-redux';
+import {saveLoginData, saveBookingData} from '../actions';
+import {EMAIL, TIME, NUMBER, I, E, EM, MO, PH, MSG} from '../constants'
 
-export default class OrderConfirm extends React.Component {
+class OrderConfirm extends React.Component {
   constructor(props) {
     super(props);
-    this.date = new Date();
-    const {sandbox} = Base;
-    if(!sandbox.mailId) {
-      sandbox.mailId = sandbox.userDetails ? sandbox.userDetails.email : '';
-    }
+    //this.date = new Date();
+    //const {sandbox} = Base;
+    //if(!sandbox.mailId) {
+    //  sandbox.mailId = sandbox.userDetails ? sandbox.userDetails.email : '';
+    //}
 
     this.state = {
       modalDisplay: 'none',
-      mailId: sandbox.mailId,
-      mobile: sandbox.mobile,
-      comment: sandbox.bookingDetails.comment,
+      mailId: '',
+      mobile: '',
+      comment: '',
       timing: '',
-      date: this.getDate(),
-      month: (parseInt(this.date.getMonth()) + 1).toString(),
-      year: parseInt(this.date.getFullYear()),
-      months:[],
       notify: {
         show: false,
         type: 'info',
@@ -38,142 +36,149 @@ export default class OrderConfirm extends React.Component {
       }
     }
 
-    Base.sandbox.date = this.getDate();
-    Base.sandbox.month = (parseInt(this.date.getMonth()) + 1).toString();
-    Base.sandbox.year = parseInt(this.date.getFullYear());
+    //Base.sandbox.date = this.getDate();
+    //Base.sandbox.month = (parseInt(this.date.getMonth()) + 1).toString();
+    //Base.sandbox.year = parseInt(this.date.getFullYear());
   }
 
-  getDate() {
+  getDate = () => {
     return this.date.getHours() < 16 ? this.date.getDate() : this.date.getDate() + 1;
   }
 
-  renderModal({display}) {
+  renderModal = ({display}) => {
     this.setState({modalDisplay: display});
   }
 
   render() {
-    const {mailId, notify, mobile} = this.state;
+    const {mailId, notify, mobile, modalDisplay, comment} = this.state,
+      {isLoggedIn, location: {query: {error}}} = this.props;
+
     return (
         <div>
           <ActivityHeader heading = { 'Enter booking Details' }/>
-          <OTPModal display={this.state.modalDisplay} renderModal={this.renderModal.bind(this)} showNotification={this.showNotification.bind(this)}/>
+          <OTPModal display={modalDisplay} renderModal={this.renderModal} showNotification={this.showNotification}/>
           <TopNotification data={notify}/>
-          { this.props.location.query.error ? <TopNotification msg = { !(mailId) ? 'Please provide valid Email Id' : 'Please select time' } type = 'error'/> : ''}
+          { error ? <TopNotification msg = { !(mailId) ? EMAIL : TIME } type = 'error'/> : ''}
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 confirm'>
 
-            <input type = 'text' placeholder = 'Enter mail id (To receive booking details)' className = 'col-xs-12'
-                                              defaultValue={mailId} onChange = { this.mailIdEntered.bind(this) }
-                                              onFocus = {this.mailFocus.bind(this) }
-                                              onBlur = { this.mailUnFocus.bind(this) }></input>
-            { this.isLoggedIn() ? '' : <input type = 'text' placeholder = 'Enter mobile no (To receive status updates)' className = 'col-xs-12' style={{marginTop: -10}}
-                   defaultValue={mobile} onChange = { this.mobileEntered.bind(this) } onFocus = {this.mobileFocus.bind(this) }
-                   onBlur = { this.mobileUnFocus.bind(this) }></input> }
-            <DateWidget scheduleHandler = {this.scheduleHandler.bind(this)} data = {this.state} date={this.date}/>
+            <input type = 'text' placeholder = {EM} className = 'col-xs-12'
+                                              defaultValue={mailId} onChange = { this.mailIdEntered }
+                                              onFocus = {this.mailFocus }
+                                              onBlur = { this.mailUnFocus }></input>
+            { isLoggedIn ? '' : <input type = 'text' placeholder = {MO} className = 'col-xs-12' style={{marginTop: -10}}
+                   defaultValue={mobile} onChange = { this.mobileEntered } onFocus = {this.mobileFocus }
+                   onBlur = { this.mobileUnFocus }></input> }
+            <DateWidget scheduleHandler = {this.scheduleHandler}/>
             <div className = 'col-xs-12 pad0' style = {{marginBottom: 10, marginTop: 0}}>
               <textarea rows="3" cols="50" style={{padding: 5}} className = 'col-xs-12 optcomment'
-                        placeholder = 'Wish to share something that we can help you with? (Optional)' maxLength='100'
-                        onBlur = {this.optionalComments.bind(this)}
-                        onFocus = {this.commentFocus.bind(this) }
-                        value = {this.state.comment}>
+                        placeholder = {MSG} maxLength='100'
+                        onBlur = {this.optionalComments}
+                        onFocus = {this.commentFocus }>
               </textarea>
             </div>
             <div className = 'col-xs-11 message'>
             </div>
 
           </div>
-          <ActivityFooter key = {34} next = { this.navigateNext.bind(this) } back = { this.navigateBack.bind(this) } info = 'Please make sure all fields are valid'/>
+          <ActivityFooter key = {34} next = { this.navigateNext } back = { this.navigateBack } />
         </div>
     )
   }
 
-  navigateNext() {
-    if(this.isLoggedIn()) {
-      if(this.state.mailId) {
-        if(this.state.timing) {
+  navigateNext = () => {
+    const {mailId, timing, mobile, comment} = this.state,
+      {isLoggedIn} = this.props;
+
+    console.log(timing);
+
+    if(isLoggedIn) {
+      if(mailId) {
+        if(timing.time) {
           browserHistory.push('/address');
+          this.props.saveBookingData({mailId, timing, comment});
         } else {
-          this.showNotification('info', 'Please select your date & time slot', 4000, 50);
+          this.showNotification(I, TIME);
         }
       } else {
-        this.showNotification('info', 'Please provide email address', 4000, 50);
+        this.showNotification(I, EMAIL);
       }
     } else {
-      if(this.state.mailId) {
-        if(this.state.mobile) {
-          if (this.state.timing) {
+      if(mailId) {
+        if(mobile) {
+          if (timing.time) {
+            this.props.saveBookingData({mailId, timing, comment});
             this.login();
           } else {
-            this.showNotification('info', 'Please select your date & time slot', 4000, 50);
+            this.showNotification(I, TIME);
           }
         } else {
-          this.showNotification('info', 'Please provide valid mobile number', 4000, 50);
+          this.showNotification(I, NUMBER);
         }
       } else {
-        this.showNotification('info', 'Please provide email address', 4000, 50);
+        this.showNotification(I, EMAIL);
       }
     }
   }
 
-  login() {
+  login = () => {
       Base.showOverlay();
-      let self = this;
+      const self = this,
+        {mobile} = this.state;
 
       ajaxObj.type = 'POST';
       ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
-      ajaxObj.data = { phonenumber: self.state.mobile };
+      ajaxObj.data = { phonenumber: mobile };
       ajaxObj.success = function(data) {
-        Base.sandbox.isNewUser = data.isNewUser;
-        Base.sandbox.token = data.token;
         if(data.isNewUser == true){
-          Base.sandbox.isNewUser = true;
-          Base.sandbox.token = data.token;
           browserHistory.push('/address/add');
         }else{
           self.renderModal({display: 'block'});
         }
         Base.hideOverlay();
+
+        self.props.saveLoginData({
+          isNewUser: data.isNewUser,
+          number: mobile,
+          token: data.token
+        });
+
       }
       ajaxObj.error = function(e) {
         Base.hideOverlay();
-        self.showNotification('error', e.responseText, 4000, 30);
+        self.showNotification(E, e.responseText);
       }
       $.ajax(ajaxObj);
   }
 
-  navigateBack() {
+  navigateBack = () => {
     browserHistory.push('');
   }
 
-  showNotification(type, msg, timeout, bottom) {
-    this.setState({notify: {show: true, timeout, type, msg, bottom}})
+  showNotification = (type, msg) => {
+    this.setState({notify: {show: true, timeout: 4000, type, msg, bottom: 50}})
   }
 
-  scheduleHandler(param, value) {
-    if(param === 'date') {
-      this.setState({timing: ''});
-    }
-    this.setState({[param]: value});
-    Base.sandbox[param] = value;
-    this.setState({notify: {show: false}})
+  scheduleHandler = (timing) => {
+    this.setState({timing, notify: {show: false}});
   }
 
-  optionalComments(e) {
+  optionalComments = (e) => {
     const comment  = e.currentTarget.value;
     this.setState({comment});
-    Base.sandbox.bookingDetails.comment = comment;
+    //Base.sandbox.bookingDetails.comment = comment;
   }
 
-  mailFocus(e) {
-    e.currentTarget.setAttribute('placeholder', '');
+  mailFocus = (e) => {
+    e.currentTarget.setAttribute(PH, '');
   }
 
-  mailUnFocus(e) {
+  mailUnFocus = (e) => {
     if (e.currentTarget.value == '') {
-      e.currentTarget.setAttribute('placeholder', 'Enter mail id (To receive booking details)');
+      e.currentTarget.setAttribute(PH, EM);
     }
   }
 
-  mailIdEntered(e) {
+  mailIdEntered = (e) => {
     let mailId = e.currentTarget.value;
     if(this.isValidEmailId(mailId)){
       this.setState({mailId});
@@ -182,22 +187,22 @@ export default class OrderConfirm extends React.Component {
     this.setState({notify: {show: false}});
   }
 
-  mobileFocus(e) {
-    e.currentTarget.setAttribute('placeholder', '');
+  mobileFocus = (e) => {
+    e.currentTarget.setAttribute(PH, '');
   }
 
-  mobileUnFocus(e) {
+  mobileUnFocus = (e) => {
     if (e.currentTarget.value == '') {
-      e.currentTarget.setAttribute('placeholder', 'Enter mobile no (To receive status updates)');
+      e.currentTarget.setAttribute(PH, MO);
     }
   }
 
-  mobileEntered(e) {
+  mobileEntered = (e) => {
     let mobile = e.currentTarget.value;
 
     if((mobile.length == 10)) {
       this.setState({mobile, notify: {show: false}});
-      Base.sandbox.mobile = mobile;
+      //Base.sandbox.mobile = mobile;
 
       ajaxObj.type = 'POST';
       ajaxObj.url = ajaxObj.baseUrl + '/recordcontactnumber';
@@ -206,17 +211,11 @@ export default class OrderConfirm extends React.Component {
     }
   }
 
-  isLoggedIn() {
-    if(Base.sandbox.bookingDetails.name)
-      return true;
-    return false;
+  commentFocus = (e) => {
+    e.currentTarget.setAttribute(PH, '');
   }
 
-  commentFocus(e) {
-    e.currentTarget.setAttribute('placeholder', '');
-  }
-
-  isValidEmailId(email) {
+  isValidEmailId = (email) => {
     let atpos = email.indexOf('@');
     let dotpos = email.lastIndexOf('.');
     if (atpos < 1 || dotpos<atpos+2 || dotpos+2 >= email.length) {
@@ -225,5 +224,25 @@ export default class OrderConfirm extends React.Component {
     return true;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    userDetails: state.userDetails,
+    isLoggedIn: state.userDetails.isLoggedIn
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    saveLoginData: (data) => {
+      dispatch(saveLoginData(data));
+    },
+    saveBookingData: (data) => {
+      dispatch(saveBookingData(data));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderConfirm);
 
 

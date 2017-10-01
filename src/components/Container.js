@@ -11,15 +11,15 @@ import Base from './base/Base';
 import Footer from './Footer';
 import LeftNav from './common/LeftNav';
 import RightColumn from './RightColumn';
+import {connect} from 'react-redux';
 
-export default class Container extends React.Component {
+class Container extends React.Component {
 
   constructor(props) {
     super(props);
     this.active = 1;
 
     this.state = {
-      data: Base.sandbox.items || '',
       active: this.active,
       notify: {
         show: false,
@@ -34,7 +34,7 @@ export default class Container extends React.Component {
   }
 
   getActiveData(id) {
-    const {data} = this.state;
+    const {data} = this.props;
     for(let i = 0; i < data.serviceList.length; i++){
       if(data.serviceList[i].id == id){
         return data.serviceList[i];
@@ -69,10 +69,13 @@ export default class Container extends React.Component {
   }
 
   changeData(active) {
-    this.active = active; this.setState({active: active, notify: {show: false}}); this.changeMetaData(active); Base.track('track', 'ViewContent');
+    this.active = active;
+    this.setState({active: active, notify: {show: false}});
+    this.changeMetaData(active);
+    Base.track('track', 'ViewContent');
   }
 
-  showNotification(type, msg, timeout, bottom) {
+  showNotification = (type, msg, timeout, bottom) => {
     this.setState({notify: {show: true, timeout, type, msg, bottom}})
   }
 
@@ -82,19 +85,22 @@ export default class Container extends React.Component {
   }
 
   render() {
-    if(this.state.data !== '') {
+    const {data, screenWidth} = this.props,
+      {active, notify} = this.state;
+
+    if(data) {
       document.getElementById('load').style.display = 'none';
       return (
         <div className='col-md-12 col-xs-12 pad0 clearfix b-fix'>
-          <TopNotification data={this.state.notify}/>
+          <TopNotification data={notify}/>
           <div className='col-md-4 nomob'>
-            <LeftNav screenWidth={this.props.screenWidth}/>
+            <LeftNav screenWidth={screenWidth}/>
           </div>
-          <HomeImage data = {this.getActiveData(this.state.active)}
-                     serviceSelected = {this.serviceSelected.bind(this)} active = {this.state.active || 1}
-                     showNotification={this.showNotification.bind(this)} screenWidth={this.props.screenWidth}/>
+          <HomeImage data = {this.getActiveData(active)}
+                     serviceSelected = {this.serviceSelected.bind(this)} active = {active || 1}
+                     showNotification={this.showNotification} screenWidth={screenWidth}/>
           <div className='col-md-4 nomob pad0'>
-            <RightColumn screenWidth={this.props.screenWidth}/>
+            <RightColumn screenWidth={screenWidth}/>
           </div>
           <Footer />
         </div>
@@ -108,27 +114,30 @@ export default class Container extends React.Component {
   }
 
   componentDidMount() {
-    let self = this;
-    const url = this.props.url.pathname;
-    ajaxObj.url = 'https://static.lookplex.com/data/items.json';
-    ajaxObj.type = 'GET';
-    ajaxObj.data = '';
-    ajaxObj.xhrFields = {withCredentials: false};
-    ajaxObj.success = function(data) {
-      ajaxObj.xhrFields = {withCredentials: true};
-      self.setState({data: data})
-      Base.sandbox.items = data;
-      Base.sandbox.discount = 30;
-      self.switchUrl(url);
-    }
-    ajaxObj.error = function() {
-      ajaxObj.xhrFields = { withCredentials: true };
-      Base.sandbox.bookingDetails.name = null;
-    }
-    $.ajax(ajaxObj);
-    Base.sandbox.source = this.props.url.query.s || document.referrer || 'Direct';
-    Base.track('track', 'Lead', {content_category: Base.sandbox.source});
-    Base.logEvent('Main page', 'Landed', Base.sandbox.source);
+    //let self = this;
+    ////const url = this.props.url.pathname;
+    //ajaxObj.url = 'https://static.lookplex.com/data/items.json';
+    //ajaxObj.type = 'GET';
+    //ajaxObj.data = '';
+    //ajaxObj.xhrFields = {withCredentials: false};
+    //ajaxObj.success = function(data) {
+    //  ajaxObj.xhrFields = {withCredentials: true};
+    //  self.setState({data: data})
+    //  Base.sandbox.items = data;
+    //  Base.sandbox.discount = 30;
+    //  //self.switchUrl(url);
+    //}
+    //ajaxObj.error = function() {
+    //  ajaxObj.xhrFields = { withCredentials: true };
+    //  Base.sandbox.bookingDetails.name = null;
+    //}
+    //$.ajax(ajaxObj);
+
+
+
+    const source = this.props.url.query.s || document.referrer || 'Direct';
+    Base.track('track', 'Lead', {content_category: source});
+    Base.logEvent('Main page', 'Landed', source);
   }
 
   serviceSelected(attrValue) {
@@ -143,8 +152,8 @@ export default class Container extends React.Component {
   }
 
   getStaticData(id) {
-    const {data} = this.state;
-    if(data.serviceList) {
+    const {data} = this.props;
+    if(data && data.serviceList) {
       for(let i = 0; i < data.serviceList.length; i++){
         if(data.serviceList[i].id == id){
           return data.serviceList[i];
@@ -154,10 +163,23 @@ export default class Container extends React.Component {
   }
 
   changeMetaData(active) {
-    $('meta[property=description]').attr('content', this.getStaticData(active).metaDescription);
-    $('meta[property=title]').attr('content', this.getStaticData(active).metaTitle);
-    $('meta[name=keywords]').attr('content', this.getStaticData(active).metaKeyword);
-    document.title = this.getStaticData(active).metaTitle;
+    const staticData = this.getStaticData(active);
+    if(staticData){
+      $('meta[property=description]').attr('content', staticData.metaDescription);
+      $('meta[property=title]').attr('content', staticData.metaTitle);
+      $('meta[name=keywords]').attr('content', staticData.metaKeyword);
+      document.title = staticData.metaTitle;
+    }
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    data: state.misc.items
+  };
+}
+
+
+export default connect(mapStateToProps)(Container);
+
 

@@ -7,14 +7,16 @@ import ajaxObj from '../../data/ajax.json';
 import $ from 'jquery';
 import Base from './base/Base';
 import Coupons from './common/Coupons';
+import {couponApplied} from '../actions';
+import {connect} from 'react-redux';
 
-export default class ConfirmationList extends React.Component {
+class ConfirmationList extends React.Component {
 
     constructor(props) {
         super(props);
 
-      Base.sandbox.bookingDetails.discount = Base.offerbox.discount;
-      Base.offerbox.discount ? Base.sandbox.bookingDetails.couponcode = Base.offerbox.coupon : null;
+      //Base.sandbox.bookingDetails.discount = Base.offerbox.discount;
+      //Base.offerbox.discount ? Base.sandbox.bookingDetails.couponcode = Base.offerbox.coupon : null;
 
       this.state = {
         promoCodeApplied: !!Base.offerbox.discount,
@@ -88,22 +90,22 @@ export default class ConfirmationList extends React.Component {
 
     render() {
         const then = this,
-            objKeys = this.state.bookedItemList ? Object.keys(this.state.bookedItemList.services) : [],
+           {bookingDetails: {services, discount, complementaryOffer, total, subTotal}, userDetails : {details: {refCount}}} = this.props,
+            objKeys = Object.keys(services),
             margin = { marginBottom: 60 },
             padding = { paddingTop: 8 },
-            {refDiscount, discount, complementaryOffer} = this.props,
-            amountPayable = this.state.bookedItemList.subTotal - (discount * this.state.bookedItemList.subTotal / 100) - refDiscount;
+            refDiscount = refCount ? 200 : 0;
 
         return (
             <div className = 'col-md-offset-4 col-md-4 pad0'>
                 <div className = 'col-xs-12 summary pad0 rr'>
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Sub Total </div>
-                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { this.state.bookedItemList.subTotal } </div>
+                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { subTotal } </div>
                     </div>
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Discount ({discount}%)</div>
-                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { discount * this.state.bookedItemList.subTotal / 100 }</div>
+                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { discount * subTotal / 100 }</div>
                     </div>
                     {complementaryOffer ?
                     <div className='col-xs-12' style={{border: '1px dashed #999', fontWeight: 200}}>
@@ -116,10 +118,10 @@ export default class ConfirmationList extends React.Component {
                     </div>
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Total </div>
-                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { amountPayable } </div>
+                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { total - refDiscount } </div>
                     </div>
                 </div>
-                <Coupons updateDiscount={this.updateDiscount.bind(this)} amountPayable={amountPayable} showNotification={this.props.showNotification.bind(this)} subTotal={this.state.bookedItemList.subTotal}/>
+                <Coupons updateDiscount={this.updateDiscount} amountPayable={total - refDiscount} showNotification={this.props.showNotification} subTotal={subTotal}/>
                 <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
                         <div className = 'col-xs-12 pad0'>
@@ -138,7 +140,7 @@ export default class ConfirmationList extends React.Component {
                     </div>: null}
                     {
                         objKeys.map( function(key) {
-                            return <BookedMenu key={key} list = {then.state.bookedItemList.services[key]} count = { then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } discount={discount}/>
+                            return <BookedMenu key={key} list = {services[key]} count = { services[key] ? services[key].count : 0 } discount={discount}/>
                         })
                     }
                 </div>
@@ -146,9 +148,9 @@ export default class ConfirmationList extends React.Component {
         )
     }
 
-    updateDiscount(discount, msg, complementaryOffer) {
+    updateDiscount = (discount, msg, complementaryOffer) => {
       this.props.updateDiscount(discount, msg, complementaryOffer);
-      this.props.showNotification('success', msg, 4000, 30);
+      //this.props.showNotification('success', msg, 4000, 30);
     }
 
     //applyPromocode() {
@@ -168,3 +170,20 @@ export default class ConfirmationList extends React.Component {
     //  $.ajax(ajaxObj);
     //}
 }
+
+function mapStateToProps(state) {
+  return {
+    userDetails: state.userDetails,
+    bookingDetails: state.bookingDetails
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    couponApplied: (data) => {
+      dispatch(couponApplied(data));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConfirmationList);

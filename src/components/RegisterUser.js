@@ -7,16 +7,18 @@ import $ from 'jquery';
 import Base from './base/Base';
 import TopNotification from './TopNotification';
 import DisableScroll from './base/DisableScroll';
+import {connect} from 'react-redux';
+import {userRegistered} from '../actions';
 
 import ajaxObj from '../../data/ajax.json';
 
-export default class RegisterUser extends DisableScroll {
+class RegisterUser extends DisableScroll {
 
     constructor(props) {
         super(props);
         this.state = {
           name : '',
-          refcode: Base.sandbox.refcode || '',
+          refcode: this.props.refcode || '',
           otp:'',
           notify: {
             show: false,
@@ -29,7 +31,7 @@ export default class RegisterUser extends DisableScroll {
     }
 
     render() {
-      const opts = Base.sandbox.refcode ? {'readOnly':'readOnly'} : {};
+      const opts = this.props.refcode ? {'readOnly':'readOnly'} : {};
 
       return (
         <div className='lo'>
@@ -79,8 +81,10 @@ export default class RegisterUser extends DisableScroll {
     }
 
     allRequiredDataProvided() {
-        if(this.state.name){
-          if(this.state.otp){
+      const {name, otp} = this.state;
+
+        if(name){
+          if(otp){
             return true;
           }else{
             this.showNotification('info', 'Please provide OTP', 4000, 30);
@@ -93,22 +97,24 @@ export default class RegisterUser extends DisableScroll {
     }
 
     register() {
-        const self =  this;
+        const self =  this,
+          {number, token} = this.props;
         if(this.allRequiredDataProvided()) {
             Base.showOverlay();
             ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
             ajaxObj.data = {
-                phonenumber: Base.sandbox.number,
+                phonenumber: number,
                 otp: this.state.otp,
-                token: Base.sandbox.token,
+                token: token,
                 name: this.state.name,
                 refcode: this.state.refcode
             };
             ajaxObj.success = function (data) {
                 Base.hideOverlay();
                 Base.track('track', 'CompleteRegistration');
-                Base.sandbox.bookingDetails.name = data.name || 'dummy';
-                Base.sandbox.isNewUser = false;
+                //Base.sandbox.bookingDetails.name = data.name || 'dummy';
+                //Base.sandbox.isNewUser = false;
+                self.props.userRegistered();
                 browserHistory.push('');
             }
             ajaxObj.error = function (e) {
@@ -119,5 +125,24 @@ export default class RegisterUser extends DisableScroll {
         }
     }
 }
+
+function mapStateToProps(state) {
+  return {
+    number: state.userDetails.number,
+    token: state.userDetails.token,
+    isNewUser: state.userDetails.isNewUser,
+    refcode: state.userDetails.referredBy
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    userRegistered: () => {
+      dispatch(userRegistered());
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterUser);
 
 

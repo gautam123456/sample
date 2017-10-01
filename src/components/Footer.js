@@ -16,7 +16,11 @@ export default class Footer extends React.Component {
               <div className='col-xs-6 pad0'><a href='/terms-of-service'>Terms of Service</a></div>
               <div className='col-xs-6 pad0'><a href='/refund-policy'>Refund and Cancellation Policy</a></div>
             </div>
-
+            <div className='col-xs-12 center'>
+              <a href="https://msg91.com/startups/?utm_source=startup-banner">
+                <img src="https://msg91.com/images/startups/msg91Badge.png" width="120" height="90" title="MSG91 - SMS for Startups" alt="Bulk SMS - MSG91" />
+              </a>
+            </div>
             <div className='social col-xs-12'>
               <a href='https://facebook.com/LookPlex' className='fs-item'><i className='fa fa-facebook '></i> </a>
               <a href='https://twitter.com/lookplex'  className='fs-item'><i className='fa fa-twitter '></i></a>

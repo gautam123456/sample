@@ -8,16 +8,9 @@ import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
 import Base from './base/Base';
 import LeftNav from './common/LeftNav';
+import {connect} from 'react-redux';
 
-export default class FullCart extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      bookedItemList: Base.sandbox.bookingDetails
-    }
-  }
-
+class FullCart extends React.Component {
   render() {
     return (
         <div>
@@ -32,7 +25,9 @@ export default class FullCart extends React.Component {
   }
 
   renderCart() {
-    if(this.state.bookedItemList.servicesCount == 0)
+    const {bookingDetails : {services, servicesCount, total}} = this.props;
+
+    if(servicesCount == 0)
       return (
           <div className = 'col-md-4 us'>
             <div className = 'emptyCart'>
@@ -44,19 +39,19 @@ export default class FullCart extends React.Component {
       )
 
     const then = this,
-        objKeys = Object.keys(this.state.bookedItemList.services);
+        objKeys = Object.keys(services);
     return (
         <div className = 'col-md-4 pad0'>
           {
             objKeys.map( function(key) {
-              return <ServiceMenu list = { then.state.bookedItemList.services[key] } count = { then.state.bookedItemList.services && then.state.bookedItemList.services[key] ? then.state.bookedItemList.services[key].count : 0 } key = { key } id = { key } bookingDetailsChanged = { then.bookingDetailsChanged.bind(then) }/>
+              return <ServiceMenu list = { services[key] } count = { services[key] ? services[key].count : 0 } key = { key } id = { key } />
             })
           }
 
           <div className = 'col-xs-12 summary pad0'>
             <div className = 'col-xs-12'>
-              <div className = 'col-xs-8'> Sub Total </div>
-              <div className = 'col-xs-4'> <i className = 'fa fa-inr'></i> { this.getSubTotal() } </div>
+              <div className = 'col-xs-8'> Total </div>
+              <div className = 'col-xs-4'> <i className = 'fa fa-inr'></i> { total } </div>
             </div>
           </div>
         </div>
@@ -67,31 +62,20 @@ export default class FullCart extends React.Component {
     browserHistory.push('');
   }
 
-  getSubTotal() {
-    if(Base.offerbox.discount) {
-      return this.state.bookedItemList.subTotal - (this.state.bookedItemList.subTotal * Base.offerbox.discount/100);
-    } else {
-      return this.state.bookedItemList.subTotal
-    }
-  }
-
   navigateNext() {
-    if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
+    const {bookingDetails: {total, minBooking}} = this.props;
+    if(total >= minBooking) {
       browserHistory.push('/order/details');
     } else {
       browserHistory.push('');
     }
   }
-
-  bookingDetailsChanged(id, name, cost, count, operation) {
-    Base.bookingDetailsChanged({id, name, cost, count, operation});
-    this.forceUpdate();
-    Base.saveToLocalStorage();
-  }
-
-  isLoggedIn() {
-    if(Base.sandbox.bookingDetails.name)
-      return true;
-    return false;
-  }
 }
+
+function mapStateToProps(state) {
+  return {
+    bookingDetails: state.bookingDetails
+  };
+}
+
+export default connect(mapStateToProps)(FullCart);

@@ -46,21 +46,23 @@ export default class Base extends React.Component {
     }
 
     static loginStatus() {
-      Base.sandbox.bookingDetails.name = undefined;
-        ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
-        ajaxObj.type = 'GET';
-        ajaxObj.data = '';
-        ajaxObj.success = function(data) {
-            Base.sandbox.bookingDetails.name = data.name;
-            Base.sandbox.bookingDetails.addressList = data.addressList;
-            Base.sandbox.userDetails = data;
-            Base.sandbox.refCount = data.refCount;
-        }
-        ajaxObj.error = function() {
-            Base.sandbox.bookingDetails.name = null;
-            Base.sandbox.userDetails = null;
-        }
-        $.ajax(ajaxObj);
+      //store.dispatch(getUserDetails());
+
+        //Base.sandbox.bookingDetails.name = undefined;
+        //ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
+        //ajaxObj.type = 'GET';
+        //ajaxObj.data = '';
+        //ajaxObj.success = function(data) {
+        //    Base.sandbox.bookingDetails.name = data.name;
+        //    Base.sandbox.bookingDetails.addressList = data.addressList;
+        //    Base.sandbox.userDetails = data;
+        //    Base.sandbox.refCount = data.refCount;
+        //}
+        //ajaxObj.error = function() {
+        //    Base.sandbox.bookingDetails.name = null;
+        //    Base.sandbox.userDetails = null;
+        //}
+        //$.ajax(ajaxObj);
     }
 
     static showOverlay() {
@@ -138,3 +140,5 @@ export default class Base extends React.Component {
       }
     }
 }
+
+

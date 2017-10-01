@@ -68,6 +68,7 @@ export default class AddAddress extends React.Component {
             <option value = 'Faridabad'> Faridabad </option>
             <option value = 'Ghaziabad'> Ghaziabad </option>
             <option value = 'Greater Noida'> Greater Noida </option>
+            <option value = 'Hyderabad'> Hyderabad </option>
             <option value = 'Dehradun'> Dehradun </option>
           </select>
           <div className = 'col-xs-12 message'>

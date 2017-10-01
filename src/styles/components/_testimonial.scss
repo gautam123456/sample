@@ -12,6 +12,7 @@
     color: #fff;
     background-color: $brand-color;
     min-height: 200px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.12);
 
     .name {
       font-weight: bolder;
@@ -47,7 +48,6 @@
         left: 100%;
         top: 230px;
         border-color: $brand-color-2 transparent transparent transparent;
-
         -ms-transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);

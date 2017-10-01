@@ -3,8 +3,10 @@
  */
 import React from 'react';
 import Base from '../base/Base';
+import {connect} from 'react-redux';
+import {bookingDetailsChanged} from '../../actions';
 
-export default class Modal extends React.Component {
+class Modal extends React.Component {
 
   constructor(props){
       super(props)
@@ -16,12 +18,9 @@ export default class Modal extends React.Component {
 
   renderBenefits(benefits) {
     if(benefits) {
-      const self = this,
-        benefitss = benefits.split(',');
-
       return (
-          benefitss.map(function(benefit) {
-            return (<li>{benefit.trim()}</li>)
+        benefits.split(',').map(function(benefit) {
+            return (<li key={benefit}>{benefit.trim()}</li>)
           }
         )
       )
@@ -29,23 +28,24 @@ export default class Modal extends React.Component {
   }
 
   render() {
-    const data = this.state.data;
+    const {data: {cost, name, recommended, ingredients, benefits, time}, display} = this.state;
+
       return (
-          <div id = 'modal' className ='modal' style = {{ display: this.state.display }}>
+          <div id = 'modal' className ='modal' style = {{display}}>
               <div className = 'modal-content pad0'>
                 <div className = 'cancel' onClick = {this.close.bind(this)}><div>&#215;</div></div>
                 <div className = 'content pad0'>
                   <div className = 'body'>
-                    <h3>{data.name}</h3>
-                    <p>Rs. {data.cost}</p>
-                    <p><i className ='fa fa-clock-o'></i> {data.time}</p>
+                    <h3>{name}</h3>
+                    <p>Rs. {cost}</p>
+                    <p><i className ='fa fa-clock-o'></i> {time}</p>
                     <div className='col-xs-2 border-bottom'></div>
                     <div className='heading col-xs-12 pad0'>BENEFITS</div>
-                    <div className='bcontent'><ul>{this.renderBenefits(data.benefits)}</ul></div>
+                    <div className='bcontent'><ul>{this.renderBenefits(benefits)}</ul></div>
                     <div className='heading'>RECOMMENDED FOR</div>
-                    <div className='bcontent'>{data.recommended}</div>
+                    <div className='bcontent'>{recommended}</div>
                     <div className='heading'>INGREDIENTS</div>
-                    <div className='bcontent'>{data.ingredients}</div>
+                    <div className='bcontent'>{ingredients}</div>
                   </div>
                 </div>
                 <footer onClick = {this.addToCart.bind(this)}> &#43; ADD TO CART</footer>
@@ -73,8 +73,22 @@ export default class Modal extends React.Component {
   }
 
   addToCart() {
-    this.props.bookingDetailsChanged(this.props.id, this.props.data.name, this.props.data.cost, 0, 1);
+    const {id, data: {name, cost}} = this.props;
+    this.props.bookingDetailsChanged({id, name, cost, count: 0, operation: 1});
     this.props.renderModal('','','none')
   }
-
 }
+
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    bookingDetailsChanged: (options) => {
+      dispatch(bookingDetailsChanged(options));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

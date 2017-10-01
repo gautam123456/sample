@@ -8,10 +8,12 @@ import Base from './base/Base';
 import DisableScroll from './base/DisableScroll';
 import TopNotification from './TopNotification';
 import RightColumn from './RightColumn';
+import {saveLoginData} from '../actions';
+import {connect} from 'react-redux';
 
 import ajaxObj from '../../data/ajax.json';
 
-export default class Login extends DisableScroll {
+class Login extends DisableScroll {
 
   constructor(props) {
     super(props);
@@ -59,7 +61,6 @@ export default class Login extends DisableScroll {
   componentDidMount() {
     Base.hideOverlay();
     window.addEventListener("resize", this.updateDimensions.bind(this));
-    $zoho.salesiq.visitor.contactnumber("8373928697");
   }
 
   componentWillUnmount() {
@@ -97,21 +98,30 @@ export default class Login extends DisableScroll {
         query = this.props.location.query;
 
 
-      Base.sandbox.refcode = query.refcode;
-      Base.sandbox.number = self.state.number;
+      //Base.sandbox.refcode = query.refcode;
+      //Base.sandbox.number = self.state.number;
 
       ajaxObj.type = 'POST';
       ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
       ajaxObj.data = { phonenumber: self.state.number };
       ajaxObj.success = function(data) {
-        Base.sandbox.isNewUser = data.isNewUser;
-        Base.sandbox.token = data.token;
+        //Base.sandbox.isNewUser = data.isNewUser;
+        //Base.sandbox.token = data.token;
         if(data.isNewUser == true){
           browserHistory.push( '/register');
         }else{
           browserHistory.push('/otp/confirm');
         }
+
         Base.hideOverlay();
+
+        self.props.saveLoginData({
+          isNewUser: data.isNewUser,
+          number: self.state.number,
+          token: data.token,
+          referredBy: query.refcode
+        });
+
       }
       ajaxObj.error = function(e) {
         Base.hideOverlay();
@@ -121,5 +131,21 @@ export default class Login extends DisableScroll {
     }
   }
 }
+
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    saveLoginData: (data) => {
+      dispatch(saveLoginData(data));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+
 
 

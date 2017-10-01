@@ -7,10 +7,12 @@ import $ from 'jquery';
 import Base from './base/Base';
 import TopNotification from './TopNotification';
 import DisableScroll from './base/DisableScroll';
+import {logIn} from '../actions';
+import {connect} from 'react-redux';
 
 import ajaxObj from '../../data/ajax.json';
 
-export default class OTPConfirm extends DisableScroll {
+class OTPConfirm extends DisableScroll {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,29 +83,51 @@ export default class OTPConfirm extends DisableScroll {
 
   register() {
     Base.showOverlay();
-    const self = this;
-    if (Base.sandbox.isNewUser == true) {
+    const {number, token, isNewUser} = this.props;
+
+    if (isNewUser == true) {
       browserHistory.push('/register');
     } else {
-      ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
-      ajaxObj.data = { phonenumber: Base.sandbox.number, otp: this.state.otp, token: Base.sandbox.token };
-      ajaxObj.success = function() {
-        Base.sandbox.bookingDetails.name = 'ZZ';
-        Base.hideOverlay();
-        if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
-          browserHistory.push('/order/details');
-        } else{
-          browserHistory.push('');
-        }
-      }
-      ajaxObj.error = function(e) {
-        self.showNotification('error', e.responseText, 4000, 30);
-        Base.hideOverlay();
-      }
-      $.ajax(ajaxObj);
+      this.props.logIn({phonenumber: number, otp: this.state.otp, token}, this.showNotification);
+
+      //ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
+      //ajaxObj.data = { phonenumber: Base.sandbox.number, otp: this.state.otp, token: Base.sandbox.token };
+      //ajaxObj.success = function() {
+      //  Base.sandbox.bookingDetails.name = 'ZZ';
+      //  Base.hideOverlay();
+      //  if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
+      //    browserHistory.push('/order/details');
+      //  } else{
+      //    browserHistory.push('');
+      //  }
+      //}
+      //ajaxObj.error = function(e) {
+      //  self.showNotification('error', e.responseText, 4000, 30);
+      //  Base.hideOverlay();
+      //}
+      //$.ajax(ajaxObj);
 
     }
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    number: state.userDetails.number,
+    token: state.userDetails.token,
+    isNewUser: state.userDetails.isNewUser
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    logIn: (data, notificationCallBack) => {
+      dispatch(logIn(data, notificationCallBack));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OTPConfirm);
+
 
 

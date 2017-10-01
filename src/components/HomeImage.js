@@ -26,30 +26,33 @@ export default class HomeImage extends React.Component {
   }
 
   render() {
-    const images = allImages.homeImages;
+    const images = allImages.homeImages,
+      {screenWidth, active, data, showNotification} = this.props,
+      {bookingDetails, bg, opacity, fixed} = this.state;
+
     return (
-      <section className = 'col-xs-12 col-md-4 pad0 img h' style={{backgroundColor: this.props.screenWidth < 992 ? this.state.bg : '#fff'}}>
-        <div className = 'bgimage' style={{opacity: this.state.opacity}}>
-          <Carousel images = {images} showArrow={false} autoPlay={true} screenWidth={this.props.screenWidth}/>
+      <section className = 'col-xs-12 col-md-4 pad0 img h' style={{backgroundColor: screenWidth < 992 ? bg : '#fff'}}>
+        <div className = 'bgimage' style={{opacity: opacity}}>
+          <Carousel images = {images} showArrow={false} autoPlay={true} screenWidth={screenWidth}/>
         </div>
-        <div id = 'filter' className = {'filter ' + this.state.fixed}>
+        <div id = 'filter' className = {'filter ' + fixed}>
           <span className = 'f-list col-xs-12'>
-              <label className = { this.props.active == '5' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '5' onClick = { this.serviceTypeSelected.bind(this) }>Packages</label>
+              <label className = { active == '5' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '5' onClick = { this.serviceTypeSelected }>Packages</label>
 
-              <label className = { this.props.active == '1' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '1' onClick = { this.serviceTypeSelected.bind(this) }>Face</label>
+              <label className = { active == '1' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '1' onClick = { this.serviceTypeSelected }>Face</label>
 
-              <label className = { this.props.active == '2' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '2' onClick = { this.serviceTypeSelected.bind(this) }>Body</label>
+              <label className = { active == '2' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '2' onClick = { this.serviceTypeSelected }>Body</label>
 
-              <label className = { this.props.active == '3' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '3' onClick = { this.serviceTypeSelected.bind(this) }>Hair</label>
+              <label className = { active == '3' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '3' onClick = { this.serviceTypeSelected }>Hair</label>
 
-              <label className = { this.props.active == '4' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '4' onClick = { this.serviceTypeSelected.bind(this) }>Makeup</label>
+              <label className = { active == '4' ? 'active col-xs-2' : 'col-xs-2 cli'} data-value = '4' onClick = { this.serviceTypeSelected }>Makeup</label>
           </span>
         </div>
 
-        <ServicesList data = { this.props.data } service = { this.props.active } bookingDetails = { this.state.bookingDetails } bookingDetailsChanged = { this.bookingDetailsChanged.bind(this) }/>
-        <StaticPortion data={this.props.data}/>
+        <ServicesList data = { data } service = { active }  />
+        <StaticPortion data={data}/>
         <Testimonial data = { testimonials } />
-        <Cart bookingDetails = { this.state.bookingDetails } showNotification={this.props.showNotification}/>
+        <Cart showNotification={showNotification}/>
       </section>
     )
   }
@@ -82,18 +85,17 @@ export default class HomeImage extends React.Component {
     });
   }
 
-  serviceTypeSelected(e) {
+  serviceTypeSelected = (e) => {
     const attrValue = e.target.getAttribute('data-value');
     this.props.serviceSelected(attrValue);
     var body = $('html, body');
     body.stop().animate({scrollTop: 255}, '500', 'swing');
   }
 
-  bookingDetailsChanged(id, name, cost, count, operation) {
+  bookingDetailsChanged = (id, name, cost, count, operation) => {
     Base.track('track', 'AddToCart');
     Base.bookingDetailsChanged({id, name, cost, count, operation});
-    this.forceUpdate();
+    //this.forceUpdate();
     Base.saveToLocalStorage();
   }
 }
-//<iframe className="col-xs-12 pad0" width="100%" height="220px" src="https://www.youtube.com/embed/w0C1xPhafec?rel=0&showinfo=0&autohide=1" frameborder="10" allowfullscreen="true"></iframe>

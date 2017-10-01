@@ -55,7 +55,7 @@ export default class Carousel extends React.Component {
           moztransform: strTrnsfrm,
           WebkitTransform: strTrnsfrm,
           msTransform: strTrnsfrm,
-          oTransform: strTrnsfrm,
+          OTransform: strTrnsfrm,
           transition: 'transform 300ms ease, opacity 300ms ease',
           WebkitTransition: 'transform 300ms ease, opacity 300ms ease',
           msTransition: 'transform 300ms ease, opacity 300ms ease',
