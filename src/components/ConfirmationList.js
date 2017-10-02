@@ -14,18 +14,6 @@ class ConfirmationList extends React.Component {
 
     constructor(props) {
         super(props);
-
-      //Base.sandbox.bookingDetails.discount = Base.offerbox.discount;
-      //Base.offerbox.discount ? Base.sandbox.bookingDetails.couponcode = Base.offerbox.coupon : null;
-
-      this.state = {
-        promoCodeApplied: !!Base.offerbox.discount,
-        couponCode: Base.offerbox.discount ? Base.offerbox.coupon : '',
-        discount: Base.sandbox.bookingDetails.discount,
-        questionShow: {display: 'block', paddingTop: 0},
-        applySectionShow: {display: 'none', paddingTop: 0},
-        bookedItemList: Base.sandbox.bookingDetails
-      }
     }
 
     //havePromoCode() {

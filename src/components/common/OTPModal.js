@@ -2,13 +2,12 @@
  * Created by gautam on 19/12/16.
  */
 import React from 'react';
-import Base from '../base/Base';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import {connect} from 'react-redux';
 import {logIn} from '../../actions';
 import ajaxObj from '../../../data/ajax.json';
-import {E, I, OTP} from '../../constants';
+import {I, OTP} from '../../constants';
 
 class OTPModal extends React.Component {
 
@@ -54,17 +53,6 @@ class OTPModal extends React.Component {
       this.showNotification(I, OTP);
     }else {
       this.props.logIn({phonenumber: number, otp, token}, this.showNotification, '/address');
-
-      //ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
-      //ajaxObj.data = { phonenumber: number, otp, token};
-      //ajaxObj.success = () => {
-      //  browserHistory.push('/address');
-      //}
-      //ajaxObj.error = (e) => {
-      //  this.props.showNotification(E, e.responseText, 4000, 30);
-      //  Base.hideOverlay();
-      //}
-      //$.ajax(ajaxObj);
     }
   }
 

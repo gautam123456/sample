@@ -33,7 +33,8 @@ class AddressList extends React.Component {
 
     render() {
         const {notify, activelkey} = this.state,
-          {addressList} = this.props.userDetails.details;
+          {userDetails} = this.props,
+          addressList = userDetails.details ? userDetails.details.addressList : [];
 
         return (
             <div>

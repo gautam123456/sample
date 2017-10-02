@@ -6,7 +6,6 @@ import ServiceMenu from './ServiceMenu';
 import { browserHistory } from 'react-router';
 import ActivityHeader from './ActivityHeader';
 import ActivityFooter from './ActivityFooter';
-import Base from './base/Base';
 import LeftNav from './common/LeftNav';
 import {connect} from 'react-redux';
 

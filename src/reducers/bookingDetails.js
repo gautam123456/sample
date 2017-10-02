@@ -19,7 +19,9 @@ const initialState = {
   comment: ''
 };
 
-export default function(state = initialState, action) {
+const localStorageState = localStorage.state ? JSON.parse(localStorage.state) : initialState;
+
+export default function(state = localStorageState, action) {
   switch (action.type) {
 
     case CART_UPDATED:
@@ -51,9 +53,7 @@ export default function(state = initialState, action) {
 
       }else{
 
-          let services = Object.assign({}, state.services);
           services[id].count -= 1;
-
           if(services[id].count === 0){
             delete services[id];
           }
@@ -65,6 +65,8 @@ export default function(state = initialState, action) {
             total: state.total - (costInt - (costInt * discountInt/100))
           };
       }
+
+      window.localStorage.state = JSON.stringify(Object.assign({}, state, newState));
 
       return Object.assign({}, state, newState);
 
@@ -93,6 +95,7 @@ export default function(state = initialState, action) {
       });
 
     case CLEAR_CART:
+      window.localStorage.clear();
       return Object.assign({}, state, initialState);
 
     default:

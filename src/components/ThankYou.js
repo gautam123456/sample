@@ -4,7 +4,6 @@
 import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import ThankYouFooter from './ThankYouFooter';
-import Base from './base/Base';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
 

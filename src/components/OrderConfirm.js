@@ -173,7 +173,6 @@ class OrderConfirm extends React.Component {
     if(this.isValidEmailId(mailId)){
       this.setState({mailId});
     }
-    Base.sandbox.mailId = mailId;
     this.setState({notify: {show: false}});
   }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import ajaxObj from '../../../data/ajax.json';
 import $ from 'jquery';
-import Base from '../base/Base';
 import {connect} from 'react-redux';
 import {couponApplied} from '../../actions';
 import {E, MIN_COUPON_AMNT} from '../../constants';

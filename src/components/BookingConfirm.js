@@ -90,8 +90,8 @@ class BookingConfirm extends React.Component {
       Base.hideOverlay();
       this.props.saveBookedData(data);
       this.props.clearCart();
-      Base.track('track', 'Purchase', {value: data.finalAmount, currency: 'INR', content_name: Base.sandbox.source});
-      Base.logEvent('Booking Confirmed', 'Booking Id ' + data.bookingID, Base.sandbox.source);
+      Base.track('track', 'Purchase', {value: data.finalAmount, currency: 'INR', content_name: document.referrer});
+      Base.logEvent('Booking Confirmed', 'Booking Id ' + data.bookingID, document.referrer);
       browserHistory.push('/booking/confirmed');
     }
     ajaxObj.error = (e) => {

@@ -9,6 +9,7 @@ import TopNotification from './TopNotification';
 import DisableScroll from './base/DisableScroll';
 import {logIn} from '../actions';
 import {connect} from 'react-redux';
+import {E, I, S, W, OTP, OTP_RESENT} from '../constants';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -40,48 +41,47 @@ class OTPConfirm extends DisableScroll {
           <div className = 'logo'>
             <div className = 'hlg'></div>
           </div>
-          <div onClick={ this.onBlur.bind(this) } className = 'col-xs-12'>
+          <div onClick={ this.onBlur } className = 'col-xs-12'>
           <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-mobile'></i></div>
-          <input type = 'number' placeholder = 'Enter OTP' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) }></input>
+          <input type = 'number' placeholder = 'Enter OTP' pattern='[0-9]*' inputMode='numeric' className = 'col-xs-7 pad0' onChange={ this.otpChanged } onFocus={ this.focusChanged }></input>
           </div>
-          <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.register.bind(this) }> SUBMIT</button>
-          <div className = 'resend-otp col-xs-4 col-xs-offset-2 pad0' onClick = { this.resendOtp.bind(this) }> Resend OTP </div>
+          <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={ this.register }> SUBMIT</button>
+          <div className = 'resend-otp col-xs-4 col-xs-offset-2 pad0' onClick = { this.resendOtp }> Resend OTP </div>
         </div>
       </div>
     )
   }
 
-  showNotification(type, msg, timeout, top) {
+  showNotification = (type, msg, timeout, top) => {
     this.setState({notify: {show: true, timeout, type, msg, top}})
   }
 
-  otpChanged(e) {
+  otpChanged = (e) => {
     const otp = e.currentTarget.value;
     if(otp.length <= 6) {
       this.setState({otp, notify: {show: false}});
     } else {
-      this.showNotification('warning', 'Please provide 6 digit OTP', 4000, 30);
+      this.showNotification(W, OTP, 4000, 30);
     }
   }
 
-  resendOtp() {
+  resendOtp = () => {
     Base.showOverlay();
-    let self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
-    ajaxObj.data = { phonenumber: Base.sandbox.number };
-    ajaxObj.success = function(data) {
+    ajaxObj.data = { phonenumber: this.props.number };
+    ajaxObj.success = () => {
       Base.hideOverlay();
-      self.showNotification('success', 'OTP successfully resent on your mobile number', 4000, 30);
+      this.showNotification(S, OTP_RESENT, 4000, 30);
     }
-    ajaxObj.error = function(e) {
+    ajaxObj.error = (e) => {
       Base.hideOverlay();
-      self.showNotification('error', e.responseText, 4000, 30);
+      this.showNotification(E, e.responseText, 4000, 30);
     }
     $.ajax(ajaxObj);
   }
 
-  register() {
+  register = () => {
     Base.showOverlay();
     const {number, token, isNewUser} = this.props;
 
@@ -89,24 +89,6 @@ class OTPConfirm extends DisableScroll {
       browserHistory.push('/register');
     } else {
       this.props.logIn({phonenumber: number, otp: this.state.otp, token}, this.showNotification);
-
-      //ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
-      //ajaxObj.data = { phonenumber: Base.sandbox.number, otp: this.state.otp, token: Base.sandbox.token };
-      //ajaxObj.success = function() {
-      //  Base.sandbox.bookingDetails.name = 'ZZ';
-      //  Base.hideOverlay();
-      //  if(Base.sandbox.bookingDetails.subTotal >= Base.sandbox.bookingDetails.minBooking) {
-      //    browserHistory.push('/order/details');
-      //  } else{
-      //    browserHistory.push('');
-      //  }
-      //}
-      //ajaxObj.error = function(e) {
-      //  self.showNotification('error', e.responseText, 4000, 30);
-      //  Base.hideOverlay();
-      //}
-      //$.ajax(ajaxObj);
-
     }
   }
 }

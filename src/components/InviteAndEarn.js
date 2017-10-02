@@ -2,7 +2,6 @@ import React from 'react';
 import ActivityHeader from './ActivityHeader';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
-import Base from './base/Base';
 import LeftNav from './common/LeftNav';
 import Footer from './Footer';
 import { Link } from 'react-router';

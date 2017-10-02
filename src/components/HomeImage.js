@@ -10,14 +10,12 @@ import Testimonial from './Testimonial';
 import Carousel from './lib/CarouselSlick';
 import allImages from '../../data/imageContoller.json';
 import testimonials from '../../data/testimonials.json';
-import Base from './base/Base';
 
 export default class HomeImage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      bookingDetails: Base.sandbox.bookingDetails,
       carousal: true,
       opacity: 1,
       fixed: "",
@@ -28,11 +26,11 @@ export default class HomeImage extends React.Component {
   render() {
     const images = allImages.homeImages,
       {screenWidth, active, data, showNotification} = this.props,
-      {bookingDetails, bg, opacity, fixed} = this.state;
+      {bg, opacity, fixed} = this.state;
 
     return (
       <section className = 'col-xs-12 col-md-4 pad0 img h' style={{backgroundColor: screenWidth < 992 ? bg : '#fff'}}>
-        <div className = 'bgimage' style={{opacity: opacity}}>
+        <div className = 'bgimage' style={{opacity}}>
           <Carousel images = {images} showArrow={false} autoPlay={true} screenWidth={screenWidth}/>
         </div>
         <div id = 'filter' className = {'filter ' + fixed}>
@@ -49,19 +47,17 @@ export default class HomeImage extends React.Component {
           </span>
         </div>
 
-        <ServicesList data = { data } service = { active }  />
-        <StaticPortion data={data}/>
-        <Testimonial data = { testimonials } />
-        <Cart showNotification={showNotification}/>
+        <ServicesList data = {data} service = {active}  />
+        <StaticPortion data = {data} />
+        <Testimonial data = {testimonials} />
+        <Cart showNotification={showNotification} />
       </section>
     )
   }
 
   componentDidMount() {
     let fixed = false;
-
     const self = this;
-
     $(window).on('scroll', function() {
 
       var scrollPos = $(this).scrollTop();
@@ -70,7 +66,7 @@ export default class HomeImage extends React.Component {
           self.setState({opacity: 1 - (scrollPos * 1.3) / 250});
         }
         if(fixed) {
-          self.setState({fixed: "", bg:'#000'});
+          self.setState({fixed: "", bg: '#000'});
           $('meta[name=theme-color]').attr('content', '#068481');
           fixed = false;
         }
@@ -90,12 +86,5 @@ export default class HomeImage extends React.Component {
     this.props.serviceSelected(attrValue);
     var body = $('html, body');
     body.stop().animate({scrollTop: 255}, '500', 'swing');
-  }
-
-  bookingDetailsChanged = (id, name, cost, count, operation) => {
-    Base.track('track', 'AddToCart');
-    Base.bookingDetailsChanged({id, name, cost, count, operation});
-    //this.forceUpdate();
-    Base.saveToLocalStorage();
   }
 }

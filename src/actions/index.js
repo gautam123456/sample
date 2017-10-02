@@ -148,6 +148,24 @@ export function logIn(data, showNotification, navigateTo = '') {
   };
 }
 
+export function registerUser(data, showNotification, navigateTo, successCallBack) {
+  return (dispatch) => {
+    ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
+    ajaxObj.data = data;
+    ajaxObj.success = (details) => {
+      navigateTo ? browserHistory.push(navigateTo) : null;
+      Base.hideOverlay();
+      successCallBack();
+      return dispatch(fetchedUser(details));
+    }
+    ajaxObj.error = (e) => {
+      Base.hideOverlay();
+      showNotification(E, e.responseText, 4000, 30);
+    }
+    $.ajax(ajaxObj);
+  };
+}
+
 export function saveLoginData(data) {
   return (dispatch) => {
     return dispatch(saveUserLoginData(data));

@@ -31,12 +31,13 @@ export const LANDMARK = 'Please provide your nearest landmark';
 export const CITY = 'Please select your city';
 export const NAME = 'Please provide your name';
 export const MIN_COUPON_AMNT = 'Minimum amount to avail this offer is Rs.';
+export const OTP_RESENT = 'OTP successfully resent on your mobile number';
 
 // Notification Types
 export const I = 'info';
 export const E = 'error';
 export const S = 'success';
-export const A = 'alert';
+export const W = 'warning';
 
 // PlaceHolder const
 export const PH = 'placeholder';

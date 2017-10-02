@@ -1,7 +1,6 @@
 import React from 'react';
 import ajaxObj from '../../../data/ajax.json';
 import $ from 'jquery';
-import Base from '../base/Base';
 
 export default class DateWidget extends React.Component {
   constructor(props) {

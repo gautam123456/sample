@@ -9,7 +9,7 @@ import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import Base from './base/Base';
 import {connect} from 'react-redux';
-import {userRegistered, reFetchUserDetails} from '../actions';
+import {userRegistered, reFetchUserDetails, registerUser} from '../actions';
 import {E, I, OTP, ADD_ADDRESS, LANDMARK, CITY, NAME} from '../constants';
 
 import ajaxObj from '../../data/ajax.json';
@@ -27,7 +27,6 @@ class AddAddress extends React.Component {
       address: address ? address.address : '',
       landmark: address ? address.landmark : '',
       lkey: address ? address.lkey : '',
-      isNewUser: Base.sandbox.isNewUser,
       op: op,
       notify: {
         show: false,
@@ -42,7 +41,8 @@ class AddAddress extends React.Component {
   render() {
     const dropStyle = {
       height: 50
-    }, {isNewUser, notify, name, otp, address, landmark, city} = this.state;
+    }, {notify, name, otp, address, landmark, city} = this.state,
+      {isNewUser} = this.props.userDetails;
 
     return (
       <div>
@@ -92,8 +92,8 @@ class AddAddress extends React.Component {
     this.updatePreferences();
   }
 
-  showNotification = (type, msg, timeout = 4000, top = 30) => {
-    this.setState({notify: {show: true, timeout, type, msg, top}});
+  showNotification = (type, msg) => {
+    this.setState({notify: {show: true, type, msg, timeout: 4000, top: 50}});
   }
 
   saveName = (e) => {
@@ -122,7 +122,7 @@ class AddAddress extends React.Component {
   }
 
   updatePreferences = () => {
-    if(this.state.isNewUser) {
+    if(this.props.userDetails.isNewUser) {
       this.registerUser();
     } else {
       this.updateAddress();
@@ -156,27 +156,37 @@ class AddAddress extends React.Component {
   }
 
   registerUserForReal = () => {
-    const {number, token} = this.props.userDetails,
+    const {userDetails: {number, token}, registerUser} = this.props,
       {otp, name} = this.state;
     Base.showOverlay();
-    ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
-    ajaxObj.data = {
+    //ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
+    const data = {
       phonenumber: number,
       otp,
       token,
       name
     };
-    ajaxObj.success =  () => {
-      Base.hideOverlay();
-      this.props.userRegistered();
-      this.addAddress();
-    }
-    ajaxObj.error = (e) => {
-      Base.hideOverlay();
-      this.showNotification(E, e.responseText);
-    }
-    $.ajax(ajaxObj);
 
+    registerUser(data, this.showNotification, null, this.callBack);
+
+
+
+    //ajaxObj.success =  (data) => {
+    //  Base.hideOverlay();
+    //  this.props.userRegistered();
+    //  this.addAddress();
+    //}
+    //ajaxObj.error = (e) => {
+    //  Base.hideOverlay();
+    //  this.showNotification(E, e.responseText);
+    //}
+    //$.ajax(ajaxObj);
+
+  }
+
+  callBack = () => {
+    this.props.userRegistered();
+    this.addAddress();
   }
 
   updateAddress = () => {
@@ -241,6 +251,9 @@ function mapDispatchToProps(dispatch) {
     },
     reFetchUserDetails: (flag) => {
       dispatch(reFetchUserDetails(flag));
+    },
+    registerUser: (data, notificn, navigateTo, callBack) => {
+      dispatch(registerUser(data, notificn, navigateTo, callBack));
     }
   };
 }
