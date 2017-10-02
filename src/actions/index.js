@@ -1,4 +1,7 @@
-import * as types from '../constants';
+import {FETCHED_ITEMS, FETCHED_USER, NON_FETCHED_USER,
+  SAVE_LOGIN_DATA, USER_REGISTERED, CART_UPDATED,
+  SAVE_BOOKING_DATA, ADDRESS_SELECTED,COUPON_APPLIED,
+  SAVE_BOOKED_DATA, CLEAR_CART, UPDATE_REFETCH_FLAG, E} from '../constants';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
 import {browserHistory} from 'react-router';
@@ -6,69 +9,81 @@ import Base from '../components/base/Base';
 
 function fetchedItems(items) {
   return {
-    type: types.FETCHED_ITEMS,
+    type: FETCHED_ITEMS,
     items
   };
 }
 
 function fetchedUser(details) {
   return {
-    type: types.FETCHED_USER,
+    type: FETCHED_USER,
     details
   };
 }
 
 function nonFetchedUser() {
   return {
-    type: types.NON_FETCHED_USER
+    type: NON_FETCHED_USER
   };
 }
 
 function saveUserLoginData(data) {
   return {
-    type: types.SAVE_LOGIN_DATA,
+    type: SAVE_LOGIN_DATA,
     data
   };
 }
 
 function noMoreNewUser() {
   return {
-    type: types.USER_REGISTERED
+    type: USER_REGISTERED
   };
 }
 
 function bookingDetailsUpdated(options) {
   return {
-    type: types.CART_UPDATED,
-    options
-  };
-}
-
-function saveServersTime(options) {
-  return {
-    type: types.CART_UPDATED,
+    type: CART_UPDATED,
     options
   };
 }
 
 function saveUserBookingData(options){
   return {
-    type: types.SAVE_BOOKING_DATA,
+    type: SAVE_BOOKING_DATA,
     options
   };
 }
 
 function userAddressSelected(options) {
   return {
-    type: types.ADDRESS_SELECTED,
+    type: ADDRESS_SELECTED,
     options
   };
 }
 
 function couponCodeApplied(options) {
   return {
-    type: types.COUPON_APPLIED,
+    type: COUPON_APPLIED,
     options
+  };
+}
+function saveSuccessBookedData(data) {
+  return {
+    type: SAVE_BOOKED_DATA,
+    data
+  };
+}
+
+function clearedCart() {
+  return {
+    type: CLEAR_CART
+  };
+}
+
+function reFetchDetails(flag) {
+  return {
+    type: UPDATE_REFETCH_FLAG,
+    flag
   };
 }
 
@@ -78,7 +93,7 @@ export function getItems() {
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
     ajaxObj.xhrFields = {withCredentials: false};
-    ajaxObj.success = function(items) {
+    ajaxObj.success = (items) => {
       ajaxObj.xhrFields = {withCredentials: true};
       return dispatch(fetchedItems(items));
     }
@@ -90,12 +105,13 @@ export function getUserDetails() {
   return (dispatch) => {
     ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
     ajaxObj.type = 'GET';
+    ajaxObj.dataType = "json";
     ajaxObj.data = '';
     ajaxObj.xhrFields = {withCredentials: true};
-    ajaxObj.success = function(details) {
+    ajaxObj.success = (details) => {
       return dispatch(fetchedUser(details));
     }
-    ajaxObj.error = function() {
+    ajaxObj.error = () => {
       return dispatch(nonFetchedUser());
     }
     $.ajax(ajaxObj);
@@ -107,7 +123,7 @@ export function logOut() {
     ajaxObj.url = ajaxObj.baseUrl + '/custlogout';
     ajaxObj.type = 'GET';
     ajaxObj.data = '';
-    ajaxObj.success = function() {
+    ajaxObj.success = () => {
       Base.hideOverlay();
       return dispatch(nonFetchedUser());
     }
@@ -115,18 +131,18 @@ export function logOut() {
   };
 }
 
-export function logIn(data, showNotification) {
+export function logIn(data, showNotification, navigateTo = '') {
   return (dispatch) => {
     ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
     ajaxObj.data = data;
-    ajaxObj.success = function(details) {
-      browserHistory.push('');
+    ajaxObj.success = (details) => {
+      browserHistory.push(navigateTo);
       Base.hideOverlay();
       return dispatch(fetchedUser(details));
     }
-    ajaxObj.error = function(e) {
+    ajaxObj.error = (e) => {
       Base.hideOverlay();
-      showNotification('error', e.responseText, 4000, 30);
+      showNotification(E, e.responseText, 4000, 30);
     }
     $.ajax(ajaxObj);
   };
@@ -150,12 +166,6 @@ export function bookingDetailsChanged(options) {
   };
 }
 
-export function saveServerTime(options) {
-  return (dispatch) => {
-    return dispatch(saveServersTime(options));
-  };
-}
-
 export function saveBookingData(options) {
   return (dispatch) => {
     return dispatch(saveUserBookingData(options));
@@ -171,6 +181,24 @@ export function addressSelected(options) {
 export function couponApplied(options) {
   return (dispatch) => {
     return dispatch(couponCodeApplied(options));
+  };
+}
+
+export function saveBookedData(data) {
+  return (dispatch) => {
+    return dispatch(saveSuccessBookedData(data));
+  };
+}
+
+export function clearCart() {
+  return (dispatch) => {
+    return dispatch(clearedCart());
+  };
+}
+
+export function reFetchUserDetails(flag) {
+  return (dispatch) => {
+    return dispatch(reFetchDetails(flag));
   };
 }
 

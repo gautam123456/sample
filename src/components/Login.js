@@ -104,7 +104,7 @@ class Login extends DisableScroll {
       ajaxObj.type = 'POST';
       ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
       ajaxObj.data = { phonenumber: self.state.number };
-      ajaxObj.success = function(data) {
+      ajaxObj.success = (data) => {
         //Base.sandbox.isNewUser = data.isNewUser;
         //Base.sandbox.token = data.token;
         if(data.isNewUser == true){
@@ -123,7 +123,7 @@ class Login extends DisableScroll {
         });
 
       }
-      ajaxObj.error = function(e) {
+      ajaxObj.error = (e) => {
         Base.hideOverlay();
         self.showNotification('error', e.responseText, 4000, 30);
       }

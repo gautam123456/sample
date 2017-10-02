@@ -100,7 +100,7 @@ export default class DateWidget extends React.Component {
       [960, '04:00 PM'], [990, '04:30 PM'], [1020, '05:00 PM'],[1050, '05:30 PM'],[1080, '06:00 PM']];
 
 
-    if( (month == serverTime.getMonth())  && (year == serverTime.getFullYear()) && (date == serverTime.getDate())){
+    if( (month == (serverTime.getMonth() + 1))  && (year == serverTime.getFullYear()) && (date == serverTime.getDate())){
       const currentHour = serverTime.getHours();
       if(currentHour < 7){
         return hours;
@@ -116,7 +116,7 @@ export default class DateWidget extends React.Component {
         currentTimeInMin = (currentHour * 60) + serverTime.getMinutes();
 
       for(let i = 0; i < hours.length; i++){
-        if(currentTimeInMin > hours[i][0]){
+        if(currentTimeInMin < hours[i][0]){
           index = i;
           break;
         }
@@ -162,7 +162,7 @@ export default class DateWidget extends React.Component {
       ajaxObj.dataType = 'text',
       ajaxObj.url = ajaxObj.baseUrl + '/getcurrenttime';
       ajaxObj.success = (data) => {
-
+        ajaxObj.dataType = 'json';
         const timeArray = data.split(' '),
           serverTime = new Date(`${timeArray[0]}T${timeArray[1]}+05:30`);
         this.setState({serverTime}, this.setInitialTime());
@@ -214,7 +214,7 @@ export default class DateWidget extends React.Component {
           <div className = 'col-xs-12 datepick'>
             <div className = 'col-xs-3 pad0'> Pick your slot </div>
             <div className = 'col-xs-7 date' style={{height: 40}}> { date + '/' + month + '/' + year + ' ' + timing + meridian } </div>
-            <div className = 'col-xs-12 timer' style={{margin: 'auto'}}>
+            <div className = 'col-xs-12 timer'>
               <div className = 'one'>
                 { this.renderDate() }
               </div>

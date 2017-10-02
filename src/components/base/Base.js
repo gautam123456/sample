@@ -66,9 +66,8 @@ export default class Base extends React.Component {
     }
 
     static showOverlay() {
-        document.getElementById('app').style.display = 'none';
-        document.getElementById('overlay').style.display = 'block';
-
+        //document.getElementById('app').style.display = 'none';
+        //document.getElementById('overlay').style.display = 'block';
     }
 
     static hideOverlay() {

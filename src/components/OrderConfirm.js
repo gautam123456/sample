@@ -15,12 +15,6 @@ import {EMAIL, TIME, NUMBER, I, E, EM, MO, PH, MSG} from '../constants'
 class OrderConfirm extends React.Component {
   constructor(props) {
     super(props);
-    //this.date = new Date();
-    //const {sandbox} = Base;
-    //if(!sandbox.mailId) {
-    //  sandbox.mailId = sandbox.userDetails ? sandbox.userDetails.email : '';
-    //}
-
     this.state = {
       modalDisplay: 'none',
       mailId: '',
@@ -29,16 +23,12 @@ class OrderConfirm extends React.Component {
       timing: '',
       notify: {
         show: false,
-        type: 'info',
+        type: I,
         timeout: 4000,
         msg:'',
         bottom: 50
       }
     }
-
-    //Base.sandbox.date = this.getDate();
-    //Base.sandbox.month = (parseInt(this.date.getMonth()) + 1).toString();
-    //Base.sandbox.year = parseInt(this.date.getFullYear());
   }
 
   getDate = () => {
@@ -126,6 +116,7 @@ class OrderConfirm extends React.Component {
         {mobile} = this.state;
 
       ajaxObj.type = 'POST';
+      ajaxObj.dataType = 'json';
       ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
       ajaxObj.data = { phonenumber: mobile };
       ajaxObj.success = function(data) {
@@ -165,7 +156,6 @@ class OrderConfirm extends React.Component {
   optionalComments = (e) => {
     const comment  = e.currentTarget.value;
     this.setState({comment});
-    //Base.sandbox.bookingDetails.comment = comment;
   }
 
   mailFocus = (e) => {
@@ -202,8 +192,6 @@ class OrderConfirm extends React.Component {
 
     if((mobile.length == 10)) {
       this.setState({mobile, notify: {show: false}});
-      //Base.sandbox.mobile = mobile;
-
       ajaxObj.type = 'POST';
       ajaxObj.url = ajaxObj.baseUrl + '/recordcontactnumber';
       ajaxObj.data = { phonenumber: mobile };

@@ -1,23 +1,29 @@
-import {FETCHED_ITEMS, SAVED_SERVER_TIME} from '../constants';
+import {FETCHED_ITEMS, SAVED_SERVER_TIME, SAVE_BOOKED_DATA} from '../constants';
 
 const initialState = {
   items: null,
-  serverTime: '',
-  source: ''
+  source: '',
+  bookingID: '',
+  moneySaved: 0,
+  finalAmount: 0
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
 
     case FETCHED_ITEMS:
+      const {items, source} = action;
       return Object.assign({}, state, {
-        items: action.items,
-        source: action.source
+        items,
+        source
       });
 
-    case SAVED_SERVER_TIME:
+    case SAVE_BOOKED_DATA:
+      const {data: {moneySaved, finalAmount, bookingID}} = action;
       return Object.assign({}, state, {
-        serverTime: action.serverTime
+        bookingID,
+        moneySaved,
+        finalAmount
       });
 
     default:

@@ -6,20 +6,26 @@ import Base from './base/Base';
 import LeftNav from './common/LeftNav';
 import Footer from './Footer';
 import { Link } from 'react-router';
+import {getUserDetails} from '../actions';
+import {connect} from 'react-redux';
 
-
-export default class InviteAndEarn extends React.Component {
+class InviteAndEarn extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       screenWidth: $(window).width(),
       refCode: this.props.location.query.refcode,
-      active: true,
-      totalrefcount: ''
+      active: true
     }
   }
 
   renderInviteAndEarn() {
+    let {refCode} = this.state,
+      {details} = this.props.userDetails;
+    if(!refCode) {
+      refCode = details ? details.refCode: null;
+    }
+
     return (
       <div className='invite'>
         <div className='col-xs-12 pad0 img'>
@@ -33,11 +39,11 @@ export default class InviteAndEarn extends React.Component {
             <br />
             <li>Additionally, you will also get Rs.200 Off on your next appointment. </li>
           </ul>
-          <div className='col-xs-12'>{this.state.refCode ? <div>YOUR <strong>LOOK</strong>PLEX INVITE CODE</div>:'PLEASE LOGIN TO SEE YOUR INVITE CODE'}</div>
-          <div className='col-xs-12'><div className='code col-xs-4 col-xs-offset-4'>{this.state.refCode || 'XXXXXX'}</div></div>
+          <div className='col-xs-12'>{refCode ? <div>YOUR <strong>LOOK</strong>PLEX INVITE CODE</div>:'PLEASE LOGIN TO SEE YOUR INVITE CODE'}</div>
+          <div className='col-xs-12'><div className='code col-xs-4 col-xs-offset-4'>{refCode || 'XXXXXX'}</div></div>
           {
-            this.state.refCode ?
-              <a href={'whatsapp://send?text=Hey! I tried Lookplex for Beauty Services at Home and had an amazing experience. Here\'s a gift of Rs.200 for you to try their services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + this.state.refCode} data-action="share/whatsapp/share">
+            refCode ?
+              <a href={'whatsapp://send?text=Hey! I tried Lookplex for Beauty Services at Home and had an amazing experience. Here\'s a gift of Rs.200 for you to try their services. I am sure you\'ll love them too! http://lookplex.com/login?refcode=' + refCode} data-action="share/whatsapp/share">
                 <div className='invite-wap col-xs-7 a'><i className='col-xs-2 fa fa-whatsapp pad0'></i><div className='col-xs-9 pad0'>Invite via WhatsApp</div></div>
               </a> :
               <Link to={'/login'}>
@@ -62,14 +68,21 @@ export default class InviteAndEarn extends React.Component {
   }
 
   renderRewards() {
-    if(this.state.refCode){
+    const {details} = this.props.userDetails;
+    let refCount, refCode;
+    if(details){
+      refCode = details.refCode;
+      refCount = details.refCount
+    }
+
+    if(refCode){
       return (
         <div className='rewards col-xs-12'>
           <div className='col-xs-12 pad0 img'>
           </div>
           <div className='col-xs-12'>Total <strong>LOOK</strong>PLEX Credits Earned</div>
-          <div className='col-xs-12'>Total referrals: <strong className='i'>{this.state.totalrefcount || 0} </strong></div>
-          <div className='col-xs-12'>Rewards earned: <i className='fa fa-inr'></i> <strong className='i'>{this.state.totalrefcount ? this.state.totalrefcount * 200 : '0'}</strong> </div>
+          <div className='col-xs-12'>Total referrals: <strong className='i'>{refCount || 0} </strong></div>
+          <div className='col-xs-12'>Rewards earned: <i className='fa fa-inr'></i> <strong className='i'>{refCount ? refCount * 200 : '0'}</strong> </div>
           {this.renderStaticData()}
         </div>
       )
@@ -87,26 +100,24 @@ export default class InviteAndEarn extends React.Component {
   }
 
   render() {
+    const {screenWidth, active} = this.state;
+
     return (
       <div>
         <ActivityHeader heading = { 'Refer & Earn' } fixed={true}/>
         <div className='col-md-4 nomob'>
-          <LeftNav screenWidth={this.state.screenWidth}/>
+          <LeftNav screenWidth={screenWidth}/>
         </div>
         <div className='head col-xs-12 col-md-4 pad0 refer'>
           <div className = 'col-xs-10 col-xs-offset-1 tab'>
-            <div className = {'col-xs-6 cli ' + this.state.active } onClick={this.setActive.bind(this, true)}>INVITE &#38; EARN</div>
-            <div className = {'col-xs-6 cli ' + !this.state.active } onClick={this.setActive.bind(this, false)}>MY CREDITS</div>
+            <div className = {'col-xs-6 cli ' + active } onClick={this.setActive.bind(this, true)}>INVITE &#38; EARN</div>
+            <div className = {'col-xs-6 cli ' + !active } onClick={this.setActive.bind(this, false)}>MY CREDITS</div>
           </div>
-          {this.state.active ? this.renderInviteAndEarn() : this.renderRewards()}
+          {active ? this.renderInviteAndEarn() : this.renderRewards()}
         </div>
         <Footer />
       </div>
     )
-  }
-
-  componentWillMount() {
-    this.getUserDetails();
   }
 
   updateDimensions() {
@@ -114,6 +125,9 @@ export default class InviteAndEarn extends React.Component {
   }
 
   componentDidMount() {
+    //if(!this.props.userDetails.isLoggedIn){
+    //  this.props.getUserDetails();
+    //}
     window.addEventListener("resize", this.updateDimensions.bind(this));
   }
 
@@ -121,29 +135,26 @@ export default class InviteAndEarn extends React.Component {
     window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
-  getUserDetails() {
-    let self = this;
-    ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
-    ajaxObj.type = 'GET';
-    ajaxObj.data = '';
-    ajaxObj.success = function(data) {
-      Base.sandbox.bookingDetails.name = data.name;
-      Base.sandbox.bookingDetails.addressList = data.addressList;
-      self.setState({totalrefcount: data.refCount});
-      if(!self.state.refCode) {
-        self.setState({refCode: data.refCode});
-      }
-    }
-    ajaxObj.error = function() {
-      Base.sandbox.bookingDetails.name = null;
-    }
-    $.ajax(ajaxObj);
-  }
-
   setActive(active) {
     this.setState({active: active})
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    userDetails: state.userDetails
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getUserDetails: () => {
+      dispatch(getUserDetails());
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InviteAndEarn);
 
 
 

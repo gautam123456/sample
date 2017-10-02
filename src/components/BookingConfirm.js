@@ -9,6 +9,7 @@ import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import Base from './base/Base';
 import {connect} from 'react-redux';
+import {saveBookedData, clearCart} from '../actions';
 
 import {E, S, MIN_BOOKING, REFRESH} from '../constants';
 import ajaxObj from '../../data/ajax.json';
@@ -71,24 +72,24 @@ class BookingConfirm extends React.Component {
   }
 
   validateAndConfirm = () => {
-    const {userDetails : {details: {refCount}}, bookingDetails: {total, minBooking, addressLKey, timing, date, mailId, services, couponCode, comment}} = this.props,
+    const {userDetails : {details: {refCount}}, bookingDetails: {total, minBooking, addressLKey, timing, date, emailId, services, couponCode, comment}} = this.props,
       refDiscount = refCount ? 200 : 0,
       details = {
         date,
         timing,
         addressLKey,
-        mailId,
+        emailId,
         couponCode,
         comment
       };
 
     if ((total - refDiscount) > minBooking) {
-      if (addressLKey && timing && date && mailId && services){
+      if (addressLKey && timing && date && emailId && services){
 
         details.serviceids = '';
         const keys = Object.keys(services);
         keys.map(function(key){
-          details.serviceids = key.split('-')[2] + '-' + details.services[key].count + ',' + details.serviceids;
+          details.serviceids = key.split('-')[2] + '-' + services[key].count + ',' + details.serviceids;
         })
 
         details.serviceids = details.serviceids.substr(0, details.serviceids.length-1);
@@ -113,11 +114,16 @@ class BookingConfirm extends React.Component {
 
     const self = this;
     Base.showOverlay();
-    ajaxObj.type = 'POST'
+    ajaxObj.type = 'POST';
+    ajaxObj.dataType = "json";
     ajaxObj.url = ajaxObj.baseUrl + '/sendbookingackforhome';
-    ajaxObj.data = { datetime: e.date + '__' + e.timing , addresslkey: e.addressLKey, couponcode: e.couponCode, serviceids: e.serviceids, emailid: e.mailId, comment: e.comment }
-    ajaxObj.success = function(data) {
+    ajaxObj.data = { datetime: e.date + '__' + e.timing , addresslkey: e.addressLKey, couponcode: e.couponCode, serviceids: e.serviceids, emailid: e.emailId, comment: e.comment }
+    ajaxObj.success = (data) => {
       Base.hideOverlay();
+      //const {moneySaved, finalAmount, bookingID} = data;
+
+      this.props.saveBookedData(data);
+      this.props.clearCart();
       //Base.sandbox.moneySaved = data.moneySaved;
       //Base.sandbox.finalAmount = data.finalAmount;
       //Base.sandbox.bookingID = data.bookingID;
@@ -126,7 +132,7 @@ class BookingConfirm extends React.Component {
       Base.logEvent('Booking Confirmed', 'Booking Id ' + data.bookingID, Base.sandbox.source);
       browserHistory.push('/booking/confirmed');
     }
-    ajaxObj.error = function(e){
+    ajaxObj.error = (e) => {
       Base.hideOverlay();
       self.showNotification(E, e.responseJSON.message, 4000, 30);
     }
@@ -141,6 +147,17 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(BookingConfirm);
+function mapDispatchToProps(dispatch) {
+  return {
+    saveBookedData: (data) => {
+      dispatch(saveBookedData(data));
+    },
+    clearCart: () => {
+      dispatch(clearCart());
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookingConfirm);
 
 

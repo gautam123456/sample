@@ -35,9 +35,11 @@ class Container extends React.Component {
 
   getActiveData(id) {
     const {data} = this.props;
-    for(let i = 0; i < data.serviceList.length; i++){
-      if(data.serviceList[i].id == id){
-        return data.serviceList[i];
+    if(data && data.serviceList) {
+      for(let i = 0; i < data.serviceList.length; i++){
+        if(data.serviceList[i].id == id){
+          return data.serviceList[i];
+        }
       }
     }
   }

@@ -6,31 +6,20 @@ import { Link } from 'react-router';
 
 export default class ActivityHeader extends React.Component {
   render() {
-    const fixed = {
-      position: 'fixed',
-      zIndex: 3
-    };
+    const {fixed, heading} = this.props;
 
     return (
-      <header className='header width100' style={this.props.fixed ? fixed : null}>
+      <header className='header width100' style={fixed ? {position: 'fixed',zIndex: 3} : null}>
         <div className='a-header'>
-          <span className='col-xs-10 col-xs-offset-1'>{ this.props.heading }</span>
+          <span className='col-xs-10 col-xs-offset-1'>{heading}</span>
           <span className='col-xs-1'>
-            {
-              !this.props.refresh ?
               <Link to={ '/' }>
                 &#215;
               </Link>
-            : <a onClick={this.reload}>&#215;</a>
-            }
           </span>
         </div>
       </header>
     )
-  }
-
-  reload() {
-    window.location.assign(location.origin);
   }
 }
 

@@ -7,14 +7,16 @@ import Base from './base/Base';
 
 export default class BookedMenu extends React.Component {
   render() {
+    const {list: {cost, name}, discount, count} = this.props;
+
     return (
       <div className = 'menu col-xs-12 pad0'>
         <div className = 'col-xs-7'>
-          { this.props.list.name }<br/>
+          { name }<br/>
         </div>
-        <div className = 'col-xs-3' style = {{paddingLeft:14}}><i className = "fa fa-inr"></i>{ this.props.list.cost - (this.props.list.cost * this.props.discount/100) }</div>
+        <div className = 'col-xs-3' style = {{paddingLeft:14}}><i className = "fa fa-inr"></i>{cost - (cost * discount/100)}</div>
         <div className = 'col-xs-2 center'>
-          { this.props.count === 0 ? '': this.props.count }
+          {count === 0 ? '': count}
         </div>
       </div>
     )

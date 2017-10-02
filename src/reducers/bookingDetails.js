@@ -1,4 +1,4 @@
-import {CART_UPDATED, COUPON_APPLIED, SAVE_BOOKING_DATA, ADDRESS_SELECTED} from '../constants';
+import {CART_UPDATED, COUPON_APPLIED, SAVE_BOOKING_DATA, ADDRESS_SELECTED, CLEAR_CART} from '../constants';
 
 const initialState = {
   subTotal: 0,
@@ -36,7 +36,7 @@ export default function(state = initialState, action) {
           }else{
             services[id] = {
               count: 1, 
-              name: name, 
+              name, 
               cost: costInt,
               discount: discountInt
             }
@@ -45,7 +45,7 @@ export default function(state = initialState, action) {
           newState = {
             servicesCount: state.servicesCount + 1,
             subTotal: state.subTotal + costInt,
-            services: services,
+            services,
             total: state.total + (costInt - (costInt * discountInt/100))
           };
 
@@ -61,7 +61,7 @@ export default function(state = initialState, action) {
           newState = {
             servicesCount: state.servicesCount - 1,
             subTotal: state.subTotal - costInt,
-            services: services,
+            services,
             total: state.total - (costInt - (costInt * discountInt/100))
           };
       }
@@ -70,8 +70,8 @@ export default function(state = initialState, action) {
 
     case COUPON_APPLIED:
       return Object.assign({}, state, {
-        couponCode: action.couponCode,
-        discount: action.discount
+        couponCode: action.options.couponCode,
+        discount: action.options.discount
       });
 
     case SAVE_BOOKING_DATA:
@@ -80,13 +80,16 @@ export default function(state = initialState, action) {
         date: month + '/' + date + '/' + year,
         timing: time,
         emailId: mailId,
-        comment: comment
+        comment
       });
 
     case ADDRESS_SELECTED:
       return Object.assign({}, state, {
         addressLKey: action.options.activelkey
       });
+
+    case CLEAR_CART:
+      return Object.assign({}, state, initialState);
 
     default:
       return state;

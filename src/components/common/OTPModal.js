@@ -3,13 +3,14 @@
  */
 import React from 'react';
 import Base from '../base/Base';
-
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
-
+import {connect} from 'react-redux';
+import {logIn} from '../../actions';
 import ajaxObj from '../../../data/ajax.json';
+import {E, I, OTP} from '../../constants';
 
-export default class OTPModal extends React.Component {
+class OTPModal extends React.Component {
 
   constructor(props){
     super(props)
@@ -22,49 +23,69 @@ export default class OTPModal extends React.Component {
     return (
       <div id = 'modal' className ='modal otp' style = {{ display: this.props.display }}>
         <div className = 'modal-content pad0'>
-          <div className = 'cancel' onClick = {this.close.bind(this)}><div>&#215;</div></div>
+          <div className = 'cancel' onClick = {this.close}><div>&#215;</div></div>
           <div className = 'content pad0'>
             <div className='col-xs-12' style={{textAlign: 'center', margin: 5}}>Please check your message box for OTP</div>
             <div className = 'otpbody'>
               <input type = 'text' placeholder = 'Enter OTP' className = 'col-xs-12'
-                     onChange = { this.saveOTP.bind(this)} value={this.state.otp}></input>
+                     onChange = { this.saveOTP} value={this.state.otp}></input>
             </div>
           </div>
-          <footer className='cli' onClick = {this.confirmOTP.bind(this)}>CONFIRM OTP</footer>
+          <footer className='cli' onClick = {this.confirmOTP}>CONFIRM OTP</footer>
         </div>
       </div>
     )
   }
 
-  saveOTP(e) {
+  saveOTP = (e) => {
     let otp = e.currentTarget.value;
     this.setState({otp});
   }
 
-  showNotification() {
-    this.props.showNotification('info', 'Please provide 6 digit OTP sent on your mobile', 4000, 50);
+  showNotification = (type, msg) => {
+    this.props.showNotification(type, msg, 4000, 50);
   }
 
-  confirmOTP() {
-    const self = this;
-    if(this.state.otp.length !== 6){
-      this.showNotification();
+  confirmOTP = () => {
+    const {token, number} = this.props.userDetails,
+      {otp} = this.state;
+
+    if(otp.length !== 6){
+      this.showNotification(I, OTP);
     }else {
-      ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
-      ajaxObj.data = { phonenumber: Base.sandbox.mobile, otp: this.state.otp, token: Base.sandbox.token };
-      ajaxObj.success = function() {
-        Base.sandbox.bookingDetails.name = 'ZZ';
-        browserHistory.push('/address');
-      }
-      ajaxObj.error = function(e) {
-        self.props.showNotification('error', e.responseText, 4000, 30);
-        Base.hideOverlay();
-      }
-      $.ajax(ajaxObj);
+      this.props.logIn({phonenumber: number, otp, token}, this.showNotification, '/address');
+
+      //ajaxObj.url = ajaxObj.baseUrl + '/loginguestcustomer';
+      //ajaxObj.data = { phonenumber: number, otp, token};
+      //ajaxObj.success = () => {
+      //  browserHistory.push('/address');
+      //}
+      //ajaxObj.error = (e) => {
+      //  this.props.showNotification(E, e.responseText, 4000, 30);
+      //  Base.hideOverlay();
+      //}
+      //$.ajax(ajaxObj);
     }
   }
 
-  close() {
+  close = () => {
     this.props.renderModal({display: 'none'});
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    userDetails: state.userDetails
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    logIn: (data, notfn, navigateTo) => {
+      dispatch(logIn(data, notfn, navigateTo));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OTPModal);
+
