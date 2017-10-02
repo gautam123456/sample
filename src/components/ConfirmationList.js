@@ -121,7 +121,7 @@ class ConfirmationList extends React.Component {
                         <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { total - refDiscount } </div>
                     </div>
                 </div>
-                <Coupons updateDiscount={this.updateDiscount} amountPayable={total - refDiscount} showNotification={this.props.showNotification} subTotal={subTotal}/>
+                <Coupons showNotification={this.props.showNotification} />
                 <div className = 'col-xs-12 pad0' style = { margin }>
                     <header className = 's-heading full-width'>
                         <div className = 'col-xs-12 pad0'>
@@ -148,10 +148,10 @@ class ConfirmationList extends React.Component {
         )
     }
 
-    updateDiscount = (discount, msg, complementaryOffer) => {
-      this.props.updateDiscount(discount, msg, complementaryOffer);
-      //this.props.showNotification('success', msg, 4000, 30);
-    }
+    //updateDiscount = (discount, msg, complementaryOffer) => {
+    //  this.props.updateDiscount(discount, msg, complementaryOffer);
+    //  //this.props.showNotification('success', msg, 4000, 30);
+    //}
 
     //applyPromocode() {
     //  let self = this;

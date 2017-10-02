@@ -8,7 +8,7 @@ const initialState = {
   convenienceCharges: 0,
   complementaryOffer: '',
   discount: 30,
-  couponCode: '',
+  couponCode: 'LOOK30',
   location: '',
   addressLKey: '',
   services: {},
@@ -69,9 +69,13 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, newState);
 
     case COUPON_APPLIED:
+      const {couponCode, refDiscount, complementaryOffer} = action.options,
+        total = (state.subTotal - (state.subTotal * action.options.discount)/100) - refDiscount;
       return Object.assign({}, state, {
-        couponCode: action.options.couponCode,
-        discount: action.options.discount
+        couponCode,
+        discount: action.options.discount,
+        total,
+        complementaryOffer
       });
 
     case SAVE_BOOKING_DATA:

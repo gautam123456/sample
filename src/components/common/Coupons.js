@@ -2,15 +2,16 @@ import React from 'react';
 import ajaxObj from '../../../data/ajax.json';
 import $ from 'jquery';
 import Base from '../base/Base';
+import {connect} from 'react-redux';
+import {couponApplied} from '../../actions';
+import {E, MIN_COUPON_AMNT} from '../../constants';
 
 
-export default class LeftNav extends React.Component {
+class Coupons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       customerCouponList: null,
-      couponApplied: 'LOOK30',
-      discount: 30,
       loading: false
     }
   }
@@ -20,22 +21,24 @@ export default class LeftNav extends React.Component {
   }
 
   render() {
-    const {customerCouponList, couponApplied, loading} = this.state;
+    const {loading, customerCouponList} = this.state,
+      {couponCode} = this.props.bookingDetails;
+
     if (customerCouponList) {
       return (
         <div className='col-xs-12'>
           <div className='b-offers' style={loading ? {opacity: 0.1} : {opacity: 1}}>
             {customerCouponList.map(offer => {
               return (
-                <div className='offer' style={couponApplied === offer.couponCode ? {backgroundColor: '#9bcdcc'} : null} onClick={this.applyCoupon.bind(this, offer.couponCode)}>
-                  <div>Coupon Code : {offer.couponCode} <button className='cli' >{couponApplied === offer.couponCode ? 'Applied' : 'Apply'}</button></div>
+                <div className='offer' style={couponCode === offer.couponCode ? {backgroundColor: '#9bcdcc'} : null} onClick={this.applyCoupon.bind(this, offer.couponCode)}>
+                  <div>Coupon Code : {offer.couponCode} <button className='cli' >{couponCode === offer.couponCode ? 'Applied' : 'Apply'}</button></div>
                   <div>Discount : {offer.discount}%</div>
                   {offer.complementaryOffer ? <div>Complimentary Offer : {offer.complementaryOffer}</div> : null}
                   <div>Minimum Booking Amount : Rs.{offer.minimumAmount}</div>
                   <div>{offer.validthru}</div>
                 </div>
               )
-            })}
+            }, this)}
           </div>
         </div>
       )
@@ -44,42 +47,58 @@ export default class LeftNav extends React.Component {
     }
   }
 
-  applyCoupon(couponApplied) {
-    let self = this;
+  applyCoupon = (couponCode) => {
+
     this.setState({loading: true});
+    const {bookingDetails: {total}, userDetails: {details: {refCount}}, couponApplied, showNotification} = this.props,
+      refDiscount  = refCount ? 200 : 0,
+      amountPayable = total - refDiscount;
+
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/iscouponvalid';
-    ajaxObj.data = { couponcode: couponApplied }
-    ajaxObj.success = function(data) {
-      if (self.props.amountPayable > data.minimumAmount) {
-        self.setState({ discount: data.discount, couponApplied, loading: false});
-        self.props.updateDiscount(data.discount, data.status, data.complementaryOffer);
-        Base.sandbox.bookingDetails.couponcode = couponApplied;
-        Base.sandbox.bookingDetails.discount = data.discount;
+    ajaxObj.data = { couponcode: couponCode }
+    ajaxObj.success = (data) => {
+      if (amountPayable > data.minimumAmount) {
+        this.setState({loading: false});
+        couponApplied({discount: parseInt(data.discount), couponCode, refDiscount, complementaryOffer: data.complementaryOffer});
       } else {
-        self.setState({loading: false});
-        self.props.showNotification('error', 'Minimum amount to avail this offer is Rs.' + data.minimumAmount, 4000, 30);
+        this.setState({loading: false});
+        showNotification(E, MIN_COUPON_AMNT + data.minimumAmount);
       }
     }
-    ajaxObj.error = function(e){
-      self.setState({ discount: 0, loading: false});
-      self.props.showNotification('error', e.responseJSON.message, 4000, 30);
+    ajaxObj.error = (e) => {
+      this.setState({ discount: 0, loading: false});
+      showNotification(E, e.responseJSON.message);
     }
     $.ajax(ajaxObj);
   }
 
-  getOffers() {
-    const self = this;
+  getOffers = () => {
     ajaxObj.url = ajaxObj.baseUrl + '/getmycoupons';
     ajaxObj.type = 'POST';
     ajaxObj.data = '';
-    ajaxObj.success = function(data) {
-      self.setState({customerCouponList: data.customerCouponList});
-    }
-    ajaxObj.error = function() {
-    }
+    ajaxObj.success = (data) => {
+      this.setState({customerCouponList: data.customerCouponList});
+    };
     $.ajax(ajaxObj);
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    bookingDetails: state.bookingDetails,
+    userDetails: state.userDetails
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    couponApplied: (data) => {
+      dispatch(couponApplied(data));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Coupons);
 
 

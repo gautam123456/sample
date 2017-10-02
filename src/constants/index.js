@@ -30,6 +30,7 @@ export const ADD_ADDRESS = 'Please provide your complete address';
 export const LANDMARK = 'Please provide your nearest landmark';
 export const CITY = 'Please select your city';
 export const NAME = 'Please provide your name';
+export const MIN_COUPON_AMNT = 'Minimum amount to avail this offer is Rs.';
 
 // Notification Types
 export const I = 'info';
