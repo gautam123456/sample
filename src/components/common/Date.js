@@ -19,6 +19,7 @@ export default class DateWidget extends React.Component {
     let days = this.getNumberOfDays();
     return (
       <select className = 'col-xs-12' onChange = { this.datePicked } value = { this.state.date }>
+        <option key = 'd' value={''}>Select</option>
         { days.map(function(index){
           return this.renderDay(index);
         }, this)}
@@ -36,6 +37,7 @@ export default class DateWidget extends React.Component {
     const months = this.getMonths();
     return (
       <select className = 'col-xs-12' onChange = { this.monthPicked } value = { this.state.month }>
+        <option key = 'm' value={''}>Select</option>
         { months.map(function(index){
           return this.renderMonth(index)
         }, this)}
@@ -156,7 +158,6 @@ export default class DateWidget extends React.Component {
   }
 
   componentDidMount() {
-      let self = this;
       ajaxObj.type = 'GET';
       ajaxObj.dataType = 'text',
       ajaxObj.url = ajaxObj.baseUrl + '/getcurrenttime';
@@ -212,19 +213,19 @@ export default class DateWidget extends React.Component {
         <div className = 'col-xs-12 confirm pad0'>
           <div className = 'col-xs-12 datepick'>
             <div className = 'col-xs-3 pad0'> Pick your slot </div>
-            <div className = 'col-xs-7 date' style={{height: 40}}> { date + '/' + month + '/' + year + ' ' + timing + meridian } </div>
+            <div className = 'col-xs-7 date' style={{height: 40}}> { (date || '__ ') + '/' + (month || '__ ') + '/' + (year || '__') + ' ' + timing + meridian } </div>
             <div className = 'col-xs-12 timer'>
-              <div className = 'one'>
-                { this.renderDate() }
-              </div>
-              <div className = 'two'>
-                { this.renderMonths() }
-              </div>
               <div className = 'three'>
                 <select className = 'col-xs-12' onChange = { this.yearPicked } value = {year}>
                   <option value='2017'>2017</option>
                   <option value='2018'>2018</option>
                 </select>
+              </div>
+              <div className = 'two'>
+                { this.renderMonths() }
+              </div>
+              <div className = 'one'>
+                { this.renderDate() }
               </div>
             </div>
 
@@ -254,19 +255,28 @@ export default class DateWidget extends React.Component {
   }
 
   datePicked = (e) => {
-    this.setState({date: e.currentTarget.value}, this.props.scheduleHandler(Object.assign({}, this.state, {date: e.currentTarget.value})));
+    const date = e.target.value;
+    this.setState({date}, this.updateScheduleHandler({date}));
   }
 
   monthPicked = (e) => {
-    this.setState({month: e.currentTarget.value}, this.props.scheduleHandler(Object.assign({}, this.state, {month: e.currentTarget.value})));
+    const month = e.target.value;
+    this.setState({month, date: ''}, this.updateScheduleHandler({month, date: ''}));
   }
 
   yearPicked = (e) => {
-    this.setState({year: e.currentTarget.value}, this.props.scheduleHandler(Object.assign({}, this.state, {year: e.currentTarget.value})));
+    const year = e.target.value;
+    this.setState({year, date: '', month: ''}, this.updateScheduleHandler({year, date: '', month: ''}));
   }
 
   timeEntered = (e) => {
-    this.setState({time: e.currentTarget.value}, this.props.scheduleHandler(Object.assign({}, this.state, {time: e.currentTarget.value})));
+    const time = e.target.value,
+      {year, date, month} = this.state;
+    this.setState({time}, this.updateScheduleHandler({year, date, month, time}));
+  }
+
+  updateScheduleHandler = (options) => {
+    this.props.scheduleHandler(Object.assign({}, this.state, options));
   }
 }
 

@@ -15,9 +15,16 @@ import {EMAIL, TIME, NUMBER, I, E, EM, MO, PH, MSG} from '../constants'
 class OrderConfirm extends React.Component {
   constructor(props) {
     super(props);
+
+    let {mailId, userDetails: {details}} = this.props;
+
+    if(!mailId && details && details.email) {
+      mailId = details.email;
+    }
+
     this.state = {
       modalDisplay: 'none',
-      mailId: '',
+      mailId: mailId || '',
       mobile: '',
       comment: '',
       timing: '',
@@ -76,14 +83,12 @@ class OrderConfirm extends React.Component {
   }
 
   navigateNext = () => {
-    const {mailId, timing, mobile, comment} = this.state,
+    const {mailId, timing, timing: {time, year, month, date}, mobile, comment} = this.state,
       {isLoggedIn} = this.props;
-
-    console.log(timing);
 
     if(isLoggedIn) {
       if(mailId) {
-        if(timing.time) {
+        if(time && year && month && date) {
           browserHistory.push('/address');
           this.props.saveBookingData({mailId, timing, comment});
         } else {
@@ -215,6 +220,7 @@ class OrderConfirm extends React.Component {
 function mapStateToProps(state) {
   return {
     userDetails: state.userDetails,
+    mailId: state.bookingDetails.emailId,
     isLoggedIn: state.userDetails.isLoggedIn
   };
 }

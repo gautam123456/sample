@@ -20,11 +20,11 @@ class ThankYou extends React.Component {
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
             <img src='../styles/assets/images/booked.jpg' style={{height:'100%', width:'100%', marginBottom:'20px'}} alt=''/>
 
-            <Link to={'/'}><a className='cli'>
-              <div className="col-xs-12" style={{marginTop: -120, height:60}}></div>
-            </a></Link>
-
-
+            <Link to={'/'}>
+              <a className='cli'>
+                <div className="col-xs-12" style={{marginTop: -120, height:60}}></div>
+              </a>
+            </Link>
 
             {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
             {finalAmount ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount payable: <strong>Rs. {finalAmount} </strong></div> : ''}
