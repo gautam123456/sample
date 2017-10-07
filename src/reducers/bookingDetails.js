@@ -44,6 +44,7 @@ export default function(state = localStorageState, action) {
             }
           }
 
+
           newState = {
             servicesCount: state.servicesCount + 1,
             subTotal: state.subTotal + costInt,
@@ -57,12 +58,13 @@ export default function(state = localStorageState, action) {
           if(services[id].count === 0){
             delete services[id];
           }
+          const servicesCount = state.servicesCount - 1;
 
           newState = {
-            servicesCount: state.servicesCount - 1,
-            subTotal: state.subTotal - costInt,
+            servicesCount,
+            subTotal: servicesCount ?  state.subTotal - costInt : 0,
             services,
-            total: state.total - (costInt - (costInt * discountInt/100))
+            total: servicesCount ? state.total - (costInt - (costInt * discountInt/100)) : 0
           };
       }
 

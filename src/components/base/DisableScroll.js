@@ -6,10 +6,6 @@ import $ from 'jquery';
 
 export default class DisableScroll extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   focusChanged(e) {
     e.stopPropagation();
     window.scrollBy(0, 100);

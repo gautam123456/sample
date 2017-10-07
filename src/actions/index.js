@@ -109,9 +109,11 @@ export function getUserDetails() {
     ajaxObj.data = '';
     ajaxObj.xhrFields = {withCredentials: true};
     ajaxObj.success = (details) => {
+      Base.hideOverlay();
       return dispatch(fetchedUser(details));
     }
     ajaxObj.error = () => {
+      Base.hideOverlay();
       return dispatch(nonFetchedUser());
     }
     $.ajax(ajaxObj);

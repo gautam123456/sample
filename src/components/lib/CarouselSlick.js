@@ -25,17 +25,19 @@ export default class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    const self = this;
+
     //window.onresize = function() {
     //  self.setState({screenWidth: $(window).width() > 992 ? $(window).width()/3 : $(window).width()})
     //};
 
-    if(self.props.autoPlay) {
-      self.interval = setInterval(() => {
-        if(self.state.current != self.props.images.length - 1){
-          self.handleTransition(self.state.current + 1);
+    const {props: {autoPlay, images}, state: {current}} = this;
+
+    if(autoPlay) {
+      this.interval = setInterval(() => {
+        if(current != images.length - 1){
+          this.handleTransition(current + 1);
         } else {
-          self.handleTransition(0);
+          this.handleTransition(0);
         }
       }, 5000);
     }
@@ -46,8 +48,7 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-    const self = this,
-      total = this.props.images.length,
+    const {images: {length}, images, showArrow} = this.props,
       {current, position, screenWidth} = this.state,
       strTrnsfrm = `translate3d(${-(position + (current * screenWidth))}px, 0px, 0px)`,
       style = {
@@ -59,20 +60,20 @@ export default class Carousel extends React.Component {
           transition: 'transform 300ms ease, opacity 300ms ease',
           WebkitTransition: 'transform 300ms ease, opacity 300ms ease',
           msTransition: 'transform 300ms ease, opacity 300ms ease',
-          width: total * this.state.screenWidth + 'px'
+          width: length * screenWidth + 'px'
       };
 
     return (
       <div className="carousel-container">
         <div className='carousel width100 pad0' style={style}>
-          {this.props.images.map(function(image, index){
-            return self.renderImage(image, index, total)
-          })}
+          {images.map(function(image, index){
+            return this.renderImage(image, index, length)
+          }, this)}
         </div>
-        <div className = {'left nav control ' + this.props.showArrow} onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
-        <div className = {'right nav control ' + this.props.showArrow} onClick = {this.handleRightNav.bind(this, total)}><i className='fa fa-angle-right'></i></div>
+        <div className = {'left nav control ' + showArrow} onClick = {this.handleLeftNav.bind(this)}><i className='fa fa-angle-left'></i></div>
+        <div className = {'right nav control ' + showArrow} onClick = {this.handleRightNav.bind(this, length)}><i className='fa fa-angle-right'></i></div>
         <div className = 'dots control col-xs-12'>
-          {this.renderDots(total)}
+          {this.renderDots(length)}
         </div>
       </div>
     )
@@ -109,14 +110,16 @@ export default class Carousel extends React.Component {
   }
 
   handleLeftNav() {
-    if(this.state.current != 0){
-      this.handleTransition(this.state.current - 1)
+    const {current} = this.state;
+    if(current != 0){
+      this.handleTransition(current - 1);
     }
   }
 
   handleRightNav(total) {
-    if(this.state.current != total -1){
-      this.handleTransition(this.state.current + 1)
+    const {current} = this.state;
+    if(current != total -1){
+      this.handleTransition(current + 1);
     }
   }
 
