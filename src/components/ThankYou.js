@@ -30,7 +30,7 @@ class ThankYou extends React.Component {
               <div className = 'col-xs-12' > Refer your friends and earn. <Link to={'/salon-at-home/referearn'}><a className='cli'><u>know more</u></a></Link></div>
               <div className = 'col-xs-12' style={{marginBottom: 70}} > Call 8826755766 for any query or assistance.</div>
 
-              <div class="mcwidget-embed" data-widget-id="527494"></div>
+              <div className='mcwidget-embed' data-widget-id="527494"></div>
             </div>
           <ThankYouFooter />
         </div>
