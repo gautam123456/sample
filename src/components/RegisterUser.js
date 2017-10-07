@@ -8,7 +8,8 @@ import Base from './base/Base';
 import TopNotification from './TopNotification';
 import DisableScroll from './base/DisableScroll';
 import {connect} from 'react-redux';
-import {userRegistered} from '../actions';
+import {userRegistered, registerUser} from '../actions';
+import {OTP, NAME, W, I} from '../constants';
 
 import ajaxObj from '../../data/ajax.json';
 
@@ -31,11 +32,12 @@ class RegisterUser extends DisableScroll {
     }
 
     render() {
-      const opts = this.props.refcode ? {'readOnly':'readOnly'} : {};
+      const opts = this.props.refcode ? {'readOnly':'readOnly'} : {},
+        {notify, refcode} = this.state;
 
       return (
         <div className='lo'>
-          <TopNotification data={this.state.notify}/>
+          <TopNotification data={notify}/>
           <div className = 'col-md-offset-4 col-md-4 col-xs-12 login pad0'>
             <div className = 'discard col-xs-12 col-md-4'>
               <Link to = { '/' }>
@@ -46,82 +48,89 @@ class RegisterUser extends DisableScroll {
               <div className = 'hlg'></div>
             </div>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-user-o'></i></div>
-            <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-7 pad0' onChange={ this.nameChanged.bind(this) } onFocus={ this.focusChanged.bind(this) } ></input>
+            <input type = 'text' placeholder = 'Name (Required)' className = 'col-xs-7 pad0' onChange={ this.nameChanged } onFocus={ this.focusChanged } ></input>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-mobile'></i></div>
-            <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-7 pad0' onChange={ this.otpChanged.bind(this) } onFocus={ this.focusChanged.bind(this) } ></input>
+            <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-7 pad0' onChange={ this.otpChanged } onFocus={ this.focusChanged } ></input>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-link'></i></div>
-            <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-7 pad0' onChange={ this.refCodeChanged.bind(this) } onFocus={ this.focusChanged.bind(this)} value={this.state.refcode} {...opts}></input>
-            <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={  this.register.bind(this) }> SUBMIT</button>
+            <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-7 pad0' onChange={ this.refCodeChanged } onFocus={ this.focusChanged } value={refcode} {...opts}></input>
+            <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={  this.register }> SUBMIT</button>
           </div>
         </div>
         )
     }
 
-    showNotification(type, msg, timeout, top) {
+    showNotification = (type, msg, timeout, top) => {
       this.setState({notify: {show: true, timeout, type, msg, top}})
     }
 
-    nameChanged(e) {
+    nameChanged = (e) => {
         let name = e.currentTarget.value;
         this.setState({name});
     }
 
-    refCodeChanged(e) {
+    refCodeChanged = (e) => {
         let refcode = e.currentTarget.value;
         this.setState({refcode});
     }
 
-    otpChanged(e) {
+    otpChanged = (e) => {
       const otp = e.currentTarget.value;
       if(otp.length <= 6) {
         this.setState({otp, notify: {show: false}});
       } else {
-        this.showNotification('warning', 'Please provide 6 digit OTP', 4000, 30);
+        this.showNotification(W, OTP, 4000, 30);
       }
     }
 
-    allRequiredDataProvided() {
+    allRequiredDataProvided = () => {
       const {name, otp} = this.state;
 
         if(name){
           if(otp){
             return true;
           }else{
-            this.showNotification('info', 'Please provide OTP', 4000, 30);
+            this.showNotification(I, OTP, 4000, 30);
             return false
           }
         }else{
-          this.showNotification('info', 'Please provide name', 4000, 30);
+          this.showNotification(I, NAME, 4000, 30);
           return false
         }
     }
 
-    register() {
-        const self =  this,
-          {number, token} = this.props;
+    register = () => {
+
+        const  {props: {number, token}, state: {otp, name, refcode}} = this;
         if(this.allRequiredDataProvided()) {
-            Base.showOverlay();
-            ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
-            ajaxObj.data = {
+          const data = {
                 phonenumber: number,
-                otp: this.state.otp,
-                token: token,
-                name: this.state.name,
-                refcode: this.state.refcode
+                otp,
+                token,
+                name,
+                refcode
             };
-            ajaxObj.success = function (data) {
-                Base.hideOverlay();
-                Base.track('track', 'CompleteRegistration');
-                //Base.sandbox.bookingDetails.name = data.name || 'dummy';
-                //Base.sandbox.isNewUser = false;
-                self.props.userRegistered();
-                browserHistory.push('');
-            }
-            ajaxObj.error = function (e) {
-                Base.hideOverlay();
-                self.showNotification('error', e.responseText || 'Something went wrong', 4000, 30);
-            }
-            $.ajax(ajaxObj);
+            this.props.registerUser(data, this.showNotification, '', this.props.userRegistered);
+
+            //Base.showOverlay();
+            //ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
+            //ajaxObj.data = {
+            //    phonenumber: number,
+            //    otp: this.state.otp,
+            //    token: token,
+            //    name: this.state.name,
+            //    refcode: this.state.refcode
+            //};
+            //ajaxObj.success = function (data) {
+            //    Base.hideOverlay();
+            //
+            //    self.props.userRegistered();
+            //    browserHistory.push('');
+            //}
+            //ajaxObj.error = function (e) {
+            //    Base.hideOverlay();
+            //    self.showNotification('error', e.responseText || 'Something went wrong', 4000, 30);
+            //}
+            //$.ajax(ajaxObj);
         }
     }
 }
@@ -139,6 +148,9 @@ function mapDispatchToProps(dispatch) {
   return {
     userRegistered: () => {
       dispatch(userRegistered());
+    },
+    registerUser: (data, notfn, route, callBack) => {
+      dispatch(registerUser(data, notfn, route, callBack));
     }
   };
 }

@@ -155,9 +155,10 @@ export function registerUser(data, showNotification, navigateTo, successCallBack
     ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
     ajaxObj.data = data;
     ajaxObj.success = (details) => {
-      navigateTo ? browserHistory.push(navigateTo) : null;
+      navigateTo !== null ? browserHistory.push(navigateTo) : null;
       Base.hideOverlay();
       successCallBack();
+      Base.track('track', 'CompleteRegistration');
       return dispatch(fetchedUser(details));
     }
     ajaxObj.error = (e) => {

@@ -5,7 +5,7 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import Base from './base/Base';
 import {connect} from 'react-redux';
-import {MIN_BOOKING, I} from '../constants'
+import {MIN_BOOKING, I} from '../constants';
 
 class Cart extends React.Component {
   constructor(props) {
