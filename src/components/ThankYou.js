@@ -13,19 +13,18 @@ class ThankYou extends React.Component {
     const {moneySaved} = this.props.misc;
 
     return (
-        <div>
-          <ActivityHeader heading = { 'Booking Confirmed' }/>
-            <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
-              <div className='mcwidget-embed' data-widget-id="527494"></div>
-
-              {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
-              {this.renderVariables()}
-              <div className = 'col-xs-12' > Booking details have been sent on your registered mobile number. </div>
-              <div className = 'col-xs-12' > Refer your friends and earn. <Link to={'/salon-at-home/referearn'}><a className='cli'><u>know more</u></a></Link></div>
-              <div className = 'col-xs-12' > Call 8826755766 for any query or assistance.</div>
-            </div>
-          <ThankYouFooter />
-        </div>
+      <div>
+        <ActivityHeader heading = { 'Booking Confirmed' }/>
+          <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
+            <div className='mcwidget-embed' data-widget-id="527494"></div>
+            {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
+            {this.renderVariables()}
+            <div className = 'col-xs-12' > Booking details have been sent on your registered mobile number. </div>
+            <div className = 'col-xs-12' > Refer your friends and earn. <Link to={'/salon-at-home/referearn'}><a className='cli'><u>know more</u></a></Link></div>
+            <div className = 'col-xs-12' > Call 8826755766 for any query or assistance.</div>
+          </div>
+        <ThankYouFooter />
+      </div>
     )
   }
 
@@ -47,7 +46,6 @@ class ThankYou extends React.Component {
   }
 
   renderManyChat() {
-
     (function(d, s){
       var b = d.getElementsByTagName(s)[0],
         a = d.createElement(s);
@@ -55,56 +53,6 @@ class ThankYou extends React.Component {
       a.async=1;
       b.parentNode.insertBefore(a, b);
     })(document, 'script');
-
-
-
-    //window.mcwidget = {
-    //  appId: '532160876956612',
-    //  pageId: '615351411942253',
-    //  widgets: [{
-    //    widget_id: 527494,
-    //    page_id: 615351411942253,
-    //    widget_type: 'box',
-    //    status: 'active',
-    //    name: 'Example Popup',
-    //    data: {
-    //      submitted: {
-    //        action: 'redirect',
-    //        redirectUrl: 'https:\/\/www.lookplex.com'
-    //      },
-    //      main: {
-    //        buttonType: 'checkbox',
-    //        optInButtonText: 'Subscribe',
-    //        desc: 'Please subscribe to Lookplex notification to get updates on appointments and offers',
-    //        title: '',
-    //        fitContainer: true
-    //      }
-    //    }
-    //  },
-    //    {
-    //      widget_id: 527493,
-    //      page_id: 615351411942253,
-    //      widget_type: 'landing',
-    //      status: 'active',
-    //      name: 'Example Landing',
-    //      data: {
-    //        main: {
-    //          title: '',
-    //          desc: 'Please subscribe to lookplex notification to assist you with further appointments and offers'
-    //        }
-    //      }
-    //    }
-    //  ]
-    //};
-    //
-    //(function(d, s, id){
-    //  var host = 'manychat.com/102506',
-    //    js, fjs = d.getElementsByTagName(s)[0];
-    //  if (d.getElementById(id)) { return; }
-    //  js = d.createElement(s); js.id = id;
-    //  js.src = '//' + host + '/assets/js/widget.js?' + (Math.round(+new Date/1000*600));
-    //  fjs.parentNode.insertBefore(js, fjs);
-    //}(document, 'script', 'mcwidget-core'));
   }
 }
 
