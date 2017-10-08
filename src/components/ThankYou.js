@@ -6,7 +6,7 @@ import ActivityHeader from './ActivityHeader';
 import ThankYouFooter from './ThankYouFooter';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
-
+// Remove place holder and create a component for same.
 class ThankYou extends React.Component {
 
   render() {
@@ -16,7 +16,26 @@ class ThankYou extends React.Component {
       <div>
         <ActivityHeader heading = { 'Booking Confirmed' }/>
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
-            <div className='mcwidget-embed' data-widget-id="527494"></div>
+            <div className='mcwidget-embed' data-widget-id="527494">
+              <div className='pht' style={{marginTop: 50}}>
+                <div className='a-b'>
+                  <div className='ph-option'>
+                  </div>
+                </div>
+              </div>
+              <div className='pht' style={{marginTop: 20, width: '60%', marginLeft: '20%'}}>
+                <div className='a-b'>
+                  <div className='ph-option'>
+                  </div>
+                </div>
+              </div>
+              <div className='pht' style={{marginTop: 50, width: '50%', marginLeft: '25%'}}>
+                <div className='a-b' style={{height: 35}}>
+                  <div className='ph-option'>
+                  </div>
+                </div>
+              </div>
+            </div>
             {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
             {this.renderVariables()}
             <div className = 'col-xs-12' > Booking details have been sent on your registered mobile number. </div>

@@ -25,8 +25,19 @@
 
   .mcwidget-embed{
     padding: 15px;
+    min-height: 250px;
+    background-color: #fff;
+
+    .pht{
+      max-height: 200px;
+      .a-b{
+        height: 10px;
+      }
+    }
+
 
     .fSwDb_rd{
+      z-index: 214748363 !important;
       padding: 0 !important;
     }
   }
