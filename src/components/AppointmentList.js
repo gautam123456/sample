@@ -10,10 +10,10 @@ import Footer from './Footer';
 import Appointment from './Appointment';
 import TopNotification from './TopNotification';
 import LeftNav from './common/LeftNav';
-
+import {connect} from 'react-redux';
 import ajaxObj from '../../data/ajax.json';
 
-export default class AppointmentList extends React.Component {
+class AppointmentList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,39 +33,38 @@ export default class AppointmentList extends React.Component {
     this.historyList = [];
   }
 
-  handlerHistory() {
+  handlerHistory = () => {
     this.setState({ongoing: false, notify: {show: false}})
   }
 
-  handlerOngoing() {
+  handlerOngoing = () => {
     this.setState({ongoing: true, notify: {show: false}})
   }
 
-  getRenderer(appointment) {
+  getRenderer = (appointment) => {
     return (<Appointment key={appointment.bookingID} appointment={appointment} ongoing={this.state.ongoing}/>)
   }
 
   render() {
-    const list = this.state.ongoing ? this.state.ongoingList : this.state.historyList,
-      self = this;
+    const {ongoing, ongoingList, historyList, screenWidth, notify} = this.state,
+      list = ongoing ? ongoingList : historyList;
 
     return (
       <div>
         <ActivityHeader heading = { 'My Appointments' } fixed={true}/>
         <div className='col-md-4 nomob'>
-          <LeftNav screenWidth={this.state.screenWidth}/>
+          <LeftNav screenWidth={screenWidth}/>
         </div>
         <div className = 'col-xs-12 pad0 col-md-4 appointments' style={{minHeight: 500}}>
-          <TopNotification data={this.state.notify}/>
+          <TopNotification data={notify}/>
           <div className = 'col-xs-10 col-xs-offset-1 tab'>
-            <div className = {'col-xs-6 cli ' + this.state.ongoing } onClick={self.handlerOngoing.bind(self)}>UPCOMING</div>
-            <div className = {'col-xs-6 cli ' + !this.state.ongoing } onClick={self.handlerHistory.bind(self)}>HISTORY</div>
+            <div className = {'col-xs-6 cli ' + ongoing } onClick={this.handlerOngoing}>UPCOMING</div>
+            <div className = {'col-xs-6 cli ' + !ongoing } onClick={this.handlerHistory}>HISTORY</div>
           </div>
-          {console.log(list.length)}
           { list.length > 0 ?
             list.map(function(appointment){
-              return (self.getRenderer(appointment))
-            })
+              return (this.getRenderer(appointment))
+            }, this)
             : <div className='img'>
                 <div className='caption'>OMG! You have no upcoming events.<br /> Let's change that!</div>
               </div>
@@ -81,10 +80,9 @@ export default class AppointmentList extends React.Component {
   }
 
   addBookingType(list) {
-    const self = this;
     list.map(function(appointment){
-      self.updateBookingType(appointment);
-    })
+      this.updateBookingType(appointment);
+    }, this)
     this.setState({ongoingList: this.ongoingList, historyList: this.historyList})
   }
 
@@ -140,16 +138,23 @@ export default class AppointmentList extends React.Component {
 
   getAppointments() {
     Base.showOverlay();
-    const self = this;
     ajaxObj.type = 'POST';
     ajaxObj.url = ajaxObj.baseUrl + '/getmybookings';
-    ajaxObj.success = function(data) {
-      self.addBookingType(data.customerBookingList);
+    ajaxObj.success = (data) => {
+      this.addBookingType(data.customerBookingList);
       Base.hideOverlay();
     }
-    ajaxObj.error = () => {if(!Base.sandbox.bookingDetails.name){browserHistory.push('/login')}}
+    ajaxObj.error = () => {if(!this.props.isLoggedIn){browserHistory.push('/login')}}
     $.ajax(ajaxObj);
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.userDetails.isLoggedIn
+  };
+}
+
+export default connect(mapStateToProps)(AppointmentList);
 
 

@@ -1,41 +1,26 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
-import Base from './base/Base';
+import {connect} from 'react-redux';
+import {logOut} from '../actions';
 import ajaxObj from '../../data/ajax.json';
 
 import $ from 'jquery';
 
-export default class MenueOptions extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: Base.sandbox.bookingDetails.name
-    }
-  }
-
-  componentDidMount() {
-    const self = this;
-    setTimeout(()=>{
-      if(Base.sandbox.bookingDetails.name) {
-        self.setState({name: Base.sandbox.bookingDetails.name});
-      }
-    }, 3000);
-  }
-
+class MenueOptions extends React.Component {
   render() {
 
     return (
       <div style={{width:'100%'}}>
 
           {
-            this.state.name ?
-              <div className='col-md-12 col-xs-12' onClick={this.logOut.bind(this)}>
+            this.props.isLoggedIn ?
+              <div className='col-md-12 col-xs-12' onClick={this.props.logOut}>
                 <i className="fa fa-user-circle"></i>
                 <a>
                   Logout
                 </a>
               </div>:
-              <div className='col-md-12 col-xs-12' onClick={this.logIn.bind(this)}>
+              <div className='col-md-12 col-xs-12' onClick={this.logIn}>
                 <i className="fa fa-user-circle"></i>
                 <a>
                   Login/Sign up
@@ -96,18 +81,22 @@ export default class MenueOptions extends React.Component {
     e.stopPropagation();
     browserHistory.push(path);
   }
-
-  logOut() {
-    const self = this;
-    Base.sandbox.bookingDetails.name = null;
-    ajaxObj.url = ajaxObj.baseUrl + '/custlogout';
-    ajaxObj.type = 'GET';
-    ajaxObj.data = '';
-    ajaxObj.success = function(data) {
-      self.setState({name: ''});
-    }
-    $.ajax(ajaxObj);
-  }
 }
+
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.userDetails.isLoggedIn
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    logOut: () => {
+      dispatch(logOut());
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenueOptions);
 
 

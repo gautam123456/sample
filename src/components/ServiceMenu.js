@@ -1,30 +1,35 @@
 import React from 'react';
 import Amount from './common/Amount';
+import {connect} from 'react-redux';
+import {bookingDetailsChanged} from '../actions';
 
-export default class ServiceMenu extends React.Component {
+class ServiceMenu extends React.Component {
   render() {
+    const {list: {name, condition, information, cost}, count, id} = this.props,
+      discount = this.props.discount || this.props.list.discount || 0;
+
     return (
       <div className = 'menu full-width'>
         <div className = 'col-xs-7'>
 
-          { this.props.list.name }<br/>
-          { this.props.list.condition ? this.renderCondition() : '' }
-          { this.props.list.information ? this.renderInformation() : '' }
+          { name }<br/>
+          { condition ? this.renderCondition() : '' }
+          { information ? this.renderInformation() : '' }
 
         </div>
-        <Amount cost={this.props.list.cost} />
+        <Amount cost={cost} discount={parseInt(discount) || 0}/>
         <div className = 'col-xs-1 center'>
 
-          { this.props.count > 0 ? <i className = 'fa fa-minus-circle fa-2x cli' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 0) }></i> : '' }
-
-        </div>
-        <div className = 'col-xs-1 center'>
-
-          { this.props.count === 0 ? '': this.props.count }
+          { count > 0 ? <i className = 'fa fa-minus-circle fa-2x cli' onClick = { this.bookingDetailsChanged.bind(this, id, name, cost, count, 0, discount) }></i> : '' }
 
         </div>
         <div className = 'col-xs-1 center'>
-        <i className = 'fa fa-plus-circle fa-2x cli' onClick = { this.props.bookingDetailsChanged.bind(this, this.props.id, this.props.list.name, this.props.list.cost, this.props.count, 1) }></i>
+
+          { count === 0 ? '': count }
+
+        </div>
+        <div className = 'col-xs-1 center'>
+        <i className = 'fa fa-plus-circle fa-2x cli' onClick = { this.bookingDetailsChanged.bind(this, id, name, cost, count, 1, discount) }></i>
         </div>
       </div>
     )
@@ -47,4 +52,24 @@ export default class ServiceMenu extends React.Component {
         <span className = 'brand'> ({ this.props.list.condition }) </span>
     )
   }
+
+  bookingDetailsChanged = (id, name, cost, count, operation, discount) => {
+    this.props.bookingDetailsChanged({id, name, cost, count, operation, discount});
+  }
 }
+
+function mapStateToProps(state) {
+  return {
+    discount: state.bookingDetails.discount
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    bookingDetailsChanged: (options) => {
+      dispatch(bookingDetailsChanged(options));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceMenu);

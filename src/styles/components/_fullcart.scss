@@ -22,5 +22,38 @@
     color: $brand-color;
     margin-top: 10px;
   }
+
+  .mcwidget-embed{
+    padding: 15px;
+    min-height: 250px;
+    background-color: #fff;
+
+    .pht{
+      max-height: 200px;
+      .a-b{
+        height: 10px;
+
+        &.bt{
+          width: 60%;
+          margin-left: 20%;
+        }
+      }
+
+      @media screen and (min-width: 992px){
+        .a-b{
+          margin-left: 10%;
+          width: 80%;
+
+
+        }
+      }
+    }
+
+
+    .fSwDb_rd{
+      z-index: 214748363 !important;
+      padding: 0 !important;
+    }
+  }
 }
 

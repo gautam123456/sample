@@ -8,10 +8,13 @@ import TopNotification from './TopNotification';
 import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import Base from './base/Base';
+import {connect} from 'react-redux';
+import {userRegistered, reFetchUserDetails, registerUser} from '../actions';
+import {E, I, OTP, ADD_ADDRESS, LANDMARK, CITY, NAME} from '../constants';
 
 import ajaxObj from '../../data/ajax.json';
 
-export default class AddAddress extends React.Component {
+class AddAddress extends React.Component {
   constructor(props) {
     super(props)
     ajaxObj.type = 'POST';
@@ -24,11 +27,10 @@ export default class AddAddress extends React.Component {
       address: address ? address.address : '',
       landmark: address ? address.landmark : '',
       lkey: address ? address.lkey : '',
-      isNewUser: Base.sandbox.isNewUser,
       op: op,
       notify: {
         show: false,
-        type: 'info',
+        type: I,
         timeout: 4000,
         msg:'',
         top: 30
@@ -36,32 +38,29 @@ export default class AddAddress extends React.Component {
     }
   }
 
-  componentDidMount() {
-    Base.sandbox.isNewUser = false;
-  }
-
   render() {
     const dropStyle = {
       height: 50
-    }, {isNewUser} = this.state;
+    }, {notify, name, otp, address, landmark, city} = this.state,
+      {isNewUser} = this.props.userDetails;
 
     return (
       <div>
         <ActivityHeader heading = { 'Provide Address' } />
-        <TopNotification data={this.state.notify}/>
+        <TopNotification data={notify}/>
         <div className = 'col-md-offset-4 col-md-4 col-xs-12 address'>
 
           { isNewUser ? <input type = 'text' placeholder = 'Enter your name' className = 'col-xs-12' style={{marginTop: -10}}
-                                            onChange = { this.saveName.bind(this)} value={this.state.name}></input> : ''}
+                                            onChange = { this.saveName} value={name}></input> : ''}
 
           { isNewUser ? <input type = 'text' placeholder = 'Enter OTP' className = 'col-xs-12'
-                                            onChange = { this.saveOTP.bind(this)} value={this.state.otp}></input> : ''}
+                                            onChange = { this.saveOTP} value={otp}></input> : ''}
 
-          <input type = 'text' placeholder = 'Enter complete address' className = 'col-xs-12' onChange = { this.saveAddress.bind(this) } value = { this.state.address }/>
+          <input type = 'text' placeholder = 'Enter complete address' className = 'col-xs-12' onChange = { this.saveAddress } value = { address }/>
 
-          <input type = 'text' placeholder = 'Landmark' className = 'col-xs-12' onChange = { this.saveLandMark.bind(this) } value = { this.state.landmark }/>
+          <input type = 'text' placeholder = 'Landmark' className = 'col-xs-12' onChange = { this.saveLandMark } value = { landmark }/>
 
-          <select className = 'col-xs-12' style = { dropStyle } onChange = { this.saveCity.bind(this) } value = { this.state.city }>
+          <select className = 'col-xs-12' style = { dropStyle } onChange = { this.saveCity} value = { city }>
             <option value = 'New Delhi'> New Delhi </option>
             <option value = 'Noida'> Noida </option>
             <option value = 'Gurgaon'> Gurgaon </option>
@@ -76,12 +75,12 @@ export default class AddAddress extends React.Component {
           </div>
 
         </div>
-        <ActivityFooter key = { 45 } back = { this.navigateBack.bind(this) } next = { this.navigateNext.bind(this) }/>
+        <ActivityFooter key = { 45 } back = { this.navigateBack } next = { this.navigateNext }/>
       </div>
     )
   }
 
-  navigateBack() {
+  navigateBack = () => {
     if (this.state.op) {
       browserHistory.push('/address');
     }else {
@@ -89,48 +88,48 @@ export default class AddAddress extends React.Component {
     }
   }
 
-  navigateNext() {
+  navigateNext = () => {
     this.updatePreferences();
   }
 
-  showNotification(type, msg, timeout, top) {
-    this.setState({notify: {show: true, timeout, type, msg, top}})
+  showNotification = (type, msg) => {
+    this.setState({notify: {show: true, type, msg, timeout: 4000, top: 50}});
   }
 
-  saveName(e) {
+  saveName = (e) => {
     let name = e.currentTarget.value;
     this.setState({ name, notify: {show: false}});
   }
 
-  saveOTP(e) {
+  saveOTP = (e) => {
     let otp = e.currentTarget.value;
     this.setState({ otp, notify: {show: false}});
   }
 
-  saveAddress(e) {
+  saveAddress = (e) => {
     let address = e.currentTarget.value;
     this.setState({ address, notify: {show: false}});
   }
 
-  saveCity(e) {
+  saveCity = (e) => {
     let city = e.currentTarget.value;
     this.setState({ city, notify: {show: false} });
   }
 
-  saveLandMark(e) {
+  saveLandMark = (e) => {
     let landmark = e.currentTarget.value;
     this.setState({ landmark, notify: {show: false} });
   }
 
-  updatePreferences() {
-    if(this.state.isNewUser) {
+  updatePreferences = () => {
+    if(this.props.userDetails.isNewUser) {
       this.registerUser();
     } else {
       this.updateAddress();
     }
   }
 
-  registerUser() {
+  registerUser = () => {
     const {name, otp, address, landmark, city} = this.state;
 
     if(name) {
@@ -140,91 +139,124 @@ export default class AddAddress extends React.Component {
             if(city) {
               this.registerUserForReal();
             } else {
-              this.showNotification('info', 'Please select your city', 4000, 30);
+              this.showNotification(I, CITY);
             }
           } else {
-            this.showNotification('info', 'Please provide your nearest landmark', 4000, 30);
+            this.showNotification(I, LANDMARK);
           }
         } else {
-          this.showNotification('info', 'Please provide your complete address', 4000, 30);
+          this.showNotification(I, ADD_ADDRESS);
         }
       } else {
-        this.showNotification('info', 'Please provide OTP', 4000, 30);
+        this.showNotification(I, OTP);
       }
     } else {
-      this.showNotification('info', 'Please provide your name', 4000, 30);
+      this.showNotification(I, NAME);
     }
   }
 
-  registerUserForReal() {
-    const self =  this;
-
+  registerUserForReal = () => {
+    const {userDetails: {number, token}, registerUser} = this.props,
+      {otp, name} = this.state;
     Base.showOverlay();
-    ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
-    ajaxObj.data = {
-      phonenumber: Base.sandbox.mobile  || Base.sandbox.number,
-      otp: this.state.otp,
-      token: Base.sandbox.token,
-      name: this.state.name
+    //ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
+    const data = {
+      phonenumber: number,
+      otp,
+      token,
+      name
     };
-    ajaxObj.success = function (data) {
-      Base.sandbox.bookingDetails.name = data.name || 'dummy';
-      self.addAddress();
-    }
-    ajaxObj.error = function (e) {
-      Base.hideOverlay();
-      self.showNotification('error', e.responseText || 'Something went wrong', 4000, 30);
-    }
-    $.ajax(ajaxObj);
+
+    registerUser(data, this.showNotification, null, this.callBack);
+
+
+
+    //ajaxObj.success =  (data) => {
+    //  Base.hideOverlay();
+    //  this.props.userRegistered();
+    //  this.addAddress();
+    //}
+    //ajaxObj.error = (e) => {
+    //  Base.hideOverlay();
+    //  this.showNotification(E, e.responseText);
+    //}
+    //$.ajax(ajaxObj);
 
   }
 
-  updateAddress() {
-    const {address, landmark, city} = this.state;
+  callBack = () => {
+    this.props.userRegistered();
+    this.addAddress();
+  }
+
+  updateAddress = () => {
+    const {address, landmark, city, op} = this.state;
 
     if(city) {
       if(address) {
         if(landmark) {
-          this.state.op === 'edit' ? this.editAddress() : (this.state.op === 'delete' ? this.deleteAddress() : this.addAddress())
+          op === 'edit' ? this.editAddress() : (op === 'delete' ? this.deleteAddress() : this.addAddress())
         } else {
-          this.showNotification('info', 'Please provide your nearest landmark', 4000, 30);
+          this.showNotification(I, LANDMARK);
         }
       } else {
-        this.showNotification('info', 'Please provide your complete address', 4000, 30);
+        this.showNotification(I, ADD_ADDRESS);
       }
     } else {
-      this.showNotification('info', 'Please select your city', 4000, 30);
+      this.showNotification(I, CITY);
     }
   }
 
-  addAddress() {
-    const self = this;
-    Base.showOverlay();
-    ajaxObj.url = ajaxObj.baseUrl + '/addaddress';
-    ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark };
-    ajaxObj.success = function() { Base.hideOverlay();browserHistory.push('/address?update=true') }
-    ajaxObj.error = function(e) { Base.hideOverlay(); self.showNotification('error', e.responseJSON.message, 4000, 30); }
-    $.ajax(ajaxObj);
+  addAddress = () => {
+    this.changeAddress('/addaddress');
   }
 
-  editAddress() {
-    const self = this;
-    Base.showOverlay();
-    ajaxObj.url = ajaxObj.baseUrl + '/editaddress';
-    ajaxObj.data = { address: this.state.address, city: this.state.city, landmark: this.state.landmark, lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('/address?update=true') }
-    ajaxObj.error = function(e) { Base.hideOverlay(); self.showNotification('error', e.responseJSON.message, 4000, 30); }
-    $.ajax(ajaxObj);
+  editAddress = () => {
+    this.changeAddress('/editaddress');
   }
 
-  deleteAddress() {
-    const self = this;
-    Base.showOverlay();
-    ajaxObj.url = ajaxObj.baseUrl + '/deleteaddress';
-    ajaxObj.data = { lkey: this.state.lkey };
-    ajaxObj.success = function(){ browserHistory.push('/address?update=true') }
-    ajaxObj.error = function(e) { Base.hideOverlay(); self.showNotification('error', e.responseJSON.message, 4000, 30); }
+  deleteAddress = () => {
+    this.changeAddress('/deleteaddress');
+  }
+
+  changeAddress = (url) => {
+    const {address, city, landmark, lkey} = this.state;
+    //Base.showOverlay();
+    ajaxObj.url = ajaxObj.baseUrl + url;
+    ajaxObj.dataType =  "json";
+    ajaxObj.data = {address, city, landmark, lkey};
+    ajaxObj.success = () => {
+      Base.hideOverlay();
+      this.props.reFetchUserDetails(true);
+      browserHistory.push('/address')
+    }
+    ajaxObj.error = (e) => {
+      Base.hideOverlay();
+      this.showNotification(E, e.responseJSON.message);
+    }
     $.ajax(ajaxObj);
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    userDetails: state.userDetails
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    userRegistered: () => {
+      dispatch(userRegistered());
+    },
+    reFetchUserDetails: (flag) => {
+      dispatch(reFetchUserDetails(flag));
+    },
+    registerUser: (data, notificn, navigateTo, callBack) => {
+      dispatch(registerUser(data, notificn, navigateTo, callBack));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddAddress);
 

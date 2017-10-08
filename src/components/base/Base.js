@@ -4,69 +4,26 @@
 import React from 'react';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
-
-import bookingDetails from '../../../data/constants.json';
 import ajaxObj from '../../../data/ajax.json';
 
 export default class Base extends React.Component {
-    constructor(props) {
-        super(props);
-        Base.screenWidth = $(window).width() > 992 ? $(window).width()/3 : $(window).width()
-    }
 
-    static sandbox = {
-      bookingDetails
-    };
-
-    static offerbox = {
-      coupon: 'LOOK30',
-      discount: 30
-    };
+    static sandbox = {};
 
     componentDidMount() {
-      const self = this;
-      Base
       window.onresize = function () {
         Base.screenWidth = $(window).width() > 992 ? $(window).width() / 3 : $(window).width();
       };
     }
 
     // This method is called every time router is invoked
-
     static routerInvoked() {
         document.getElementById('load').style.display = 'none';
-        let bookingDetailsLS = '';
-        try{
-            bookingDetailsLS = JSON.parse(window.localStorage.bookingDetails);
-        }catch(e){
-            console.log(' Error in localStorage BookingDetails :: ' + window.localStorage.bookingDetails);
-        }
-        Base.sandbox.bookingDetails = bookingDetailsLS || bookingDetails;
-        this.loginStatus();
-    }
-
-    static loginStatus() {
-      Base.sandbox.bookingDetails.name = undefined;
-        ajaxObj.url = ajaxObj.baseUrl + '/isloggedinnew';
-        ajaxObj.type = 'GET';
-        ajaxObj.data = '';
-        ajaxObj.success = function(data) {
-            Base.sandbox.bookingDetails.name = data.name;
-            Base.sandbox.bookingDetails.addressList = data.addressList;
-            Base.sandbox.userDetails = data;
-            Base.sandbox.refCount = data.refCount;
-        }
-        ajaxObj.error = function() {
-            Base.sandbox.bookingDetails.name = null;
-            Base.sandbox.userDetails = null;
-        }
-        $.ajax(ajaxObj);
     }
 
     static showOverlay() {
         document.getElementById('app').style.display = 'none';
         document.getElementById('overlay').style.display = 'block';
-
     }
 
     static hideOverlay() {
@@ -82,55 +39,17 @@ export default class Base extends React.Component {
       document.body.style.overflow = 'scroll';
     }
 
-    static clearCart() {
-      window.localStorage.clear();
-      const {name} = Base.sandbox.bookingDetails;
-      Base.sandbox.bookingDetails = bookingDetails;
-      Base.sandbox.bookingDetails.services = {};
-      Base.sandbox.bookingDetails.name = name;
-    }
-
-    static bookingDetailsChanged({id, name, cost, count, operation}) {
-      var cost = parseInt(cost);
-      if(operation){
-        // if operation is addition of services....
-        Base.sandbox.bookingDetails.servicesCount += 1;
-        Base.sandbox.bookingDetails.subTotal += cost;
-        if(Base.sandbox.bookingDetails.services[id]){
-          Base.sandbox.bookingDetails.services[id].count += 1;
-        } else {
-          Base.sandbox.bookingDetails.services[id] = {
-            count: 1,
-            name: name,
-            cost: cost
-          }
-        }
-      } else {
-        // If operation is removal of services....
-        Base.sandbox.bookingDetails.servicesCount -= 1;
-        Base.sandbox.bookingDetails.subTotal -= cost;
-        Base.sandbox.bookingDetails.services[id].count -= 1;
-        if(Base.sandbox.bookingDetails.services[id].count == 0){
-          delete Base.sandbox.bookingDetails.services[id];
-        }
-      }
-    }
-
-    static saveToLocalStorage() {
-      let bookingDetails = Base.sandbox.bookingDetails;
-      bookingDetails.discount = 0;
-      window.localStorage.bookingDetails = JSON.stringify(bookingDetails);
-    }
-
     static navigateTo(to) {
       browserHistory.push(to);
     }
+
     // To track events to google
     static logEvent(eventCategory, eventAction, eventLabel) {
       if(window.location.origin == 'https://lookplex.com'){
         ga('send', 'event', eventCategory, eventAction, eventLabel);
       }
     }
+
     // To track evnts to facebook
     static track(type, activity, data) {
       if (window.location.origin === 'https://lookplex.com') {
@@ -138,3 +57,5 @@ export default class Base extends React.Component {
       }
     }
 }
+
+

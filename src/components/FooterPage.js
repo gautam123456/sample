@@ -31,9 +31,6 @@ export default class FullCart extends React.Component {
           self.setState({data: response.data, pgTitle: response.title});
           Base.hideOverlay();
         }
-        ajaxObj.error = function() {
-          Base.sandbox.bookingDetails.name = null;
-        }
         $.ajax(ajaxObj);
     }
 
