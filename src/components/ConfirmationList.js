@@ -78,7 +78,8 @@ class ConfirmationList extends React.Component {
 
     render() {
         const then = this,
-           {bookingDetails: {services, discount, complementaryOffer, total, subTotal}, userDetails : {details: {refCount}}} = this.props,
+           {bookingDetails: {services, discount, complementaryOffer, total, subTotal}, userDetails : {details}} = this.props,
+            refCount = details ? details.refCount : 0,
             objKeys = Object.keys(services),
             margin = { marginBottom: 60 },
             padding = { paddingTop: 8 },

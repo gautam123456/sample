@@ -47,7 +47,8 @@ class BookingConfirm extends React.Component {
   }
 
   validateAndConfirm = () => {
-    const {userDetails : {details: {refCount}}, bookingDetails: {total, minBooking, addressLKey, timing, date, emailId, services, couponCode, comment}} = this.props,
+    const {userDetails, bookingDetails: {total, minBooking, addressLKey, timing, date, emailId, services, couponCode, comment}} = this.props,
+      refCount = userDetails.details ? userDetails.details.refCount : 0,
       refDiscount = refCount ? 200 : 0,
       details = {
         date,
