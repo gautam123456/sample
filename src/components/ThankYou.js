@@ -23,14 +23,14 @@ class ThankYou extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className='pht' style={{marginTop: 20, width: '60%', marginLeft: '20%'}}>
+              <div className='pht' style={{margin: '20px 10%'}}>
                 <div className='a-b'>
                   <div className='ph-option'>
                   </div>
                 </div>
               </div>
-              <div className='pht' style={{marginTop: 50, width: '50%', marginLeft: '25%'}}>
-                <div className='a-b' style={{height: 35}}>
+              <div className='pht' style={{margin: '50px 5%'}}>
+                <div className='a-b bt' style={{height: 35}}>
                   <div className='ph-option'>
                   </div>
                 </div>

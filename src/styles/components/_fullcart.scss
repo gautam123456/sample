@@ -32,6 +32,20 @@
       max-height: 200px;
       .a-b{
         height: 10px;
+
+        &.bt{
+          width: 60%;
+          margin-left: 20%;
+        }
+      }
+
+      @media screen and (min-width: 992px){
+        .a-b{
+          margin-left: 10%;
+          width: 80%;
+
+
+        }
       }
     }
 
