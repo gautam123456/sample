@@ -9,7 +9,7 @@ import { browserHistory } from 'react-router';
 import $ from 'jquery';
 import Base from './base/Base';
 import {connect} from 'react-redux';
-import {saveBookedData, clearCart} from '../actions';
+import {saveBookedData, clearCart, updateRefCounts} from '../actions';
 
 import {E, S, MIN_BOOKING, REFRESH} from '../constants';
 import ajaxObj from '../../data/ajax.json';
@@ -90,6 +90,7 @@ class BookingConfirm extends React.Component {
     ajaxObj.success = (data) => {
       Base.hideOverlay();
       this.props.saveBookedData(data);
+      this.props.updateRefCounts();
       this.props.clearCart();
       Base.track('track', 'Purchase', {value: data.finalAmount, currency: 'INR', content_name: document.referrer});
       Base.logEvent('Booking Confirmed', 'Booking Id ' + data.bookingID, document.referrer);
@@ -117,6 +118,9 @@ function mapDispatchToProps(dispatch) {
     },
     clearCart: () => {
       dispatch(clearCart());
+    },
+    updateRefCounts: () => {
+      dispatch(updateRefCounts());
     }
   };
 }

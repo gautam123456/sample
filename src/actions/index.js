@@ -1,7 +1,7 @@
 import {FETCHED_ITEMS, FETCHED_USER, NON_FETCHED_USER,
   SAVE_LOGIN_DATA, USER_REGISTERED, CART_UPDATED,
   SAVE_BOOKING_DATA, ADDRESS_SELECTED,COUPON_APPLIED,
-  SAVE_BOOKED_DATA, CLEAR_CART, UPDATE_REFETCH_FLAG, E} from '../constants';
+  SAVE_BOOKED_DATA, CLEAR_CART, UPDATE_REFETCH_FLAG, UPDATE_REF_COUNT, E} from '../constants';
 import $ from 'jquery';
 import ajaxObj from '../../data/ajax.json';
 import {browserHistory} from 'react-router';
@@ -84,6 +84,12 @@ function reFetchDetails(flag) {
   return {
     type: UPDATE_REFETCH_FLAG,
     flag
+  };
+}
+
+function updateRefCount() {
+  return {
+    type: UPDATE_REF_COUNT
   };
 }
 
@@ -220,6 +226,12 @@ export function clearCart() {
 export function reFetchUserDetails(flag) {
   return (dispatch) => {
     return dispatch(reFetchDetails(flag));
+  };
+}
+
+export function updateRefCounts() {
+  return (dispatch) => {
+    return dispatch(updateRefCount());
   };
 }
 

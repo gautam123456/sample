@@ -19,7 +19,7 @@ class RegisterUser extends DisableScroll {
         super(props);
         this.state = {
           name : '',
-          refcode: this.props.refcode || '',
+          refcode: this.props.location.query.refcode || '',
           otp:'',
           notify: {
             show: false,
@@ -32,8 +32,8 @@ class RegisterUser extends DisableScroll {
     }
 
     render() {
-      const opts = this.props.refcode ? {'readOnly':'readOnly'} : {},
-        {notify, refcode} = this.state;
+      const {notify, refcode} = this.state,
+        opts = refcode ? {'readOnly':'readOnly'} : {};
 
       return (
         <div className='lo'>
@@ -52,7 +52,7 @@ class RegisterUser extends DisableScroll {
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-mobile'></i></div>
             <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-7 pad0' onChange={ this.otpChanged } onFocus={ this.focusChanged } ></input>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-link'></i></div>
-            <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-7 pad0' onChange={ this.refCodeChanged } onFocus={ this.focusChanged } value={refcode} {...opts}></input>
+            <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-7 pad0' onChange={ this.refCodeChanged } onFocus={ this.focusChanged } value={refcode || ''} {...opts}></input>
             <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={  this.register }> SUBMIT</button>
           </div>
         </div>
@@ -110,27 +110,6 @@ class RegisterUser extends DisableScroll {
                 refcode
             };
             this.props.registerUser(data, this.showNotification, '', this.props.userRegistered);
-
-            //Base.showOverlay();
-            //ajaxObj.url = ajaxObj.baseUrl + '/saveguestcustomer';
-            //ajaxObj.data = {
-            //    phonenumber: number,
-            //    otp: this.state.otp,
-            //    token: token,
-            //    name: this.state.name,
-            //    refcode: this.state.refcode
-            //};
-            //ajaxObj.success = function (data) {
-            //    Base.hideOverlay();
-            //
-            //    self.props.userRegistered();
-            //    browserHistory.push('');
-            //}
-            //ajaxObj.error = function (e) {
-            //    Base.hideOverlay();
-            //    self.showNotification('error', e.responseText || 'Something went wrong', 4000, 30);
-            //}
-            //$.ajax(ajaxObj);
         }
     }
 }
@@ -139,8 +118,7 @@ function mapStateToProps(state) {
   return {
     number: state.userDetails.number,
     token: state.userDetails.token,
-    isNewUser: state.userDetails.isNewUser,
-    refcode: state.userDetails.referredBy
+    isNewUser: state.userDetails.isNewUser
   };
 }
 

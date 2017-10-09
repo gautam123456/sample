@@ -16,6 +16,7 @@ export const USER_REGISTERED = 'USER_REGISTERED';
 export const ADDRESS_SELECTED = 'ADDRESS_SELECTED';
 export const CLEAR_CART = 'CLEAR_CART';
 export const UPDATE_REFETCH_FLAG = 'UPDATE_REFETCH_FLAG';
+export const UPDATE_REF_COUNT = 'UPDATE_REF_COUNT';
 
 
 // Notification Messages

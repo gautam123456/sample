@@ -1,4 +1,4 @@
-import {FETCHED_USER, NON_FETCHED_USER, SAVE_LOGIN_DATA, USER_REGISTERED, UPDATE_REFETCH_FLAG} from '../constants';
+import {FETCHED_USER, NON_FETCHED_USER, SAVE_LOGIN_DATA, USER_REGISTERED, UPDATE_REFETCH_FLAG, UPDATE_REF_COUNT} from '../constants';
 
 const initialState = {
   isFetching: true,
@@ -49,6 +49,11 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, {
         reFetchDetails: action.flag
       });
+
+    case UPDATE_REF_COUNT:
+      const nextState = Object.assign({}, state);
+      nextState.details.refCount = nextState.details.refCount ? parseInt(nextState.details.refCount) - 1 : 0;
+      return nextState;
 
     default:
       return state;

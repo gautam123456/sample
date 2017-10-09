@@ -95,20 +95,20 @@ class Login extends DisableScroll {
     } else {
       Base.showOverlay();
       let self = this,
-        query = this.props.location.query;
+        {refcode} = this.props.location.query,
+        refcodeString = '';
 
+      if(refcode){
+        refcodeString = '?refcode=' + refcode;
+      }
 
-      //Base.sandbox.refcode = query.refcode;
-      //Base.sandbox.number = self.state.number;
 
       ajaxObj.type = 'POST';
       ajaxObj.url = ajaxObj.baseUrl + '/getmobileotp';
       ajaxObj.data = { phonenumber: self.state.number };
       ajaxObj.success = (data) => {
-        //Base.sandbox.isNewUser = data.isNewUser;
-        //Base.sandbox.token = data.token;
         if(data.isNewUser == true){
-          browserHistory.push( '/register');
+          browserHistory.push( '/register'+refcodeString);
         }else{
           browserHistory.push('/otp/confirm');
         }
@@ -118,8 +118,7 @@ class Login extends DisableScroll {
         self.props.saveLoginData({
           isNewUser: data.isNewUser,
           number: self.state.number,
-          token: data.token,
-          referredBy: query.refcode
+          token: data.token
         });
 
       }
