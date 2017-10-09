@@ -74,7 +74,7 @@ export default function(state = localStorageState, action) {
 
     case COUPON_APPLIED:
       const {couponCode, refDiscount, complementaryOffer} = action.options,
-        total = (state.subTotal - (state.subTotal * action.options.discount)/100) - refDiscount;
+        total = (state.subTotal - (state.subTotal * action.options.discount)/100);
       return Object.assign({}, state, {
         couponCode,
         discount: action.options.discount,
