@@ -15,18 +15,15 @@ import ajaxObj from '../../data/ajax.json';
 
 class Login extends DisableScroll {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      number : '',
-      screenWidth: $(window).width(),
-      notify: {
-        show: false,
-        type: 'info',
-        timeout: 4000,
-        msg:'',
-        top: 30
-      }
+  state = {
+    number : '',
+    screenWidth: $(window).width(),
+    notify: {
+      show: false,
+      type: 'info',
+      timeout: 4000,
+      msg:'',
+      top: 30
     }
   }
 

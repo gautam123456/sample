@@ -34,11 +34,11 @@ class ConfirmationList extends React.Component {
                     </div>
                     <div className = 'col-xs-12'>
                       <div className = 'col-xs-8'> Referral Discount </div>
-                      <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { refDiscount } </div>
+                      <div className = 'col-xs-4'> - <i className = "fa fa-inr"></i> { parseFloat(refDiscount).toFixed(2) } </div>
                     </div>
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Discount ({discount}%)</div>
-                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { discount * (subTotal - refDiscount)  / 100 }</div>
+                        <div className = 'col-xs-4' style = { padding }> - <i className = 'fa fa-inr'></i> { parseFloat(discount * (subTotal - refDiscount)  / 100).toFixed(2) }</div>
                     </div>
                     {complementaryOffer ?
                     <div className='col-xs-12' style={{border: '1px dashed #999', fontWeight: 200}}>
@@ -47,7 +47,7 @@ class ConfirmationList extends React.Component {
                     </div>: null}
                     <div className = 'col-xs-12'>
                         <div className = 'col-xs-8'> Total </div>
-                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { (subTotal - refDiscount) - (discount * (subTotal - refDiscount)  / 100) } </div>
+                        <div className = 'col-xs-4' style = { padding }> <i className = 'fa fa-inr'></i> { parseFloat((subTotal - refDiscount) - (discount * (subTotal - refDiscount)  / 100)).toFixed(2) } </div>
                     </div>
                 </div>
                 <Coupons showNotification={this.props.showNotification} />

@@ -1,6 +1,5 @@
 .b-offers {
   background-color: #e6f2f2;
-  margin-bottom: 20px;
   font-weight: 600;
 
   .head {
@@ -20,5 +19,9 @@
       color: #444;
       border: 1px solid #ccc;
     }
+  }
+
+  &.a{
+    margin-bottom: 20px;
   }
 }

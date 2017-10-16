@@ -116,27 +116,6 @@ class Container extends React.Component {
   }
 
   componentDidMount() {
-    //let self = this;
-    ////const url = this.props.url.pathname;
-    //ajaxObj.url = 'https://static.lookplex.com/data/items.json';
-    //ajaxObj.type = 'GET';
-    //ajaxObj.data = '';
-    //ajaxObj.xhrFields = {withCredentials: false};
-    //ajaxObj.success = function(data) {
-    //  ajaxObj.xhrFields = {withCredentials: true};
-    //  self.setState({data: data})
-    //  Base.sandbox.items = data;
-    //  Base.sandbox.discount = 30;
-    //  //self.switchUrl(url);
-    //}
-    //ajaxObj.error = function() {
-    //  ajaxObj.xhrFields = { withCredentials: true };
-    //  Base.sandbox.bookingDetails.name = null;
-    //}
-    //$.ajax(ajaxObj);
-
-
-
     const source = this.props.url.query.s || document.referrer || 'Direct';
     Base.track('track', 'Lead', {content_category: source});
     Base.logEvent('Main page', 'Landed', source);

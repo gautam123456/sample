@@ -29,8 +29,9 @@ export default function(state = localStorageState, action) {
       let services = Object.assign({}, state.services),
         newState = null;
 
-      const costInt = parseInt(cost),
-        discountInt = parseInt(discount || 0);
+      const costFloat = parseFloat(cost).toFixed(2),
+        discountInt = parseInt(discount || 0),
+        amountAfterDiscount = parseFloat(costFloat - (costFloat * discountInt/100)).toFixed(2);
 
       if(operation) {
           if(services[id]){
@@ -39,7 +40,7 @@ export default function(state = localStorageState, action) {
             services[id] = {
               count: 1, 
               name, 
-              cost: costInt,
+              cost: costFloat,
               discount: discountInt
             }
           }
@@ -47,10 +48,12 @@ export default function(state = localStorageState, action) {
 
           newState = {
             servicesCount: state.servicesCount + 1,
-            subTotal: state.subTotal + costInt,
+            subTotal: parseFloat(parseFloat(state.subTotal) + parseFloat(costFloat)).toFixed(2),
             services,
-            total: state.total + (costInt - (costInt * discountInt/100))
+            total: parseFloat(parseFloat(state.total) + parseFloat(amountAfterDiscount)).toFixed(2)
           };
+
+        console.log(newState);
 
       }else{
 
@@ -62,9 +65,9 @@ export default function(state = localStorageState, action) {
 
           newState = {
             servicesCount,
-            subTotal: servicesCount ?  state.subTotal - costInt : 0,
+            subTotal: servicesCount ?  parseFloat(parseFloat(state.subTotal) - parseFloat(costFloat)).toFixed(2) : 0,
             services,
-            total: servicesCount ? state.total - (costInt - (costInt * discountInt/100)) : 0
+            total: servicesCount ? parseFloat(parseFloat(state.total) - parseFloat(amountAfterDiscount)).toFixed(2) : 0
           };
       }
 

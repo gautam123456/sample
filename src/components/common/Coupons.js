@@ -11,7 +11,13 @@ class Coupons extends React.Component {
     super(props);
     this.state = {
       customerCouponList: null,
-      loading: false
+      loading: false,
+      customCoupon: {
+        couponCodeC: '',
+        discountC: 0,
+        complimentaryOfferC: '',
+        minAmountC: 800
+      }
     }
   }
 
@@ -20,7 +26,7 @@ class Coupons extends React.Component {
   }
 
   render() {
-    const {loading, customerCouponList} = this.state,
+    const {loading, customerCouponList, customCoupon: {couponCodeC, discountC, complimentaryOfferC, minAmountC}} = this.state,
       {couponCode} = this.props.bookingDetails;
 
     if (customerCouponList) {
@@ -39,11 +45,23 @@ class Coupons extends React.Component {
               )
             }, this)}
           </div>
+          <div className='col-xs-12 pad0 b-offers a'>
+            <div className='offer' style={couponCode === couponCodeC ? {backgroundColor: '#9bcdcc'} : null}>
+              <div>Coupon Code : <input type='text' value={couponCodeC} onChange={this.couponAdding} style={{backgroundColor: '#fff', padding: '2px'}} maxLength='10'/>
+                <button onClick={this.applyCoupon.bind(this, couponCodeC)} className='cli' >{couponCode === couponCodeC ? 'Applied' : 'Apply'}</button></div>
+            </div>
+            <div>
+            </div>
+          </div>
         </div>
       )
     } else {
       return null;
     }
+  }
+
+  couponAdding = (e) => {
+    this.setState({customCoupon: {couponCodeC: e.target.value}});
   }
 
   applyCoupon = (couponCode) => {

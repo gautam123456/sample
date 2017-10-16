@@ -17,7 +17,7 @@ class ServiceMenu extends React.Component {
           { information ? this.renderInformation() : '' }
 
         </div>
-        <Amount cost={cost} discount={parseInt(discount) || 0}/>
+        <Amount cost={cost} discount={discount || 0}/>
         <div className = 'col-xs-1 center'>
 
           { count > 0 ? <i className = 'fa fa-minus-circle fa-2x cli' onClick = { this.bookingDetailsChanged.bind(this, id, name, cost, count, 0, discount) }></i> : '' }
