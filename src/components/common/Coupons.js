@@ -46,9 +46,9 @@ class Coupons extends React.Component {
             }, this)}
           </div>
           <div className='col-xs-12 pad0 b-offers a'>
-            <div className='offer' style={couponCode === couponCodeC ? {backgroundColor: '#9bcdcc'} : null}>
-              <div>Coupon Code : <input type='text' value={couponCodeC} onChange={this.couponAdding} style={{backgroundColor: '#fff', padding: '2px'}} maxLength='10'/>
-                <button onClick={this.applyCoupon.bind(this, couponCodeC)} className='cli' >{couponCode === couponCodeC ? 'Applied' : 'Apply'}</button></div>
+            <div className='offer' style={couponCode === couponCodeC ? {backgroundColor: '#9bcdcc', minHeight: 35} : null}>
+              <div className='col-xs-12 pad0'><div className='col-xs-4 pad0' style={{paddingTop: 3}}>Coupon Code : </div><input className='col-xs-5 pad0' type='text' value={couponCodeC} onChange={this.couponAdding} style={{backgroundColor: '#fff', padding: '2px'}} maxLength='10'/>
+              <button className='col-xs-3 pad0' onClick={this.applyCoupon.bind(this, couponCodeC)} className='cli' >{couponCode === couponCodeC ? 'Applied' : 'Apply'}</button></div>
             </div>
             <div>
             </div>
