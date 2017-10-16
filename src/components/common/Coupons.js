@@ -29,35 +29,31 @@ class Coupons extends React.Component {
     const {loading, customerCouponList, customCoupon: {couponCodeC, discountC, complimentaryOfferC, minAmountC}} = this.state,
       {couponCode} = this.props.bookingDetails;
 
-    if (customerCouponList) {
-      return (
-        <div className='col-xs-12'>
-          <div className='b-offers' style={loading ? {opacity: 0.1} : {opacity: 1}}>
-            {customerCouponList.map(offer => {
-              return (
-                <div className='offer' style={couponCode === offer.couponCode ? {backgroundColor: '#9bcdcc'} : null} onClick={this.applyCoupon.bind(this, offer.couponCode)}>
-                  <div>Coupon Code : {offer.couponCode} <button className='cli' >{couponCode === offer.couponCode ? 'Applied' : 'Apply'}</button></div>
-                  <div>Discount : {offer.discount}%</div>
-                  {offer.complementaryOffer ? <div>Complimentary Offer : {offer.complementaryOffer}</div> : null}
-                  <div>Minimum Booking Amount : Rs.{offer.minimumAmount}</div>
-                  <div>{offer.validthru}</div>
-                </div>
-              )
-            }, this)}
+    return (
+      <div className='col-xs-12'>
+        <div className='b-offers' style={loading ? {opacity: 0.1} : {opacity: 1}}>
+          {customerCouponList && customerCouponList.map(offer => {
+            return (
+              <div className='offer' style={couponCode === offer.couponCode ? {backgroundColor: '#9bcdcc'} : null} onClick={this.applyCoupon.bind(this, offer.couponCode)}>
+                <div>Coupon Code : {offer.couponCode} <button className='cli' >{couponCode === offer.couponCode ? 'Applied' : 'Apply'}</button></div>
+                <div>Discount : {offer.discount}%</div>
+                {offer.complementaryOffer ? <div>Complimentary Offer : {offer.complementaryOffer}</div> : null}
+                <div>Minimum Booking Amount : Rs.{offer.minimumAmount}</div>
+                <div>{offer.validthru}</div>
+              </div>
+            )
+          }, this)}
+        </div>
+        <div className='col-xs-12 pad0 b-offers a'>
+          <div className='offer' style={couponCode === couponCodeC ? {backgroundColor: '#9bcdcc', minHeight: 35} : {minHeight: 35}}>
+            <div className='col-xs-12 pad0'><div className='col-xs-4 pad0' style={{paddingTop: 3}}>Coupon Code : </div><input className='col-xs-5 pad0' type='text' value={couponCodeC} onChange={this.couponAdding} style={{backgroundColor: '#fff', padding: '2px'}} maxLength='10'/>
+            <button className='col-xs-3 pad0' onClick={this.applyCoupon.bind(this, couponCodeC)} className='cli' >{couponCode === couponCodeC ? 'Applied' : 'Apply'}</button></div>
           </div>
-          <div className='col-xs-12 pad0 b-offers a'>
-            <div className='offer' style={couponCode === couponCodeC ? {backgroundColor: '#9bcdcc', minHeight: 35} : null}>
-              <div className='col-xs-12 pad0'><div className='col-xs-4 pad0' style={{paddingTop: 3}}>Coupon Code : </div><input className='col-xs-5 pad0' type='text' value={couponCodeC} onChange={this.couponAdding} style={{backgroundColor: '#fff', padding: '2px'}} maxLength='10'/>
-              <button className='col-xs-3 pad0' onClick={this.applyCoupon.bind(this, couponCodeC)} className='cli' >{couponCode === couponCodeC ? 'Applied' : 'Apply'}</button></div>
-            </div>
-            <div>
-            </div>
+          <div>
           </div>
         </div>
-      )
-    } else {
-      return null;
-    }
+      </div>
+    )
   }
 
   couponAdding = (e) => {
