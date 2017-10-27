@@ -40,20 +40,6 @@ class ThankYou extends React.Component {
       )
     }
   }
-
-  componentDidMount(){
-    //this.renderManyChat();
-  }
-
-  renderManyChat() {
-    (function(d, s){
-      var b = d.getElementsByTagName(s)[0],
-        a = d.createElement(s);
-      a.src = '//widget.manychat.com/615351411942253.js?' + (new Date).getTime();
-      a.async=1;
-      b.parentNode.insertBefore(a, b);
-    })(document, 'script');
-  }
 }
 
 function mapStateToProps(state) {
