@@ -16,26 +16,7 @@ class ThankYou extends React.Component {
       <div>
         <ActivityHeader heading = { 'Booking Confirmed' }/>
           <div className = 'col-md-offset-4 col-md-4 us pad0' style={{fontSize:'16px'}}>
-            <div className='mcwidget-embed' data-widget-id="527494">
-              <div className='pht' style={{marginTop: 50}}>
-                <div className='a-b'>
-                  <div className='ph-option'>
-                  </div>
-                </div>
-              </div>
-              <div className='pht' style={{margin: '20px 10%'}}>
-                <div className='a-b'>
-                  <div className='ph-option'>
-                  </div>
-                </div>
-              </div>
-              <div className='pht' style={{margin: '50px 5%'}}>
-                <div className='a-b bt' style={{height: 35}}>
-                  <div className='ph-option'>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <a href='https://m.me/Lookplex?ref=w690631'><div className='mcwidget-embed' data-widget-id="527494"></div></a>
             {moneySaved != 0 ? <div className = 'col-xs-12' > <i className="fa fa-check-circle"></i> Amount saved: <strong>Rs. {moneySaved} </strong></div> : ''}
             {this.renderVariables()}
             <div className = 'col-xs-12' > Booking details have been sent on your registered mobile number. </div>
@@ -61,7 +42,7 @@ class ThankYou extends React.Component {
   }
 
   componentDidMount(){
-    this.renderManyChat();
+    //this.renderManyChat();
   }
 
   renderManyChat() {

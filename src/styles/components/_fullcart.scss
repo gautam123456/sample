@@ -24,9 +24,10 @@
   }
 
   .mcwidget-embed{
-    padding: 15px;
+    padding: 20px;
     min-height: 250px;
-    background-color: #fff;
+    background: #fff url('../styles/assets/images/thnkyou.png') no-repeat center;
+    background-size: cover;
 
     .pht{
       max-height: 200px;
