@@ -19,7 +19,7 @@ class RegisterUser extends DisableScroll {
         super(props);
         this.state = {
           name : '',
-          refcode: this.props.location.query.refcode || '',
+          refcode: '',
           otp:'',
           notify: {
             show: false,
@@ -33,7 +33,8 @@ class RegisterUser extends DisableScroll {
 
     render() {
       const {notify, refcode} = this.state,
-        opts = refcode ? {'readOnly':'readOnly'} : {};
+        prospRefCode = this.props.location.query.refcode,
+        opts = prospRefCode ? {'readOnly':'readOnly'} : {};
 
       return (
         <div className='lo'>
@@ -52,7 +53,7 @@ class RegisterUser extends DisableScroll {
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-mobile'></i></div>
             <input type = 'text' placeholder = 'OTP (Required)' className = 'col-xs-7 pad0' onChange={ this.otpChanged } onFocus={ this.focusChanged } ></input>
             <div className = 'col-xs-1 col-xs-offset-2 pad0'><i className = 'fa fa-link'></i></div>
-            <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-7 pad0' onChange={ this.refCodeChanged } onFocus={ this.focusChanged } value={refcode || ''} {...opts}></input>
+            <input type = 'text' placeholder = 'Referral Code (Optional)' className = 'col-xs-7 pad0' onChange={ this.refCodeChanged } onFocus={ this.focusChanged } value={prospRefCode || refcode} {...opts}></input>
             <button type = 'text' className = 'col-xs-8 col-xs-offset-2' onClick={  this.register }> SUBMIT</button>
           </div>
         </div>
@@ -64,17 +65,17 @@ class RegisterUser extends DisableScroll {
     }
 
     nameChanged = (e) => {
-        let name = e.currentTarget.value;
+        let name = e.target.value;
         this.setState({name});
     }
 
     refCodeChanged = (e) => {
-        let refcode = e.currentTarget.value;
+        let refcode = e.target.value;
         this.setState({refcode});
     }
 
     otpChanged = (e) => {
-      const otp = e.currentTarget.value;
+      const otp = e.target.value;
       if(otp.length <= 6) {
         this.setState({otp, notify: {show: false}});
       } else {
