@@ -19,6 +19,15 @@
       color: #444;
       border: 1px solid #ccc;
     }
+
+    &.promo{
+      display: none;
+    }
+
+    &.apply{
+      height: 40px;
+      padding: 7px 5px;
+    }
   }
 
   &.a{

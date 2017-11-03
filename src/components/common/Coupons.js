@@ -45,15 +45,27 @@ class Coupons extends React.Component {
           }, this)}
         </div>
         <div className='col-xs-12 pad0 b-offers a'>
-          <div className='offer' style={couponCode === couponCodeC ? {backgroundColor: '#9bcdcc', minHeight: 35} : {minHeight: 35}}>
-            <div className='col-xs-12 pad0'><div className='col-xs-4 pad0' style={{paddingTop: 3}}>Coupon Code : </div><input className='col-xs-5 pad0' type='text' value={couponCodeC} onChange={this.couponAdding} style={{backgroundColor: '#fff', padding: '2px'}} maxLength='10'/>
-            <button className='col-xs-3 pad0' onClick={this.applyCoupon.bind(this, couponCodeC)} className='cli' >{couponCode === couponCodeC ? 'Applied' : 'Apply'}</button></div>
+          <div className='col-xs-12 pad0 cli' style={{height: 40, padding: 9, color: '#068481', textAlign: 'center'}} onClick={this.havePromoCode}>Have a promocode ?</div>
+          <div className='offer promo' ref={this.promoCode} style={couponCode === couponCodeC ? {backgroundColor: '#9bcdcc'} : {}}>
+            <div className='col-xs-12 pad0'><div className='col-xs-4 pad0' style={{paddingTop: 3}}>Coupon Code : </div><input className='col-xs-6 pad0' type='text' value={couponCodeC} onChange={this.couponAdding} style={{backgroundColor: '#fff', padding: '2px'}} maxLength='20'/>
+            <button className='col-xs-2 pad0' onClick={this.applyCoupon.bind(this, couponCodeC)} className='cli' >{couponCode === couponCodeC ? 'Applied' : 'Apply'}</button></div>
           </div>
           <div>
           </div>
         </div>
       </div>
     )
+  }
+
+  havePromoCode = (e) => {
+    const target = e.target;
+    target.style.display = 'none';
+    target.nextSibling.classList.remove('promo');
+    target.nextSibling.classList.add('apply');
+  }
+
+  promoCode = (promoCode) => {
+    this.promoCode = promoCode;
   }
 
   couponAdding = (e) => {
